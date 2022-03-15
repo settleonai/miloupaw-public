@@ -1,50 +1,33 @@
-const express = require("express");
-const colors = require("colors");
-const dotenv = require("dotenv").config();
-// const { errorHandler } = require("./middleware/errorMiddleware");
-const connectDB = require("./config/db");
-const port = process.env.PORT || 5000;
+const express = require('express')
+const colors = require('colors')
+const dotenv = require('dotenv').config()
+const { errorHandler } = require('./middleware/errorMiddleware')
+const connectDB = require('./config/db')
+const port = process.env.PORT || 5000
 
-// connect database
-connectDB();
+connectDB()
 
-// create an express server with cors
-// const cors = require("cors");
-const app = express();
+const app = express()
 
-// app.use(cors());
-// Use JSON parser for all non-webhook routes
-app.use((req, res, next) => {
-  if (req.originalUrl.startsWith("/stripe")) {
-    next();
-  } else {
-    express.json()(req, res, next);
-  }
-});
+app.use(express.json())
+app.use(express.urlencoded({ extended: false }))
 
-// check if this will cause problem with stripe webhook
-// app.use(express.urlencoded({ extended: false }));
+app.use('/api/goals', require('./routes/goalRoutes'))
+app.use('/api/users', require('./routes/userRoutes'))
 
-const User = require("../models/UserModel");
+// Serve frontend
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.join(__dirname, '../frontend/build')))
 
-app.get("/", async (req, res) => {
-  try {
-    const user = await User.create({
-      name: "test",
-      email: "test@test.com",
-      password: "test",
-    });
+  app.get('*', (req, res) =>
+    res.sendFile(
+      path.resolve(__dirname, '../', 'frontend', 'build', 'index.html')
+    )
+  )
+} else {
+  app.get('/', (req, res) => res.send('Please set to production'))
+}
 
-    console.log("obj", user);
-    res.send("hello");
-  } catch (error) {
-    console.log(error);
-  }
-});
+app.use(errorHandler)
 
-// app.use("/api/users", require("./routes/userRoutes"));
-// app.use("/api/auth", require("./routes/authRoutes"));
-
-// app.use(errorHandler);
-
-app.listen(port, () => console.log(`Server started on port ${port}`));
+app.listen(port, () => console.log(`Server started on port ${port}`))

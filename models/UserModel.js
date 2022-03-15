@@ -1,46 +1,52 @@
 const mongoose = require("mongoose");
-const Schema = mongoose.Schema;
 
-const UserSchema = new Schema(
+const userSchema = mongoose.Schema(
   {
-    provider: {
+    name: {
       type: String,
-      required: true,
-    },
-    id: {
-      type: String,
-      required: true,
-      unique: true,
+      required: [true, "Please add a name"],
     },
     email: {
       type: String,
-      required: true,
+      required: [true, "Please add an email"],
       unique: true,
-      trim: true,
-      lowercase: true,
     },
-    first_name: { type: String, required: true },
-    last_name: { type: String, required: true },
-    avatar: { type: String },
-
-    newMessagePopup: { type: Boolean, default: true },
-    unreadMessage: { type: Boolean, default: false },
-    unreadNotification: { type: Boolean, default: false },
-
+    password: {
+      type: String,
+    },
+    picture: {
+      type: String,
+    },
     role: {
       type: String,
+      enum: ["client", "employee", "admin", "organization"],
       default: "client",
-      enum: ["client", "employee", "admin", "organizer"],
     },
-
-    referee: {
-      user: { type: Schema.Types.ObjectId, ref: "User" },
+    first_name: {
+      type: String,
     },
-    accessToken: { type: String, required: true },
-    expiresIn: { type: Date },
-    issuedAt: { type: Date },
+    last_name: {
+      type: String,
+    },
+    googleId: {
+      type: String,
+    },
+    email_verified: {
+      type: Boolean,
+    },
+    appleId: {
+      type: String,
+    },
+    access_token: {
+      type: String,
+    },
+    token_exp: {
+      type: Date,
+    },
   },
-  { timestamps: true }
+  {
+    timestamps: true,
+  }
 );
 
-module.exports = mongoose.model("User", UserSchema);
+module.exports = mongoose.model("User", userSchema);
