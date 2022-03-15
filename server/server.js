@@ -1,37 +1,18 @@
-require("dotenv").config();
+const express = require("express");
+const colors = require("colors");
+const dotenv = require("dotenv").config();
+// const { errorHandler } = require("./middleware/errorMiddleware");
+const connectDB = require("./config/db");
+const port = process.env.PORT || 5000;
+
+// connect database
+connectDB();
 
 // create an express server with cors
-const express = require("express");
-const cors = require("cors");
+// const cors = require("cors");
 const app = express();
-const port = process.env.PORT || 4000;
 
-// JWT
-var jwt = require("express-jwt");
-var jwks = require("jwks-rsa");
-
-// oAuth
-const { auth } = require("express-openid-connect");
-const { requiresAuth } = require("express-openid-connect");
-const authConfig = require("./utilities/authConfig");
-
-// models
-// const UserModel = require("../models/UserModel");
-
-// auth checker
-var jwtCheck = jwt({
-  secret: jwks.expressJwtSecret({
-    cache: true,
-    rateLimit: true,
-    jwksRequestsPerMinute: 5,
-    jwksUri: "https://dev-uewzgiti.us.auth0.com/.well-known/jwks.json",
-  }),
-  audience: "https://thefnel.com",
-  issuer: "https://dev-uewzgiti.us.auth0.com/",
-  algorithms: ["RS256"],
-});
-
-app.use(cors());
+// app.use(cors());
 // Use JSON parser for all non-webhook routes
 app.use((req, res, next) => {
   if (req.originalUrl.startsWith("/stripe")) {
@@ -41,16 +22,29 @@ app.use((req, res, next) => {
   }
 });
 
-// app.use(auth(authConfig));
+// check if this will cause problem with stripe webhook
+// app.use(express.urlencoded({ extended: false }));
 
-// req.isAuthenticated is provided from the auth router
-app.get("/private", jwtCheck, (req, res) => {
-  res.send("Secured Resource");
-  // res.send(req.oidc.isAuthenticated() ? "Logged in" : "Logged out");
+const User = require("../models/UserModel");
+
+app.get("/", async (req, res) => {
+  try {
+    const user = await User.create({
+      name: "test",
+      email: "test@test.com",
+      password: "test",
+    });
+
+    console.log("obj", user);
+    res.send("hello");
+  } catch (error) {
+    console.log(error);
+  }
 });
 
-app.get("/profile", requiresAuth(), (req, res) => {
-  res.send(JSON.stringify(req.oidc.user));
-});
+// app.use("/api/users", require("./routes/userRoutes"));
+// app.use("/api/auth", require("./routes/authRoutes"));
 
-app.listen(port, () => console.log(`Listening on port ${port}`));
+// app.use(errorHandler);
+
+app.listen(port, () => console.log(`Server started on port ${port}`));
