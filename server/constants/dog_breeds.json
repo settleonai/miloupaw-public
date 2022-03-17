@@ -1,0 +1,4688 @@
+{
+  "Afador": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Large",
+    "weight": "50 to 70 lbs"
+  },
+  "Afaird": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Large",
+    "weight": "55 to 88 lbs"
+  },
+  "Affen Spaniel": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Medium",
+    "weight": "25 to 50 lbs"
+  },
+  "Affen Tzu": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Toy",
+    "weight": "6 to 14 lbs"
+  },
+  "Affengriffon": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Toy",
+    "weight": "6¾ to 12 lbs"
+  },
+  "Affenhuahua": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Toy",
+    "weight": "1 to 9 lbs"
+  },
+  "Affenpinscher": {
+    "image": "https://img.dog-learn.com/dog-breeds/affenpinscher/images/affenpinscher-dog-cc-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Toy",
+    "weight": "6½ to 13¼ lbs"
+  },
+  "Affenpoo": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Toy",
+    "weight": "7 to 9 lbs"
+  },
+  "Affenpug": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Small",
+    "weight": "7 to 18¾ lbs"
+  },
+  "Afghan Collie": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Medium",
+    "weight": "30¾ to 57 lbs"
+  },
+  "Afghan Hound": {
+    "image": "https://img.dog-learn.com/dog-breeds/afghan-hound/images/afghan-hound-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Large",
+    "weight": "45 to 60 lbs"
+  },
+  "Afghan Sheepdog": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Large",
+    "weight": "45 to 75 lbs"
+  },
+  "Afghan Spaniel": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Small",
+    "weight": "15 to 25 lbs"
+  },
+  "African Wild Dog": {
+    "image": "https://img.dog-learn.com/dog-breeds/african-wild-dog/african-wild-dog-i1-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Large",
+    "weight": "44 to 66 lbs"
+  },
+  "Africanis": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Large",
+    "weight": "55 to 100 lbs"
+  },
+  "Aidi": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Large",
+    "weight": "50 to 60 lbs"
+  },
+  "Airedale Terrier": {
+    "image": "https://img.dog-learn.com/dog-breeds/airedale-terrier/airedale-terrier-i19-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Large",
+    "weight": "40 to 65 lbs"
+  },
+  "Airedoodle": {
+    "image": "https://img.dog-learn.com/dog-breeds/airedoodle/airedoodle-i7-sz18.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Large",
+    "weight": "45 to 70 lbs"
+  },
+  "Akbash Dog": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Giant",
+    "weight": "75 to 140 lbs"
+  },
+  "Akita": {
+    "image": "https://img.dog-learn.com/dog-breeds/akita/images/akita-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Giant",
+    "weight": "70 to 130 lbs"
+  },
+  "Akita Basenji": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Large",
+    "weight": "30 to 108 lbs"
+  },
+  "Akita Kishu": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Large",
+    "weight": "38 to 114 lbs"
+  },
+  "Akita Newfoundland": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Giant",
+    "weight": "76 to 146 lbs"
+  },
+  "Akita Shepherd": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Giant",
+    "weight": "75 to 120 lbs"
+  },
+  "Alano Espanol": {
+    "image": "https://img.dog-learn.com/dog-breeds/alano-espanol/images/alano-espanol-cc-1-small.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Large",
+    "weight": "75 to 88 lbs"
+  },
+  "Alapaha Blue Blood Bulldog": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Large",
+    "weight": "55 to 90 lbs"
+  },
+  "Alaskan Goldenmute": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Large",
+    "weight": "58 to 84 lbs"
+  },
+  "Alaskan Husky": {
+    "image": "https://img.dog-learn.com/dog-breeds/alaskan-husky/alaskan-husky-i1-sz18.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Medium",
+    "weight": "35 to 60 lbs"
+  },
+  "Alaskan Klee Kai": {
+    "image": "https://img.dog-learn.com/dog-breeds/alaskan-klee-kai/alaskan-klee-kai-i1-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Small",
+    "weight": "10 to 20 lbs"
+  },
+  "Alaskan Malamute": {
+    "image": "https://img.dog-learn.com/dog-breeds/alaskan-malamute/images/alaskan-malamute-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Large",
+    "weight": "70 to 100 lbs"
+  },
+  "Alopekis": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Toy",
+    "weight": "6½ to 15½ lbs"
+  },
+  "Alpine Dachsbracke": {
+    "image": "https://img.dog-learn.com/dog-breeds/alpine-dachsbracke/alpine-dachsbracke-i13-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Medium",
+    "weight": "33 to 40 lbs"
+  },
+  "Alusky": {
+    "image": "https://img.dog-learn.com/dog-breeds/alusky/alusky-i1-sz18.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Large",
+    "weight": "40 to 90 lbs"
+  },
+  "American Allaunt": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Giant",
+    "weight": "90 to 150 lbs"
+  },
+  "American Alsatian": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Giant",
+    "weight": "75 to 120 lbs"
+  },
+  "American Bandogge Mastiff": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Giant",
+    "weight": "80 to 140 lbs"
+  },
+  "American Blue Gascon Hound": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Large",
+    "weight": "65 to 90 lbs"
+  },
+  "American Boston Bull Terrier": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Small",
+    "weight": "15 to 25 lbs"
+  },
+  "American Bull Dane": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Giant",
+    "weight": "70 to 160 lbs"
+  },
+  "American Bull Molosser": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Giant",
+    "weight": "70 to 115 lbs"
+  },
+  "American Bullador": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Large",
+    "weight": "60 to 90 lbs"
+  },
+  "American Bulldog": {
+    "image": "https://img.dog-learn.com/dog-breeds/american-bulldog/images/american-bulldog-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Large",
+    "weight": "60 to 120 lbs"
+  },
+  "American Bullnese": {
+    "image": "https://img.dog-learn.com/dog-breeds/american-bullnese/images/american-bullnese-small.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Small",
+    "weight": "15 to 30 lbs"
+  },
+  "American Bullweiler": {
+    "image": "https://img.dog-learn.com/dog-breeds/american-bullweiler/american-bullweiler-i6-sz18.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Large",
+    "weight": "60 to 120 lbs"
+  },
+  "American Eskimo Dog": {
+    "image": "https://img.dog-learn.com/dog-breeds/american-eskimo-dog/american-eskimo-dog-i31-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Small",
+    "weight": "6 to 35 lbs"
+  },
+  "American French Bull Terrier": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Large",
+    "weight": "40 to 65 lbs"
+  },
+  "American Lo Sze Pugg": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Toy",
+    "weight": "5 to 12 lbs"
+  },
+  "American Mastiff": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Giant",
+    "weight": "140 to 200 lbs"
+  },
+  "American Pit Bull Terrier": {
+    "image": "https://img.dog-learn.com/dog-breeds/american-pit-bull-terrier/pit-bull-terrier-i2-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Large",
+    "weight": "30 to 90 lbs"
+  },
+  "American Pit Corso": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Large",
+    "weight": "40 to 90 lbs"
+  },
+  "American Staffordshire Terrier": {
+    "image": "https://img.dog-learn.com/dog-breeds/amstaff/american-staffordshire-terrier-i1-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Large",
+    "weight": "45 to 70 lbs"
+  },
+  "American Tundra Shepherd": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Giant",
+    "weight": "85 to 140 lbs"
+  },
+  "American Water Spaniel": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Medium",
+    "weight": "25 to 45 lbs"
+  },
+  "Amitola Bulldog": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Large",
+    "weight": "22 to 80 lbs"
+  },
+  "Anatolian Pyrenees": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Giant",
+    "weight": "80 to 160 lbs"
+  },
+  "Anatolian Retriever": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Large",
+    "weight": "60 to 94 lbs"
+  },
+  "Anatolian Shepherd Dog": {
+    "image": "https://img.dog-learn.com/dog-breeds/anatolian-shepherd-dog/anatolian-shepherd-dog-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Giant",
+    "weight": "80 to 150 lbs"
+  },
+  "Anglo Francais De Petite Venerie": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Medium",
+    "weight": "35 to 45 lbs"
+  },
+  "Appenzeller Sennenhund": {
+    "image": "https://img.dog-learn.com/dog-breeds/appenzeller-sennenhund/appenzeller-sennenhund-i13-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Large",
+    "weight": "48 to 55 lbs"
+  },
+  "Ariegeois": {
+    "image": "https://img.dog-learn.com/dog-breeds/ariegeois/ariegeois-i1-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Large",
+    "weight": "55 to 66 lbs"
+  },
+  "Armant": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Large",
+    "weight": "50 to 65 lbs"
+  },
+  "Artois Hound": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Large",
+    "weight": "62 to 66 lbs"
+  },
+  "Arubian Cunucu": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Medium",
+    "weight": "26 to 40 lbs"
+  },
+  "Auss Tzu": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Medium",
+    "weight": "20 to 45 lbs"
+  },
+  "Aussie Corgi": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Small",
+    "weight": "20 to 30 lbs"
+  },
+  "Aussie Pom": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Small",
+    "weight": "4 to 35 lbs"
+  },
+  "Aussiedoodle": {
+    "image": "https://img.dog-learn.com/dog-breeds/aussiedoodle/aussiedoodle-i12-sz18.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Medium",
+    "weight": "25 to 70 lbs"
+  },
+  "Australian Bandog": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Giant",
+    "weight": "75 to 130 lbs"
+  },
+  "Australian Bulldog": {
+    "image": "https://img.dog-learn.com/dog-breeds/australian-bulldog/images/australian-bulldog-small.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Large",
+    "weight": "50 to 78 lbs"
+  },
+  "Australian Cattle Dog": {
+    "image": "https://img.dog-learn.com/dog-breeds/australian-cattle-dog/australian-cattle-dog-i27-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Medium",
+    "weight": "30 to 50 lbs"
+  },
+  "Australian Husky": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Medium",
+    "weight": "35 to 60 lbs"
+  },
+  "Australian Kelpie": {
+    "image": "https://img.dog-learn.com/dog-breeds/australian-kelpie/australian-kelpie-i2-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Medium",
+    "weight": "30 to 60 lbs"
+  },
+  "Australian Labradoodle": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Large",
+    "weight": "30 to 77 lbs"
+  },
+  "Australian Retriever": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Medium",
+    "weight": "30 to 65 lbs"
+  },
+  "Australian Shepherd": {
+    "image": "https://img.dog-learn.com/dog-breeds/australian-shepherd/images/australian-shepherd-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Large",
+    "weight": "40 to 65 lbs"
+  },
+  "Australian Stumpy Tail Cattle Dog": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Medium",
+    "weight": "35 to 50 lbs"
+  },
+  "Australian Terrier": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Small",
+    "weight": "12 to 16 lbs"
+  },
+  "Austrian Pinscher": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Medium",
+    "weight": "25 to 40 lbs"
+  },
+  "Azawakh": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Medium",
+    "weight": "33 to 55 lbs"
+  },
+  "Azores Cattle Dog": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Large",
+    "weight": "45 to 90 lbs"
+  },
+  "Ba Shar": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Large",
+    "weight": "40 to 60 lbs"
+  },
+  "Bagle Hound": {
+    "image": "https://img.dog-learn.com/dog-breeds/bagle-hound/bagle-hound-i13-sz18.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Medium",
+    "weight": "20 to 65 lbs"
+  },
+  "Bakharwal Dog": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Large",
+    "weight": "55 to 85 lbs"
+  },
+  "Bandog": {
+    "image": "https://img.dog-learn.com/dog-breeds/bandog/bandog-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Giant",
+    "weight": "75 to 125 lbs"
+  },
+  "Barbet": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "</",
+    "weight": "to 62 lbs"
+  },
+  "Barger Stock Feist": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Small",
+    "weight": "20 to 35 lbs"
+  },
+  "Bascottie": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Small",
+    "weight": "23½ to 30½ lbs"
+  },
+  "Basenji": {
+    "image": "https://img.dog-learn.com/dog-breeds/basenji/basenji-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Small",
+    "weight": "20 to 24 lbs"
+  },
+  "Baskimo": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Medium",
+    "weight": "22 to 40 lbs"
+  },
+  "Bassador": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Large",
+    "weight": "50 to 70 lbs"
+  },
+  "Basschshund": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Medium",
+    "weight": "25 to 45 lbs"
+  },
+  "Basset Artesien Normand": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Medium",
+    "weight": "30 to 40 lbs"
+  },
+  "Basset Bleu De Gascogne": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Medium",
+    "weight": "35 to 40 lbs"
+  },
+  "Basset Fauve De Bretagne": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Medium",
+    "weight": "27 to 35 lbs"
+  },
+  "Basset Hound": {
+    "image": "https://img.dog-learn.com/dog-breeds/basset-hound/images/basset-hound-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Large",
+    "weight": "45 to 65 lbs"
+  },
+  "Basset Retriever": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Large",
+    "weight": "40 to 60 lbs"
+  },
+  "Basset Weimaraner": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Large",
+    "weight": "46 to 81 lbs"
+  },
+  "Basset Yorkie": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Medium",
+    "weight": "12¼ to 53½ lbs"
+  },
+  "Basston": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Small",
+    "weight": "15 to 40 lbs"
+  },
+  "Bavarian Mountain Hound": {
+    "image": "https://img.dog-learn.com/dog-breeds/bavarian-mountain-hound/bavarian-mountian-hound-i1-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Medium",
+    "weight": "40 to 55 lbs"
+  },
+  "Beabull": {
+    "image": "https://img.dog-learn.com/dog-breeds/beabull/beabull-puppy-i1-sz18.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Large",
+    "weight": "30 to 70 lbs"
+  },
+  "Beagador": {
+    "image": "https://img.dog-learn.com/dog-breeds/labbe/labbe-i1-sz18.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Medium",
+    "weight": "25 to 45 lbs"
+  },
+  "Beagi": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Small",
+    "weight": "10 to 20 lbs"
+  },
+  "Beagle": {
+    "image": "https://img.dog-learn.com/dog-breeds/beagle/beagle-i50-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Small",
+    "weight": "20 to 30 lbs"
+  },
+  "Beagle Coonhound": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Medium",
+    "weight": "35 to 50 lbs"
+  },
+  "Beagleman": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Medium",
+    "weight": "40 to 55 lbs"
+  },
+  "Beaglier": {
+    "image": "https://img.dog-learn.com/dog-breeds/beaglier/beaglier-sz18.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Small",
+    "weight": "10 to 25 lbs"
+  },
+  "Beago": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Medium",
+    "weight": "30 to 40 lbs"
+  },
+  "Bearded Border Collie": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Medium",
+    "weight": "29½ to 48 lbs"
+  },
+  "Bearded Collie": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Large",
+    "weight": "40 to 60 lbs"
+  },
+  "Bearded Springer": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Large",
+    "weight": "41 to 59 lbs"
+  },
+  "Beardoodle": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Large",
+    "weight": "40 to 60 lbs"
+  },
+  "Beauceron": {
+    "image": "https://img.dog-learn.com/dog-breeds/beauceron/beauceron-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Giant",
+    "weight": "70 to 110 lbs"
+  },
+  "Bedlington Lurcher": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Small",
+    "weight": "25½ to 29½ lbs"
+  },
+  "Bedlington Springer Spaniel": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Medium",
+    "weight": "23½ to 48¾ lbs"
+  },
+  "Bedlington Terrier": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Small",
+    "weight": "18 to 23 lbs"
+  },
+  "Bedouin Shepherd Dog": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Large",
+    "weight": "50 to 70 lbs"
+  },
+  "Belgian Malinois": {
+    "image": "https://img.dog-learn.com/dog-breeds/belgian-malinois/belgian-malinois-i2-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Large",
+    "weight": "55 to 75 lbs"
+  },
+  "Belgian Mastiff": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Giant",
+    "weight": "100 to 160 lbs"
+  },
+  "Belgian Tervuren": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Large",
+    "weight": "45 to 75 lbs"
+  },
+  "Bergamasco": {
+    "image": "https://img.dog-learn.com/dog-breeds/bergamasco/bergamasco-i1-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Large",
+    "weight": "57 to 84 lbs"
+  },
+  "Berger Picard": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Large",
+    "weight": "50 to 70 lbs"
+  },
+  "Bernedoodle": {
+    "image": "https://img.dog-learn.com/dog-breeds/bernedoodle/bernedoodle-sz18.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Large",
+    "weight": "30 to 90 lbs"
+  },
+  "Berner Laufhund": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Small",
+    "weight": "13 to 33 lbs"
+  },
+  "Bernese Mountain Dog": {
+    "image": "https://img.dog-learn.com/dog-breeds/bernese-mountain-dog/images/bernese-mountain-dog-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Giant",
+    "weight": "70 to 120 lbs"
+  },
+  "Bichon Frise": {
+    "image": "https://img.dog-learn.com/dog-breeds/bichon-frise/images/bichon-frise-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Toy",
+    "weight": "7 to 12 lbs"
+  },
+  "Bichon Frise Tibetan Terrier": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Small",
+    "weight": "9¾ to 21¾ lbs"
+  },
+  "Biewer Terrier": {
+    "image": "https://img.dog-learn.com/dog-breeds/biewer-terrier/biewer-terrier-i1-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Toy",
+    "weight": "4 to 8 lbs"
+  },
+  "Biewer Yorkshire Terrier": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Toy",
+    "weight": "Not Specified"
+  },
+  "Black And Tan Coonhound": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Large",
+    "weight": "50 to 75 lbs"
+  },
+  "Black Mouth Cur": {
+    "image": "https://img.dog-learn.com/dog-breeds/black-mouth-cur/black-mouth-cur-puppy-i1-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Medium",
+    "weight": "35 to 40 lbs"
+  },
+  "Black Norwegian Elkhound": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Large",
+    "weight": "40 to 60 lbs"
+  },
+  "Black Russian Terrier": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Giant",
+    "weight": "99 to 132 lbs"
+  },
+  "Bloodhound": {
+    "image": "https://img.dog-learn.com/dog-breeds/bloodhound/images/bloodhound-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Giant",
+    "weight": "80 to 110 lbs"
+  },
+  "Blue Lacy": {
+    "image": "https://img.dog-learn.com/dog-breeds/blue-lacy/blue-lacy-i1-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Medium",
+    "weight": "25 to 50 lbs"
+  },
+  "Blue Picardy Spaniel": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Medium",
+    "weight": "40 to 50 lbs"
+  },
+  "Bluetick Coonhound": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Large",
+    "weight": "45 to 80 lbs"
+  },
+  "Bo Jack": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Small",
+    "weight": "10 to 20 lbs"
+  },
+  "Bocker": {
+    "image": "https://img.dog-learn.com/dog-breeds/bocker/bocker-puppy-i1-sz18.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Small",
+    "weight": "20 to 30 lbs"
+  },
+  "Boerboel": {
+    "image": "https://img.dog-learn.com/dog-breeds/boerboel/boerboel-i1-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Giant",
+    "weight": "110 to 180 lbs"
+  },
+  "Bogle": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Medium",
+    "weight": "25 to 60 lbs"
+  },
+  "Boglen Terrier": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Medium",
+    "weight": "20 to 40 lbs"
+  },
+  "Bolognese": {
+    "image": "https://img.dog-learn.com/dog-breeds/bolognese/bolognese-i1-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Toy",
+    "weight": "8 to 14 lbs"
+  },
+  "Bolonka Zwetna": {
+    "image": "https://img.dog-learn.com/dog-breeds/bolonka-zwetna/bolonka-zwenta-i1-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Toy",
+    "weight": "4 to 12 lbs"
+  },
+  "Bolonoodle": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Toy",
+    "weight": "6 to 15 lbs"
+  },
+  "Borador": {
+    "image": "https://img.dog-learn.com/dog-breeds/borador/borador-i1-sz18.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Large",
+    "weight": "35 to 90 lbs"
+  },
+  "Border Aussie": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Large",
+    "weight": "35 to 70 lbs"
+  },
+  "Border Beagle": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Small",
+    "weight": "21½ to 33 lbs"
+  },
+  "Border Collie": {
+    "image": "https://img.dog-learn.com/dog-breeds/border-collie/images/border-collie-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Medium",
+    "weight": "27 to 45 lbs"
+  },
+  "Border Collie Pyrenees": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Large",
+    "weight": "45 to 80 lbs"
+  },
+  "Border Jack": {
+    "image": "https://img.dog-learn.com/dog-breeds/border-jack/border-jack-i7-sz18.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Small",
+    "weight": "22 to 32 lbs"
+  },
+  "Border King Charles Spaniel": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Small",
+    "weight": "11 to 38 lbs"
+  },
+  "Border Sheepdog": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Medium",
+    "weight": "30 to 45 lbs"
+  },
+  "Border Springer": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Medium",
+    "weight": "25 to 50 lbs"
+  },
+  "Border Terrier": {
+    "image": "https://img.dog-learn.com/dog-breeds/border-terrier/images/border-terrier-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Small",
+    "weight": "11 to 16 lbs"
+  },
+  "Bordoodle": {
+    "image": "https://img.dog-learn.com/dog-breeds/bordoodle/bordoodle-puppy-i7-sz18.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Medium",
+    "weight": "30 to 60 lbs"
+  },
+  "Borzoi": {
+    "image": "https://img.dog-learn.com/dog-breeds/borzoi/borzoi-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Large",
+    "weight": "60 to 105 lbs"
+  },
+  "Borzoi Afghan Hound": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Large",
+    "weight": "48 to 69 lbs"
+  },
+  "Borzoi Whippet": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Large",
+    "weight": "28 to 92 lbs"
+  },
+  "Boshih": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Small",
+    "weight": "10 to 20 lbs"
+  },
+  "Bostchon": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Toy",
+    "weight": "7 to 15¼ lbs"
+  },
+  "Boston Lab": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Medium",
+    "weight": "25 to 45 lbs"
+  },
+  "Boston Terrier": {
+    "image": "https://img.dog-learn.com/dog-breeds/boston-terrier/images/boston-terrier-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Small",
+    "weight": "10 to 25 lbs"
+  },
+  "Boston Terrier Chihuahua": {
+    "image": "https://img.dog-learn.com/dog-breeds/boston-terrier-chihuahua/boston-terrier-chihuahua-i1-sz18.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Toy",
+    "weight": "4 to 10 lbs"
+  },
+  "Bouvier Des Flandres": {
+    "image": "https://img.dog-learn.com/dog-breeds/bouvier-des-flandres/bouvier-des-flandres-i1-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Large",
+    "weight": "60 to 100 lbs"
+  },
+  "Boxador": {
+    "image": "https://img.dog-learn.com/dog-breeds/boxador/boxador-i1-sz18.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Large",
+    "weight": "50 to 110 lbs"
+  },
+  "Boxer": {
+    "image": "https://img.dog-learn.com/dog-breeds/boxer/brindle-boxer-dog-i20-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Large",
+    "weight": "53 to 70 lbs"
+  },
+  "Boxer Cavalier": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Medium",
+    "weight": "18¾ to 59¾ lbs"
+  },
+  "Boxerman Shepherd": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Large",
+    "weight": "65 to 95 lbs"
+  },
+  "Boxsky": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Medium",
+    "weight": "28½ to 62 lbs"
+  },
+  "Boxspring": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Medium",
+    "weight": "20 to 60 lbs"
+  },
+  "Boxweiler": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Large",
+    "weight": "60 to 100 lbs"
+  },
+  "Boykin Spaniel": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Medium",
+    "weight": "25 to 40 lbs"
+  },
+  "Bracco Italiano": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Large",
+    "weight": "55 to 88 lbs"
+  },
+  "Brandlbracke": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Medium",
+    "weight": "33 to 49 lbs"
+  },
+  "Braque D": {
+    "image": "https://img.dog-learn.com/dog-breeds/braque-d-auvergne/braque-d-auvergne-i1-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Large",
+    "weight": "49 to 62 lbs"
+  },
+  "Braque Francais": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Medium",
+    "weight": "38 to 55 lbs"
+  },
+  "Braque Saint-Germain": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Medium",
+    "weight": "40 to 57 lbs"
+  },
+  "Brat": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Medium",
+    "weight": "25 to 40 lbs"
+  },
+  "Brazilian Dogo": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Large",
+    "weight": "45 to 90 lbs"
+  },
+  "Brazilian Terrier": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Small",
+    "weight": "15 to 20 lbs"
+  },
+  "Briard": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Large",
+    "weight": "50 to 90 lbs"
+  },
+  "Brittany": {
+    "image": "https://img.dog-learn.com/dog-breeds/brittany/images/brittany-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Medium",
+    "weight": "30 to 40 lbs"
+  },
+  "Broholmer": {
+    "image": "https://img.dog-learn.com/dog-breeds/broholmer/images/broholmer-small.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Giant",
+    "weight": "90 to 150 lbs"
+  },
+  "Brusselranian": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Toy",
+    "weight": "3 to 11 lbs"
+  },
+  "Brussels Griffon": {
+    "image": "https://img.dog-learn.com/dog-breeds/brussels-griffon/images/brussels-griffon-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Toy",
+    "weight": "7 to 12 lbs"
+  },
+  "Buckley Mountain Feist": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Small",
+    "weight": "18 to 30 lbs"
+  },
+  "Bugg": {
+    "image": "https://img.dog-learn.com/dog-breeds/bugg/bugg-dog-i2-sz18.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Small",
+    "weight": "15 to 25 lbs"
+  },
+  "Bull Arab": {
+    "image": "https://img.dog-learn.com/dog-breeds/bull-arab/bull-arab-i14-sz18.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Large",
+    "weight": "60 to 95 lbs"
+  },
+  "Bull Lurcher": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Medium",
+    "weight": "30½ to 41½ lbs"
+  },
+  "Bull Mastweiler": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Giant",
+    "weight": "80 to 130 lbs"
+  },
+  "Bull Pei": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Medium",
+    "weight": "35 to 60 lbs"
+  },
+  "Bull Terrier": {
+    "image": "https://img.dog-learn.com/dog-breeds/bull-terrier/images/bull-terrier-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Large",
+    "weight": "45 to 65 lbs"
+  },
+  "Bull Terrier Boerboel": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Giant",
+    "weight": "58 to 157 lbs"
+  },
+  "Bull-Boxer": {
+    "image": "https://img.dog-learn.com/dog-breeds/bull-boxer/bull-boxer-i1-sz18.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Large",
+    "weight": "55 to 85 lbs"
+  },
+  "Bullador": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Large",
+    "weight": "50 to 80 lbs"
+  },
+  "Bullboxer Pit": {
+    "image": "https://img.dog-learn.com/dog-breeds/bullboxer-pit/bullboxer-pit-i1-sz18.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Large",
+    "weight": "50 to 80 lbs"
+  },
+  "Bullboxer Staffy Bull": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Large",
+    "weight": "30 to 70 lbs"
+  },
+  "Bulldog": {
+    "image": "https://img.dog-learn.com/dog-breeds/bulldog/images/bulldog-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Large",
+    "weight": "49 to 55 lbs"
+  },
+  "Bulldog Collie": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Large",
+    "weight": "49¼ to 75 lbs"
+  },
+  "Bullmasador": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Giant",
+    "weight": "60 to 120 lbs"
+  },
+  "Bullmastiff": {
+    "image": "https://img.dog-learn.com/dog-breeds/bullmastiff/bullmastiff-i1-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Giant",
+    "weight": "110 to 130 lbs"
+  },
+  "Bulloxer": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Medium",
+    "weight": "45 to 50 lbs"
+  },
+  "Bully Kutta": {
+    "image": "https://img.dog-learn.com/dog-breeds/bully-kutta/bully-kutta-i1-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Giant",
+    "weight": "149 to 200 lbs"
+  },
+  "Bullypit": {
+    "image": "https://img.dog-learn.com/dog-breeds/bullypit/bullypit-i1-sz18.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Large",
+    "weight": "60 to 120 lbs"
+  },
+  "Cadoodle": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Large",
+    "weight": "45 to 75 lbs"
+  },
+  "Cairn Corgi": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Small",
+    "weight": "12 to 26 lbs"
+  },
+  "Cairn Terrier": {
+    "image": "https://img.dog-learn.com/dog-breeds/cairn-terrier/cairn-terrier-i1-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Toy",
+    "weight": "10 to 14 lbs"
+  },
+  "Cairnoodle": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Small",
+    "weight": "10 to 18 lbs"
+  },
+  "Cairoston": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Small",
+    "weight": "10 to 25 lbs"
+  },
+  "Cajun Squirrel Dog": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Small",
+    "weight": "20 to 30 lbs"
+  },
+  "Cambodian Razorback": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Medium",
+    "weight": "30 to 60 lbs"
+  },
+  "Canaan Dog": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Medium",
+    "weight": "35 to 55 lbs"
+  },
+  "Canadian Eskimo Dog": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Large",
+    "weight": "40 to 90 lbs"
+  },
+  "Cane Corso": {
+    "image": "https://img.dog-learn.com/dog-breeds/cane-corso/cane-corso-i1-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Giant",
+    "weight": "88 to 110 lbs"
+  },
+  "Canis Panther": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Giant",
+    "weight": "85 to 140 lbs"
+  },
+  "Cao Da Serra De Aires": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Medium",
+    "weight": "25 to 45 lbs"
+  },
+  "Cao De Castro Laboreiro": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Large",
+    "weight": "50 to 75 lbs"
+  },
+  "Cao Dos Mourey": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Giant",
+    "weight": "160 to 180 lbs"
+  },
+  "Cardigan Welsh Corgi": {
+    "image": "https://img.dog-learn.com/dog-breeds/cardigan-welsh-corgi/cardigan-welsh-corgi-i17-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Small",
+    "weight": "20 to 30 lbs"
+  },
+  "Carkie": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Toy",
+    "weight": "8 to 15 lbs"
+  },
+  "Carlin Pinscher": {
+    "image": "https://img.dog-learn.com/dog-breeds/carlin-pinscher/images/carlin-pinscher-cc-2-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Small",
+    "weight": "12 to 14 lbs"
+  },
+  "Carolina Dog": {
+    "image": "https://img.dog-learn.com/dog-breeds/carolina-dog/carolina-dog-i1-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Large",
+    "weight": "40 to 60 lbs"
+  },
+  "Carpathian Shepherd Dog": {
+    "image": "https://img.dog-learn.com/dog-breeds/carpathian-shepherd-dog/carpathian-shepherd-dog-i1-small.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Large",
+    "weight": "70 to 100 lbs"
+  },
+  "Catahoula Bulldog": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Large",
+    "weight": "75 to 100 lbs"
+  },
+  "Catahoula Leopard Dog": {
+    "image": "https://img.dog-learn.com/dog-breeds/catahoula-leopard-dog/catahoula-leopard-dog-i1-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Large",
+    "weight": "50 to 100 lbs"
+  },
+  "Catalan Sheepdog": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Large",
+    "weight": "40 to 60 lbs"
+  },
+  "Caucasian Shepherd Dog": {
+    "image": "https://img.dog-learn.com/dog-breeds/caucasian-shepherd-dog/caucasian-shepherd-dog-i1-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Giant",
+    "weight": "80 to 180 lbs"
+  },
+  "Cava Tzu": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Small",
+    "weight": "10 to 16 lbs"
+  },
+  "Cavachon": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Small",
+    "weight": "12 to 18 lbs"
+  },
+  "Cavador": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Medium",
+    "weight": "22 to 45 lbs"
+  },
+  "Cavalier King Charles Spaniel": {
+    "image": "https://img.dog-learn.com/dog-breeds/cavalier-king-charles-spaniel/images/cavalier-king-charles-spaniel-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Small",
+    "weight": "10 to 18 lbs"
+  },
+  "Cavanese": {
+    "image": "https://img.dog-learn.com/dog-breeds/cavanese/images/cavanese-small.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Toy",
+    "weight": "8 to 15 lbs"
+  },
+  "Cavapoo": {
+    "image": "https://img.dog-learn.com/dog-breeds/cavapoo/cavapoo-i19-sz18.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Small",
+    "weight": "7 to 26 lbs"
+  },
+  "Cavottish": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Small",
+    "weight": "15 to 25 lbs"
+  },
+  "Central Asian Shepherd Dog": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Giant",
+    "weight": "90 to 170 lbs"
+  },
+  "Cesky Fousek": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Large",
+    "weight": "45 to 75 lbs"
+  },
+  "Cesky Terrier": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Small",
+    "weight": "16 to 22 lbs"
+  },
+  "Chabrador": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Large",
+    "weight": "50 to 75 lbs"
+  },
+  "Chacy Ranior": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Small",
+    "weight": "15 to 20 lbs"
+  },
+  "Chatham Hill Retriever": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Medium",
+    "weight": "35 to 45 lbs"
+  },
+  "Cheagle": {
+    "image": "https://img.dog-learn.com/dog-breeds/cheagle/cheagle-i8-sz18.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Small",
+    "weight": "9 to 20 lbs"
+  },
+  "Chesadoodle": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Large",
+    "weight": "47 to 78 lbs"
+  },
+  "Chesapeake Bay Retriever": {
+    "image": "https://img.dog-learn.com/dog-breeds/chesapeake-bay-retriever/chesapeake-bay-retriever-i1-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Large",
+    "weight": "55 to 80 lbs"
+  },
+  "Chi Chi": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Toy",
+    "weight": "4 to 10 lbs"
+  },
+  "Chigi": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Small",
+    "weight": "10 to 20 lbs"
+  },
+  "Chihuahua": {
+    "image": "https://img.dog-learn.com/dog-breeds/chihuahua/images/chihuahua-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Toy",
+    "weight": "3 to 6 lbs"
+  },
+  "Chilier": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Toy",
+    "weight": "4½ to 8½ lbs"
+  },
+  "Chin Crested": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Toy",
+    "weight": "4¼ to 11½ lbs"
+  },
+  "Chinese Chongqing Dog": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Medium",
+    "weight": "33 to 54 lbs"
+  },
+  "Chinese Crested": {
+    "image": "https://img.dog-learn.com/dog-breeds/chinese-crested/chinese-crested-i1-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Toy",
+    "weight": "5 to 12 lbs"
+  },
+  "Chinese Imperial Dog": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Toy",
+    "weight": "3 to 9 lbs"
+  },
+  "Chinook": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Large",
+    "weight": "50 to 90 lbs"
+  },
+  "Chion": {
+    "image": "https://img.dog-learn.com/dog-breeds/chion/chion-i1-sz18.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Toy",
+    "weight": "5 to 10 lbs"
+  },
+  "Chipin": {
+    "image": "https://img.dog-learn.com/dog-breeds/chipin/chipin-i1-sz18.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Toy",
+    "weight": "5 to 11 lbs"
+  },
+  "Chipit": {
+    "image": "https://img.dog-learn.com/dog-breeds/chipit/chipit-puppy-i1-sz18.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Medium",
+    "weight": "15 to 45 lbs"
+  },
+  "Chipoo": {
+    "image": "https://img.dog-learn.com/dog-breeds/chipoo/chipoo-i1-sz18.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Toy",
+    "weight": "3 to 20 lbs"
+  },
+  "Chippiparai": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Medium",
+    "weight": "33 to 44 lbs"
+  },
+  "Chiweenie": {
+    "image": "https://img.dog-learn.com/dog-breeds/chiweenie/chiweenie-i1-sz18.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Toy",
+    "weight": "6 to 11 lbs"
+  },
+  "Chixolo": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Small",
+    "weight": "4 to 35 lbs"
+  },
+  "Chizer": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Toy",
+    "weight": "4 to 15 lbs"
+  },
+  "Chonzer": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Small",
+    "weight": "8 to 20 lbs"
+  },
+  "Chorkie": {
+    "image": "https://img.dog-learn.com/dog-breeds/chorkie/chorkie-puppy-i14-sz18.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Toy",
+    "weight": "3 to 7 lbs"
+  },
+  "Chow Chow": {
+    "image": "https://img.dog-learn.com/dog-breeds/chow-chow/images/chow-chow-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Large",
+    "weight": "40 to 75 lbs"
+  },
+  "Chow Pei": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Large",
+    "weight": "45 to 60 lbs"
+  },
+  "Chow Shepherd": {
+    "image": "https://img.dog-learn.com/dog-breeds/chow-shepherd/chow-shepherd-i1-sz18.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Large",
+    "weight": "45 to 90 lbs"
+  },
+  "Chug": {
+    "image": "https://img.dog-learn.com/dog-breeds/chug/chug-i1-sz18.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Small",
+    "weight": "10 to 20 lbs"
+  },
+  "Chusky": {
+    "image": "https://img.dog-learn.com/dog-breeds/chusky/chusky-i1-sz18.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Large",
+    "weight": "35 to 75 lbs"
+  },
+  "Clumber Spaniel": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Large",
+    "weight": "55 to 85 lbs"
+  },
+  "Cluminger Spaniel": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Large",
+    "weight": "45 to 55 lbs"
+  },
+  "Cock-A-Chon": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Small",
+    "weight": "11 to 16 lbs"
+  },
+  "Cockalier": {
+    "image": "https://img.dog-learn.com/dog-breeds/cockalier/cockalier-i5-sz18.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Small",
+    "weight": "16 to 25 lbs"
+  },
+  "Cockapin": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Small",
+    "weight": "10 to 30 lbs"
+  },
+  "Cockapoo": {
+    "image": "https://img.dog-learn.com/dog-breeds/cockapoo/cockapoo-i1-sz18.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Small",
+    "weight": "12 to 24 lbs"
+  },
+  "Cocker Pug": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Small",
+    "weight": "20 to 35 lbs"
+  },
+  "Cocker Spaniel": {
+    "image": "https://img.dog-learn.com/dog-breeds/cocker-spaniel/images/cocker-spaniel-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Small",
+    "weight": "24 to 28 lbs"
+  },
+  "Cojack": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Small",
+    "weight": "18 to 28 lbs"
+  },
+  "Collie": {
+    "image": "https://img.dog-learn.com/dog-breeds/collie/rough-collie-i1-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Large",
+    "weight": "50 to 80 lbs"
+  },
+  "Combai": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Large",
+    "weight": "30 to 70 lbs"
+  },
+  "Corgi Cattle Dog": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Medium",
+    "weight": "20 to 45 lbs"
+  },
+  "Corgidor": {
+    "image": "https://img.dog-learn.com/dog-breeds/corgidor/corgidor-sz18.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Medium",
+    "weight": "30 to 55 lbs"
+  },
+  "Corgipoo": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Medium",
+    "weight": "30 to 60 lbs"
+  },
+  "Corkie": {
+    "image": "https://img.dog-learn.com/dog-breeds/corkie/images/corkie-small.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Small",
+    "weight": "8 to 20 lbs"
+  },
+  "Cosheltie": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Small",
+    "weight": "18 to 30 lbs"
+  },
+  "Coton De Tulear": {
+    "image": "https://img.dog-learn.com/dog-breeds/coton-de-tulear/coton-de-tulear-i10-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Toy",
+    "weight": "8 to 15 lbs"
+  },
+  "Crested Cavalier": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Toy",
+    "weight": "6 to 16 lbs"
+  },
+  "Crested Min Pin": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Toy",
+    "weight": "5¾ to 11 lbs"
+  },
+  "Crested Peke": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Toy",
+    "weight": "5½ to 13¾ lbs"
+  },
+  "Crestepoo": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Toy",
+    "weight": "8 to 11 lbs"
+  },
+  "Curly-Coated Retriever": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Large",
+    "weight": "60 to 70 lbs"
+  },
+  "Czechoslovakian Wolfdog": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Large",
+    "weight": "65 to 90 lbs"
+  },
+  "Dachshund": {
+    "image": "https://img.dog-learn.com/dog-breeds/dachshund/dachshund-i22-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Small",
+    "weight": "11 to 32 lbs"
+  },
+  "Daisy Dog": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Small",
+    "weight": "10 to 30 lbs"
+  },
+  "Dalmador": {
+    "image": "https://img.dog-learn.com/dog-breeds/dalmador/dalmador-i8-sz18.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Large",
+    "weight": "48 to 80 lbs"
+  },
+  "Dalmatian": {
+    "image": "https://img.dog-learn.com/dog-breeds/dalmatian/dalmatian-i16-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Large",
+    "weight": "45 to 55 lbs"
+  },
+  "Dalmatian Heeler": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Medium",
+    "weight": "33 to 54 lbs"
+  },
+  "Dameranian": {
+    "image": "https://img.dog-learn.com/dog-breeds/dameranian/images/dameranian-small.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Small",
+    "weight": "8 to 20 lbs"
+  },
+  "Dandie Dinmont Terrier": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Small",
+    "weight": "18 to 24 lbs"
+  },
+  "Daniff": {
+    "image": "https://img.dog-learn.com/dog-breeds/daniff/images/daniff-small.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Giant",
+    "weight": "115 to 210 lbs"
+  },
+  "Danish-Swedish Farmdog": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Small",
+    "weight": "15 to 25 lbs"
+  },
+  "Daug": {
+    "image": "https://img.dog-learn.com/dog-breeds/daug/daug-i1-sz18.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Small",
+    "weight": "10 to 30 lbs"
+  },
+  "Decker Hunting Terrier": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Medium",
+    "weight": "20 to 40 lbs"
+  },
+  "Dingo": {
+    "image": "https://img.dog-learn.com/dog-breeds/dingo/dingo-i1-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Medium",
+    "weight": "20 to 45 lbs"
+  },
+  "Doberman Lurcher": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Large",
+    "weight": "57 to 90¼ lbs"
+  },
+  "Doberman Pinscher": {
+    "image": "https://img.dog-learn.com/dog-breeds/doberman-pinscher/doberman-pinscher-i1-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Large",
+    "weight": "65 to 99 lbs"
+  },
+  "Doberman Saluki": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Large",
+    "weight": "41 to 92¼ lbs"
+  },
+  "Doberman Shepherd": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Giant",
+    "weight": "90 to 110 lbs"
+  },
+  "Dobie-Basset": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Large",
+    "weight": "49 to 92¼ lbs"
+  },
+  "Dogo Argentino": {
+    "image": "https://img.dog-learn.com/dog-breeds/dogo-argentino/dogo-argentino-i19-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Giant",
+    "weight": "75 to 110 lbs"
+  },
+  "Dogue De Bordeaux": {
+    "image": "https://img.dog-learn.com/dog-breeds/dogue-de-bordeaux/dogue-de-bordeaux-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Large",
+    "weight": "99 to 0 lbs"
+  },
+  "Doodleman Pinscher": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Large",
+    "weight": "65 to 90 lbs"
+  },
+  "Dorgi": {
+    "image": "https://img.dog-learn.com/dog-breeds/dorgi/dorgi-i1-sz18.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Small",
+    "weight": "15 to 31 lbs"
+  },
+  "Dorkie": {
+    "image": "https://img.dog-learn.com/dog-breeds/dorkie/dorkie-i1-sz18.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Small",
+    "weight": "5 to 20 lbs"
+  },
+  "Dorset Olde Tyme Bulldogge": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Large",
+    "weight": "60 to 90 lbs"
+  },
+  "Double Doodle": {
+    "image": "https://img.dog-learn.com/dog-breeds/double-doodle/images/yellow-double-doodle-sz18.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Large",
+    "weight": "50 to 80 lbs"
+  },
+  "Doxie Pin": {
+    "image": "https://img.dog-learn.com/dog-breeds/doxie-pin/doxie-pin-i5-sz18.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Small",
+    "weight": "10 to 25 lbs"
+  },
+  "Doxiepoo": {
+    "image": "https://img.dog-learn.com/dog-breeds/doxiepoo/doxiepoo-i4-sz18.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Small",
+    "weight": "11 to 20 lbs"
+  },
+  "Doxle": {
+    "image": "https://img.dog-learn.com/dog-breeds/doxle/doxle-i1-sz18.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Small",
+    "weight": "20 to 30 lbs"
+  },
+  "Drentsche Patrijshond": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Large",
+    "weight": "40 to 65 lbs"
+  },
+  "Dutch Shepherd": {
+    "image": "https://img.dog-learn.com/dog-breeds/dutch-shepherd/long-haired-dutch-shepherd-i1-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Large",
+    "weight": "50 to 70 lbs"
+  },
+  "Elkhound Labrador": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Large",
+    "weight": "47 to 75½ lbs"
+  },
+  "English American Bulldo": {
+    "image": "https://img.dog-learn.com/dog-breeds/english-american-bulldog/english-american-bulldog-i1-sz18.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Large",
+    "weight": "50 to 100 lbs"
+  },
+  "English Cocker Spaniel": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Medium",
+    "weight": "26 to 35 lbs"
+  },
+  "English Coonhound": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Large",
+    "weight": "40 to 65 lbs"
+  },
+  "English Foxhound": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Large",
+    "weight": "55 to 75 lbs"
+  },
+  "English Jack Setter": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Medium",
+    "weight": "19½ to 67½ lbs"
+  },
+  "English Mastweiler": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Giant",
+    "weight": "110 to 150 lbs"
+  },
+  "English Setter": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Large",
+    "weight": "45 to 80 lbs"
+  },
+  "English Setter Heeler": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Large",
+    "weight": "33 to 74 lbs"
+  },
+  "English Shepherd": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Medium",
+    "weight": "40 to 60 lbs"
+  },
+  "English Springer Spaniel": {
+    "image": "https://img.dog-learn.com/dog-breeds/english-springer-spaniel/images/english-springer-spaniel-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Large",
+    "weight": "45 to 55 lbs"
+  },
+  "EnglishBoodle": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Medium",
+    "weight": "12 to 55 lbs"
+  },
+  "Eskipoo": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Small",
+    "weight": "10 to 20 lbs"
+  },
+  "Eurasier": {
+    "image": "https://img.dog-learn.com/dog-breeds/eurasier/eurasier-i1-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Large",
+    "weight": "39 to 70 lbs"
+  },
+  "Faux Frenchbo Bulldog": {
+    "image": "https://img.dog-learn.com/dog-breeds/faux-frenchbo-bulldog/frenchton-dog-i1-sz18.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Small",
+    "weight": "15 to 25 lbs"
+  },
+  "Field Spaniel": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Medium",
+    "weight": "34 to 50 lbs"
+  },
+  "Fila Brasileiro": {
+    "image": "https://img.dog-learn.com/dog-breeds/fila-brasileiro/fila-brasileiro-i1-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Giant",
+    "weight": "90 to 160 lbs"
+  },
+  "Finnish Lapphund": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Medium",
+    "weight": "33 to 53 lbs"
+  },
+  "Finnish Spitz": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Small",
+    "weight": "20 to 33 lbs"
+  },
+  "Flat-Coated Labrador": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Large",
+    "weight": "55 to 80 lbs"
+  },
+  "Flat-Coated Retriever": {
+    "image": "https://img.dog-learn.com/dog-breeds/flat-coated-retriever/flat-coated-retriever-i1-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Large",
+    "weight": "55 to 80 lbs"
+  },
+  "Fo-Chon": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Toy",
+    "weight": "4¼ to 11 lbs"
+  },
+  "Fourche Terrier": {
+    "image": "https://img.dog-learn.com/dog-breeds/fourche-terrier/images/fourche-terrier-small.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Small",
+    "weight": "13 to 22 lbs"
+  },
+  "Foxhound": {
+    "image": "https://img.dog-learn.com/dog-breeds/foxhound/foxhound-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Large",
+    "weight": "60 to 70 lbs"
+  },
+  "Foxingese": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Toy",
+    "weight": "4¼ to 12¾ lbs"
+  },
+  "Free-Lance Bulldog": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Medium",
+    "weight": "25 to 50 lbs"
+  },
+  "French Brittany": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Medium",
+    "weight": "30 to 40 lbs"
+  },
+  "French Bull Whippet": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Small",
+    "weight": "16 to 37¾ lbs"
+  },
+  "French Bulldog": {
+    "image": "https://img.dog-learn.com/dog-breeds/french-bulldog/images/french-bulldog-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Small",
+    "weight": "16 to 28 lbs"
+  },
+  "Frenchie Pug": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Small",
+    "weight": "13 to 28 lbs"
+  },
+  "Frengle": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Small",
+    "weight": "18 to 30 lbs"
+  },
+  "Frise Bolognese": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Toy",
+    "weight": "7¼ to 13¾ lbs"
+  },
+  "Gaddi Kutta": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Large",
+    "weight": "77 to 99 lbs"
+  },
+  "Galgo Espanol": {
+    "image": "https://img.dog-learn.com/dog-breeds/galgo-espanol/galgo-espanol-i1-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Large",
+    "weight": "50 to 60 lbs"
+  },
+  "Gascons Saintongeois": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Large",
+    "weight": "66 to 71 lbs"
+  },
+  "Gerberian Shepsky": {
+    "image": "https://img.dog-learn.com/dog-breeds/gerberian-shepsky/images/black-and-cream-gerberian-shepsky-sz18.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Large",
+    "weight": "45 to 88 lbs"
+  },
+  "German Australian Shepherd": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Large",
+    "weight": "45 to 80 lbs"
+  },
+  "German Longhaired Pointer": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Large",
+    "weight": "60 to 70 lbs"
+  },
+  "German Malinois": {
+    "image": "https://img.dog-learn.com/dog-breeds/german-malinois/german-malinois-i10-sz18.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Large",
+    "weight": "40 to 90 lbs"
+  },
+  "German Pinscher": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Medium",
+    "weight": "25 to 35 lbs"
+  },
+  "German Shepherd": {
+    "image": "https://img.dog-learn.com/dog-breeds/german-shepherd/images/german-shepherd-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Large",
+    "weight": "75 to 95 lbs"
+  },
+  "German Shepherd Boerboel": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Giant",
+    "weight": "82 to 163 lbs"
+  },
+  "German Shepherd Schipperke": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Large",
+    "weight": "23 to 79¾ lbs"
+  },
+  "German Shepherd Shorthaired Pointer": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Large",
+    "weight": "51 to 91 lbs"
+  },
+  "German Sheprador": {
+    "image": "https://img.dog-learn.com/dog-breeds/german-sheprador/german-sheprador-i2-sz18.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Large",
+    "weight": "55 to 80 lbs"
+  },
+  "German Shorthaired Jack Pointer": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Medium",
+    "weight": "19½ to 63½ lbs"
+  },
+  "German Shorthaired Kelpie": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Large",
+    "weight": "33 to 72 lbs"
+  },
+  "German Shorthaired Lab": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Large",
+    "weight": "45 to 80 lbs"
+  },
+  "German Shorthaired Pointer": {
+    "image": "https://img.dog-learn.com/dog-breeds/german-shorthaired-pointer/german-shorthaired-pointer-i1-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Large",
+    "weight": "45 to 75 lbs"
+  },
+  "German Shorthaired Pointer Poodle": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Large",
+    "weight": "45 to 71 lbs"
+  },
+  "German Shorthaired Setter": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Large",
+    "weight": "48 to 74 lbs"
+  },
+  "German Shorthaired Vizsla": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Large",
+    "weight": "41 to 67 lbs"
+  },
+  "German Spitz": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Medium",
+    "weight": "23 to 40 lbs"
+  },
+  "Giant Schnauzer": {
+    "image": "https://img.dog-learn.com/dog-breeds/giant-schnauzer/giant-schnauzer-i1-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Large",
+    "weight": "55 to 110 lbs"
+  },
+  "Giant Schnoodle": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Large",
+    "weight": "60 to 85 lbs"
+  },
+  "Glen Of Imaal Terrier": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Medium",
+    "weight": "30 to 35 lbs"
+  },
+  "Glish Boston Bulldog": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Medium",
+    "weight": "15 to 55 lbs"
+  },
+  "Goberian": {
+    "image": "https://img.dog-learn.com/dog-breeds/goberian/goberian-i1-sz18.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Large",
+    "weight": "35 to 90 lbs"
+  },
+  "Goldador": {
+    "image": "https://img.dog-learn.com/dog-breeds/goldador/goldador-i1-sz18.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Large",
+    "weight": "60 to 80 lbs"
+  },
+  "Golddust Yorkshire Terrier": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Toy",
+    "weight": "5 to 11 lbs"
+  },
+  "Golden Akita": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Large",
+    "weight": "58 to 90 lbs"
+  },
+  "Golden Bloodhound": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Large",
+    "weight": "60 to 86 lbs"
+  },
+  "Golden Border Retriever": {
+    "image": "https://img.dog-learn.com/dog-breeds/golden-border-retriever/golden-border-retriever-i1-sz18.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Large",
+    "weight": "45 to 75 lbs"
+  },
+  "Golden Cocker Retriever": {
+    "image": "https://img.dog-learn.com/dog-breeds/golden-cocker-retriever/images/golden-cocker-retriever-small.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Medium",
+    "weight": "30 to 60 lbs"
+  },
+  "Golden Collie": {
+    "image": "https://img.dog-learn.com/dog-breeds/golden-collie/golden-collie-i1-sz18.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Large",
+    "weight": "45 to 75 lbs"
+  },
+  "Golden Dox": {
+    "image": "https://img.dog-learn.com/dog-breeds/golden-dox/golden-dox-i1-sz18.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Medium",
+    "weight": "30 to 60 lbs"
+  },
+  "Golden Irish": {
+    "image": "https://img.dog-learn.com/dog-breeds/golden-irish/images/golden-irish-small.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Large",
+    "weight": "55 to 80 lbs"
+  },
+  "Golden Kelpie": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "</",
+    "weight": "to 64 lbs"
+  },
+  "Golden Mountain Dog": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Giant",
+    "weight": "70 to 120 lbs"
+  },
+  "Golden Newfie": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Giant",
+    "weight": "70 to 130 lbs"
+  },
+  "Golden Pitbull": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Large",
+    "weight": "36 to 69 lbs"
+  },
+  "Golden Pyrenees": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Giant",
+    "weight": "75 to 120 lbs"
+  },
+  "Golden Retriever": {
+    "image": "https://img.dog-learn.com/dog-breeds/golden-retriever/golden-retriever-i22-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Large",
+    "weight": "55 to 80 lbs"
+  },
+  "Golden Saint": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Giant",
+    "weight": "80 to 200 lbs"
+  },
+  "Golden Shepherd": {
+    "image": "https://img.dog-learn.com/dog-breeds/golden-shepherd/golden-shepherd-i1-sz18.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Large",
+    "weight": "60 to 85 lbs"
+  },
+  "Goldendoodle": {
+    "image": "https://img.dog-learn.com/dog-breeds/goldendoodle/goldendoodle-i2-sz18.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Large",
+    "weight": "25 to 100 lbs"
+  },
+  "Gonczy Polski": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Large",
+    "weight": "45 to 60 lbs"
+  },
+  "Gordon Setter": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Large",
+    "weight": "45 to 80 lbs"
+  },
+  "Grand Bleu De Gascogne": {
+    "image": "https://img.dog-learn.com/dog-breeds/grand-bleu-de-gascogne/images/grand-bleu-de-gascogne-small.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Large",
+    "weight": "75 to 100 lbs"
+  },
+  "Grand Griffon Vendeen": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Large",
+    "weight": "66 to 77 lbs"
+  },
+  "Great Bernese": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Giant",
+    "weight": "80 to 110 lbs"
+  },
+  "Great Dane": {
+    "image": "https://img.dog-learn.com/dog-breeds/great-dane/images/great-dane-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Giant",
+    "weight": "100 to 200 lbs"
+  },
+  "Great Danebull": {
+    "image": "https://img.dog-learn.com/dog-breeds/great-danebull/great-danebull-i1-sz18.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Large",
+    "weight": "60 to 100 lbs"
+  },
+  "Great Pyrenees": {
+    "image": "https://img.dog-learn.com/dog-breeds/great-pyrenees/great-pyrenees-i2-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Giant",
+    "weight": "85 to 160 lbs"
+  },
+  "Great Swiss Shepherd": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Giant",
+    "weight": "77 to 131 lbs"
+  },
+  "Greater Swiss Mountain Dog": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Giant",
+    "weight": "85 to 140 lbs"
+  },
+  "Greek Harehound": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Medium",
+    "weight": "35 to 45 lbs"
+  },
+  "Greek Shepherd": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Large",
+    "weight": "70 to 110 lbs"
+  },
+  "Greenland Dog": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Large",
+    "weight": "66 to 70 lbs"
+  },
+  "Greyhound": {
+    "image": "https://img.dog-learn.com/dog-breeds/greyhound/images/greyhound-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Large",
+    "weight": "60 to 85 lbs"
+  },
+  "Griffon Bleu De Gascogne": {
+    "image": "https://img.dog-learn.com/dog-breeds/griffon-bleu-de-gascogne/griffon-bleu-de-gascogne-i11-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Medium",
+    "weight": "35 to 60 lbs"
+  },
+  "Griffon Fauve De Bretagne": {
+    "image": "https://img.dog-learn.com/dog-breeds/griffon-fauve-de-bretagne/griffon-fauve-de-bretagne-i1-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Medium",
+    "weight": "35 to 45 lbs"
+  },
+  "Griffon Nivernais": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Large",
+    "weight": "50 to 55 lbs"
+  },
+  "Groenendael": {
+    "image": "https://img.dog-learn.com/dog-breeds/groenendael/groenendael-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Large",
+    "weight": "60 to 75 lbs"
+  },
+  "Hamiltonstovar": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Large",
+    "weight": "50 to 60 lbs"
+  },
+  "Hanover Hound": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Large",
+    "weight": "80 to 100 lbs"
+  },
+  "Harlequin Pinscher": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Small",
+    "weight": "4 to 26 lbs"
+  },
+  "Harrier": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Large",
+    "weight": "45 to 60 lbs"
+  },
+  "Hava-Apso": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Toy",
+    "weight": "7 to 15 lbs"
+  },
+  "Havachin": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Toy",
+    "weight": "4¾ to 12¼ lbs"
+  },
+  "Havachon": {
+    "image": "https://img.dog-learn.com/dog-breeds/havachon/havachon-i1-sz18.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Toy",
+    "weight": "7 to 13 lbs"
+  },
+  "Havamalt": {
+    "image": "https://img.dog-learn.com/dog-breeds/havamalt/happy-havamalt-i4-sz18.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Small",
+    "weight": "13 to 16 lbs"
+  },
+  "Havanese": {
+    "image": "https://img.dog-learn.com/dog-breeds/havanese/images/havanese-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Toy",
+    "weight": "7 to 13 lbs"
+  },
+  "Havapoo": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Small",
+    "weight": "12 to 20 lbs"
+  },
+  "Havashire": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Toy",
+    "weight": "8 to 15 lbs"
+  },
+  "Havashu": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Toy",
+    "weight": "8 to 15 lbs"
+  },
+  "Havaton": {
+    "image": "https://img.dog-learn.com/dog-breeds/havaton/images/havaton-small.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Toy",
+    "weight": "7 to 13 lbs"
+  },
+  "Hawaiian Poi Dog": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Small",
+    "weight": "15 to 35 lbs"
+  },
+  "Himalayan Sheepdog": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Large",
+    "weight": "50 to 70 lbs"
+  },
+  "Hokkaido Dog": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Large",
+    "weight": "45 to 65 lbs"
+  },
+  "Hovawart": {
+    "image": "https://img.dog-learn.com/dog-breeds/hovawart/hovawart-i1-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Large",
+    "weight": "60 to 100 lbs"
+  },
+  "Hug": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Medium",
+    "weight": "30 to 60 lbs"
+  },
+  "Huntaway": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Large",
+    "weight": "40 to 65 lbs"
+  },
+  "Huskimo": {
+    "image": "https://img.dog-learn.com/dog-breeds/huskimo/images/huskimo-small.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Medium",
+    "weight": "30 to 60 lbs"
+  },
+  "Huskita": {
+    "image": "https://img.dog-learn.com/dog-breeds/huskita/huskita-head-shot-i12-small.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Large",
+    "weight": "40 to 120 lbs"
+  },
+  "Husky Klee Kai": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Small",
+    "weight": "15 to 28 lbs"
+  },
+  "Husky Setter": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Large",
+    "weight": "37 to 76 lbs"
+  },
+  "Ibizan Hound": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Medium",
+    "weight": "45 to 50 lbs"
+  },
+  "Icelandic Sheepdog": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Small",
+    "weight": "20 to 30 lbs"
+  },
+  "Irish Dane": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Giant",
+    "weight": "90 to 200 lbs"
+  },
+  "Irish Doodle": {
+    "image": "https://img.dog-learn.com/dog-breeds/irish-doodle/irish-doodle-i11-sz18.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Large",
+    "weight": "45 to 70 lbs"
+  },
+  "Irish Husky": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Large",
+    "weight": "40 to 68 lbs"
+  },
+  "Irish Rat Terrier": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Small",
+    "weight": "12¼ to 26½ lbs"
+  },
+  "Irish Red And White Setter": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Large",
+    "weight": "50 to 70 lbs"
+  },
+  "Irish Schnauzer Terrier": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Medium",
+    "weight": "22 to 45½ lbs"
+  },
+  "Irish Setter": {
+    "image": "https://img.dog-learn.com/dog-breeds/irish-setter/irish-setter-i15-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Large",
+    "weight": "60 to 70 lbs"
+  },
+  "Irish Staffordshire Bull Terrier": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Large",
+    "weight": "55 to 77 lbs"
+  },
+  "Irish Terrier": {
+    "image": "https://img.dog-learn.com/dog-breeds/irish-terrier/irish-terrier-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Small",
+    "weight": "21 to 27 lbs"
+  },
+  "Irish Terrier Whippet": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Small",
+    "weight": "20¼ to 37½ lbs"
+  },
+  "Irish Water Spaniel": {
+    "image": "https://img.dog-learn.com/dog-breeds/irish-water-spaniel/irish-water-spaniel-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Large",
+    "weight": "45 to 65 lbs"
+  },
+  "Irish Wolfhound": {
+    "image": "https://img.dog-learn.com/dog-breeds/irish-wolfhound/images/irish-wolfhound-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Giant",
+    "weight": "90 to 180 lbs"
+  },
+  "Irish Wolfhound Lurcher": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Giant",
+    "weight": "62 to 155 lbs"
+  },
+  "Italian Greyhound": {
+    "image": "https://img.dog-learn.com/dog-breeds/italian-greyhound/italian-greyhound-i1-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Toy",
+    "weight": "7 to 14 lbs"
+  },
+  "Italian Greyhound Maltese": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Toy",
+    "weight": "4¾ to 13 lbs"
+  },
+  "Ja Chon": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Toy",
+    "weight": "4¾ to 11½ lbs"
+  },
+  "Jack A Bee": {
+    "image": "https://img.dog-learn.com/dog-breeds/jack-a-bee/images/jack-a-bee-cc-1-small.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Small",
+    "weight": "15 to 30 lbs"
+  },
+  "Jack A Poo": {
+    "image": "https://img.dog-learn.com/dog-breeds/jack-a-poo/jack-a-poo-i1-sz18.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Small",
+    "weight": "15 to 20 lbs"
+  },
+  "Jack Chi": {
+    "image": "https://img.dog-learn.com/dog-breeds/jack-chi/jack-chi-i2-sz18.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Small",
+    "weight": "5 to 20 lbs"
+  },
+  "Jack Russell Terrier": {
+    "image": "https://img.dog-learn.com/dog-breeds/jack-russell-terrier/images/jack-russell-terrier-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Small",
+    "weight": "13 to 17 lbs"
+  },
+  "Jack Tzu": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Small",
+    "weight": "14 to 23 lbs"
+  },
+  "Jack-Rat Terrier": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Small",
+    "weight": "20 to 26 lbs"
+  },
+  "Jackshund": {
+    "image": "https://img.dog-learn.com/dog-breeds/jackshund/jackshund-i1-sz18.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Small",
+    "weight": "15 to 25 lbs"
+  },
+  "Jagdterrier": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Small",
+    "weight": "17 to 22 lbs"
+  },
+  "Jamthund": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Large",
+    "weight": "50 to 75 lbs"
+  },
+  "Japanese Chin": {
+    "image": "https://img.dog-learn.com/dog-breeds/japanese-chin/images/japanese-chin-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Toy",
+    "weight": "4 to 9 lbs"
+  },
+  "Japanese Spitz": {
+    "image": "https://img.dog-learn.com/dog-breeds/japanese-spitz/japanese-sptiz-i1-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Small",
+    "weight": "10 to 20 lbs"
+  },
+  "Jindo": {
+    "image": "https://img.dog-learn.com/dog-breeds/jindo/jindo-i1-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Medium",
+    "weight": "25 to 50 lbs"
+  },
+  "Jug": {
+    "image": "https://img.dog-learn.com/dog-breeds/jug/jug-dog-i1-sz18.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Small",
+    "weight": "12 to 16 lbs"
+  },
+  "Kai Ken": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Medium",
+    "weight": "25 to 55 lbs"
+  },
+  "Kangal Dog": {
+    "image": "https://img.dog-learn.com/dog-breeds/kangal-dog/kangal-i1-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Giant",
+    "weight": "85 to 150 lbs"
+  },
+  "Kangaroo Dog": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Large",
+    "weight": "50 to 105 lbs"
+  },
+  "Karelian Bear Dog": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Medium",
+    "weight": "44 to 50 lbs"
+  },
+  "Keeshond": {
+    "image": "https://img.dog-learn.com/dog-breeds/keeshond/keeshond-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Medium",
+    "weight": "30 to 45 lbs"
+  },
+  "Kelpie Cocker Spaniel": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Medium",
+    "weight": "25¼ to 53¾ lbs"
+  },
+  "Kelpie Mcnab": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Large",
+    "weight": "31 to 72 lbs"
+  },
+  "Kerry Beagle": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Large",
+    "weight": "50 to 60 lbs"
+  },
+  "King Charles Spaniel": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Toy",
+    "weight": "8 to 14 lbs"
+  },
+  "King Shepherd": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Giant",
+    "weight": "80 to 145 lbs"
+  },
+  "Kishu Ken": {
+    "image": "https://img.dog-learn.com/dog-breeds/kishu-ken/kishu-ken-i1-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Medium",
+    "weight": "30 to 50 lbs"
+  },
+  "Klein Poodle": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Small",
+    "weight": "20 to 35 lbs"
+  },
+  "Kleinspitz": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Small",
+    "weight": "11 to 20 lbs"
+  },
+  "Komondoodle": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Large",
+    "weight": "52 to 102 lbs"
+  },
+  "Komondor": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Giant",
+    "weight": "80 to 110 lbs"
+  },
+  "Kooikerhondje": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Medium",
+    "weight": "20 to 40 lbs"
+  },
+  "Koolie": {
+    "image": "https://img.dog-learn.com/dog-breeds/koolie/koolie-i2-small.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Medium",
+    "weight": "30 to 55 lbs"
+  },
+  "Kromfohrlander": {
+    "image": "https://img.dog-learn.com/dog-breeds/kromfohrlander/images/kromfohrlander-u1-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Small",
+    "weight": "20 to 30 lbs"
+  },
+  "Kuchi": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Giant",
+    "weight": "85 to 180 lbs"
+  },
+  "Kunming Wolfdog": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Large",
+    "weight": "66 to 84 lbs"
+  },
+  "Kuvasz": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Giant",
+    "weight": "70 to 115 lbs"
+  },
+  "La-Chon": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Small",
+    "weight": "8 to 20 lbs"
+  },
+  "Lab-Pointer": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Large",
+    "weight": "35 to 80 lbs"
+  },
+  "Labernard": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Giant",
+    "weight": "80 to 170 lbs"
+  },
+  "Labernese": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Large",
+    "weight": "55 to 120 lbs"
+  },
+  "Labmaraner": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Large",
+    "weight": "60 to 100 lbs"
+  },
+  "Labrabull": {
+    "image": "https://img.dog-learn.com/dog-breeds/labrabull/labrabull-i1-sz18.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Large",
+    "weight": "45 to 80 lbs"
+  },
+  "Labradane": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Giant",
+    "weight": "100 to 180 lbs"
+  },
+  "Labradoodle": {
+    "image": "https://img.dog-learn.com/dog-breeds/labradoodle/labradoodle-i7-sz18.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Large",
+    "weight": "45 to 65 lbs"
+  },
+  "Labrador Husky": {
+    "image": "https://img.dog-learn.com/dog-breeds/labrador-husky/labrador-husky-i3-small.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Large",
+    "weight": "60 to 100 lbs"
+  },
+  "Labrador Kelpie": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Large",
+    "weight": "35 to 70 lbs"
+  },
+  "Labrador Retriever": {
+    "image": "https://img.dog-learn.com/dog-breeds/labrador-retriever/black-labrador-retriever-i16-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Large",
+    "weight": "55 to 80 lbs"
+  },
+  "Labralas": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Large",
+    "weight": "55 to 80 lbs"
+  },
+  "Labrottie": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Giant",
+    "weight": "70 to 115 lbs"
+  },
+  "Lagotto Romagnolo": {
+    "image": "https://img.dog-learn.com/dog-breeds/lagotto-romagnolo/lagotto-romagnolo-i1-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Small",
+    "weight": "24 to 35 lbs"
+  },
+  "Lakeland Terrier": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Small",
+    "weight": "15 to 18 lbs"
+  },
+  "Lancashire Heeler": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Small",
+    "weight": "13 to 18 lbs"
+  },
+  "Landseer": {
+    "image": "https://img.dog-learn.com/dog-breeds/landseer/black-and-white-landseer-i1-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Giant",
+    "weight": "100 to 150 lbs"
+  },
+  "Large Munsterlander": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Large",
+    "weight": "50 to 70 lbs"
+  },
+  "Leonberger": {
+    "image": "https://img.dog-learn.com/dog-breeds/leonberger/leonberger-i1-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Giant",
+    "weight": "100 to 170 lbs"
+  },
+  "Leonberger Mastiff": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Giant",
+    "weight": "104 to 210 lbs"
+  },
+  "Lhasa Apso": {
+    "image": "https://img.dog-learn.com/dog-breeds/lhasa-apso/images/lhasa-apso-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Small",
+    "weight": "12 to 15 lbs"
+  },
+  "Longdog": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Large",
+    "weight": "8 to 120 lbs"
+  },
+  "Lowchen": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Small",
+    "weight": "10 to 18 lbs"
+  },
+  "Lucas Terrier": {
+    "image": "https://img.dog-learn.com/dog-breeds/lucas-terrier/images/lucas-terrier-14-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Small",
+    "weight": "11 to 17 lbs"
+  },
+  "Lurcher": {
+    "image": "https://img.dog-learn.com/dog-breeds/lurcher/lurcher-i1-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Large",
+    "weight": "55 to 55 lbs"
+  },
+  "Lurcher Beagle": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Medium",
+    "weight": "27 to 50 lbs"
+  },
+  "Magyar Agar": {
+    "image": "https://img.dog-learn.com/dog-breeds/magyar-agar/images/magyar-agar-cc1-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Large",
+    "weight": "50 to 70 lbs"
+  },
+  "Malamute Boxer": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Large",
+    "weight": "56½ to 94 lbs"
+  },
+  "Maltalier": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Small",
+    "weight": "9 to 17 lbs"
+  },
+  "Maltese": {
+    "image": "https://img.dog-learn.com/dog-breeds/maltese/images/maltese-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Toy",
+    "weight": "4 to 9 lbs"
+  },
+  "Maltese Shih Tzu": {
+    "image": "https://img.dog-learn.com/dog-breeds/maltese-shih-tzu/maltese-shih-tzu-i5-sz18.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Toy",
+    "weight": "6 to 14 lbs"
+  },
+  "Malti-Pug": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Small",
+    "weight": "7 to 20 lbs"
+  },
+  "Maltipom": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Toy",
+    "weight": "4 to 8 lbs"
+  },
+  "Maltipoo": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Small",
+    "weight": "5 to 20 lbs"
+  },
+  "Malton": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Small",
+    "weight": "10 to 15 lbs"
+  },
+  "Manchester Terrier": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Small",
+    "weight": "10 to 22 lbs"
+  },
+  "Maremma Sheepdog": {
+    "image": "https://img.dog-learn.com/dog-breeds/maremma-sheepdog/maremma-sheepdog-i1-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Large",
+    "weight": "66 to 100 lbs"
+  },
+  "Mastador": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Giant",
+    "weight": "100 to 200 lbs"
+  },
+  "Mastiff": {
+    "image": "https://img.dog-learn.com/dog-breeds/mastiff/mastiff-i2-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Giant",
+    "weight": "120 to 220 lbs"
+  },
+  "Mcnab": {
+    "image": "https://img.dog-learn.com/dog-breeds/mcnab/mcnab-dog-i1-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Large",
+    "weight": "35 to 75 lbs"
+  },
+  "Mi-Ki": {
+    "image": "https://img.dog-learn.com/dog-breeds/mi-ki/mi-ki-i1-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Toy",
+    "weight": "6 to 10 lbs"
+  },
+  "Mini Aussiedoodle": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Small",
+    "weight": "15 to 24 lbs"
+  },
+  "Mini French Bulldog": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Small",
+    "weight": "16 to 44 lbs"
+  },
+  "Miniature Australian Bulldog": {
+    "image": "https://img.dog-learn.com/dog-breeds/miniature-australian-bulldog/images/miniature-australian-bulldog-small.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Small",
+    "weight": "16 to 30 lbs"
+  },
+  "Miniature Boxer": {
+    "image": "https://img.dog-learn.com/dog-breeds/miniature-boxer/miniature-boxer-i1-sz18.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Medium",
+    "weight": "20 to 55 lbs"
+  },
+  "Miniature Bull Terrier": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Small",
+    "weight": "25 to 33 lbs"
+  },
+  "Miniature Bulldog": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Small",
+    "weight": "25 to 30 lbs"
+  },
+  "Miniature English Bulldog": {
+    "image": "https://img.dog-learn.com/dog-breeds/miniature-english-bulldog/miniature-english-bulldog-i1-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Medium",
+    "weight": "20 to 49 lbs"
+  },
+  "Miniature Golden Retriever": {
+    "image": "https://img.dog-learn.com/dog-breeds/miniature-golden-retriever/miniature-golden-retriever-puppy-i1-sz18.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Medium",
+    "weight": "30 to 45 lbs"
+  },
+  "Miniature Pinscher": {
+    "image": "https://img.dog-learn.com/dog-breeds/miniature-pinscher/miniature-pinscher-i19-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Toy",
+    "weight": "8 to 11 lbs"
+  },
+  "Miniature Poodle": {
+    "image": "https://img.dog-learn.com/dog-breeds/miniature-poodle/miniature-poodle-i1-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Small",
+    "weight": "12 to 18 lbs"
+  },
+  "Miniature Saint Bernard": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Medium",
+    "weight": "15 to 60 lbs"
+  },
+  "Miniature Schnauzer": {
+    "image": "https://img.dog-learn.com/dog-breeds/miniature-schnauzer/miniature-schnauzer-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Small",
+    "weight": "11 to 20 lbs"
+  },
+  "Miniature Shar Pei": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Medium",
+    "weight": "25 to 40 lbs"
+  },
+  "MiniatureAustralian Shepherd": {
+    "image": "https://img.dog-learn.com/dog-breeds/miniature-australian-shepherd/miniature-australian-shepherd-i1-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Medium",
+    "weight": "30 to 40 ls"
+  },
+  "Miniboz": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Small",
+    "weight": "10 to 25 lbs"
+  },
+  "Minnie Jack": {
+    "image": "https://img.dog-learn.com/dog-breeds/minnie-jack/mini-jack-i1-sz18.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Small",
+    "weight": "10 to 16 lbs"
+  },
+  "Morkie": {
+    "image": "https://img.dog-learn.com/dog-breeds/morkie/morkie-i1-sz18.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Toy",
+    "weight": "4 to 12 lbs"
+  },
+  "Mountain Cur": {
+    "image": "https://img.dog-learn.com/dog-breeds/mountain-cur/mountain-cur-puppy-i1-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Medium",
+    "weight": "30 to 60 lbs"
+  },
+  "Mountain Cur Labrador": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Large",
+    "weight": "35 to 76 lbs"
+  },
+  "Mountain Feist": {
+    "image": "https://img.dog-learn.com/dog-breeds/mountain-feist/mountain-feist-i1-small.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Small",
+    "weight": "10 to 30 lbs"
+  },
+  "Mountain Mastiff": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Giant",
+    "weight": "150 to 200 lbs"
+  },
+  "Mudhol Hound": {
+    "image": "https://img.dog-learn.com/dog-breeds/mudhol-hound/mudhol-hound-i1-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Large",
+    "weight": "45 to 60 lbs"
+  },
+  "Mudi": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Small",
+    "weight": "18 to 29 lbs"
+  },
+  "Munsterlander": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Medium",
+    "weight": "30 to 60 lbs"
+  },
+  "Native American Indian Dog": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Large",
+    "weight": "55 to 120 lbs"
+  },
+  "Neapolitan Mastiff": {
+    "image": "https://img.dog-learn.com/dog-breeds/neapolitan-mastiff/neapolitan-mastiff-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Giant",
+    "weight": "110 to 155 lbs"
+  },
+  "Newfoundland": {
+    "image": "https://img.dog-learn.com/dog-breeds/newfoundland/images/newfoundland-dog-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Giant",
+    "weight": "100 to 150 lbs"
+  },
+  "Newfypoo": {
+    "image": "https://img.dog-learn.com/dog-breeds/newfypoo/images/newfypoo-small.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Giant",
+    "weight": "60 to 130 lbs"
+  },
+  "Norfolk Terrier": {
+    "image": "https://img.dog-learn.com/dog-breeds/norfolk-terrier/norfolk-terrier-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Toy",
+    "weight": "10 to 11 lbs"
+  },
+  "Northern Inuit Dog": {
+    "image": "https://img.dog-learn.com/dog-breeds/northern-inuit-dog/images/northern-inuit-dog-10-small.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Large",
+    "weight": "55 to 110 lbs"
+  },
+  "Norwegian Buhund": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Medium",
+    "weight": "26 to 40 lbs"
+  },
+  "Norwegian Elkhound": {
+    "image": "https://img.dog-learn.com/dog-breeds/norwegian-elkhound/norwegian-elkhound-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Large",
+    "weight": "45 to 57 lbs"
+  },
+  "Norwegian Lundehund": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Small",
+    "weight": "20 to 30 lbs"
+  },
+  "Norwich Terrier": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Toy",
+    "weight": "10 to 12 lbs"
+  },
+  "Nova Scotia Duck Tolling Retriever": {
+    "image": "https://img.dog-learn.com/dog-breeds/nova-scotia-duck-tolling-retriever/nova-scotia-duck-tolling-retriever-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Medium",
+    "weight": "35 to 52 lbs"
+  },
+  "Old Anglican Bulldogge": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Large",
+    "weight": "50 to 70 lbs"
+  },
+  "Old Deerhound Sheepdog": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Large",
+    "weight": "63 to 108 lbs"
+  },
+  "Old English Sheepdog": {
+    "image": "https://img.dog-learn.com/dog-breeds/old-english-sheepdog/old-english-sheepdog-i1-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Large",
+    "weight": "60 to 100 lbs"
+  },
+  "Olde Boston Bulldogge": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Medium",
+    "weight": "20 to 40 lbs"
+  },
+  "Olde English Bulldogge": {
+    "image": "https://img.dog-learn.com/dog-breeds/olde-english-bulldogge/olde-english-bulldogge-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Large",
+    "weight": "50 to 80 lbs"
+  },
+  "Ori Pei": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Small",
+    "weight": "15 to 30 lbs"
+  },
+  "Otterhound": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Giant",
+    "weight": "80 to 115 lbs"
+  },
+  "Papillon": {
+    "image": "https://img.dog-learn.com/dog-breeds/papillon/images/papillon-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Toy",
+    "weight": "4 to 9 lbs"
+  },
+  "Papipoo": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Toy",
+    "weight": "6 to 14 lbs"
+  },
+  "Patterdale Dachshund": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Small",
+    "weight": "11 to 29¼ lbs"
+  },
+  "Patterdale Terrier": {
+    "image": "https://img.dog-learn.com/dog-breeds/patterdale-terrier/patterdale-terrier-i1-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Small",
+    "weight": "11 to 18 lbs"
+  },
+  "Patterjack": {
+    "image": "https://img.dog-learn.com/dog-breeds/patterjack/images/patterjack-small.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Small",
+    "weight": "11 to 16 lbs"
+  },
+  "Peagle": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Small",
+    "weight": "12 to 15 lbs"
+  },
+  "Peek A Pom": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Toy",
+    "weight": "3 to 10 lbs"
+  },
+  "Peka-A-West": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Small",
+    "weight": "8¾ to 18 lbs"
+  },
+  "Pekepoo": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Toy",
+    "weight": "8 to 12 lbs"
+  },
+  "Pekingese": {
+    "image": "https://img.dog-learn.com/dog-breeds/pekingese/images/pekingese-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Toy",
+    "weight": "7 to 14 lbs"
+  },
+  "Pekingese Basset": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Medium",
+    "weight": "14¾ to 54 lbs"
+  },
+  "Pembroke Sheltie": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Small",
+    "weight": "14 to 30 lbs"
+  },
+  "Pembroke Welsh Corgi": {
+    "image": "https://img.dog-learn.com/dog-breeds/pembroke-welsh-corgi/images/pembroke-welsh-corgi-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Small",
+    "weight": "20 to 30 lbs"
+  },
+  "Peruvian Inca Orchid": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Medium",
+    "weight": "9 to 55 lbs"
+  },
+  "Petit Basset Griffon Vendeen": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Medium",
+    "weight": "25 to 40 lbs"
+  },
+  "Petite Goldendoodle": {
+    "image": "https://img.dog-learn.com/dog-breeds/petite-goldendoodle/petite-goldendoodle-puppy-i1-sz18.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Small",
+    "weight": "15 to 40 lbs"
+  },
+  "Petite Labradoodle": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Small",
+    "weight": "15 to 25 lbs"
+  },
+  "Phu Quoc Ridgeback": {
+    "image": "https://img.dog-learn.com/dog-breeds/phu-quoc-ridgeback/phu-quoc-ridgeback-i1-small.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Medium",
+    "weight": "30 to 55 lbs"
+  },
+  "Picardy Spaniel": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Large",
+    "weight": "45 to 55 lbs"
+  },
+  "Pinny-Poo": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Toy",
+    "weight": "6 to 11 lbs"
+  },
+  "Pit Pei": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Large",
+    "weight": "50 to 60 lbs"
+  },
+  "Pit Pug": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Medium",
+    "weight": "16½ to 76 lbs"
+  },
+  "Pitbull Mastiff": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Giant",
+    "weight": "100 to 150 lbs"
+  },
+  "Pitsky": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Medium",
+    "weight": "31 to 66 lbs"
+  },
+  "Pitweiler": {
+    "image": "https://img.dog-learn.com/dog-breeds/pitweiler/pitweiler-i2-sz18.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Large",
+    "weight": "45 to 100 lbs"
+  },
+  "Plica": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Medium",
+    "weight": "21 to 58 lbs"
+  },
+  "Plott Hound": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Large",
+    "weight": "40 to 75 lbs"
+  },
+  "Plummer Terrier": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Small",
+    "weight": "13 to 16 lbs"
+  },
+  "Pocket Beagle": {
+    "image": "https://img.dog-learn.com/dog-breeds/pocket-beagle/pocket-beagle-i1-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Toy",
+    "weight": "7 to 15 lbs"
+  },
+  "Pocket Pitbull": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Medium",
+    "weight": "35 to 60 lbs"
+  },
+  "Pointer": {
+    "image": "https://img.dog-learn.com/dog-breeds/pointer/pointer-dog-i1-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Large",
+    "weight": "45 to 75 lbs"
+  },
+  "Polish Greyhound": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Large",
+    "weight": "55 to 70 lbs"
+  },
+  "Polish Tatra Sheepdog": {
+    "image": "https://img.dog-learn.com/dog-breeds/polish-tatra-sheepdog/images/polish-tatra-sheepdog-small.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Giant",
+    "weight": "80 to 130 lbs"
+  },
+  "Pom-A-Pug": {
+    "image": "https://img.dog-learn.com/dog-breeds/pom-a-pug/pom-a-pug-i1-sz18.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Toy",
+    "weight": "7 to 15 lbs"
+  },
+  "Pomapoo": {
+    "image": "https://img.dog-learn.com/dog-breeds/pomapoo/pomapoo-i1-small.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Toy",
+    "weight": "5 to 15 lbs"
+  },
+  "Pomchi": {
+    "image": "https://img.dog-learn.com/dog-breeds/pomchi/pomchi-pomeranian-chihuahua-i17-sz18.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Toy",
+    "weight": "3 to 7 lbs"
+  },
+  "Pomeranian": {
+    "image": "https://img.dog-learn.com/dog-breeds/pomeranian/images/pomeranian-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Toy",
+    "weight": "3 to 7 lbs"
+  },
+  "Pomeranian Pit Bull": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Medium",
+    "weight": "8½ to 73½ lbs"
+  },
+  "Pomimo": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Small",
+    "weight": "10 to 17 lbs"
+  },
+  "Poodle": {
+    "image": "https://img.dog-learn.com/dog-breeds/poodle/blue-poodles-playing-tennis-i30-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Large",
+    "weight": "45 to 70 lbs"
+  },
+  "Poogle": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Small",
+    "weight": "10 to 28 lbs"
+  },
+  "Poosky": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Large",
+    "weight": "45 to 60 lbs"
+  },
+  "Portuguese Water Dog": {
+    "image": "https://img.dog-learn.com/dog-breeds/portuguese-water-dog/portuguese-water-dog-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Medium",
+    "weight": "35 to 60 lbs"
+  },
+  "Poshies": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Small",
+    "weight": "8 to 16 lbs"
+  },
+  "Presa Canario": {
+    "image": "https://img.dog-learn.com/dog-breeds/presa-canario/presa-canario-i1-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Giant",
+    "weight": "85 to 145 lbs"
+  },
+  "Pudelpointer": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Large",
+    "weight": "40 to 65 lbs"
+  },
+  "Pug": {
+    "image": "https://img.dog-learn.com/dog-breeds/pug/images/pug-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Small",
+    "weight": "13 to 20 lbs"
+  },
+  "Pug-Zu": {
+    "image": "https://img.dog-learn.com/dog-breeds/pug-zu/pug-zu-i2-sz18.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Small",
+    "weight": "8 to 16 lbs"
+  },
+  "Pugalier": {
+    "image": "https://img.dog-learn.com/dog-breeds/pugalier/images/pugalier-small.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Small",
+    "weight": "10 to 20 lbs"
+  },
+  "Pugapoo": {
+    "image": "https://img.dog-learn.com/dog-breeds/pugapoo/pugapoo-i1-sz18.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Small",
+    "weight": "10 to 20 lbs"
+  },
+  "Puggle": {
+    "image": "https://img.dog-learn.com/dog-breeds/puggle/puggle-puppy-i1-sz18.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Small",
+    "weight": "15 to 30 lbs"
+  },
+  "Puggleset": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Medium",
+    "weight": "19½ to 56 lbs"
+  },
+  "Pugshire": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Toy",
+    "weight": "6 to 15 lbs"
+  },
+  "Puli": {
+    "image": "https://img.dog-learn.com/dog-breeds/puli/puli-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Small",
+    "weight": "22 to 33 lbs"
+  },
+  "Pumi": {
+    "image": "https://img.dog-learn.com/dog-breeds/pumi/pumi-i2-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Small",
+    "weight": "22 to 29 lbs"
+  },
+  "Pungsan Dog": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Large",
+    "weight": "45 to 68 lbs"
+  },
+  "Pyrador": {
+    "image": "https://img.dog-learn.com/dog-breeds/pyrador/images/pyrador-small.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Large",
+    "weight": "75 to 100 lbs"
+  },
+  "Pyrenean Mastiff": {
+    "image": "https://img.dog-learn.com/dog-breeds/pyrenean-mastiff/pyrenean-mastiff-i1-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Giant",
+    "weight": "150 to 190 lbs"
+  },
+  "Pyrenean Shepherd": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Small",
+    "weight": "15 to 30 lbs"
+  },
+  "Queen Elizabeth Pocket Beagle": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Toy",
+    "weight": "4 to 12 lbs"
+  },
+  "Rat Terrier": {
+    "image": "https://img.dog-learn.com/dog-breeds/rat-terrier/rat-terrier-i1-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Small",
+    "weight": "10 to 24 lbs"
+  },
+  "Rat-Cha": {
+    "image": "https://img.dog-learn.com/dog-breeds/rat-cha/rat-cha-i1-sz18.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Toy",
+    "weight": "3 to 6 lbs"
+  },
+  "Reagle": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Large",
+    "weight": "50 to 85 lbs"
+  },
+  "Redbone Coonhound": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Large",
+    "weight": "45 to 70 lbs"
+  },
+  "Rhodesian Ridgeback": {
+    "image": "https://img.dog-learn.com/dog-breeds/rhodesian-ridgeback/rhodesian-ridgeback-i21-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Large",
+    "weight": "65 to 90 lbs"
+  },
+  "Ridgeback Bulldog": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Large",
+    "weight": "52¼ to 83 lbs"
+  },
+  "Roman Rottweiler": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Giant",
+    "weight": "75 to 120 lbs"
+  },
+  "Romanian Mioritic Shepherd Dog": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Giant",
+    "weight": "110 to 130 lbs"
+  },
+  "Rotterman": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Giant",
+    "weight": "70 to 130 lbs"
+  },
+  "Rottle": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Large",
+    "weight": "75 to 100 lbs"
+  },
+  "Rottweiler": {
+    "image": "https://img.dog-learn.com/dog-breeds/rottweiler/images/rottweiler-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Giant",
+    "weight": "85 to 130 lbs"
+  },
+  "Russkiy Toy": {
+    "image": "https://img.dog-learn.com/dog-breeds/russkiy-toy/russkiy-toy-i1-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Toy",
+    "weight": "6 to 6 lbs"
+  },
+  "Russo-European Laika": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Medium",
+    "weight": "40 to 50 lbs"
+  },
+  "Saint Basset": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Giant",
+    "weight": "58 to 173 lbs"
+  },
+  "Saint Berdoodle": {
+    "image": "https://img.dog-learn.com/dog-breeds/saint-berdoodle/saint-berdoodle-i16-small.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Giant",
+    "weight": "70 to 160 lbs"
+  },
+  "Saint Bermastiff": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Giant",
+    "weight": "150 to 200 lbs"
+  },
+  "Saint Bernard": {
+    "image": "https://img.dog-learn.com/dog-breeds/saint-bernard/images/saint-bernard-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Giant",
+    "weight": "110 to 200 lbs"
+  },
+  "Saint Bernese": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Giant",
+    "weight": "120 to 180 lbs"
+  },
+  "Saint Dane": {
+    "image": "https://img.dog-learn.com/dog-breeds/saint-dane/saint-dane-sz18.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Giant",
+    "weight": "120 to 220 lbs"
+  },
+  "Saluki": {
+    "image": "https://img.dog-learn.com/dog-breeds/saluki/saluki-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Medium",
+    "weight": "35 to 65 lbs"
+  },
+  "Samoyed": {
+    "image": "https://img.dog-learn.com/dog-breeds/samoyed/samoyed-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Medium",
+    "weight": "35 to 65 lbs"
+  },
+  "Sarplaninac": {
+    "image": "https://img.dog-learn.com/dog-breeds/sarplaninac/sarplaninac-i1-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Large",
+    "weight": "66 to 125 lbs"
+  },
+  "Schipese": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Toy",
+    "weight": "5½ to 16¼ lbs"
+  },
+  "Schipperke": {
+    "image": "https://img.dog-learn.com/dog-breeds/schipperke/schipperke-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Small",
+    "weight": "11 to 18 lbs"
+  },
+  "Schnairedale": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Large",
+    "weight": "43 to 101 lbs"
+  },
+  "Schnauzer Dane": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Giant",
+    "weight": "64 to 182 lbs"
+  },
+  "Schnollie": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Large",
+    "weight": "34 to 74 lbs"
+  },
+  "Schnoodle": {
+    "image": "https://img.dog-learn.com/dog-breeds/schnoodle/schnoodle-i1-sz18.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Small",
+    "weight": "6 to 20 lbs"
+  },
+  "Schweenie": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Small",
+    "weight": "10 to 20 lbs"
+  },
+  "Schweizer Laufhund": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Medium",
+    "weight": "33 to 44 lbs"
+  },
+  "Sco-Shi": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Small",
+    "weight": "10 to 20 lbs"
+  },
+  "Scobo Terrier": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Small",
+    "weight": "11¾ to 24½ lbs"
+  },
+  "Scotch Collie": {
+    "image": "https://img.dog-learn.com/dog-breeds/scotch-collie/images/scotch-collie-u4-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Large",
+    "weight": "40 to 70 lbs"
+  },
+  "Scottish Deerhound": {
+    "image": "https://img.dog-learn.com/dog-breeds/scottish-deerhound/gray-irish-wolfhound-i16-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Giant",
+    "weight": "75 to 110 lbs"
+  },
+  "Scottish Labrador": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Medium",
+    "weight": "25½ to 68½ lbs"
+  },
+  "Scottish Terrier": {
+    "image": "https://img.dog-learn.com/dog-breeds/scottish-terrier/images/scottish-terrier-u5-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Small",
+    "weight": "18 to 22 lbs"
+  },
+  "Scottish-Skye Terrier": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Small",
+    "weight": "19½ to 36½ lbs"
+  },
+  "Sealyham Terrier": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Small",
+    "weight": "18 to 24 lbs"
+  },
+  "Segugio Italiano": {
+    "image": "https://img.dog-learn.com/dog-breeds/segugio-italiano/segugio italiano-small.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Large",
+    "weight": "39 to 62 lbs"
+  },
+  "Seppala Siberian Sleddog": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Medium",
+    "weight": "40 to 50 lbs"
+  },
+  "Serbian Hound": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Medium",
+    "weight": "30 to 45 lbs"
+  },
+  "Shar Pei Malamute": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Large",
+    "weight": "46 to 91 lbs"
+  },
+  "Shar-Pei": {
+    "image": "https://img.dog-learn.com/dog-breeds/chinese-shar-pei/images/chinese-shar-pei-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Medium",
+    "weight": "40 to 55 lbs"
+  },
+  "Sheepadoodle": {
+    "image": "https://img.dog-learn.com/dog-breeds/sheepadoodle/sheepadoodle-i1-small.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Large",
+    "weight": "55 to 70 lbs"
+  },
+  "Sheltie": {
+    "image": "https://img.dog-learn.com/dog-breeds/sheltie/shetland-sheepdog-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Small",
+    "weight": "11 to 24 lbs"
+  },
+  "Sheltie Bulldog": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Medium",
+    "weight": "18¾ to 48 lbs"
+  },
+  "Shepadoodle": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Large",
+    "weight": "50 to 80 lbs"
+  },
+  "Sheprador": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Large",
+    "weight": "40 to 80 lbs"
+  },
+  "Shiba Inu": {
+    "image": "https://img.dog-learn.com/dog-breeds/shiba-inu/images/shiba-inu-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Small",
+    "weight": "15 to 23 lbs"
+  },
+  "Shichi": {
+    "image": "https://img.dog-learn.com/dog-breeds/shichi/shichi-i2-sz18.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Toy",
+    "weight": "3 to 9 lbs"
+  },
+  "Shichon": {
+    "image": "https://img.dog-learn.com/dog-breeds/shichon/shichon-i2-sz18.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Toy",
+    "weight": "8 to 15 lbs"
+  },
+  "Shiffon": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Toy",
+    "weight": "7 to 12 lbs"
+  },
+  "Shih Apso": {
+    "image": "https://img.dog-learn.com/dog-breeds/shih-apso/shih-apso-i1-sz18.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Small",
+    "weight": "12 to 18 lbs"
+  },
+  "Shih Tzu": {
+    "image": "https://img.dog-learn.com/dog-breeds/shih-tzu/images/shih-tzu-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Small",
+    "weight": "9 to 16 lbs"
+  },
+  "Shih-Poo": {
+    "image": "https://img.dog-learn.com/dog-breeds/shih-poo/shih-poo-i11-sz18.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Toy",
+    "weight": "7 to 15 lbs"
+  },
+  "Shikoku": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Medium",
+    "weight": "35 to 50 lbs"
+  },
+  "Shiloh Shepherd": {
+    "image": "https://img.dog-learn.com/dog-breeds/shiloh-shepherd/shiloh-shepherd-i1-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Giant",
+    "weight": "80 to 160 lbs"
+  },
+  "Shinese": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Toy",
+    "weight": "10 to 13 lbs"
+  },
+  "Shiranian": {
+    "image": "https://img.dog-learn.com/dog-breeds/shiranian/shiranian-i1-sz18.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Toy",
+    "weight": "4 to 15 lbs"
+  },
+  "Shollie": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Large",
+    "weight": "70 to 80 lbs"
+  },
+  "Shorkie Tzu": {
+    "image": "https://img.dog-learn.com/dog-breeds/shorkie-tzu/shorkie-tzu-i3-sz18.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Toy",
+    "weight": "7 to 15 lbs"
+  },
+  "Shorty Bull": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Medium",
+    "weight": "15 to 45 lbs"
+  },
+  "Shug": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Small",
+    "weight": "12 to 20 lbs"
+  },
+  "Shusky": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Medium",
+    "weight": "35 to 60 lbs"
+  },
+  "Siberian Husky": {
+    "image": "https://img.dog-learn.com/dog-breeds/siberian-husky/images/siberian-husky-small.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Medium",
+    "weight": "35 to 60 lbs"
+  },
+  "Silky Terrier": {
+    "image": "https://img.dog-learn.com/dog-breeds/silky-terrier/silky-terrier-i1-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Toy",
+    "weight": "8 to 11 lbs"
+  },
+  "Skye Terrier": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Medium",
+    "weight": "25 to 40 lbs"
+  },
+  "Slovak Cuvac": {
+    "image": "https://img.dog-learn.com/dog-breeds/slovak-cuvac/images/slovak-cuvac-small.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Large",
+    "weight": "70 to 100 lbs"
+  },
+  "Slovak Rough-Haired Pointer": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Large",
+    "weight": "55 to 77 lbs"
+  },
+  "Smooth Fox Terrier": {
+    "image": "https://img.dog-learn.com/dog-breeds/smooth-fox-terrier/smooth-fox-terrier-i1-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Small",
+    "weight": "15 to 19 lbs"
+  },
+  "Snorkie": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Toy",
+    "weight": "5 to 15 lbs"
+  },
+  "Soft Coated Wheaten Terrier": {
+    "image": "https://img.dog-learn.com/dog-breeds/soft-coated-wheaten-terrier/soft-coated-wheaten-terrier-i2-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Medium",
+    "weight": "30 to 45 lbs"
+  },
+  "Soft Coated Wheatzer": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Small",
+    "weight": "14 to 40 lbs"
+  },
+  "Spanador": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Medium",
+    "weight": "20 to 50 lbs"
+  },
+  "Spanish Mastiff": {
+    "image": "https://img.dog-learn.com/dog-breeds/spanish-mastiff/spanish-mastiff-i1-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Giant",
+    "weight": "88 to 150 lbs"
+  },
+  "Spanish Water Dog": {
+    "image": "https://img.dog-learn.com/dog-breeds/spanish-water-dog/spanish-water-dog-i1-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Medium",
+    "weight": "30 to 50 lbs"
+  },
+  "Spinone Italiano": {
+    "image": "https://img.dog-learn.com/dog-breeds/spinone-italiano/spinone-italiano-i1-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Large",
+    "weight": "61 to 85 lbs"
+  },
+  "Springador": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Large",
+    "weight": "50 to 80 lbs"
+  },
+  "Springer Boston Terrier": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Medium",
+    "weight": "17 to 49 lbs"
+  },
+  "Springer Schnauzer": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Medium",
+    "weight": "33 to 54 lbs"
+  },
+  "Springer Shih Tzu": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Medium",
+    "weight": "16¼ to 47¼ lbs"
+  },
+  "Springerdoodle": {
+    "image": "https://img.dog-learn.com/dog-breeds/springerdoodle/springerdoodle-i18-sz18.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Large",
+    "weight": "50 to 70 lbs"
+  },
+  "Stabyhoun": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Medium",
+    "weight": "40 to 55 lbs"
+  },
+  "Staffordshire Bull Terrier": {
+    "image": "https://img.dog-learn.com/dog-breeds/staffordshire-bull-terrier/staffordshire-bull-terrier-i1-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Medium",
+    "weight": "24 to 38 lbs"
+  },
+  "Staffy Malamute": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Large",
+    "weight": "33¼ to 87¾ lbs"
+  },
+  "Staghound": {
+    "image": "https://img.dog-learn.com/dog-breeds/staghound/staghound-i9-small.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Large",
+    "weight": "45 to 90 lbs"
+  },
+  "Standard Schnauzer": {
+    "image": "https://img.dog-learn.com/dog-breeds/standard-schnauzer/standard-schnauzer-i1-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Medium",
+    "weight": "30 to 50 lbs"
+  },
+  "Styrian Coarse-Haired Hound": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Medium",
+    "weight": "33 to 40 lbs"
+  },
+  "Swedish Lapphund": {
+    "image": "https://img.dog-learn.com/dog-breeds/swedish-lapphund/images/swedish-lapphund-u4-small.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Medium",
+    "weight": "35 to 55 lbs"
+  },
+  "Swedish Vallhund": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Medium",
+    "weight": "25 to 35 lbs"
+  },
+  "Swiss Mountain Poodle": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Large",
+    "weight": "53 to 126 lbs"
+  },
+  "Tahltan Bear Dog": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Small",
+    "weight": "15 to 25 lbs"
+  },
+  "Tamaskan Dog": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Large",
+    "weight": "55 to 95 lbs"
+  },
+  "Teacup Poodle": {
+    "image": "https://img.dog-learn.com/dog-breeds/teacup-poodle/teacup-poodle-i1-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Toy",
+    "weight": "2 to 5 lbs"
+  },
+  "Teddy Roosevelt Terrier": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Small",
+    "weight": "10 to 25 lbs"
+  },
+  "Telomian": {
+    "image": "https://img.dog-learn.com/dog-breeds/telomian/images/telomian-black-and-white-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Small",
+    "weight": "18 to 28 lbs"
+  },
+  "Terripoo": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Medium",
+    "weight": "18¾ to 59¼ lbs"
+  },
+  "Texas Heeler": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Medium",
+    "weight": "25 to 50 lbs"
+  },
+  "Thai Bangkaew Dog": {
+    "image": "https://img.dog-learn.com/dog-breeds/thai-bangkaew-dog/images/thai-bangkaew-dog-white-and-red-small.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Medium",
+    "weight": "35 to 45 lbs"
+  },
+  "Thai Ridgeback": {
+    "image": "https://img.dog-learn.com/dog-breeds/thai-ridgeback/thai-ridgeback-i1-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Large",
+    "weight": "35 to 60 lbs"
+  },
+  "Tibetan Lhasa Apso": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Small",
+    "weight": "13¾ to 22¼ lbs"
+  },
+  "Tibetan Mastiff": {
+    "image": "https://img.dog-learn.com/dog-breeds/tibetan-mastiff/images/tibetan-mastiff-puppy-17-small.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Giant",
+    "weight": "100 to 170 lbs"
+  },
+  "Tibetan Spaniel": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Small",
+    "weight": "9 to 15 lbs"
+  },
+  "Tibetan Terrier": {
+    "image": "https://img.dog-learn.com/dog-breeds/tibetan-terrier/tibetan-terrier-i1-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Small",
+    "weight": "20 to 24 lbs"
+  },
+  "Timber Wolf": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Giant",
+    "weight": "50 to 130 lbs"
+  },
+  "Tiny Texas Heeler": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Medium",
+    "weight": "30 to 55 lbs"
+  },
+  "Tornjak": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Large",
+    "weight": "60 to 110 lbs"
+  },
+  "Tosa": {
+    "image": "https://img.dog-learn.com/dog-breeds/tosa/tosa-i3-small.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Giant",
+    "weight": "90 to 170 lbs"
+  },
+  "Toy Fox Terrier": {
+    "image": "https://img.dog-learn.com/dog-breeds/toy-fox-terrier/toy-fox-terrier-i1-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Toy",
+    "weight": "3½ to 7 lbs"
+  },
+  "Toy Poxer": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Small",
+    "weight": "7 to 20 lbs"
+  },
+  "Transylvanian Hound": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Large",
+    "weight": "55 to 80 lbs"
+  },
+  "Treeing Tennessee Brindle": {
+    "image": "https://img.dog-learn.com/dog-breeds/treeing-tennessee-brindle/treeing-tennessee-brindle-i12-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Medium",
+    "weight": "30 to 50 lbs"
+  },
+  "Treeing Walker Coonhound": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Large",
+    "weight": "45 to 80 lbs"
+  },
+  "Ultimate Mastiff": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Giant",
+    "weight": "110 to 150 lbs"
+  },
+  "Utonagan": {
+    "image": "https://img.dog-learn.com/dog-breeds/utonagan/images/utonagan-u4-small.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Large",
+    "weight": "55 to 90 lbs"
+  },
+  "Victorian Bulldog": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Large",
+    "weight": "55 to 75 lbs"
+  },
+  "Villano De Las Encartaciones": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Large",
+    "weight": "65 to 85 lbs"
+  },
+  "Vizmaraner": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Large",
+    "weight": "45 to 75 lbs"
+  },
+  "Vizsla": {
+    "image": "https://img.dog-learn.com/dog-breeds/vizsla/vizsla-i2-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Large",
+    "weight": "40 to 65 lbs"
+  },
+  "Vizsla Brittany": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Medium",
+    "weight": "32 to 60 lbs"
+  },
+  "Vizsla Irish Setter": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Large",
+    "weight": "44 to 69 lbs"
+  },
+  "Wauzer": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Small",
+    "weight": "12 to 22 lbs"
+  },
+  "Weimaraner": {
+    "image": "https://img.dog-learn.com/dog-breeds/weimaraner/images/weimaraner-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Large",
+    "weight": "50 to 85 lbs"
+  },
+  "Weimardoodle": {
+    "image": "https://img.dog-learn.com/dog-breeds/weimardoodle/images/weimardoodle-small.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Large",
+    "weight": "45 to 70 lbs"
+  },
+  "Welsh Sheepdog": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Medium",
+    "weight": "30 to 45 lbs"
+  },
+  "Welsh Springer Spaniel": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Medium",
+    "weight": "35 to 45 lbs"
+  },
+  "Welsh Terrier": {
+    "image": "https://img.dog-learn.com/dog-breeds/welsh-terrier/welsh-terrier-i1-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Small",
+    "weight": "20 to 21 lbs"
+  },
+  "West Highland White Terrier": {
+    "image": "https://img.dog-learn.com/dog-breeds/west-highland-white-terrier/images/west-highland-white-terrier-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Small",
+    "weight": "15 to 20 lbs"
+  },
+  "Westie Aussie": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Medium",
+    "weight": "20 to 56 lbs"
+  },
+  "Westie Staff": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Medium",
+    "weight": "21 to 60 lbs"
+  },
+  "Westiepoo": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Small",
+    "weight": "20 to 30 lbs"
+  },
+  "Wetterhoun": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Large",
+    "weight": "55 to 77 lbs"
+  },
+  "Wheachon Terrier": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Small",
+    "weight": "11¾ to 38½ lbs"
+  },
+  "Whippet": {
+    "image": "https://img.dog-learn.com/dog-breeds/whippet/whippet-i2-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Medium",
+    "weight": "20 to 40 lbs"
+  },
+  "White English Bulldog": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Large",
+    "weight": "50 to 80 lbs"
+  },
+  "White Shepherd": {
+    "image": "https://img.dog-learn.com/dog-breeds/white-shepherd/white-shepherd-dog-i2-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Large",
+    "weight": "77 to 85 lbs"
+  },
+  "Whoodle": {
+    "image": "https://img.dog-learn.com/dog-breeds/whoodle/images/whoodle-cc-2-sz18.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Medium",
+    "weight": "20 to 45 lbs"
+  },
+  "Wire Fox Terrier": {
+    "image": "https://img.dog-learn.com/dog-breeds/wire-fox-terrier/wire-fox-terrier-i1-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Small",
+    "weight": "15 to 19 lbs"
+  },
+  "Wirehaired Pointing Griffon": {
+    "image": "https://img.dog-learn.com/dog-breeds/wirehaired-pointing-griffon/wirehaired-pointing-griffon-i1-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Large",
+    "weight": "50 to 60 lbs"
+  },
+  "Wirehaired Vizsla": {
+    "image": "https://img.dog-learn.com/dog-breeds/wirehaired-vizsla/wirehaired-vizsla-i1-small.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Large",
+    "weight": "40 to 60 lbs"
+  },
+  "Wolamute": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Giant",
+    "weight": "115 to 175 lbs"
+  },
+  "Xoloitzcuintle": {
+    "image": "https://img.dog-learn.com/dog-breeds/xoloitzcuintle/xoloitzcuintle-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Small",
+    "weight": "5 to 40 lbs"
+  },
+  "Yorkie Pit": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Medium",
+    "weight": "9¼ to 73½ lbs"
+  },
+  "Yorkie Pom": {
+    "image": "https://img.dog-learn.com/dog-breeds/yorkie-pom/yorkie-pom-i1-sz18.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Toy",
+    "weight": "3 to 7 lbs"
+  },
+  "Yorkie-Apso": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Toy",
+    "weight": "7 to 15 lbs"
+  },
+  "Yorkie-Poo Jack": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Toy",
+    "weight": "5 to 15 lbs"
+  },
+  "Yorkie-Ton": {
+    "image": "https://img.dog-learn.com/images/coming-soon-thumb.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Toy",
+    "weight": "7 to 10 lbs"
+  },
+  "Yorkiepoo": {
+    "image": "https://img.dog-learn.com/dog-breeds/yorkiepoo/yorkiepoo-i1-sz18.jpg",
+    "breed_type": "Mixed Breed",
+    "size_category": "Toy",
+    "weight": "3 to 14 lbs"
+  },
+  "Yorkshire Terrier": {
+    "image": "https://img.dog-learn.com/dog-breeds/yorkshire-terrier/images/yorkshire-terrier-sz18.jpg",
+    "breed_type": "Purebred",
+    "size_category": "Toy",
+    "weight": "4 to 7 lbs"
+  }
+}

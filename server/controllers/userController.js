@@ -102,7 +102,6 @@ const googleAuth = asyncHandler(async (req, res) => {
       throw new Error("Google token has expired");
     }
 
-    console.log("creating new user", googleUser);
     // check if user exists, if not continue creating new user
     await checkSocialUser(googleUser.email, res, async () => {
       // generate random password and hash it

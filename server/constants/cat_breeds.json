@@ -1,0 +1,548 @@
+{
+  "Abyssinian": {
+    "life_span": "14-15",
+    "img": "/uploads/cat-pictures/abyssinian-1.jpg",
+    "temperament": ["Energetic", "Independent", "Intelligent", "Gentle"],
+    "hypoallergenic": "No",
+    "weight": "8-12"
+  },
+  "Aegean": {
+    "life_span": "9-12",
+    "img": "/uploads/cat-pictures/aegean-cat-1.jpg",
+    "temperament": ["Affectionate", "Intelligent", "Playful"],
+    "hypoallergenic": "No",
+    "weight": "7-10"
+  },
+  "American Bobtail": {
+    "life_span": "11-15",
+    "img": "/uploads/cat-pictures/american-bobtail-1.jpg",
+    "temperament": ["Family", "Highly Intelligent", "Interactive", "Lively"],
+    "hypoallergenic": "No",
+    "weight": "7-16"
+  },
+  "American Curl": {
+    "life_span": "12-16",
+    "img": "/uploads/cat-pictures/american-curl-1.jpg",
+    "temperament": ["Family", "Interactive", "Lively", "Loving"],
+    "hypoallergenic": "No",
+    "weight": "6-10"
+  },
+  "American Polydactyl": {
+    "life_span": "14-16",
+    "img": "/uploads/cat-pictures/american-polydactyl-1.jpg",
+    "temperament": ["Affectionate", "Intelligent", "Playful", "Social"],
+    "hypoallergenic": "-",
+    "weight": "7-12"
+  },
+  "American Shorthair": {
+    "life_span": "15-17",
+    "img": "/uploads/cat-pictures/american-shorthair-1.jpg",
+    "temperament": ["Active", "Curious", "Easy Going", "Playful"],
+    "hypoallergenic": "No",
+    "weight": "8-15"
+  },
+  "American Wirehair": {
+    "life_span": "14-18",
+    "img": "/uploads/cat-pictures/american-wirehair-1.jpg",
+    "temperament": ["Family", "Lively", "Outgoing", "Interactive"],
+    "hypoallergenic": "No",
+    "weight": "8-15"
+  },
+  "Arabian Mau": {
+    "life_span": "12-14",
+    "img": "/uploads/cat-pictures/arabian-mau-1.jpg",
+    "temperament": ["Agile", "Curious", "Independent", "Playful"],
+    "hypoallergenic": "No",
+    "weight": "8-16"
+  },
+  "Asian Semi-longhair": {
+    "life_span": "12-15",
+    "img": "/uploads/cat-pictures/asian-semi-longhair-1.jpg",
+    "temperament": ["Active", "Curious", "Gentle"],
+    "hypoallergenic": "No",
+    "weight": "7-15"
+  },
+  "Asian cat": {
+    "life_span": "12-18",
+    "img": "/uploads/cat-pictures/malayan-cat-1.jpg",
+    "temperament": ["Affectionate", "Interactive", "Playful", "Social"],
+    "hypoallergenic": "No",
+    "weight": "6-13"
+  },
+  "Australian Mist": {
+    "life_span": "12-16",
+    "img": "/uploads/cat-pictures/australian-mist-1.jpg",
+    "temperament": ["Intelligent", "friendly"],
+    "hypoallergenic": "No",
+    "weight": "7-15"
+  },
+  "Balinese": {
+    "life_span": "10-15",
+    "img": "/uploads/cat-pictures/balinese-1.jpg",
+    "temperament": ["Family", "Intelligent", "Loving", "Playful"],
+    "hypoallergenic": "Yes",
+    "weight": "6-11"
+  },
+  "Bambino": {
+    "life_span": "12-14",
+    "img": "/uploads/cat-pictures/bambino-cat-1.jpg",
+    "temperament": ["Friendly", "Intelligent", "Affectionate"],
+    "hypoallergenic": "No",
+    "weight": "5-9"
+  },
+  "Bengal": {
+    "life_span": "12-16",
+    "img": "/uploads/cat-pictures/bengal-1.jpg",
+    "temperament": ["Agile", "Family", "Inquisitive", "Lively"],
+    "hypoallergenic": "Yes",
+    "weight": "8-18"
+  },
+  "Birman": {
+    "life_span": "14-15",
+    "img": "/uploads/cat-pictures/birman-1.jpg",
+    "temperament": ["Active", "Gentle", "Social"],
+    "hypoallergenic": "No",
+    "weight": "6-15"
+  },
+  "Bombay": {
+    "life_span": "12-16",
+    "img": "/uploads/cat-pictures/bombay-cat-1.jpg",
+    "temperament": ["Intelligent", "Loving", "Playful", "Sweet"],
+    "hypoallergenic": "No",
+    "weight": "8-12"
+  },
+  "Brazilian Shorthair": {
+    "life_span": "14-20",
+    "img": "/uploads/cat-pictures/brazilian-shorthair-1.jpg",
+    "temperament": ["Active", "Playful"],
+    "hypoallergenic": "No",
+    "weight": "10-22"
+  },
+  "British Longhair": {
+    "life_span": "12-15",
+    "img": "/uploads/cat-pictures/british-longhair-1.jpg",
+    "temperament": ["Affectionate", "Friendly", "Loyal", "Sociable"],
+    "hypoallergenic": "-",
+    "weight": "8-18"
+  },
+  "British Shorthair": {
+    "life_span": "12-17",
+    "img": "/uploads/cat-pictures/british-shorthair-1.jpg",
+    "temperament": ["Easy Going", "Family", "Loyal", "Patient"],
+    "hypoallergenic": "No",
+    "weight": "9-18"
+  },
+  "Burmese": {
+    "life_span": "15-16",
+    "img": "/uploads/cat-pictures/burmese-1.jpg",
+    "temperament": ["Curious", "Family", "Intelligent", "Interactive"],
+    "hypoallergenic": "Yes",
+    "weight": "6-12"
+  },
+  "Burmilla": {
+    "life_span": "10-15",
+    "img": "/uploads/cat-pictures/burmilla-1.jpg",
+    "temperament": ["Playful", "Relaxed", "Social", "Sweet"],
+    "hypoallergenic": "No",
+    "weight": "6-13"
+  },
+  "California Spangled": {
+    "life_span": "10-14",
+    "img": "/uploads/cat-pictures/california-spangled-cat-1.jpg",
+    "temperament": ["Curious", "Intelligent", "Loyal", "Social"],
+    "hypoallergenic": "Yes",
+    "weight": "10-15"
+  },
+  "Chantilly-Tiffany": {
+    "life_span": "14-16",
+    "img": "/uploads/cat-pictures/chantilly-1.jpg",
+    "temperament": ["Affectionate", "Demanding", "Interactive", "Loyal"],
+    "hypoallergenic": "No",
+    "weight": "8-12"
+  },
+  "Chartreux": {
+    "life_span": "12-15",
+    "img": "/uploads/cat-pictures/chartreux-1.jpg",
+    "temperament": ["Family", "Highly Intelligent", "Loving", "Loyal"],
+    "hypoallergenic": "No",
+    "weight": "7-15"
+  },
+  "Chausie": {
+    "life_span": "12-14",
+    "img": "/uploads/cat-pictures/chausie-1.jpg",
+    "temperament": ["Active", "Affectionate", "Social", "Outgoing"],
+    "hypoallergenic": "No",
+    "weight": "8-16"
+  },
+  "Cheetoh": {
+    "life_span": "12-14",
+    "img": "/uploads/cat-pictures/cheetoh-1.jpg",
+    "temperament": ["Affectionate", "Gentle", "Intelligent", "Social"],
+    "hypoallergenic": "Yes",
+    "weight": "8-15"
+  },
+  "Colorpoint Shorthair": {
+    "life_span": "12-16",
+    "img": "/uploads/cat-pictures/colorpoint-shorthair-1.jpg",
+    "temperament": ["Affectionate", "Intelligent", "Playful", "Social"],
+    "hypoallergenic": "Yes",
+    "weight": "6-12"
+  },
+  "Cornish Rex": {
+    "life_span": "11-14",
+    "img": "/uploads/cat-pictures/cornish-rex-1.jpg",
+    "temperament": ["Playful", "Affectionate", "Curious", "Intelligent"],
+    "hypoallergenic": "Yes",
+    "weight": "6-10"
+  },
+  "Cymric": {
+    "life_span": "8-14",
+    "img": "/uploads/cat-pictures/cymric-cat-1.jpg",
+    "temperament": ["Gentle", "Intelligent", "Loyal", "Playful"],
+    "hypoallergenic": "Yes",
+    "weight": "8-13"
+  },
+  "Cyprus": {
+    "life_span": "12-15",
+    "img": "/uploads/cat-pictures/cyprus-cat-1.jpg",
+    "temperament": ["Affectionate", "Social"],
+    "hypoallergenic": "No",
+    "weight": "10-18"
+  },
+  "Devon Rex": {
+    "life_span": "10-15",
+    "img": "/uploads/cat-pictures/devon-rex-1.jpg",
+    "temperament": ["Loyal", "Playful", "Social"],
+    "hypoallergenic": "Yes",
+    "weight": "5-10"
+  },
+  "Donskoy": {
+    "life_span": "12-15",
+    "img": "/uploads/cat-pictures/donskoy-1.jpg",
+    "temperament": ["Affectionate", "Friendly", "Intelligent", "Sociable"],
+    "hypoallergenic": "Yes",
+    "weight": "7-15"
+  },
+  "Dwelf": {
+    "life_span": "12-15",
+    "img": "/uploads/cat-pictures/dwelf-1.jpg",
+    "temperament": ["Affectionate", "Friendly", "Lively", "Sociable"],
+    "hypoallergenic": "No",
+    "weight": "4-9"
+  },
+  "Egyptian Mau": {
+    "life_span": "18-20",
+    "img": "/uploads/cat-pictures/egyptian-mau-1.jpg",
+    "temperament": ["Agile", "Intelligent", "Loyal", "Playful"],
+    "hypoallergenic": "No",
+    "weight": "6-14"
+  },
+  "Elf cat": {
+    "life_span": "8-14",
+    "img": "/uploads/cat-pictures/elf-cat-1.jpg",
+    "temperament": ["Active", "Friendly", "Intelligent", "Sociable"],
+    "hypoallergenic": "Yes",
+    "weight": "10-15"
+  },
+  "European Burmese": {
+    "life_span": "10-15",
+    "img": "/uploads/cat-pictures/european-burmese-1.jpg",
+    "temperament": ["Affectionate", "Loyal", "Sweet"],
+    "hypoallergenic": "No",
+    "weight": "7-14"
+  },
+  "Exotic Shorthair": {
+    "life_span": "12-15",
+    "img": "/uploads/cat-pictures/exotic-shorthair-1.jpg",
+    "temperament": ["Quiet", "Lovely", "Warm pure", "Sweet"],
+    "hypoallergenic": "No",
+    "weight": "8-14"
+  },
+  "Havana Brown": {
+    "life_span": "10-15",
+    "img": "/uploads/cat-pictures/havana-brown-1.jpg",
+    "temperament": ["Curious", "Demanding", "Friendly", "Intelligent"],
+    "hypoallergenic": "No",
+    "weight": "6-12"
+  },
+  "Himalayan": {
+    "life_span": "9-15",
+    "img": "/uploads/cat-pictures/himalayan-cat-1.jpg",
+    "temperament": ["Dependent", "Gentle", "Intelligent", "Quiet"],
+    "hypoallergenic": "No",
+    "weight": "7-14"
+  },
+  "Japanese Bobtail": {
+    "life_span": "14-16",
+    "img": "/uploads/cat-pictures/japanese-bobtail-1.jpg",
+    "temperament": ["Family", "Lively", "Loyal", "Outgoing"],
+    "hypoallergenic": "No",
+    "weight": "6-10"
+  },
+  "Javanese": {
+    "life_span": "10-12",
+    "img": "/uploads/cat-pictures/javanese-cat-1.jpg",
+    "temperament": ["Affectionate", "Gentle", "Intelligent", "Social"],
+    "hypoallergenic": "Yes",
+    "weight": "6-12"
+  },
+  "Khao Manee": {
+    "life_span": "10-12",
+    "img": "/uploads/cat-pictures/khao-manee-1.jpg",
+    "temperament": ["Active", "Intelligent", "Outgoing", "Talkative"],
+    "hypoallergenic": "No",
+    "weight": "7-11"
+  },
+  "Korat": {
+    "life_span": "10-15",
+    "img": "/uploads/cat-pictures/korat-1.jpg",
+    "temperament": ["Quiet", "Gentle", "Intelligent", "Friendly"],
+    "hypoallergenic": "No",
+    "weight": "6-11"
+  },
+  "LaPerm": {
+    "life_span": "10-14",
+    "img": "/uploads/cat-pictures/laperm-1.jpg",
+    "temperament": ["Clever", "Intelligent", "Playful", "Friendly"],
+    "hypoallergenic": "No",
+    "weight": "6-12"
+  },
+  "Lykoi": {
+    "life_span": "12-16",
+    "img": "/uploads/cat-pictures/lykoi-1.jpg",
+    "temperament": ["Active", "Playful", "Intelligent", "Loving"],
+    "hypoallergenic": "No",
+    "weight": "6-12"
+  },
+  "Maine Coon": {
+    "life_span": "12-15",
+    "img": "/uploads/cat-pictures/maine-coon-1.jpg",
+    "temperament": ["Gentle", "Intelligent", "Independent"],
+    "hypoallergenic": "No",
+    "weight": "8-25"
+  },
+  "Manx": {
+    "life_span": "12-14",
+    "img": "/uploads/cat-pictures/manx-1.jpg",
+    "temperament": ["Easy Going", "Intelligent", "Loyal", "Playful"],
+    "hypoallergenic": "No",
+    "weight": "7-13"
+  },
+  "Minskin": {
+    "life_span": "12-14",
+    "img": "/uploads/cat-pictures/minskin-1.jpg",
+    "temperament": ["Friendly", "Intelligent", "Inquisitive", "Sweet-tempered"],
+    "hypoallergenic": "No",
+    "weight": "4-6"
+  },
+  "Munchkin": {
+    "life_span": "10-15",
+    "img": "/uploads/cat-pictures/munchkin-cat-1.jpg",
+    "temperament": ["Agile", "Easy Going", "Intelligent", "Playful"],
+    "hypoallergenic": "No",
+    "weight": "5-9"
+  },
+  "Napoleon cat": {
+    "life_span": "12-15",
+    "img": "/uploads/cat-pictures/napoleon-cat-1.jpg",
+    "temperament": ["Easygoing", "Loving", "Playful", "Sweet"],
+    "hypoallergenic": "No",
+    "weight": "5-9"
+  },
+  "Nebelung": {
+    "life_span": "11-16",
+    "img": "/uploads/cat-pictures/nebelung-1.jpg",
+    "temperament": ["Gentle", "Quiet", "Shy"],
+    "hypoallergenic": "No",
+    "weight": "7-14"
+  },
+  "Norwegian Forest Cat": {
+    "life_span": "12-16",
+    "img": "/uploads/cat-pictures/norwegian-forest-cat-1.jpg",
+    "temperament": ["Curious", "Intelligent", "Loving", "Playful"],
+    "hypoallergenic": "No",
+    "weight": "9-16"
+  },
+  "Ocicat": {
+    "life_span": "12-14",
+    "img": "/uploads/cat-pictures/ocicat-1.jpg",
+    "temperament": ["Active", "Agile", "Demanding", "Family"],
+    "hypoallergenic": "Yes",
+    "weight": "7-15"
+  },
+  "Oriental": {
+    "life_span": "12-14",
+    "img": "/uploads/cat-pictures/oriental-shorthair-1.jpg",
+    "temperament": ["Curious", "Intelligent", "Social", "Playfulness"],
+    "hypoallergenic": "Yes",
+    "weight": "6-12"
+  },
+  "Persian": {
+    "life_span": "14-15",
+    "img": "/uploads/cat-pictures/persian-cat-1.jpg",
+    "temperament": ["Gentle", "Sensitive", "Quiet", "Ability"],
+    "hypoallergenic": "No",
+    "weight": "9-13"
+  },
+  "Peterbald": {
+    "life_span": "12-15",
+    "img": "/uploads/cat-pictures/peterbald-1.jpg",
+    "temperament": ["Affectionate", "Athletic", "Friendly", "Playful"],
+    "hypoallergenic": "No",
+    "weight": "6-12"
+  },
+  "Pixie-bob": {
+    "life_span": "13-16",
+    "img": "/uploads/cat-pictures/pixie-bob-1.jpg",
+    "temperament": ["Affectionate", "Intelligent", "Sociable", "Loyal"],
+    "hypoallergenic": "No",
+    "weight": "8-17"
+  },
+  "Ragamuffin": {
+    "life_span": "12-16",
+    "img": "/uploads/cat-pictures/ragamuffin-cat-1.jpg",
+    "temperament": ["Affectionate", "Friendly", "Gentle"],
+    "hypoallergenic": "No",
+    "weight": "10-20"
+  },
+  "Ragdoll": {
+    "life_span": "12-17",
+    "img": "/uploads/cat-pictures/ragdoll-1.jpg",
+    "temperament": ["Gentle", "Quiet", "Friendly", "Easygoing"],
+    "hypoallergenic": "No",
+    "weight": "10-20"
+  },
+  "Russian Blue": {
+    "life_span": "10-16",
+    "img": "/uploads/cat-pictures/russian-blue-1.jpg",
+    "temperament": ["Easy Going", "Intelligent", "Loyal", "Playful"],
+    "hypoallergenic": "Yes",
+    "weight": "7-15"
+  },
+  "Savannah": {
+    "life_span": "17-20",
+    "img": "/uploads/cat-pictures/savannah-cat-1.jpg",
+    "temperament": ["Curious", "Intelligent", "Loyal", "Social"],
+    "hypoallergenic": "No",
+    "weight": "12-25"
+  },
+  "Scottish Fold": {
+    "life_span": "11-14",
+    "img": "/uploads/cat-pictures/scottish-fold-1.jpg",
+    "temperament": ["Affectionate", "Intelligent", "Loyal", "Playful"],
+    "hypoallergenic": "No",
+    "weight": "6-13"
+  },
+  "Selkirk Rex": {
+    "life_span": "14-15",
+    "img": "/uploads/cat-pictures/selkirk-rex-1.jpg",
+    "temperament": ["Dependent", "Loving", "Patient", "Playful"],
+    "hypoallergenic": "No",
+    "weight": "6-16"
+  },
+  "Serengeti cat": {
+    "life_span": "10-15",
+    "img": "/uploads/cat-pictures/serengeti-cat-1.jpg",
+    "temperament": ["Confident", "Energetic", "Friendly", "Sociable"],
+    "hypoallergenic": "No",
+    "weight": "8-15"
+  },
+  "Siamese": {
+    "life_span": "12-15",
+    "img": "/uploads/cat-pictures/siamese-1.jpg",
+    "temperament": ["Lively", "Active", "Amart", "Clever"],
+    "hypoallergenic": "Yes",
+    "weight": "8-15"
+  },
+  "Siberian": {
+    "life_span": "12-15",
+    "img": "/uploads/cat-pictures/siberian-1.jpg",
+    "temperament": ["Agile", "Intelligent", "Loyal", "Playful"],
+    "hypoallergenic": "Yes",
+    "weight": "12-20"
+  },
+  "Singapura": {
+    "life_span": "12-15",
+    "img": "/uploads/cat-pictures/singapura-1.jpg",
+    "temperament": ["Curious", "Easy Going", "Family", "Inquisitive"],
+    "hypoallergenic": "No",
+    "weight": "4-8"
+  },
+  "Snowshoe": {
+    "life_span": "14-19",
+    "img": "/uploads/cat-pictures/snowshoe-cat-1.jpg",
+    "temperament": ["Affectionate", "Intelligent", "Social"],
+    "hypoallergenic": "No",
+    "weight": "7-12"
+  },
+  "Sokoke": {
+    "life_span": "12-15",
+    "img": "/uploads/cat-pictures/sokoke-1.jpg",
+    "temperament": ["Intelligence", "Lively", "Loving", "Playful"],
+    "hypoallergenic": "No",
+    "weight": "7-15"
+  },
+  "Somali": {
+    "life_span": "12-16",
+    "img": "/uploads/cat-pictures/somali-1.jpg",
+    "temperament": ["Curious", "Interactive", "Loyal", "Playful"],
+    "hypoallergenic": "No",
+    "weight": "6-12"
+  },
+  "Sphynx": {
+    "life_span": "12-14",
+    "img": "/uploads/cat-pictures/sphynx-1.jpg",
+    "temperament": ["Gentle", "Quiet", "Friendly"],
+    "hypoallergenic": "Yes",
+    "weight": "6-12"
+  },
+  "Thai cat": {
+    "life_span": "12-16",
+    "img": "/uploads/cat-pictures/thai-cat-1.jpg",
+    "temperament": ["Affectionate", "Loving", "Playful", "Talkative"],
+    "hypoallergenic": "No",
+    "weight": "8-15"
+  },
+  "Tonkinese": {
+    "life_span": "14-16",
+    "img": "/uploads/cat-pictures/tonkinese-1.jpg",
+    "temperament": ["Curious", "Intelligent", "Lively", "Playful"],
+    "hypoallergenic": "No",
+    "weight": "6-12"
+  },
+  "Toyger": {
+    "life_span": "12-15",
+    "img": "/uploads/cat-pictures/toyger-1.jpg",
+    "temperament": ["Intelligent", "Playful", "Social"],
+    "hypoallergenic": "No",
+    "weight": "7-15"
+  },
+  "Turkish Angora": {
+    "life_span": "15-18",
+    "img": "/uploads/cat-pictures/turkish-angora-1.jpg",
+    "temperament": ["Intelligent", "Playful", "Gentle", "Clever"],
+    "hypoallergenic": "No",
+    "weight": "6-12"
+  },
+  "Turkish Van": {
+    "life_span": "12-17",
+    "img": "/uploads/cat-pictures/turkish-van-1.jpg",
+    "temperament": ["Intelligent", "Loyal", "Playful", "Talkative"],
+    "hypoallergenic": "No",
+    "weight": "7-20"
+  },
+  "Ukrainian Levkoy": {
+    "life_span": "12-15",
+    "img": "/uploads/cat-pictures/ukrainian-levkoy-1.jpg",
+    "temperament": ["Friendly", "Playful", "Intelligent", "Inquisitive"],
+    "hypoallergenic": "Yes",
+    "weight": "8-12"
+  },
+  "York Chocolate": {
+    "life_span": "13-15",
+    "img": "/uploads/cat-pictures/york-chocolate-1.jpg",
+    "temperament": ["Curious", "Friendly", "Intelligent", "Playful"],
+    "hypoallergenic": "No",
+    "weight": "12-18"
+  }
+}
