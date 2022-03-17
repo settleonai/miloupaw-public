@@ -2,6 +2,8 @@ const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 const asyncHandler = require("express-async-handler");
 const User = require("../../models/userModel");
+const generatePassword = require("../utils/randomPassword");
+const getAvatar = require("../utils/getAvatar");
 
 // @desc    Register new user
 // @route   POST /api/users
@@ -79,7 +81,6 @@ const getMe = asyncHandler(async (req, res) => {
 // @route   POST /api/users
 // @access  Public
 const googleAuth = asyncHandler(async (req, res) => {
-  console.log("/////", req);
   const { token } = req.body;
   if (!token) {
     res.status(400);
@@ -101,13 +102,22 @@ const googleAuth = asyncHandler(async (req, res) => {
       throw new Error("Google token has expired");
     }
 
+    console.log("creating new user", googleUser);
     // check if user exists, if not continue creating new user
     await checkSocialUser(googleUser.email, res, async () => {
+      // generate random password and hash it
+      const salt = await bcrypt.genSalt(10);
+      const hashedPassword = await bcrypt.hash(generatePassword(), salt);
+
+      // create new user
       const user = await User.create({
         name: googleUser.name,
         email: googleUser.email,
+        password: hashedPassword,
         googleId: googleUser.sub,
         email_verified: googleUser.email_verified,
+        first_name: googleUser.given_name,
+        last_name: googleUser.family_name,
         picture: googleUser.picture,
         provider: "google",
         role: "client",
@@ -137,7 +147,7 @@ const googleAuth = asyncHandler(async (req, res) => {
 });
 
 const appleAuth = asyncHandler(async (req, res) => {
-  const { token } = req.body;
+  const { token, last_name, first_name } = req.body;
 
   if (!token) {
     res.status(400);
@@ -162,11 +172,19 @@ const appleAuth = asyncHandler(async (req, res) => {
 
     // check if user exists, if not continue creating new user
     await checkSocialUser(appleUser.email, res, async () => {
+      // generate random password and hash it
+      const salt = await bcrypt.genSalt(10);
+      const hashedPassword = await bcrypt.hash(generatePassword(), salt);
+
+      // create new user
       const user = await User.create({
-        name: appleUser.name,
+        name: first_name + " " + last_name,
         email: appleUser.email,
+        password: hashedPassword,
         googleId: appleUser.sub,
         email_verified: appleUser.email_verified,
+        first_name,
+        last_name,
         picture,
         provider: "apple",
         role: "client",

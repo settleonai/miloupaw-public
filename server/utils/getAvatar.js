@@ -12,4 +12,4 @@ async function getAvatar(email) {
   }
 }
 
-export default getAvatar;
+module.exports = getAvatar;
