@@ -12,9 +12,9 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-app.use("/api/users", require("./routes/userRoutes"));
-app.use("/api/pets", require("./routes/petRoutes"));
-app.use("/api/locations", require("./routes/locationRoutes"));
+app.use("/users", require("./routes/userRoutes"));
+app.use("/pets", require("./routes/petRoutes"));
+app.use("/locations", require("./routes/locationRoutes"));
 
 // Serve frontend
 if (process.env.NODE_ENV === "production") {
