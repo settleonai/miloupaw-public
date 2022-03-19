@@ -26,9 +26,10 @@ const sendVerificationNumber = asyncHandler(async (req, res) => {
     await profile.save();
 
     // Send SMS
-    await client.verify
-      .services(serviceSid)
-      .verifications.create({ to: profile.phone_number, channel: "sms" });
+    await client.verify.services(serviceSid).verifications.create({
+      to: `+1 ${profile.phone_number}`,
+      channel: "sms",
+    });
 
     return res
       .status(200)
@@ -46,7 +47,7 @@ const verifyPhoneNumber = asyncHandler(async (req, res) => {
     const profile = await profileModel.findOne({ user: user._id });
     const verification = await client.verify
       .services(serviceSid)
-      .verificationChecks.create({ code, to: profile.phone_number });
+      .verificationChecks.create({ code, to: `+1 ${profile.phone_number}` });
 
     // console.log("verification phone check:", verification);
     if (verification.status === "approved") {
