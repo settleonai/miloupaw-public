@@ -1,0 +1,58 @@
+<mjml>
+  <mj-head>
+    <mj-style inline="inline">
+      .link-nostyle { color: inherit; text-decoration: none }
+      .body-text{line-height: 1.15}</mj-style>
+  </mj-head>
+  <mj-body background-color="#feffff">
+    <mj-section></mj-section>
+    <mj-section background-color="#f0f0f2" border-radius="40px" >
+      <mj-column padding-right="10px" width="100%">
+        <mj-text align="right" font-family="Roboto" font-size="10px" color="#A7A9AC" height="10px">
+          {{date}} <br />
+          {{year}}
+        </mj-text>
+      </mj-column>
+      <mj-column width="400px">
+        <mj-image src="https://res.cloudinary.com/fnel/image/upload/v1627707637/email-src/location-missing_xlnof8.png"></mj-image>
+      </mj-column>
+      <mj-column width="400px">
+        <mj-text font-family="Roboto" font-size="21px" color="#2A2A2A" align="center">Hey
+          {{first_name}},</mj-text>
+        <mj-text font-family="Roboto" font-size="16px" color="#5A5B5B" font-style="italic" font-weight="600" align="center">
+          Did you know fnel's main goal is to provide consumers, the most talented stylist from
+          their neighborhood?
+        </mj-text>
+        <mj-text font-family="Roboto" font-size="14px" color="#5A5B5B" align="center"><span class="body-text">
+            We can only achieve this by the location you set in your profile. Hense, our records indicate you haven't set your location in our system!</mj-text>
+        <mj-text font-family="Roboto" font-size="14px" color="#5A5B5B" align="center"><span class="body-text">
+            We understand every new applications have their own learning curve. So, no worries; its a very simple process.</mj-text>
+        <mj-text font-family="Roboto" font-size="14px" color="#5A5B5B" align="center"><span class="body-text">
+            All you need is to go to your profile settings and tap on the location area. There you would be able to set your location.</mj-text>
+            <mj-text font-family="Roboto" font-size="14px" color="#5A5B5B" align="center"><span class="body-text">we made this short video to demonstrate the process for you:</span></mj-text>
+                <mj-image width="300px" src="https://media.giphy.com/media/ZN27DJIXfb1SM/giphy.gif" />
+        <mj-text font-family="Roboto" font-size="14px" color="#5A5B5B" align="center"><span class="body-text">
+            Don't forget to save it both in the map windows and your profile.</mj-text>
+        <mj-button href="fnel://settings" background-color="#B02024" target="_blank">open my profile settings</mj-button>
+        <mj-text></mj-text>
+
+        
+
+
+        <mj-text font-family="Roboto" font-size="14px" color="#5A5B5B" align="center" background-color="#808285">with ❤️, Team Fnel</mj-text>
+        <mj-text></mj-text>
+      </mj-column>
+    </mj-section>
+    <mj-section>
+      <mj-column>
+        <mj-text font-family="Roboto" font-weight="300" line-height="0" padding-bottom="0" color="#111" font-size="8px" align="center">©2021 fnel Inc. | 1471 Pico Ct. Apt O Walnut Creek, CA 94597
+          USA</mj-text>
+        <mj-text font-family="Roboto" font-weight="300" color="#111" font-size="8px" align="center">contact@thefnel.com | +1 (510) 394-2458 |
+          https://fnel.app</mj-text>
+        <mj-text font-family="Roboto" font-weight="300" color="#111" font-size="8px" align="center"><a class="link-nostyle" href="https://www.freepik.com/vectors/business">vector image inspired by Business vector created by rawpixel.com - www.freepik.com /
+            Freepik</a></mj-text>
+      </mj-column>
+    </mj-section>
+  </mj-body>
+</mjml>
+

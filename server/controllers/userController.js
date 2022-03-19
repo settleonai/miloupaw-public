@@ -1,11 +1,17 @@
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 const asyncHandler = require("express-async-handler");
-const User = require("../../models/userModel");
-const generatePassword = require("../utils/randomPassword");
+
+// utilities
 const getAvatar = require("../utils/getAvatar");
+const { sendMail } = require("../utils/mail");
+const generatePassword = require("../utils/randomPassword");
+
+// models
+const User = require("../../models/userModel");
 const Profile = require("../../models/profileModel");
 
+// defaults
 const defaultPicture =
   "https://res.cloudinary.com/fnel/image/upload/v1634880347/avatar/default-avatar.jpg";
 
@@ -242,7 +248,25 @@ const createCustomerUser = async (userObject, profileObject) => {
     user.save();
 
     // create profile
-    await createClientProfile(user, profileObject);
+    const profile = await createClientProfile(user, profileObject);
+
+    // send mail
+    const client = [[user.email, profile.first_name]];
+    const tags = {
+      first_name: profile.first_name,
+      email_verification_link: `${baseUrl}/verify/email?token=${token}&userId=${user._id}`,
+    };
+
+    if (userObject.provider === "miloupaw") {
+      await sendMail(
+        `email-verification-${profile.gender === "female" ? "female" : "male"}`,
+        client,
+        tags,
+        "one more step to become a fneller 🤩"
+      );
+    } else {
+      await sendMail("welcome", client, tags, "welcome to miloupaw family 🐾");
+    }
 
     return user;
   } catch (error) {
