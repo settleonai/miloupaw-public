@@ -18,4 +18,32 @@ const getMyPets = asyncHandler(async (req, res) => {
   }
 });
 
-module.exports = { getMyPets };
+// @desc    Add a new pet
+// @route   POST /api/pets/
+// @access  Private
+const addPet = asyncHandler(async (req, res) => {
+  const {
+    general_info,
+    characteristics,
+    home_rules,
+    training,
+    emergency_veterinarian,
+    vaccinations,
+    medical,
+  } = req.body;
+
+  const pet = await Pet.create({
+    user: req.user._id,
+    general_info,
+    characteristics,
+    home_rules,
+    training,
+    emergency_veterinarian,
+    vaccinations,
+    medical,
+  });
+
+  res.status(201).json(pet);
+});
+
+module.exports = { getMyPets, addPet };
