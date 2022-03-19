@@ -1,8 +1,21 @@
 const mongoose = require("mongoose");
 
-const profileSchema = mongoose.Schema(
+const Schema = mongoose.Schema;
+
+const profileSchema = Schema(
   {
     user: { type: Schema.Types.ObjectId, ref: "User" },
+    picture: {
+      type: String,
+      default:
+        "https://res.cloudinary.com/fnel/image/upload/v1634880347/avatar/default-avatar.jpg",
+    },
+    first_name: {
+      type: String,
+    },
+    last_name: {
+      type: String,
+    },
     phone_number: { type: String },
     phone_verified: { type: Boolean, default: false },
     gender: {
@@ -27,11 +40,11 @@ const profileSchema = mongoose.Schema(
       type: {
         type: String, // Don't do `{ location: { type: String } }`
         enum: ["Point"], // 'location.type' must be 'Point'
-        required: true,
+        // required: true,
       },
       coordinates: {
         type: [Number],
-        required: true,
+        // required: true,
       },
     },
     verification: {
@@ -39,6 +52,11 @@ const profileSchema = mongoose.Schema(
       ref: { type: String },
     },
     bio: { type: String, default: "" },
+    business_info: {
+      activated: { type: Boolean, default: false },
+      customer_id: { type: String },
+      type: { type: String },
+    },
   },
   { timestamps: true }
 );

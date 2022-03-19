@@ -28,6 +28,8 @@ const homeSchema = mongoose.Schema(
     alarm_system: { type: Boolean, default: false },
     alarm_code: { type: String, default: "" },
     access_parking_notes: { type: String, default: "" },
+    photos: [{ type: String }],
+    special_notes: { type: String, required: true },
   },
   { timestamps: true }
 );

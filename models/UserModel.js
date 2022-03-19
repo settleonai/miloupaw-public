@@ -14,20 +14,12 @@ const userSchema = mongoose.Schema(
     password: {
       type: String,
       required: [true, "Please add a password"],
-    },
-    picture: {
-      type: String,
+      select: false,
     },
     role: {
       type: String,
       enum: ["client", "employee", "admin", "organization"],
       default: "client",
-    },
-    first_name: {
-      type: String,
-    },
-    last_name: {
-      type: String,
     },
     googleId: {
       type: String,
