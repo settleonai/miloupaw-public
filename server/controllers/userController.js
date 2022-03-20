@@ -12,6 +12,7 @@ const User = require("../../models/userModel");
 const Profile = require("../../models/profileModel");
 
 // defaults
+const baseUrl = process.env.BASE_URL;
 const defaultPicture =
   "https://res.cloudinary.com/fnel/image/upload/v1634880347/avatar/default-avatar.jpg";
 
