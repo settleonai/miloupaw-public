@@ -1,4 +1,6 @@
 const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
+
 const {
   SERVICE_PAYMENT_TYPES,
   SERVICE_TYPES,
@@ -6,7 +8,7 @@ const {
 } = require("../server/utils/types");
 // const { currenciesList } = require("../utils/currencies");
 
-const appointmentSchema = mongoose.Schema(
+const appointmentSchema = Schema(
   {
     employee: { type: Schema.Types.ObjectId, ref: "User", required: true },
     client: { type: Schema.Types.ObjectId, ref: "User", required: true },
