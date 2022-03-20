@@ -38,7 +38,7 @@ const registerUser = asyncHandler(async (req, res) => {
   }
 
   // Create user
-  const user = await createCustomerUser(
+  const { user, profile } = await createCustomerUser(
     {
       name,
       email,
@@ -56,7 +56,7 @@ const registerUser = asyncHandler(async (req, res) => {
   // stripe.com/docs/api/customers/create?lang=node#create_customer-description
 
   if (user) {
-    res.status(201).json(user);
+    res.status(201).json({ user, profile });
   } else {
     res.status(400);
     throw new Error("Invalid user data");
@@ -140,7 +140,7 @@ const googleAuth = asyncHandler(async (req, res) => {
     // check if user exists, if not continue creating new user
     await checkSocialUser(googleUser.email, res, async () => {
       // create new user
-      const user = await createCustomerUser(
+      const { user, profile } = await createCustomerUser(
         {
           name: googleUser.name,
           email: googleUser.email,
@@ -156,7 +156,7 @@ const googleAuth = asyncHandler(async (req, res) => {
         }
       );
 
-      return res.status(200).json(user);
+      return res.status(200).json({ user, profile });
     });
   } catch (error) {
     console.log(error);
@@ -193,7 +193,7 @@ const appleAuth = asyncHandler(async (req, res) => {
     // check if user exists, if not continue creating new user
     await checkSocialUser(appleUser.email, res, async () => {
       // create new user
-      const user = await createCustomerUser(
+      const { user, profile } = await createCustomerUser(
         {
           name: first_name + " " + last_name,
           email: appleUser.email,
@@ -209,7 +209,7 @@ const appleAuth = asyncHandler(async (req, res) => {
         }
       );
 
-      return res.status(200).json(user);
+      return res.status(200).json({ user, profile });
     });
   } catch (error) {
     console.log(error);
@@ -271,7 +271,7 @@ const createCustomerUser = async (userObject, profileObject) => {
       await sendMail("welcome", client, tags, "welcome to miloupaw family 🐾");
     }
 
-    return user;
+    return { user, profile };
   } catch (error) {
     console.log(error);
     throw new Error(error);
@@ -281,24 +281,13 @@ const createCustomerUser = async (userObject, profileObject) => {
 // check if social user is exist and return user data
 const checkSocialUser = async (email, res, next) => {
   const user = await User.findOne({ email: email });
+  const profile = await Profile.findOne({ user: user._id });
   if (user) {
     const access_token = generateToken(user._id);
     user.access_token = access_token;
     user.token_exp = Date.now() + 30 * 24 * 60 * 60 * 1000;
     user.save();
-    return res.status(200).json({
-      _id: user.id,
-      name: user.name,
-      email: user.email,
-      first_name: user.first_name,
-      last_name: user.last_name,
-      picture: user.picture,
-      googleId: user.googleId,
-      email_verified: user.email_verified,
-      access_token,
-      provider: user.provider,
-      role: user.role,
-    });
+    return res.status(200).json({ user, profile });
   } else {
     next();
   }
