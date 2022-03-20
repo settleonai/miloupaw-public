@@ -1,7 +1,7 @@
 module.exports = {
   apps: [
     {
-      name: "fnelNext",
+      name: "miloupawServer",
       script: "./server/server.js",
       watch: true,
       env: {
