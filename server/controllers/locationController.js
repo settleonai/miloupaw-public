@@ -2,10 +2,10 @@ const asyncHandler = require("express-async-handler");
 const User = require("../../models/userModel");
 const Location = require("../../models/locationModel");
 
-// @desc    Get user locations
+// @desc    Get my locations
 // @route   GET /api/location/
 // @access  Private
-const getLocations = asyncHandler(async (req, res) => {
+const getMyLocations = asyncHandler(async (req, res) => {
   console.log("req user", req.user);
   try {
     // find users locations
@@ -50,4 +50,4 @@ const addLocation = asyncHandler(async (req, res) => {
   res.status(201).json(location);
 });
 
-module.exports = { getLocations, addLocation };
+module.exports = { getMyLocations, addLocation };
