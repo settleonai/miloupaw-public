@@ -1,6 +1,7 @@
 const asyncHandler = require("express-async-handler");
 const User = require("../../models/userModel");
 const Location = require("../../models/locationModel");
+const Profile = require("../../models/profileModel");
 
 // @desc    Get my locations
 // @route   GET /api/location/
