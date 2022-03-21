@@ -24,7 +24,7 @@ const profileSchema = Schema(
       enum: ["male", "female", "other", "prefernot"],
     },
     birth_date: { type: Date },
-    homes: [
+    locations: [
       {
         type: Schema.Types.ObjectId,
         ref: "Home",
