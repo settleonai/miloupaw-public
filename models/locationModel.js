@@ -26,11 +26,13 @@ const locationSchema = Schema(
       },
     },
     uses_keys: { type: Boolean, default: false },
-    alarm_system: { type: Boolean, default: false },
+    has_alarm: { type: Boolean, default: false },
+    has_camera: { type: Boolean, default: false },
     alarm_code: { type: String, default: "" },
     access_parking_notes: { type: String, default: "" },
+    additional_notes: { type: String },
+    access_parking_notes: { type: String },
     photos: [{ type: String }],
-    special_notes: { type: String, required: true },
   },
   { timestamps: true }
 );
