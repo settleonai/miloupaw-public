@@ -27,11 +27,12 @@ const addLocation = asyncHandler(async (req, res) => {
     address,
     coordinates,
     uses_keys,
-    alarm_system,
+    has_alarm,
+    has_camera,
     alarm_code,
     access_parking_notes,
+    additional_notes,
     photos,
-    special_notes,
   } = req.body;
 
   const location = await Location.create({
@@ -40,11 +41,12 @@ const addLocation = asyncHandler(async (req, res) => {
     address,
     coordinates,
     uses_keys,
-    alarm_system,
+    has_alarm,
+    has_camera,
     alarm_code,
     access_parking_notes,
+    additional_notes,
     photos,
-    special_notes,
   });
 
   res.status(201).json(location);
