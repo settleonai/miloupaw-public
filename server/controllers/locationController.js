@@ -52,7 +52,7 @@ const addLocation = asyncHandler(async (req, res) => {
 
   const profile = await Profile.findOneAndUpdate(
     { user: req.user._id },
-    { $push: { locations: location._id } },
+    { $push: { locations: location } },
     { new: true }
   );
 
