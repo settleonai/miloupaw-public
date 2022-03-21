@@ -49,7 +49,13 @@ const addLocation = asyncHandler(async (req, res) => {
     photos,
   });
 
-  res.status(201).json(location);
+  const profile = await Profile.findOneAndUpdate(
+    { user: req.user._id },
+    { $push: { locations: location._id } },
+    { new: true }
+  );
+
+  res.status(201).json(profile);
 });
 
 module.exports = { getMyLocations, addLocation };
