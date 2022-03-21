@@ -27,7 +27,7 @@ const profileSchema = Schema(
     locations: [
       {
         type: Schema.Types.ObjectId,
-        ref: "Home",
+        ref: "Location",
       },
     ],
     pets: [

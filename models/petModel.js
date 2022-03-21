@@ -55,7 +55,7 @@ const petSchema = Schema(
         default: "",
       },
     },
-    home_rules: {
+    location_rules: {
       allowed_to_go_out: { type: Boolean },
       allowed_on_furniture: { type: Boolean },
       sleep_location: { type: String },

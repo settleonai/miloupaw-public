@@ -25,7 +25,7 @@ const addPet = asyncHandler(async (req, res) => {
   const {
     general_info,
     characteristics,
-    home_rules,
+    location_rules,
     training,
     emergency_veterinarian,
     vaccinations,
@@ -36,7 +36,7 @@ const addPet = asyncHandler(async (req, res) => {
     user: req.user._id,
     general_info,
     characteristics,
-    home_rules,
+    location_rules,
     training,
     emergency_veterinarian,
     vaccinations,
