@@ -281,8 +281,8 @@ const createCustomerUser = async (userObject, profileObject) => {
 // check if social user is exist and return user data
 const checkSocialUser = async (email, res, next) => {
   const user = await User.findOne({ email: email });
-  const profile = await Profile.findOne({ user: user._id });
   if (user) {
+    const profile = await Profile.findOne({ user: user._id });
     const access_token = generateToken(user._id);
     user.access_token = access_token;
     user.token_exp = Date.now() + 30 * 24 * 60 * 60 * 1000;
