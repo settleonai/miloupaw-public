@@ -52,9 +52,11 @@ const addLocation = asyncHandler(async (req, res) => {
 
   const profile = await Profile.findOneAndUpdate(
     { user: req.user._id },
-    { $push: { locations: location } },
+    { $push: { locations: location._id } },
     { new: true }
-  );
+  )
+    .populate("locations")
+    .populate("pets");
 
   res.status(201).json(profile);
 });
