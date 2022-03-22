@@ -125,10 +125,14 @@ const deleteLocation = asyncHandler(async (req, res) => {
   // remove location
   await location.remove();
 
-  // find profile
+  // find profile and remove location from profile
   const profile = await Profile.findOne({ user: req.user.id })
     .populate("locations")
     .populate("pets");
+  profile.locations = profile.locations.filter(
+    (location) => location._id.toString() !== req.params.id
+  );
+  await profile.save();
 
   // return profile
   res.status(200).json(profile);
