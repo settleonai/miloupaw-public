@@ -116,29 +116,27 @@ const updateLocation = asyncHandler(async (req, res) => {
 const deleteLocation = asyncHandler(async (req, res) => {
   // find location
   const location = await Location.findOne({ _id: req.params.id });
+  if (!location) {
+    return res.status(404).json({ msg: "Location not found" });
+  }
 
   // check if user owns location or is admin
   if (req.user.id !== location.user.toString() && req.user.role !== "admin") {
     return res.status(401).json({ msg: "Not authorized" });
   }
 
-  // remove location
-  await location.remove();
+  await Profile.findOneAndUpdate(
+    { user: req.user.id },
+    { $pull: { locations: req.params.id } }
+  );
 
-  // find profile and remove location from profile
-  const profile = await Profile.findOne({ user: req.user.id })
-    .populate("locations")
-    .populate("pets");
+  // delete location
+  await Location.findOneAndDelete({ _id: req.params.id });
 
-  console.log("profile", profile);
-  profile.locations = profile.locations.filter((location) => {
-    console.log("location._id || req.params.id", location._id, req.params.id);
-    return location._id !== req.params.id;
-  });
-  await profile.save();
+  const updatedProfile = await Profile.findOne({ user: req.user.id });
 
   // return profile
-  res.status(200).json(profile);
+  res.status(200).json(updatedProfile);
 });
 
 module.exports = {

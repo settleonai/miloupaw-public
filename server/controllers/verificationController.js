@@ -44,7 +44,10 @@ const verifyPhoneNumber = asyncHandler(async (req, res) => {
   const { code } = req.body;
   const user = req.user;
   try {
-    const profile = await profileModel.findOne({ user: user._id });
+    const profile = await profileModel
+      .findOne({ user: user._id })
+      .populate("locations")
+      .populate("pets");
     const verification = await client.verify
       .services(serviceSid)
       .verificationChecks.create({ code, to: `+1 ${profile.phone_number}` });
@@ -55,6 +58,7 @@ const verifyPhoneNumber = asyncHandler(async (req, res) => {
       await profile.save();
       return res.status(200).json({
         verification: `phone number ${profile.phone_number} verified.`,
+        profile,
       });
     }
   } catch (err) {
