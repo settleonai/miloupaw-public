@@ -130,7 +130,7 @@ const deleteLocation = asyncHandler(async (req, res) => {
     .populate("locations")
     .populate("pets");
   profile.locations = profile.locations.filter(
-    (location) => location._id.toString() !== req.params.id
+    (location) => location._id !== req.params.id
   );
   await profile.save();
 

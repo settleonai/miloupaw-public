@@ -239,8 +239,6 @@ const createCustomerUser = async (userObject, profileObject) => {
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(userObject.password, salt);
 
-    console.log("heeeeer", userObject);
-
     // create new user object
     const user = await User.create({
       ...userObject,
