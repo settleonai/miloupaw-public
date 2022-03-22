@@ -89,7 +89,7 @@ const loginUser = asyncHandler(async (req, res) => {
 // @route   GET /api/users/me
 // @access  Private
 const getMe = asyncHandler(async (req, res) => {
-  const profile = await Profile.findOne({ user: req.user._id })
+  const profile = await Profile.findOne({ user: req.user.id })
     .populate("locations")
     .populate("pets");
   res.status(200).json(profile);

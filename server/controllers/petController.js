@@ -33,7 +33,7 @@ const addPet = asyncHandler(async (req, res) => {
   } = req.body;
 
   const pet = await Pet.create({
-    user: req.user._id,
+    user: req.user.id,
     general_info,
     characteristics,
     location_rules,

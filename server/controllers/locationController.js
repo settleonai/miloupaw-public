@@ -10,7 +10,7 @@ const getMyLocations = asyncHandler(async (req, res) => {
   console.log("req user", req.user);
   try {
     // find users locations
-    const locations = await Location.find({ user: req.user._id });
+    const locations = await Location.find({ user: req.user.id });
     console.log("locations", locations);
 
     res.status(200).json(locations);
@@ -37,7 +37,7 @@ const addLocation = asyncHandler(async (req, res) => {
   } = req.body;
 
   const location = await Location.create({
-    user: req.user._id,
+    user: req.user.id,
     title,
     address,
     coordinates,
@@ -51,7 +51,7 @@ const addLocation = asyncHandler(async (req, res) => {
   });
 
   const profile = await Profile.findOneAndUpdate(
-    { user: req.user._id },
+    { user: req.user.id },
     { $push: { locations: location._id } },
     { new: true }
   )
@@ -82,7 +82,7 @@ const updateLocation = asyncHandler(async (req, res) => {
   const location = await Location.findOne({ _id: req.params.id });
 
   // check if user owns location or is admin
-  if (req.user._id !== location.user.toString() && req.user.role !== "admin") {
+  if (req.user.id !== location.user.toString() && req.user.role !== "admin") {
     return res.status(401).json({ msg: "Not authorized" });
   }
 
@@ -102,7 +102,7 @@ const updateLocation = asyncHandler(async (req, res) => {
   await location.save();
 
   // find profile
-  const profile = await Profile.findOne({ user: req.user._id })
+  const profile = await Profile.findOne({ user: req.user.id })
     .populate("locations")
     .populate("pets");
 
@@ -117,11 +117,8 @@ const deleteLocation = asyncHandler(async (req, res) => {
   // find location
   const location = await Location.findOne({ _id: req.params.id });
 
-  console.log("location.user.toString()", location.user.toString());
-  console.log("req.user._id", req.user.id);
-
   // check if user owns location or is admin
-  if (req.user._id !== location.user.toString() && req.user.role !== "admin") {
+  if (req.user.id !== location.user.toString() && req.user.role !== "admin") {
     return res.status(401).json({ msg: "Not authorized" });
   }
 
@@ -129,7 +126,7 @@ const deleteLocation = asyncHandler(async (req, res) => {
   await location.remove();
 
   // find profile
-  const profile = await Profile.findOne({ user: req.user._id })
+  const profile = await Profile.findOne({ user: req.user.id })
     .populate("locations")
     .populate("pets");
 
