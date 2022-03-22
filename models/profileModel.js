@@ -57,6 +57,11 @@ const profileSchema = Schema(
       customer_id: { type: String },
       type: { type: String },
     },
+    meet_and_greet: {
+      activated: { type: Boolean, default: false },
+      employee_id: { type: String },
+      type: { type: String },
+    },
   },
   { timestamps: true }
 );
