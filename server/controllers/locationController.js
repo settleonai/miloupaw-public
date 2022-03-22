@@ -118,7 +118,7 @@ const deleteLocation = asyncHandler(async (req, res) => {
   const location = await Location.findOne({ _id: req.params.id });
 
   console.log("location.user.toString()", location.user.toString());
-  console.log("req.user._id", req.user._id);
+  console.log("req.user._id", req.user.id);
 
   // check if user owns location or is admin
   if (req.user._id !== location.user.toString() && req.user.role !== "admin") {
