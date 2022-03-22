@@ -4,6 +4,7 @@ const {
   getMyLocations,
   addLocation,
   updateLocation,
+  deleteLocation,
 } = require("../controllers/locationController");
 const { protect } = require("../middleware/authMiddleware");
 
