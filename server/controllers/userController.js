@@ -158,6 +158,8 @@ const googleAuth = asyncHandler(async (req, res) => {
         }
       );
 
+      console.log("user || profile", user, profile);
+
       return res.status(200).json({ user, profile });
     });
   } catch (error) {
@@ -253,8 +255,6 @@ const createCustomerUser = async (userObject, profileObject) => {
     // create profile
     const profile = await createClientProfile(user, profileObject);
 
-    console.log("profile", profile);
-
     // send mail
     const client = [[user.email, profile.first_name]];
     const tags = {
@@ -275,14 +275,7 @@ const createCustomerUser = async (userObject, profileObject) => {
       await sendMail("welcome", client, tags, "welcome to miloupaw family 🐾");
     }
 
-    // retrieve profile
-    const profileData = await Profile.findById(profile._id)
-      .populate("locations")
-      .populate("pets");
-
-    console.log("profileData", profileData);
-
-    return { user, profileData };
+    return { user, profile };
   } catch (error) {
     console.log(error);
     throw new Error(error);
