@@ -273,7 +273,12 @@ const createCustomerUser = async (userObject, profileObject) => {
       await sendMail("welcome", client, tags, "welcome to miloupaw family 🐾");
     }
 
-    return { user, profile };
+    // retrieve profile
+    const profileData = await Profile.findById(profile._id)
+      .populate("locations")
+      .populate("pets");
+
+    return { user, profileData };
   } catch (error) {
     console.log(error);
     throw new Error(error);
@@ -284,7 +289,9 @@ const createCustomerUser = async (userObject, profileObject) => {
 const checkSocialUser = async (email, res, next) => {
   const user = await User.findOne({ email: email });
   if (user) {
-    const profile = await Profile.findOne({ user: user._id });
+    const profile = await Profile.findOne({ user: user._id })
+      .populate("locations")
+      .populate("pets");
     const access_token = generateToken(user._id);
     user.access_token = access_token;
     user.token_exp = Date.now() + 30 * 24 * 60 * 60 * 1000;
