@@ -129,9 +129,10 @@ const deleteLocation = asyncHandler(async (req, res) => {
   const profile = await Profile.findOne({ user: req.user.id })
     .populate("locations")
     .populate("pets");
-  profile.locations = profile.locations.filter(
-    (location) => location._id !== req.params.id
-  );
+  profile.locations = profile.locations.filter((location) => {
+    console.log("location._id || req.params.id", location._id, req.params.id);
+    return location._id !== req.params.id;
+  });
   await profile.save();
 
   // return profile
