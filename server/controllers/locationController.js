@@ -117,6 +117,8 @@ const deleteLocation = asyncHandler(async (req, res) => {
   // find location
   const location = await Location.findOne({ _id: req.params.id });
 
+  console.log("location", location);
+
   // check if user owns location or is admin
   if (req.user._id !== location.user.toString() && req.user.role !== "admin") {
     return res.status(401).json({ msg: "Not authorized" });
