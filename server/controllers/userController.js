@@ -253,6 +253,8 @@ const createCustomerUser = async (userObject, profileObject) => {
     // create profile
     const profile = await createClientProfile(user, profileObject);
 
+    console.log("profile", profile);
+
     // send mail
     const client = [[user.email, profile.first_name]];
     const tags = {
@@ -277,6 +279,8 @@ const createCustomerUser = async (userObject, profileObject) => {
     const profileData = await Profile.findById(profile._id)
       .populate("locations")
       .populate("pets");
+
+    console.log("profileData", profileData);
 
     return { user, profileData };
   } catch (error) {
