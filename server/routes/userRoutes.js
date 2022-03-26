@@ -7,6 +7,7 @@ const {
   googleAuth,
   appleAuth,
   updateMyProfile,
+  jobApplication,
 } = require("../controllers/userController");
 
 const {
@@ -25,5 +26,6 @@ router.get("/profile", protect, getMe);
 router.put("/profile", protect, updateMyProfile);
 router.post("/phoneVerification/request", protect, sendVerificationNumber);
 router.post("/phoneVerification/verify", protect, verifyPhoneNumber);
+router.post("/jobApplication", jobApplication);
 
 module.exports = router;

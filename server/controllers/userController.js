@@ -10,6 +10,7 @@ const generatePassword = require("../utils/randomPassword");
 // models
 const User = require("../../models/userModel");
 const Profile = require("../../models/profileModel");
+const BusinessProfile = require("../../models/businessProfileModel");
 
 // defaults
 const baseUrl = process.env.BASE_URL;
@@ -221,6 +222,97 @@ const appleAuth = asyncHandler(async (req, res) => {
   }
 });
 
+// @desc    submit a job application
+// @route   POST /api/users/jobApplication
+// @access  Public
+const jobApplication = asyncHandler(async (req, res) => {
+  const {
+    token,
+    platform,
+    email,
+    first_name,
+    last_name,
+    phone,
+    photos,
+    gender,
+    birth_date,
+    address,
+    good_with_dogs,
+    good_with_cats,
+    good_with_other_pets,
+    notes,
+    commute_method,
+    maximum_commute_distance,
+    driving_license,
+    authorized_to_work_in_us,
+    years_of_experience,
+  } = req.body;
+
+  if (!token) {
+    res.status(400);
+    throw new Error("Please add all fields");
+  }
+
+  const decodedToken = jwt.decode(token);
+
+  try {
+    let user;
+    let profile;
+    // check if token is equal to googleId or appleId
+    user = await User.findOne({
+      $or: [{ googleId: decodedToken.sub }, { appleId: decodedToken.sub }],
+    });
+
+    if (!user) {
+      const userObj = {
+        name: `${first_name} ${last_name}`,
+        email: decodedToken.email,
+        email_verified: decodedToken.email_verified,
+        provider: platform,
+      };
+      if (platform === "google") {
+        userObj.googleId = decodedToken.sub;
+      } else {
+        userObj.appleId = decodedToken.sub;
+      }
+
+      user = await createUser(userObj);
+    }
+    profile = await BusinessProfile.findOne({ user: user._id });
+
+    if (!profile) {
+      const profileObj = {
+        user: user._id,
+        picture: photos[0],
+        first_name,
+        last_name,
+        phone_number: phone,
+        gender,
+        birth_date,
+        address,
+        good_with_dogs,
+        good_with_cats,
+        good_with_other_pets,
+        notes,
+        commute_method,
+        maximum_commute_distance,
+        driving_license,
+        authorized_to_work_in_us,
+        years_of_experience,
+      };
+
+      profile = await createBusinessProfile(profileObj);
+    }
+    if (user && profile) {
+      return res.status(200).json({ user, profile });
+    }
+  } catch (error) {
+    console.log(error);
+    return res.status(400).json({ message: error.message });
+    throw new Error(error.message);
+  }
+});
+
 // Generate JWT
 const generateToken = (id) => {
   return jwt.sign({ id }, process.env.JWT_SECRET, {
@@ -228,8 +320,8 @@ const generateToken = (id) => {
   });
 };
 
-// Create a new user
-const createCustomerUser = async (userObject, profileObject) => {
+// create new user
+const createUser = async (userObject) => {
   try {
     // generate random password if not exists
     if (!userObject.password) {
@@ -244,12 +336,24 @@ const createCustomerUser = async (userObject, profileObject) => {
     const user = await User.create({
       ...userObject,
       password: hashedPassword,
-      role: "client",
+      role: "employee",
     });
     const access_token = generateToken(user._id);
     user.access_token = access_token;
     user.token_exp = Date.now() + 30 * 24 * 60 * 60 * 1000;
     user.save();
+
+    return user;
+  } catch (error) {
+    console.log("user creating error", error);
+    throw new Error(error.message);
+  }
+};
+
+// Create a new customer user
+const createCustomerUser = async (userObject, profileObject) => {
+  try {
+    const user = await createUser(userObject);
 
     // create profile
     const profile = await createClientProfile(user, profileObject);
@@ -327,6 +431,22 @@ async function createClientProfile(user, profileObject) {
   }
 }
 
+// create profile for business
+async function createBusinessProfile(profileObject) {
+  console.log("profileObject", profileObject);
+
+  try {
+    const businessProfile = await BusinessProfile.create(profileObject);
+
+    console.log("businessProfile", businessProfile);
+
+    return businessProfile;
+  } catch (error) {
+    console.log("businessProfile Error", error);
+    throw new Error(error.message);
+  }
+}
+
 module.exports = {
   registerUser,
   loginUser,
@@ -335,4 +455,5 @@ module.exports = {
   googleAuth,
   appleAuth,
   createClientProfile,
+  jobApplication,
 };

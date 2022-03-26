@@ -5,7 +5,7 @@ const { createClientProfile } = require("./userController");
 // and set the environment variables. See http://twil.io/secure
 const accountSid = process.env.TWILIO_ACCOUNT_SID;
 const authToken = process.env.TWILIO_AUTH_TOKEN;
-const serviceSid = "VA72e040c27752d34467fa668f435af393";
+const serviceSid = process.env.TWILIO_SERVICE_SID;
 const client = require("twilio")(accountSid, authToken);
 
 const sendVerificationNumber = asyncHandler(async (req, res) => {

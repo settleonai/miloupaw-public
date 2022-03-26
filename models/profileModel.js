@@ -21,7 +21,7 @@ const profileSchema = Schema(
     gender: {
       type: String,
       default: "male",
-      enum: ["male", "female", "other", "prefernot"],
+      enum: ["male", "female", "other", "prefer_not"],
     },
     birth_date: { type: Date },
     locations: [
@@ -58,10 +58,10 @@ const profileSchema = Schema(
       type: { type: String },
     },
     meet_and_greet: {
-      activated: { type: Boolean, default: false },
-      employee_id: { type: String },
-      type: { type: String },
+      type: Schema.Types.ObjectId,
+      ref: "MeetAndGreet",
     },
+    activated: { type: Boolean, default: false },
   },
   { timestamps: true }
 );
