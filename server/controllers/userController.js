@@ -313,6 +313,23 @@ const jobApplication = asyncHandler(async (req, res) => {
   }
 });
 
+// @desc    Get my business profile
+// @route   GET /api/users/businessProfile
+// @access  Private
+const getMyBusinessProfile = asyncHandler(async (req, res) => {
+  try {
+    const { user } = req;
+    const profile = await BusinessProfile.findOne({ user: user._id });
+    if (!profile) {
+      return res.status(404).json({ message: "Profile not found" });
+    }
+    return res.status(200).json(profile);
+  } catch (error) {
+    console.log("getMyBusinessProfile error", error);
+    return res.status(400).json({ message: error.message });
+  }
+});
+
 // Generate JWT
 const generateToken = (id) => {
   return jwt.sign({ id }, process.env.JWT_SECRET, {
@@ -389,14 +406,20 @@ const createCustomerUser = async (userObject, profileObject) => {
 const checkSocialUser = async (email, res, next) => {
   const user = await User.findOne({ email: email });
   if (user) {
-    const profile = await Profile.findOne({ user: user._id })
-      .populate("locations")
-      .populate("pets");
+    let profile, businessProfile;
+    if (user.role === "client") {
+      profile = await Profile.findOne({ user: user._id })
+        .populate("locations")
+        .populate("pets");
+    } else {
+      businessProfile = await BusinessProfile.findOne({ user: user._id });
+    }
     const access_token = generateToken(user._id);
     user.access_token = access_token;
     user.token_exp = Date.now() + 30 * 24 * 60 * 60 * 1000;
     user.save();
-    return res.status(200).json({ user, profile });
+
+    return res.status(200).json({ user, profile, businessProfile });
   } else {
     next();
   }
@@ -451,6 +474,7 @@ module.exports = {
   registerUser,
   loginUser,
   getMe,
+  getMyBusinessProfile,
   updateMyProfile,
   googleAuth,
   appleAuth,

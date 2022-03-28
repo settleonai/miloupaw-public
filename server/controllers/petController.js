@@ -11,7 +11,6 @@ const getMyPets = asyncHandler(async (req, res) => {
   try {
     // find users pets
     const pets = await Pet.find({ user: req.user.id });
-    console.log("pets", pets);
 
     res.status(200).json(pets);
   } catch (error) {

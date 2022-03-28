@@ -5,6 +5,7 @@ const { sendTextMessage } = require("../utils/messager");
 const Profile = require("../../models/profileModel");
 const AdminProfile = require("../../models/adminProfileModel");
 const MeetAndGreet = require("../../models/meetAndGreetModel");
+const BusinessProfile = require("../../models/businessProfileModel");
 
 // save customer info on payment
 // https://stripe.com/docs/payments/save-during-payment
@@ -24,7 +25,7 @@ exports.createAppointment = asyncHandler(async (req, res, next) => {
       handleMeetAndGreet(req, res, next);
     }
   } catch (error) {
-    console.log(error);
+    console.log("createAppointment", error);
   }
 });
 
@@ -35,12 +36,12 @@ const handleMeetAndGreet = asyncHandler(async (req, res, next) => {
     const profile = await Profile.findOne({ user: user._id });
 
     const admin = await User.findOne({ role: "admin" });
-    const adminProfile = await Profile.findOne({ user: admin._id });
+    const adminProfile = await BusinessProfile.findOne({ user: admin._id });
     let adminBusinessProfile = await AdminProfile.findOne({
       user: admin._id,
     });
 
-    console.log("profile admin.user.toString()", user.id, admin.id);
+    // console.log("profile admin.user.toString()", user.id, admin.id);
 
     if (!profile) {
       return res.status(400).json({
@@ -55,6 +56,8 @@ const handleMeetAndGreet = asyncHandler(async (req, res, next) => {
       });
     }
 
+    // console.log("adminBusinessProfile", adminBusinessProfile);
+    // console.log("adminProfile", adminProfile);
     if (!adminProfile || !adminBusinessProfile) {
       return res.status(400).json({
         success: false,
@@ -79,11 +82,19 @@ const handleMeetAndGreet = asyncHandler(async (req, res, next) => {
       appointment_id: null,
     });
 
-    console.log("meet_and_greet", profile);
+    // console.log("meet_and_greet", profile);
     profile.meet_and_greet = meet_and_greet._id;
     await profile.save();
 
-    adminBusinessProfile.meet_and_greet = meet_and_greet._id;
+    // const profile = await Profile.findOneAndUpdate(
+    //   { user: req.user.id },
+    //   { $push: { locations: location._id } },
+    //   { new: true }
+    // )
+    //   .populate("locations")
+    //   .populate("pets");
+
+    adminBusinessProfile.meet_and_greets.push(meet_and_greet);
     await adminBusinessProfile.save();
 
     return res.status(200).json({
