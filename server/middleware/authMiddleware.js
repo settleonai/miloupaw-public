@@ -54,4 +54,31 @@ const adminProtect = asyncHandler(async (req, res, next) => {
   }
 });
 
-module.exports = { protect, adminProtect };
+const employeeProtect = asyncHandler(async (req, res, next) => {
+  const token = req.headers.authorization;
+  if (!token) {
+    res.status(401);
+    throw new Error("Not authorized, no token");
+  }
+  try {
+    // Verify token
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+
+    console.log("decoded token employeeProtect", decoded);
+
+    // Get user from the token
+    req.user = await User.findById(decoded.id).select("-password");
+
+    if (!["admin", "employee"].includes(req.user.role)) {
+      res.status(401);
+      throw new Error("Not authorized");
+    }
+    next();
+  } catch (error) {
+    console.log("adminProtect || error", error);
+    res.status(401);
+    throw new Error("Not authorized");
+  }
+});
+
+module.exports = { protect, adminProtect, employeeProtect };

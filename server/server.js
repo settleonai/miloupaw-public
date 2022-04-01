@@ -17,6 +17,7 @@ app.use("/pets", require("./routes/petRoutes"));
 app.use("/locations", require("./routes/locationRoutes"));
 app.use("/appointments", require("./routes/appointmentRoutes"));
 app.use("/business", require("./routes/businessRoutes"));
+// app.use("/test", require("./routes/testRoutes"));
 
 app.use(errorHandler);
 

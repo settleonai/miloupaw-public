@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 const meetAndGreetSchema = new Schema(
   {
     client: { type: Schema.Types.ObjectId, ref: "User", required: true },
-    admin: { type: Schema.Types.ObjectId, ref: "User", required: true },
+    employee: { type: Schema.Types.ObjectId, ref: "User", required: true },
     status: {
       type: String,
       default: "requested",

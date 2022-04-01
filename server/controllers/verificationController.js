@@ -1,4 +1,5 @@
 const asyncHandler = require("express-async-handler");
+const businessProfileModel = require("../../models/businessProfileModel");
 const profileModel = require("../../models/profileModel");
 const { createClientProfile } = require("./userController");
 
@@ -15,10 +16,12 @@ const sendVerificationNumber = asyncHandler(async (req, res) => {
 
     let profile;
 
-    profile = await profileModel.findOne({ user: user._id });
-    if (!profile) {
-      profile = createClientProfile(user);
+    if (user.role === "client") {
+      profile = await profileModel.findOne({ user: user._id });
+    } else {
+      profile = await businessProfileModel.findOne({ user: user._id });
     }
+
     if (!profile.phone_number && !phoneNumber) {
       res.status(400).json("Please add your phone number");
     }
@@ -44,10 +47,14 @@ const verifyPhoneNumber = asyncHandler(async (req, res) => {
   const { code } = req.body;
   const user = req.user;
   try {
-    const profile = await profileModel
-      .findOne({ user: user._id })
-      .populate("locations")
-      .populate("pets");
+    let profile;
+
+    if (user.role === "client") {
+      profile = await profileModel.findOne({ user: user._id });
+    } else {
+      profile = await businessProfileModel.findOne({ user: user._id });
+    }
+
     const verification = await client.verify
       .services(serviceSid)
       .verificationChecks.create({ code, to: `+1 ${profile.phone_number}` });

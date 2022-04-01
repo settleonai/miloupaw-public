@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const { currenciesList } = require("../server/utils/currencies");
 const Schema = mongoose.Schema;
 
 const {
@@ -17,30 +18,30 @@ const appointmentSchema = Schema(
       enum: SERVICE_TYPES,
       required: true,
     },
-    coordinates: {
-      type: {
-        type: String, // Don't do `{ location: { type: String } }`
-        enum: ["Point"], // 'location.type' must be 'Point'
-      },
-      coordinates: {
-        type: [Number],
-      },
-      required: false,
+
+    location: {
+      type: Schema.Types.ObjectId,
+      ref: "Location",
+      required: true,
     },
-    address: {
-      address1: { type: String },
-      address2: { type: String },
-      city: { type: String },
-      state: { type: String },
-      postal_code: { type: String },
-      country: { type: String },
-      formatted_address: { type: String },
-    },
-    location_timelaps: [
+    pets: [
       {
-        longitude: { type: Number },
-        latitude: { type: Number },
-        select: false,
+        type: Schema.Types.ObjectId,
+        ref: "Pet",
+      },
+    ],
+    location_snapshot: [
+      {
+        type: {
+          type: String, // Don't do `{ location: { type: String } }`
+          enum: ["Point"], // 'location.type' must be 'Point'
+        },
+        coordinates: {
+          type: [Number],
+        },
+        time: {
+          type: Date,
+        },
       },
     ],
 
@@ -91,7 +92,7 @@ const appointmentSchema = Schema(
           type: String,
           enum: currenciesList,
           required: true,
-          default: "usd",
+          default: "USD",
         },
         destination: { type: String },
       },

@@ -1,14 +1,10 @@
 const mongoose = require("mongoose");
+const { currenciesList } = require("../server/utils/currencies");
 const Schema = mongoose.Schema;
 
 const businessProfileSchema = new Schema(
   {
     user: { type: Schema.Types.ObjectId, ref: "User", required: true },
-    picture: {
-      type: String,
-      default:
-        "https://res.cloudinary.com/fnel/image/upload/v1634880347/avatar/default-avatar.jpg",
-    },
     first_name: { type: String, required: true },
     last_name: { type: String, required: true },
     phone_number: { type: String, required: true },
@@ -39,6 +35,12 @@ const businessProfileSchema = new Schema(
       country: { type: String },
       formatted_address: { type: String },
     },
+    locations: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Location",
+      },
+    ],
     bio: { type: String, default: "" },
     good_with_dogs: {
       type: Number,
@@ -81,7 +83,22 @@ const businessProfileSchema = new Schema(
     },
 
     appointments: [{ type: Schema.Types.ObjectId, ref: "Appointment" }],
-    stripe_id: { type: String, select: false },
+    stripe: {
+      id: { type: String },
+      business_type: { type: String },
+      created: { type: Date },
+      charges_enabled: { type: Boolean, default: false },
+      capabilities: {
+        transfers: { type: String },
+        card_payments: { type: String },
+      },
+      currency: {
+        type: String,
+        enum: currenciesList,
+        required: true,
+        default: "USD",
+      },
+    },
     interviewer: {
       type: Schema.Types.ObjectId,
       ref: "User",
@@ -90,5 +107,7 @@ const businessProfileSchema = new Schema(
   },
   { timestamps: true }
 );
+
+businessProfileSchema.index({ first_name: "text", last_name: "text" });
 
 module.exports = mongoose.model("BusinessProfile", businessProfileSchema);

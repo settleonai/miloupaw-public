@@ -9,6 +9,7 @@ const {
   updateMyProfile,
   jobApplication,
   getMyBusinessProfile,
+  updateMyBusinessProfile,
 } = require("../controllers/userController");
 
 const {
@@ -28,6 +29,7 @@ router.put("/profile", protect, updateMyProfile);
 router.post("/phoneVerification/request", protect, sendVerificationNumber);
 router.post("/phoneVerification/verify", protect, verifyPhoneNumber);
 router.post("/jobApplication", jobApplication);
-router.get("/businessProfile", protect, getMyBusinessProfile);
+router.get("/business-profile", protect, getMyBusinessProfile);
+router.put("/business-profile", protect, updateMyBusinessProfile);
 
 module.exports = router;

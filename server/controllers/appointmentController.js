@@ -6,6 +6,7 @@ const Profile = require("../../models/profileModel");
 const AdminProfile = require("../../models/adminProfileModel");
 const MeetAndGreet = require("../../models/meetAndGreetModel");
 const BusinessProfile = require("../../models/businessProfileModel");
+const appointmentModel = require("../../models/appointmentModel");
 
 // save customer info on payment
 // https://stripe.com/docs/payments/save-during-payment
@@ -22,15 +23,49 @@ exports.createAppointment = asyncHandler(async (req, res, next) => {
       return next(new ErrorResponse("Please provide a type", 400));
     }
     if (type === "meet-and-greet") {
-      handleMeetAndGreet(req, res, next);
+      handleMeetAndGreetRequest(req, res);
+    }
+    if (type === "meet_greet") {
+      handleMeetAndGreetSetup(req, res);
     }
   } catch (error) {
     console.log("createAppointment", error);
   }
 });
 
-// handle meet and greet
-const handleMeetAndGreet = asyncHandler(async (req, res, next) => {
+// @desc    Get list of Meet and Greet
+// @route   GET /api/appointment/meet-greets
+// @access  Private
+exports.getMeetAndGreet = asyncHandler(async (req, res, next) => {
+  try {
+    // select only ongoing meet and greets
+    const meetAndGreets = await MeetAndGreet.find({
+      $nor: [{ status: "rejected" }, { status: "accepted" }],
+    })
+      .populate("client", "name email pictures")
+      .populate("employee", "name email pictures");
+
+    // // find profile of all clients
+    // const profiles = await Profile.find({
+    //   user: { $in: meetAndGreets.map((meetAndGreet) => meetAndGreet.client) },
+    // });
+
+    res.status(200).json({
+      success: true,
+      count: meetAndGreets.length,
+      result: meetAndGreets,
+    });
+  } catch (error) {
+    console.log("getMeetAndGreet", error);
+    res.status(500).json({
+      success: false,
+      error: error.message,
+    });
+  }
+});
+
+// handle meet and greet request
+const handleMeetAndGreetRequest = asyncHandler(async (req, res) => {
   try {
     const user = req.user;
     const profile = await Profile.findOne({ user: user._id });
@@ -110,5 +145,83 @@ const handleMeetAndGreet = asyncHandler(async (req, res, next) => {
     });
   } catch (error) {
     console.log("handleMeetAndGreet | error", error);
+  }
+});
+
+// handle meet and greet setup
+const handleMeetAndGreetSetup = asyncHandler(async (req, res) => {
+  // return console.log("handleMeetAndGreetSetup | req.body:", req.body);
+  try {
+    const { meetGreet, employee, client, time, notes } = req.body;
+    const meetAndGreetObj = await MeetAndGreet.findById(meetGreet);
+    const clientProfile = await Profile.findOne({ user: client }).populate(
+      "locations"
+    );
+    const employeeProfile = await BusinessProfile.findOne({ user: employee });
+
+    if (!meetAndGreetObj) {
+      return res.status(400).json({
+        success: false,
+        error: "Meet and greet appointment not found",
+      });
+    }
+
+    if (!clientProfile) {
+      return res.status(400).json({
+        success: false,
+        error: "Client profile not found",
+      });
+    }
+
+    if (!employeeProfile) {
+      return res.status(400).json({
+        success: false,
+        error: "Employee profile not found",
+      });
+    }
+
+    // console.log("handleMeetAndGreetSetup | meetAndGreetObj:", meetAndGreetObj);
+    // console.log("handleMeetAndGreetSetup | clientProfile:", clientProfile);
+    // console.log("handleMeetAndGreetSetup | employeeProfile:", employeeProfile);
+
+    let startTime = new Date(time);
+
+    const appointment = await appointmentModel.create({
+      client: clientProfile.user,
+      employee: employeeProfile.user,
+      type: "MEE_AND_GREET",
+      location: clientProfile.locations[0]._id,
+      pets: clientProfile.pets,
+      time: {
+        start: startTime,
+        // add 30 minutes to start time
+        end: new Date(startTime.getTime() + 30 * 60000),
+      },
+      notes,
+      status: "ASSIGNED",
+      payment: {
+        amount: 0,
+      },
+    });
+
+    // console.log("handleMeetAndGreetSetup | appointment:", appointment);
+
+    meetAndGreetObj.appointment_id = appointment._id;
+    meetAndGreetObj.status = "assigned";
+
+    await meetAndGreetObj.save();
+
+    employeeProfile.appointments.push(appointment);
+    await employeeProfile.save();
+
+    // console.log("handleMeetAndGreetSetup | meetAndGreetObj:", meetAndGreetObj);
+
+    return res.status(200).json({
+      success: true,
+      message: "Meet and greet appointment setup successfully",
+      result: appointment,
+    });
+  } catch (error) {
+    console.log("handleMeetAndGreetSetup | error", error);
   }
 });

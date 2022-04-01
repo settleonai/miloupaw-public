@@ -5,11 +5,6 @@ const Schema = mongoose.Schema;
 const profileSchema = Schema(
   {
     user: { type: Schema.Types.ObjectId, ref: "User" },
-    picture: {
-      type: String,
-      default:
-        "https://res.cloudinary.com/fnel/image/upload/v1634880347/avatar/default-avatar.jpg",
-    },
     first_name: {
       type: String,
     },

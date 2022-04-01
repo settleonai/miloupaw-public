@@ -44,12 +44,12 @@ const registerUser = asyncHandler(async (req, res) => {
       name,
       email,
       password: hashedPassword,
+      pictures: [picture || defaultPicture],
       provider: "miloupaw",
     },
     {
       first_name,
       last_name,
-      picture: picture || defaultPicture,
     }
   );
 
@@ -101,19 +101,44 @@ const getMe = asyncHandler(async (req, res) => {
 // @route   PUT /api/users/profile
 // @access  Private
 const updateMyProfile = asyncHandler(async (req, res) => {
-  console.log("req.body", req.body);
-  const { first_name, last_name } = req.body;
-  const profile = await Profile.findOneAndUpdate(
-    { user: req.user.id },
-    {
-      first_name,
-      last_name,
-    },
-    { new: true }
-  );
+  try {
+    let profile;
+    if (req.user.role === "client") {
+      profile = await Profile.findOneAndUpdate(
+        { user: req.user.id },
+        req.body,
+        {
+          new: true,
+        }
+      );
+    } else {
+      profile = await BusinessProfile.findOneAndUpdate(
+        { user: req.user.id },
+        req.body,
+        { new: true }
+      );
+    }
+    await User.findByIdAndUpdate(req.user.id, {
+      name: req.body.first_name + " " + req.body.last_name,
+    });
 
-  res.status(200).json(profile);
+    res.status(200).json({
+      success: true,
+      result: profile,
+    });
+  } catch (error) {
+    console.log("profile updating error", error);
+    return res.status(400).json({
+      success: false,
+      error: error.message,
+    });
+  }
 });
+
+// @desc    Update user's business profile
+// @route   PUT /api/users/business-profile
+// @access  Private
+const updateMyBusinessProfile = asyncHandler(async (req, res) => {});
 
 // @desc    Register new user Signed in with Google
 // @route   POST /api/users/googleAuth
@@ -149,6 +174,7 @@ const googleAuth = asyncHandler(async (req, res) => {
           name: googleUser.name,
           email: googleUser.email,
           password: null,
+          pictures: [googleUser.picture || defaultPicture],
           googleId: googleUser.sub,
           email_verified: googleUser.email_verified,
           provider: "google",
@@ -156,7 +182,6 @@ const googleAuth = asyncHandler(async (req, res) => {
         {
           first_name: googleUser.given_name,
           last_name: googleUser.family_name,
-          picture: googleUser.picture || defaultPicture,
         }
       );
 
@@ -204,6 +229,7 @@ const appleAuth = asyncHandler(async (req, res) => {
           name: first_name + " " + last_name,
           email: appleUser.email,
           password: null,
+          pictures: [picture || defaultPicture],
           appleId: appleUser.sub,
           email_verified: appleUser.email_verified,
           provider: "apple",
@@ -211,7 +237,6 @@ const appleAuth = asyncHandler(async (req, res) => {
         {
           first_name,
           last_name,
-          picture: picture || defaultPicture,
         }
       );
 
@@ -269,6 +294,7 @@ const jobApplication = asyncHandler(async (req, res) => {
         email: decodedToken.email,
         email_verified: decodedToken.email_verified,
         provider: platform,
+        pictures: photos,
       };
       if (platform === "google") {
         userObj.googleId = decodedToken.sub;
@@ -276,14 +302,13 @@ const jobApplication = asyncHandler(async (req, res) => {
         userObj.appleId = decodedToken.sub;
       }
 
-      user = await createUser(userObj);
+      user = await createUser(userObj, "employee");
     }
     profile = await BusinessProfile.findOne({ user: user._id });
 
     if (!profile) {
       const profileObj = {
         user: user._id,
-        picture: photos[0],
         first_name,
         last_name,
         phone_number: phone,
@@ -338,7 +363,7 @@ const generateToken = (id) => {
 };
 
 // create new user
-const createUser = async (userObject) => {
+const createUser = async (userObject, role) => {
   try {
     // generate random password if not exists
     if (!userObject.password) {
@@ -352,8 +377,8 @@ const createUser = async (userObject) => {
     // create new user object
     const user = await User.create({
       ...userObject,
+      role,
       password: hashedPassword,
-      role: "employee",
     });
     const access_token = generateToken(user._id);
     user.access_token = access_token;
@@ -370,7 +395,7 @@ const createUser = async (userObject) => {
 // Create a new customer user
 const createCustomerUser = async (userObject, profileObject) => {
   try {
-    const user = await createUser(userObject);
+    const user = await createUser(userObject, "client");
 
     // create profile
     const profile = await createClientProfile(user, profileObject);
@@ -476,6 +501,7 @@ module.exports = {
   getMe,
   getMyBusinessProfile,
   updateMyProfile,
+  updateMyBusinessProfile,
   googleAuth,
   appleAuth,
   createClientProfile,

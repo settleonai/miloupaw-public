@@ -1,4 +1,4 @@
-const { DOG_BREEDS_KEYS } = require("./dog-breeds");
+const { DOG_BREEDS_KEYS } = require("./pet-breeds");
 
 const SERVICE_TYPES = [
   "DOG_WALKING",
@@ -6,12 +6,14 @@ const SERVICE_TYPES = [
   "PET_TAXI",
   "BOARDING",
   "PET_TRAINING",
+  "MEE_AND_GREET",
 ];
 
 const SERVICE_STATUS = [
   "REQUESTED",
   "READY_TO_PAY",
   "VOIDED",
+  "ASSIGNED",
   "PENDING",
   "APPROVED",
   "EXPIRED",
