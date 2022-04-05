@@ -108,7 +108,7 @@ const appointmentSchema = Schema(
     notes: { type: String, default: "" },
     status: {
       type: String,
-      default: "requested",
+      default: "REQUESTED",
       enum: SERVICE_STATUS,
     },
 

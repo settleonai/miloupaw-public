@@ -13,6 +13,7 @@ const SERVICE_STATUS = [
   "REQUESTED",
   "READY_TO_PAY",
   "VOIDED",
+  "PAID",
   "ASSIGNED",
   "PENDING",
   "APPROVED",

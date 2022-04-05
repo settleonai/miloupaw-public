@@ -145,49 +145,51 @@ exports.stripeConnectHook = async (req, res) => {
 async function updateAppointment(data, created) {
   console.log("updateAppointment", data, created);
   try {
-    // const { transfer_group, receipt_url, id } = data;
-    // appointment = await AppointmentModel.findById(transfer_group)
-    //   .populate("stylist")
-    //   .populate("client")
-    //   .select("+payment.charge");
-    // let charge = { id, created: created * 1000 };
-    // if (appointment) {
-    //   appointment.status = "pending";
-    //   appointment.payment.status = "received";
-    //   appointment.payment.receiptUrl = receipt_url;
-    //   appointment.payment.charge = charge;
-    //   await appointment.save();
-    //   console.log("appointment", appointment);
-    //   console.log(
-    //     "appointment.stylist.email, appointment.stylist.first_name",
-    //     appointment.stylist.email,
-    //     appointment.stylist.first_name
-    //   );
-    //   // mail to stylist
-    //   const stylist = [
-    //     [appointment.stylist.email, appointment.stylist.first_name],
-    //   ];
-    //   const tags = {
-    //     first_name: appointment.stylist.first_name,
-    //     client_first_name: appointment.client.first_name,
-    //     appointment_type: appointment.type,
-    //     appointment_url: `${baseUrl}/appointments/${appointment._id}`,
-    //   };
-    //   await axios.post(
-    //     `${baseUrl}/api/mail/send`,
-    //     {
-    //       to: stylist,
-    //       template: "appointment-request-received",
-    //       tags,
-    //       personalizedSubject: "you just received a new appointment request",
+    const {
+      metadata: { appointment },
+      id,
+      receipt_url,
+    } = data;
+    let charge = { id, created: created * 1000 };
+    appointment = await AppointmentModel.findById(appointment).select(
+      "+payment.charge"
+    );
+    if (!appointment) {
+      return;
+    }
+
+    appointment.status = "PAID";
+    appointment.payment.status = "received";
+    appointment.payment.receiptUrl = receipt_url;
+    appointment.payment.charge = charge;
+    await appointment.save();
+
+    console.log("appointment", appointment);
+
+    // mail to stylist
+    // const stylist = [
+    //   [appointment.stylist.email, appointment.stylist.first_name],
+    // ];
+    // const tags = {
+    //   first_name: appointment.stylist.first_name,
+    //   client_first_name: appointment.client.first_name,
+    //   appointment_type: appointment.type,
+    //   appointment_url: `${baseUrl}/appointments/${appointment._id}`,
+    // };
+    // await axios.post(
+    //   `${baseUrl}/api/mail/send`,
+    //   {
+    //     to: stylist,
+    //     template: "appointment-request-received",
+    //     tags,
+    //     personalizedSubject: "you just received a new appointment request",
+    //   },
+    //   {
+    //     headers: {
+    //       secret: process.env.MAIL_SECRET,
     //     },
-    //     {
-    //       headers: {
-    //         secret: process.env.MAIL_SECRET,
-    //       },
-    //     }
-    //   );
-    // }
+    //   }
+    // );
   } catch (error) {
     console.log("updateAppointment || error", error);
   }
