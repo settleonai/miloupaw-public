@@ -7,7 +7,6 @@ const Profile = require("../../models/profileModel");
 // @route   GET /api/location/
 // @access  Private
 const getMyLocations = asyncHandler(async (req, res) => {
-  console.log("req user", req.user);
   try {
     // find users locations
     const locations = await Location.find({ user: req.user.id });

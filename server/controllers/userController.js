@@ -11,6 +11,7 @@ const generatePassword = require("../utils/randomPassword");
 const User = require("../../models/userModel");
 const Profile = require("../../models/profileModel");
 const BusinessProfile = require("../../models/businessProfileModel");
+const { SERVICES } = require("../utils/services");
 
 // defaults
 const baseUrl = process.env.BASE_URL;
@@ -57,7 +58,7 @@ const registerUser = asyncHandler(async (req, res) => {
   // stripe.com/docs/api/customers/create?lang=node#create_customer-description
 
   if (user) {
-    res.status(201).json({ user, profile });
+    res.status(201).json({ user, profile, services: SERVICES });
   } else {
     res.status(400);
     throw new Error("Invalid user data");
@@ -187,7 +188,7 @@ const googleAuth = asyncHandler(async (req, res) => {
 
       console.log("user || profile", user, profile);
 
-      return res.status(200).json({ user, profile });
+      return res.status(200).json({ user, profile, services: SERVICES });
     });
   } catch (error) {
     console.log(error);
@@ -240,7 +241,7 @@ const appleAuth = asyncHandler(async (req, res) => {
         }
       );
 
-      return res.status(200).json({ user, profile });
+      return res.status(200).json({ user, profile, services: SERVICES });
     });
   } catch (error) {
     console.log(error);
@@ -329,7 +330,7 @@ const jobApplication = asyncHandler(async (req, res) => {
       profile = await createBusinessProfile(profileObj);
     }
     if (user && profile) {
-      return res.status(200).json({ user, profile });
+      return res.status(200).json({ user, profile, services: SERVICES });
     }
   } catch (error) {
     console.log(error);
@@ -444,7 +445,9 @@ const checkSocialUser = async (email, res, next) => {
     user.token_exp = Date.now() + 30 * 24 * 60 * 60 * 1000;
     user.save();
 
-    return res.status(200).json({ user, profile, businessProfile });
+    return res
+      .status(200)
+      .json({ user, profile, businessProfile, services: SERVICES });
   } else {
     next();
   }

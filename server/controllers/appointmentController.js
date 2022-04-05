@@ -7,20 +7,44 @@ const AdminProfile = require("../../models/adminProfileModel");
 const MeetAndGreet = require("../../models/meetAndGreetModel");
 const BusinessProfile = require("../../models/businessProfileModel");
 const appointmentModel = require("../../models/appointmentModel");
+const { SERVICES } = require("../utils/services");
+
+const stripe = require("stripe")(process.env.STRIPE_SECRET_API_KEY);
 
 // save customer info on payment
 // https://stripe.com/docs/payments/save-during-payment
 
+// @desc    Get list of Services
+// @route   GET /appointment/services/
+// @access  Private
+exports.getServices = asyncHandler(async (req, res) => {
+  try {
+    const services = SERVICES;
+
+    res.status(200).json({
+      success: true,
+      count: services.length,
+      data: services,
+    });
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send("Server Error");
+  }
+});
+
 // @desc    Create new Appointment
-// @route   POST /api/appointment/
+// @route   POST /appointment/
 // @access  Private
 exports.createAppointment = asyncHandler(async (req, res, next) => {
   try {
     const { type } = req.body;
-    console.log("createAppointment | req.body:", req.body);
+    // console.log("createAppointment | req.body:", req.body);
 
     if (!type) {
-      return next(new ErrorResponse("Please provide a type", 400));
+      return res.status(400).json({
+        success: false,
+        error: "Please provide a type",
+      });
     }
     if (type === "meet-and-greet") {
       handleMeetAndGreetRequest(req, res);
@@ -28,13 +52,16 @@ exports.createAppointment = asyncHandler(async (req, res, next) => {
     if (type === "meet_greet") {
       handleMeetAndGreetSetup(req, res);
     }
+    if (type === "DOG_WALKING") {
+      handleDogWalkingSetup(req, res);
+    }
   } catch (error) {
     console.log("createAppointment", error);
   }
 });
 
 // @desc    Get list of Meet and Greet
-// @route   GET /api/appointment/meet-greets
+// @route   GET /appointment/meet-greets
 // @access  Private
 exports.getMeetAndGreet = asyncHandler(async (req, res, next) => {
   try {
@@ -57,6 +84,64 @@ exports.getMeetAndGreet = asyncHandler(async (req, res, next) => {
     });
   } catch (error) {
     console.log("getMeetAndGreet", error);
+    res.status(500).json({
+      success: false,
+      error: error.message,
+    });
+  }
+});
+
+// @desc    Create a Payment Intent
+// @route   POST /appointment/payment/intent
+// @access  Private
+exports.createPaymentIntent = asyncHandler(async (req, res, next) => {
+  const { id } = req.body;
+  try {
+    const appointment = await appointmentModel.findById(id);
+
+    const clientProfile = await Profile.findOne({ user: req.user._id });
+    const customer = clientProfile?.business_info.customer_id;
+    if (!customer) {
+      return next(new ErrorResponse("Client profile not found", 404));
+    }
+    const ephemeralKey = await stripe.ephemeralKeys.create(
+      { customer },
+      { apiVersion: "2020-08-27" }
+    );
+    // const amount = (parseFloat(req.body.amount.total) * 100).toFixed(0);
+
+    const { amount, currency } = appointment.payment;
+
+    const paymentIntent = await stripe.paymentIntents.create({
+      amount: amount.total * 100,
+      currency: currency.toLowerCase(),
+      customer,
+      automatic_payment_methods: {
+        enabled: true,
+      },
+      // application_fee_amount: 123,
+      // transfer_data: {
+      //   destination: "{{CONNECTED_ACCOUNT_ID}}",
+      // },
+
+      metadata: {
+        client: clientProfile._id,
+        appointments: [],
+        tip: amount.tip,
+        appointment: appointment._id,
+      },
+      receipt_email: req.user.email,
+    });
+
+    res.json({
+      paymentIntent: paymentIntent.client_secret,
+      ephemeralKey: ephemeralKey.secret,
+      customer: customer.id,
+      publishableKey:
+        "pk_test_51JMeQ3JcaWhyBqHZq14PHdKNDMzCWtagNIG6pGjnKmIkai1wBwBTIBPyWQ0bRXAgj29uZw2bEFFmnWU9Nbvkxtl200f3lihV8V",
+    });
+  } catch (error) {
+    console.log("createPaymentIntent", error);
     res.status(500).json({
       success: false,
       error: error.message,
@@ -223,5 +308,38 @@ const handleMeetAndGreetSetup = asyncHandler(async (req, res) => {
     });
   } catch (error) {
     console.log("handleMeetAndGreetSetup | error", error);
+  }
+});
+
+// handle dog walking setup
+const handleDogWalkingSetup = asyncHandler(async (req, res) => {
+  try {
+    // return console.log("handleDogWalkingSetup | req.body:", req.body);
+    const { type, location, pets, time, amount } = req.body;
+    const client = req.user;
+    const petsList = pets.map((pet) => pet._id);
+    const appointment = await appointmentModel.create({
+      client,
+      type,
+      location: location._id,
+      pets: petsList,
+      time,
+      payment: {
+        amount,
+      },
+      status: "READY_TO_PAY",
+    });
+
+    return res.status(200).json({
+      success: true,
+      message: "Dog walking appointment setup successfully",
+      result: appointment,
+    });
+  } catch (error) {
+    console.log("handleDogWalkingSetup | error", error);
+    return res.status(400).json({
+      success: false,
+      error: "Internal server error. Please contact support",
+    });
   }
 });

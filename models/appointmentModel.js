@@ -11,7 +11,7 @@ const {
 
 const appointmentSchema = Schema(
   {
-    employee: { type: Schema.Types.ObjectId, ref: "User", required: true },
+    employee: { type: Schema.Types.ObjectId, ref: "User", required: false },
     client: { type: Schema.Types.ObjectId, ref: "User", required: true },
     type: {
       type: String,
@@ -44,9 +44,11 @@ const appointmentSchema = Schema(
         },
       },
     ],
-
     payment: {
-      amount: { type: Number, required: true },
+      amount: {
+        total: { type: Number, default: 0 },
+        tip: { type: Number, default: 0 },
+      },
       currency: {
         type: String,
         enum: currenciesList,
@@ -101,6 +103,7 @@ const appointmentSchema = Schema(
     time: {
       start: { type: Date, required: true },
       end: { type: Date, required: true },
+      duration: { type: Number, required: true, default: 30 },
     },
     notes: { type: String, default: "" },
     status: {
