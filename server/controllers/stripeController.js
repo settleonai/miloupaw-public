@@ -81,7 +81,7 @@ exports.stripeConnectHook = async (req, res) => {
   let event;
 
   try {
-    event = stripe.webhooks.constructEvent(req.body, sig, process.env.WHCS);
+    event = stripe.webhooks.constructEvent(req.body, sig, process.env.WHS);
   } catch (err) {
     // On error, log and return the error message
     console.log(`❌ Error message: ${err.message}`);
