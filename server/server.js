@@ -34,7 +34,7 @@ app.use("/pets", require("./routes/petRoutes"));
 app.use("/locations", require("./routes/locationRoutes"));
 app.use("/appointments", require("./routes/appointmentRoutes"));
 app.use("/business", require("./routes/businessRoutes"));
-app.use("/stripe", require("./routes/stripeRoutes"));
+// app.use("/stripe", require("./routes/stripeRoutes"));
 app.post(
   "/stripe",
   express.raw({ type: "application/json" }),

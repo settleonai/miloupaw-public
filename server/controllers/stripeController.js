@@ -6,7 +6,7 @@ const stripe = require("stripe")(process.env.STRIPE_API_KEY);
 // @desc    Stripe webhooks
 // @route   POST /stripe/
 // @access  Public
-exports.stripeGeneralHook = (req, res) => {
+exports.stripeGeneralHook = async (req, res) => {
   const sig = req.headers["stripe-signature"];
 
   console.log("req.headers", req.headers["stripe-signature"]);
@@ -75,7 +75,7 @@ exports.stripeGeneralHook = (req, res) => {
 // @desc    Stripe Connect webhooks
 // @route   POST /stripe/connect/
 // @access  Public
-exports.stripeConnectHook = (req, res) => {
+exports.stripeConnectHook = async (req, res) => {
   const sig = req.headers["stripe-signature"];
 
   let event;
