@@ -113,7 +113,7 @@ exports.createPaymentIntent = asyncHandler(async (req, res, next) => {
     const { amount, currency } = appointment.payment;
 
     const paymentIntent = await stripe.paymentIntents.create({
-      amount: amount.total * 100,
+      amount: (amount.total * 100).toFixed(0),
       currency: currency.toLowerCase(),
       customer,
       automatic_payment_methods: {
