@@ -6,7 +6,7 @@ const stripe = require("stripe");
 // @desc    Stripe webhooks
 // @route   POST /stripe/
 // @access  Public
-exports.stripeGeneralHook = asyncHandler(async (req, res) => {
+exports.stripeGeneralHook = (req, res) => {
   const sig = req.headers["stripe-signature"];
 
   console.log("req.headers", req.headers["stripe-signature"]);
@@ -70,12 +70,12 @@ exports.stripeGeneralHook = asyncHandler(async (req, res) => {
 
   // Return a 200 response to acknowledge receipt of the event
   res.send();
-});
+};
 
 // @desc    Stripe Connect webhooks
 // @route   POST /stripe/connect/
 // @access  Public
-exports.stripeConnectHook = asyncHandler(async (req, res) => {
+exports.stripeConnectHook = (req, res) => {
   const sig = req.headers["stripe-signature"];
 
   let event;
@@ -141,7 +141,7 @@ exports.stripeConnectHook = asyncHandler(async (req, res) => {
 
   // Return a response to acknowledge receipt of the event
   res.json({ received: true });
-});
+};
 
 async function updateAppointment(data, created) {
   try {
