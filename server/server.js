@@ -3,6 +3,11 @@ const colors = require("colors");
 const dotenv = require("dotenv").config();
 const { errorHandler } = require("./middleware/errorMiddleware");
 const connectDB = require("./config/db");
+const {
+  stripeGeneralHook,
+  stripeConnectHook,
+} = require("./controllers/stripeController");
+
 const port = process.env.PORT || 5000;
 
 connectDB();
@@ -30,6 +35,16 @@ app.use("/locations", require("./routes/locationRoutes"));
 app.use("/appointments", require("./routes/appointmentRoutes"));
 app.use("/business", require("./routes/businessRoutes"));
 app.use("/stripe", require("./routes/stripeRoutes"));
+app.post(
+  "/stripe",
+  express.raw({ type: "application/json" }),
+  stripeGeneralHook
+);
+app.post(
+  "/stripe/connect",
+  express.raw({ type: "application/json" }),
+  stripeConnectHook
+);
 // app.use("/test", require("./routes/testRoutes"));
 
 app.use(errorHandler);
