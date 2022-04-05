@@ -1,3 +1,4 @@
+const appointmentModel = require("../../models/appointmentModel");
 const businessProfileModel = require("../../models/businessProfileModel");
 
 const stripe = require("stripe")(process.env.STRIPE_API_KEY);
@@ -151,9 +152,9 @@ async function updateAppointment(data, created) {
       receipt_url,
     } = data;
     let charge = { id, created: created * 1000 };
-    appointment = await AppointmentModel.findById(appointment).select(
-      "+payment.charge"
-    );
+    appointment = await appointmentModel
+      .findById(appointment)
+      .select("+payment.charge");
     if (!appointment) {
       return;
     }
