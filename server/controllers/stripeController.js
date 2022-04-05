@@ -13,7 +13,7 @@ exports.stripeGeneralHook = asyncHandler(async (req, res) => {
   try {
     event = stripe.webhooks.constructEvent(req.body, sig, process.env.WHS);
   } catch (err) {
-    response.status(400).send(`Webhook Error: ${err.message}`);
+    res.status(400).send(`Webhook Error: ${err.message}`);
     return;
   }
   // Handle the event
