@@ -101,6 +101,7 @@ exports.createPaymentIntent = asyncHandler(async (req, res, next) => {
 
     const clientProfile = await Profile.findOne({ user: req.user._id });
     const customer = clientProfile?.business_info.customer_id;
+    console.log("customer:", customer, clientProfile, appointment);
     if (!customer) {
       return next(new ErrorResponse("Client profile not found", 404));
     }
