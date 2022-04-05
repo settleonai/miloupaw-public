@@ -101,7 +101,7 @@ exports.createPaymentIntent = asyncHandler(async (req, res, next) => {
 
     const clientProfile = await Profile.findOne({ user: req.user._id });
     const customer = clientProfile?.business_info.customer_id;
-    console.log("customer:", customer, clientProfile, appointment);
+    console.log("customer:", customer, appointment.id);
     if (!customer) {
       return next(new ErrorResponse("Client profile not found", 404));
     }
@@ -126,10 +126,10 @@ exports.createPaymentIntent = asyncHandler(async (req, res, next) => {
       // },
 
       metadata: {
-        client: clientProfile._id,
+        client: req.user._id,
         appointments: [],
         tip: amount.tip,
-        appointment: appointment._id,
+        appointment: appointment.id,
       },
       receipt_email: req.user.email,
     });
