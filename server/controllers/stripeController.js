@@ -152,20 +152,20 @@ async function updateAppointment(data, created) {
       receipt_url,
     } = data;
     let charge = { id, created: created * 1000 };
-    appointment = await appointmentModel
+    const appointmentObj = await appointmentModel
       .findById(appointment)
       .select("+payment.charge");
     if (!appointment) {
       return;
     }
 
-    appointment.status = "PAID";
-    appointment.payment.status = "received";
-    appointment.payment.receiptUrl = receipt_url;
-    appointment.payment.charge = charge;
-    await appointment.save();
+    appointmentObj.status = "PAID";
+    appointmentObj.payment.status = "received";
+    appointmentObj.payment.receiptUrl = receipt_url;
+    appointmentObj.payment.charge = charge;
+    await appointmentObj.save();
 
-    console.log("appointment", appointment);
+    console.log("appointmentObj", appointmentObj);
 
     // mail to stylist
     // const stylist = [
