@@ -9,6 +9,8 @@ const stripe = require("stripe");
 exports.stripeGeneralHook = asyncHandler(async (req, res) => {
   const sig = req.headers["stripe-signature"];
 
+  console.log("req.headers", req.headers["stripe-signature"]);
+
   let event, paymentIntent;
   try {
     event = stripe.webhooks.constructEvent(req.body, sig, process.env.WHS);
