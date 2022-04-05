@@ -1,4 +1,3 @@
-const asyncHandler = require("express-async-handler");
 const businessProfileModel = require("../../models/businessProfileModel");
 
 const stripe = require("stripe")(process.env.STRIPE_API_KEY);
@@ -59,7 +58,7 @@ exports.stripeGeneralHook = async (req, res) => {
       break;
     case "charge.succeeded":
       charge = event.data.object;
-      updateAppointment(charge, event.created);
+      await updateAppointment(charge, event.created);
       // Then define and call a function to handle the event payment_intent.succeeded
       console.log(`✅ payment_intent.succeeded ${charge}`);
       break;
@@ -144,6 +143,7 @@ exports.stripeConnectHook = async (req, res) => {
 };
 
 async function updateAppointment(data, created) {
+  console.log("updateAppointment", data, created);
   try {
     // const { transfer_group, receipt_url, id } = data;
     // appointment = await AppointmentModel.findById(transfer_group)
