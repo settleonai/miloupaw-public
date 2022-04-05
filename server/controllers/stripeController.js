@@ -1,7 +1,7 @@
 const asyncHandler = require("express-async-handler");
 const businessProfileModel = require("../../models/businessProfileModel");
 
-const stripe = require("stripe");
+const stripe = require("stripe")(process.env.STRIPE_API_KEY);
 
 // @desc    Stripe webhooks
 // @route   POST /stripe/
