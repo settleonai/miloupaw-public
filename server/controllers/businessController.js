@@ -274,6 +274,7 @@ exports.getStripeAccountLink = asyncHandler(async (req, res) => {
         business_type: "individual",
         business_profile: {
           product_description: "miloupaw employee",
+          mcc: "7299",
         },
       });
 

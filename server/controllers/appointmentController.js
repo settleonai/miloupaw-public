@@ -113,29 +113,33 @@ exports.createPaymentIntent = asyncHandler(async (req, res, next) => {
 
     const { amount, currency } = appointment.payment;
 
-    const paymentIntent = await stripe.paymentIntents.create({
-      amount: (amount.total * 100).toFixed(0),
-      currency: currency.toLowerCase(),
-      customer,
-      automatic_payment_methods: {
-        enabled: true,
-      },
-      // application_fee_amount: 123,
-      // transfer_data: {
-      //   destination: "{{CONNECTED_ACCOUNT_ID}}",
-      // },
+    // const paymentIntent = await stripe.paymentIntents.create({
+    //   amount: (amount.total * 100).toFixed(0),
+    //   currency: currency.toLowerCase(),
+    //   customer,
+    //   automatic_payment_methods: {
+    //     enabled: true,
+    //   },
+    //   // application_fee_amount: 123,
+    //   // transfer_data: {
+    //   //   destination: "{{CONNECTED_ACCOUNT_ID}}",
+    //   // },
 
-      metadata: {
-        client: req.user._id,
-        appointments: [],
-        tip: amount.tip,
-        appointment: appointment.id,
-      },
-      receipt_email: req.user.email,
+    //   metadata: {
+    //     client: req.user._id,
+    //     appointments: [],
+    //     tip: amount.tip,
+    //     appointment: appointment.id,
+    //   },
+    //   receipt_email: req.user.email,
+    // });
+    const setupIntent = await stripe.setupIntents.create({
+      customer: customer.id,
     });
 
     res.json({
-      paymentIntent: paymentIntent.client_secret,
+      // paymentIntent: paymentIntent.client_secret,
+      setupIntent: setupIntent.client_secret,
       ephemeralKey: ephemeralKey.secret,
       customer: customer.id,
       publishableKey:
