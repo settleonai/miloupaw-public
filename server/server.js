@@ -32,7 +32,7 @@ app.use("/appointments", require("./routes/appointmentRoutes"));
 app.use("/business", require("./routes/businessRoutes"));
 app.use("/stripe", require("./routes/stripeRoutes"));
 
-// app.use("/test", require("./routes/testRoutes"));
+app.use("/test", require("./routes/testRoutes"));
 
 app.use(errorHandler);
 

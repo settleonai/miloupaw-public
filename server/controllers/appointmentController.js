@@ -134,14 +134,14 @@ exports.createPaymentIntent = asyncHandler(async (req, res, next) => {
     //   receipt_email: req.user.email,
     // });
     const setupIntent = await stripe.setupIntents.create({
-      customer: customer.id,
+      customer,
     });
 
     res.json({
       // paymentIntent: paymentIntent.client_secret,
       setupIntent: setupIntent.client_secret,
       ephemeralKey: ephemeralKey.secret,
-      customer: customer.id,
+      customer,
       publishableKey:
         "pk_test_51JMeQ3JcaWhyBqHZq14PHdKNDMzCWtagNIG6pGjnKmIkai1wBwBTIBPyWQ0bRXAgj29uZw2bEFFmnWU9Nbvkxtl200f3lihV8V",
     });
