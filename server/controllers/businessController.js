@@ -126,7 +126,7 @@ exports.getClientProfile = asyncHandler(async (req, res) => {
       }
     )
       .populate("locations")
-      .populate("pets");
+      .populate("pets", PET_GENERAL_PROJECTION);
     // console.log("profile", profile);
     if (!profile) {
       return res.status(400).json({

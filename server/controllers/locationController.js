@@ -55,7 +55,7 @@ const addLocation = asyncHandler(async (req, res) => {
     { new: true }
   )
     .populate("locations")
-    .populate("pets");
+    .populate("pets", PET_GENERAL_PROJECTION);
 
   res.status(201).json(profile);
 });
@@ -103,7 +103,7 @@ const updateLocation = asyncHandler(async (req, res) => {
   // find profile
   const profile = await Profile.findOne({ user: req.user.id })
     .populate("locations")
-    .populate("pets");
+    .populate("pets", PET_GENERAL_PROJECTION);
 
   // return profile
   res.status(200).json(profile);
@@ -134,7 +134,7 @@ const deleteLocation = asyncHandler(async (req, res) => {
 
   const updatedProfile = await Profile.findOne({ user: req.user.id })
     .populate("locations")
-    .populate("pets");
+    .populate("pets", PET_GENERAL_PROJECTION);
 
   // return profile
   res.status(200).json(updatedProfile);

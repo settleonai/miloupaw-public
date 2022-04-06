@@ -63,18 +63,11 @@ const appointmentSchema = Schema(
       },
       intent: {
         id: { type: String },
-        client_secret: { type: String },
+
         status: { type: String },
-        on_behalf_of: { type: String },
-        url: { type: String },
+
         amount: { type: Number },
-        currency: {
-          type: String,
-          enum: currenciesList,
-          required: true,
-          default: "USD",
-        },
-        transfer_group: { type: String },
+
         select: false,
       },
       charge: {

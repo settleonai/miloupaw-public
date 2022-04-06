@@ -12,6 +12,7 @@ const User = require("../../models/userModel");
 const Profile = require("../../models/profileModel");
 const BusinessProfile = require("../../models/businessProfileModel");
 const { SERVICES } = require("../utils/services");
+const { PET_GENERAL_PROJECTION } = require("../config/projections");
 
 // defaults
 const baseUrl = process.env.BASE_URL;
@@ -93,7 +94,7 @@ const loginUser = asyncHandler(async (req, res) => {
 const getMe = asyncHandler(async (req, res) => {
   const profile = await Profile.findOne({ user: req.user.id })
     .populate("locations")
-    .populate("pets");
+    .populate("pets", PET_GENERAL_PROJECTION);
 
   res.status(200).json(profile);
 });
@@ -436,7 +437,7 @@ const checkSocialUser = async (email, res, next) => {
     if (user.role === "client") {
       profile = await Profile.findOne({ user: user._id })
         .populate("locations")
-        .populate("pets");
+        .populate("pets", PET_GENERAL_PROJECTION);
     } else {
       businessProfile = await BusinessProfile.findOne({ user: user._id });
     }

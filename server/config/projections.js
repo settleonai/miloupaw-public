@@ -5,6 +5,15 @@ exports.USER_PROJECTION_PUBLIC = {
   role: 1,
 };
 
+exports.PET_GENERAL_PROJECTION = {
+  characteristics: 0,
+  location_rules: 0,
+  training: 0,
+  emergency_veterinarian: 0,
+  vaccinations: 0,
+  medical: 0,
+};
+
 exports.APPOINTMENT_PROJECTION_PUBLIC = {
   location_track: 0,
   "payment.status": 0,

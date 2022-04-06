@@ -91,69 +91,6 @@ exports.getMeetAndGreet = asyncHandler(async (req, res, next) => {
   }
 });
 
-// @desc    Create a Payment Intent
-// @route   POST /appointment/payment/intent
-// @access  Private
-exports.createPaymentIntent = asyncHandler(async (req, res, next) => {
-  const { id } = req.body;
-  try {
-    const appointment = await appointmentModel.findById(id);
-
-    const clientProfile = await Profile.findOne({ user: req.user._id });
-    const customer = clientProfile?.business_info.customer_id;
-    console.log("customer:", customer, appointment.id);
-    if (!customer) {
-      return next(new ErrorResponse("Client profile not found", 404));
-    }
-    const ephemeralKey = await stripe.ephemeralKeys.create(
-      { customer },
-      { apiVersion: "2020-08-27" }
-    );
-    // const amount = (parseFloat(req.body.amount.total) * 100).toFixed(0);
-
-    const { amount, currency } = appointment.payment;
-
-    // const paymentIntent = await stripe.paymentIntents.create({
-    //   amount: (amount.total * 100).toFixed(0),
-    //   currency: currency.toLowerCase(),
-    //   customer,
-    //   automatic_payment_methods: {
-    //     enabled: true,
-    //   },
-    //   // application_fee_amount: 123,
-    //   // transfer_data: {
-    //   //   destination: "{{CONNECTED_ACCOUNT_ID}}",
-    //   // },
-
-    //   metadata: {
-    //     client: req.user._id,
-    //     appointments: [],
-    //     tip: amount.tip,
-    //     appointment: appointment.id,
-    //   },
-    //   receipt_email: req.user.email,
-    // });
-    const setupIntent = await stripe.setupIntents.create({
-      customer,
-    });
-
-    res.json({
-      // paymentIntent: paymentIntent.client_secret,
-      setupIntent: setupIntent.client_secret,
-      ephemeralKey: ephemeralKey.secret,
-      customer,
-      publishableKey:
-        "pk_test_51JMeQ3JcaWhyBqHZq14PHdKNDMzCWtagNIG6pGjnKmIkai1wBwBTIBPyWQ0bRXAgj29uZw2bEFFmnWU9Nbvkxtl200f3lihV8V",
-    });
-  } catch (error) {
-    console.log("createPaymentIntent", error);
-    res.status(500).json({
-      success: false,
-      error: error.message,
-    });
-  }
-});
-
 // handle meet and greet request
 const handleMeetAndGreetRequest = asyncHandler(async (req, res) => {
   try {
@@ -217,7 +154,7 @@ const handleMeetAndGreetRequest = asyncHandler(async (req, res) => {
     //   { new: true }
     // )
     //   .populate("locations")
-    //   .populate("pets");
+    //   .populate("pets", PET_GENERAL_PROJECTION);
 
     adminBusinessProfile.meet_and_greets.push(meet_and_greet);
     await adminBusinessProfile.save();

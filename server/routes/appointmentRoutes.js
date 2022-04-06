@@ -2,10 +2,13 @@ const express = require("express");
 const router = express.Router();
 
 const {
+  createSetupIntent,
+  createPaymentIntent,
+} = require("../controllers/appointmentChargeController");
+const {
   createAppointment,
   getMeetAndGreet,
   getServices,
-  createPaymentIntent,
 } = require("../controllers/appointmentController");
 
 const { protect, adminProtect } = require("../middleware/authMiddleware");
@@ -13,6 +16,8 @@ const { protect, adminProtect } = require("../middleware/authMiddleware");
 router.post("/", protect, createAppointment);
 router.get("/meet-greets", adminProtect, getMeetAndGreet);
 router.get("/services", protect, getServices);
-router.post("/payment-sheet", protect, createPaymentIntent);
+
+router.post("/setup-intent", protect, createSetupIntent);
+router.post("/charge", protect, createPaymentIntent);
 
 module.exports = router;
