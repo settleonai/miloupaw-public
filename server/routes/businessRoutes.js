@@ -9,6 +9,8 @@ const {
   getEmployeeProfile,
   searchBusinessProfile,
   getStripeAccountLink,
+  getAvailableEmployees,
+  getBaseFees,
 } = require("../controllers/businessController");
 
 const {
@@ -23,5 +25,7 @@ router.get("/client-profile/:id", employeeProtect, getClientProfile);
 router.get("/employee-profile/:id", employeeProtect, getEmployeeProfile);
 router.post("/employees/search", adminProtect, searchBusinessProfile);
 router.get("/stripe-profile", employeeProtect, getStripeAccountLink);
+router.get("/available-employees", adminProtect, getAvailableEmployees);
+router.get("/base-fees", employeeProtect, getBaseFees);
 
 module.exports = router;

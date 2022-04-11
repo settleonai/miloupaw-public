@@ -104,6 +104,12 @@ const businessProfileSchema = new Schema(
       ref: "User",
     },
     interview_dateTime: { type: Date },
+    partner_class: {
+      type: String,
+      enum: ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M"],
+      default: "A",
+      select: false,
+    },
   },
   { timestamps: true }
 );

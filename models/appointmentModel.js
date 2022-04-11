@@ -13,6 +13,7 @@ const appointmentSchema = Schema(
   {
     employee: { type: Schema.Types.ObjectId, ref: "User", required: false },
     client: { type: Schema.Types.ObjectId, ref: "User", required: true },
+
     type: {
       type: String,
       enum: SERVICE_TYPES,
@@ -24,26 +25,55 @@ const appointmentSchema = Schema(
       ref: "Location",
       required: true,
     },
+
     pets: [
       {
         type: Schema.Types.ObjectId,
         ref: "Pet",
       },
     ],
-    location_snapshot: [
-      {
+
+    check_in: {
+      properties: { timeStamp: { type: Date } },
+      point: {
         type: {
-          type: String, // Don't do `{ location: { type: String } }`
-          enum: ["Point"], // 'location.type' must be 'Point'
+          type: String,
+          default: "Point",
         },
         coordinates: {
           type: [Number],
         },
-        time: {
-          type: Date,
+      },
+    },
+    check_out: {
+      properties: { timeStamp: { type: Date } },
+      point: {
+        type: {
+          type: String,
+          default: "Point",
+        },
+        coordinates: {
+          type: [Number],
+        },
+      },
+    },
+    location_snapshot: [
+      {
+        properties: {
+          timeStamp: Date,
+        },
+        point: {
+          type: {
+            type: String,
+            default: "Point",
+          },
+          coordinates: {
+            type: [Number],
+          },
         },
       },
     ],
+
     payment: {
       amount: {
         total: { type: Number, default: 0 },
@@ -93,20 +123,24 @@ const appointmentSchema = Schema(
       },
       receipt_url: { type: String, default: "" },
     },
+
     time: {
       start: { type: Date, required: true },
       end: { type: Date, required: true },
       duration: { type: Number, required: true, default: 30 },
     },
     notes: { type: String, default: "" },
+
     status: {
       type: String,
       default: "REQUESTED",
       enum: SERVICE_STATUS,
     },
 
-    completed_by: { type: Schema.Types.ObjectId, ref: "User" },
-    completion_date: { type: Date },
+    journal: {
+      type: Schema.Types.ObjectId,
+      ref: "Journal",
+    },
 
     claim: {
       type: Schema.Types.ObjectId,

@@ -108,4 +108,18 @@ const updatePet = asyncHandler(async (req, res) => {
   }
 });
 
-module.exports = { getMyPets, addPet, updatePet };
+const getPet = asyncHandler(async (req, res) => {
+  try {
+    const pet = await Pet.findById(req.params.id);
+
+    res.status(200).json({
+      success: true,
+      result: pet,
+    });
+  } catch (error) {
+    console.log(error);
+    return res.status(500).json({ success: false, error: error.message });
+  }
+});
+
+module.exports = { getMyPets, addPet, updatePet, getPet };

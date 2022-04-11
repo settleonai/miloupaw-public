@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
+const { MEET_AND_GREET_STATUS } = require("../server/utils/types");
 
 const meetAndGreetSchema = new Schema(
   {
@@ -7,8 +8,8 @@ const meetAndGreetSchema = new Schema(
     employee: { type: Schema.Types.ObjectId, ref: "User", required: true },
     status: {
       type: String,
-      default: "requested",
-      enum: ["requested", "contacted", "assigned", "accepted", "rejected"],
+      default: "REQUESTED",
+      enum: MEET_AND_GREET_STATUS,
     },
     appointment_id: { type: Schema.Types.ObjectId, ref: "Appointment" },
   },

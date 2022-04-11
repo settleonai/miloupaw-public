@@ -2,6 +2,7 @@ const asyncHandler = require("express-async-handler");
 const appointmentModel = require("../../models/appointmentModel");
 const businessProfileModel = require("../../models/businessProfileModel");
 const profileModel = require("../../models/profileModel");
+const { USER_PROJECTION_PUBLIC } = require("../config/projections");
 
 const stripe = require("stripe")(process.env.STRIPE_SECRET_API_KEY);
 
@@ -10,7 +11,7 @@ const stripe = require("stripe")(process.env.STRIPE_SECRET_API_KEY);
 // @access  Private
 exports.createSetupIntent = asyncHandler(async (req, res) => {
   try {
-    const clientProfile = await Profile.findOne({ user: req.user._id });
+    const clientProfile = await profileModel.findOne({ user: req.user._id });
     const customer = clientProfile?.business_info.customer_id;
     if (!customer) {
       return res.status(404).json({
@@ -62,14 +63,21 @@ exports.createSetupIntent = asyncHandler(async (req, res) => {
 // @desc    make payment intent
 // @route   POST /appointment/payment-intent
 // @access  Private
-exports.createPaymentIntent = asyncHandler(async (req, res) => {
+exports.createPaymentIntent = asyncHandler(async (req, res, apt) => {
   try {
-    const { appointmentId } = req.body;
-    const appointment = await appointmentModel.findById(appointmentId);
+    let appointment;
+    if (!apt) {
+      const { appointmentId } = req.body;
+      appointment = await appointmentModel.findById(appointmentId);
+    } else {
+      appointment = apt;
+    }
 
-    const clientProfile = await profileModel.findOne({
-      user: appointment.client,
-    });
+    const clientProfile = await profileModel
+      .findOne({
+        user: appointment.client,
+      })
+      .populate("user", "name email");
 
     const customer = clientProfile.business_info.customer_id;
 
@@ -89,13 +97,13 @@ exports.createPaymentIntent = asyncHandler(async (req, res) => {
       confirm: true,
       metadata: {
         client: clientProfile.user.toString(),
-        appointments: [],
         tip: amount.tip,
         appointment: appointment.id,
       },
-      receipt_email: req.user.email,
+      receipt_email: clientProfile.user.email,
     });
-    if (paymentIntent.status === "success") {
+    console.log("paymentIntent", paymentIntent);
+    if (paymentIntent.status === "succeeded") {
       appointment.payment.intent.id = paymentIntent.id;
       appointment.payment.intent.status = "received";
 

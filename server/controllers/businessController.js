@@ -1,7 +1,15 @@
 const asyncHandler = require("express-async-handler");
+const appointmentModel = require("../../models/appointmentModel");
 const businessProfileModel = require("../../models/businessProfileModel");
 const Profile = require("../../models/profileModel");
-const { EMPLOYEE_SELF_BUSINESS_PROFILE } = require("../utils/projections");
+const userModel = require("../../models/userModel");
+const {
+  PET_GENERAL_PROJECTION,
+  USER_PROJECTION_PUBLIC,
+  EMPLOYEE_SELF_BUSINESS_PROFILE,
+} = require("../config/projections");
+const { GENERAL_CHARGES } = require("../constants/fees");
+const { employeeShare } = require("./feeCalculator");
 
 const stripe = require("stripe")(process.env.STRIPE_SECRET_API_KEY);
 
@@ -113,6 +121,54 @@ exports.getEmployees = asyncHandler(async (req, res) => {
   }
 });
 
+// @desc    Get available employees for an appointment
+// @route   GET /business/available-employees/
+// @access  Admin Private
+exports.getAvailableEmployees = asyncHandler(async (req, res) => {
+  console.log("getAvailableEmployees");
+  try {
+    const { appointmentId, startDate, endDate } = req.query;
+
+    // find appointments within the time range of startDate and endDate and exclude the appointmentId
+    console.log("endDate", endDate);
+    const appointments = await appointmentModel.find({
+      $and: [
+        { "time.start": { $lt: endDate }, "time.end": { $gt: startDate } },
+        { _id: { $ne: appointmentId } },
+      ],
+    });
+
+    console.log("getAvailableEmployees || appointments", appointments);
+
+    // find all employees that are not in the appointments array
+    const employees = await userModel.find(
+      {
+        $and: [
+          { status: "approved" },
+          {
+            _id: {
+              $nin: appointments.map((appointment) => appointment.employee),
+            },
+          },
+        ],
+      },
+      USER_PROJECTION_PUBLIC
+    );
+
+    res.status(200).json({
+      success: true,
+      count: employees.length,
+      result: employees,
+    });
+  } catch (error) {
+    console.log("getAvailableEmployees || error", error);
+    res.status(500).json({
+      success: false,
+      error: error.message,
+    });
+  }
+});
+
 // @desc    Get Client Profile
 // @route   GET /business/client-profile/:id
 // @access  Employee Private
@@ -126,7 +182,8 @@ exports.getClientProfile = asyncHandler(async (req, res) => {
       }
     )
       .populate("locations")
-      .populate("pets", PET_GENERAL_PROJECTION);
+      .populate("pets", PET_GENERAL_PROJECTION)
+      .populate("user", "name email pictures");
     // console.log("profile", profile);
     if (!profile) {
       return res.status(400).json({
@@ -313,6 +370,40 @@ exports.getStripeAccountLink = asyncHandler(async (req, res) => {
     });
   } catch (error) {
     console.log("getStripeSetupLink || error", error);
+    res.status(500).json({
+      success: false,
+      error: error.message,
+    });
+  }
+});
+
+// @desc    Get Base Fees
+// @route   GET /business/base-fees/
+// @access  Employee Private
+exports.getBaseFees = asyncHandler(async (req, res) => {
+  // profile
+  const user = req.user;
+  try {
+    const business = await businessProfileModel
+      .findOne({
+        user: user.id,
+      })
+      .select("+partner_class");
+
+    // calculate sum of general fees using reducer
+    const generalCuts = Object.keys(GENERAL_CHARGES).reduce((acc, curr) => {
+      return acc + Number(GENERAL_CHARGES[curr]) / 100;
+    }, 0);
+    console.log("generalCuts", generalCuts);
+
+    const share = employeeShare[business.partner_class];
+
+    return res.status(200).json({
+      success: true,
+      result: { generalCuts, share },
+    });
+  } catch (error) {
+    console.log("getBaseFees || error", error);
     res.status(500).json({
       success: false,
       error: error.message,

@@ -9,6 +9,15 @@ const BusinessProfile = require("../../models/businessProfileModel");
 const appointmentModel = require("../../models/appointmentModel");
 const { SERVICES } = require("../utils/services");
 
+const {
+  PET_CARD_PROJECTION,
+  LOCATION_CARD_PROJECTION,
+  USER_PROJECTION_PUBLIC,
+} = require("../config/projections");
+const userModel = require("../../models/userModel");
+const { createPaymentIntent } = require("./appointmentChargeController");
+const journalModel = require("../../models/journalModel");
+
 const stripe = require("stripe")(process.env.STRIPE_SECRET_API_KEY);
 
 // save customer info on payment
@@ -29,6 +38,289 @@ exports.getServices = asyncHandler(async (req, res) => {
   } catch (err) {
     console.error(err.message);
     res.status(500).send("Server Error");
+  }
+});
+
+// @desc    Get list of Appointments
+// @route   GET /appointment/
+// @access  Employee or Admin
+exports.getAppointments = asyncHandler(async (req, res) => {
+  // console.log("query", req.query);
+  try {
+    const limit = parseInt(req.query.limit) || 20;
+    const cursor = req.query.cursor;
+    const status = req.query.status?.split(",") || [];
+    const types = req.query.type?.split(",") || [];
+    const self = Boolean(req.query.employee);
+    const reqUserIsClient = Boolean(req.query.client);
+
+    const employee = req.query.employee;
+
+    let appointments;
+
+    const { user } = req;
+
+    console.log("self", self);
+
+    let filters = {
+      $and: [],
+    };
+    if (user.role === "admin" && employee) {
+      filters["$and"].push({ employee: employee });
+    }
+    if (status.length) {
+      filters["$and"].push({ status: { $in: status } });
+    }
+    if (types.length) {
+      filters["$and"].push({ type: { $in: types } });
+    }
+    if (self) {
+      filters["$and"].push({
+        employee: user.id,
+      });
+    }
+    if (reqUserIsClient) {
+      filters["$and"].push({
+        client: user.id,
+      });
+    }
+    if (filters["$and"].length === 0) {
+      delete filters["$and"];
+    }
+
+    if (cursor) {
+      const decryptedCursorDate = DateTime.fromMillis(parseInt(cursor));
+      filters["$and"].push({
+        createdAt: {
+          $lte: decryptedCursorDate.toJSDate(),
+        },
+      });
+    }
+    appointments = await appointmentModel
+      .find(filters)
+      .populate("employee", USER_PROJECTION_PUBLIC)
+      .populate("pets", PET_CARD_PROJECTION)
+      .populate("location", LOCATION_CARD_PROJECTION)
+      .sort({ createdAt: -1 })
+      .limit(limit + 1);
+
+    if (!appointments) {
+      return res.status(404).json({
+        success: false,
+        error: "No appointments found",
+      });
+    }
+    const appointmentsCount = await appointmentModel.countDocuments();
+
+    const hasMore = appointments.length === limit + 1;
+    let nextCursor = null;
+
+    // assign cursor to next set's first element
+    if (hasMore) {
+      const nextCursorRecord = appointments[limit];
+      nextCursor = nextCursorRecord.createdAt.getTime();
+      appointments.pop();
+    }
+
+    let count = appointments.length;
+
+    return res.status(200).json({
+      success: true,
+      totalCount: appointmentsCount,
+      count,
+      hasMore,
+      nextCursor,
+      result: appointments,
+    });
+  } catch (err) {
+    console.error(err.message);
+    return res.status(500).json({
+      success: false,
+      error: "Server Error",
+    });
+  }
+});
+
+// @desc    Get list of Client's Appointments
+// @route   GET /appointment/client-appointments/
+// @access  Client
+exports.getClientAppointments = asyncHandler(async (req, res) => {
+  // console.log("query", req.query);
+  try {
+    const limit = parseInt(req.query.limit) || 20;
+    const cursor = req.query.cursor;
+    const status = req.query.status?.split(",") || [];
+    const types = req.query.type?.split(",") || [];
+    const next = Boolean(req.query.next);
+    const future = Boolean(req.query.future);
+
+    let appointments;
+
+    const { user } = req;
+
+    let filters = {
+      $and: [
+        {
+          client: user.id,
+        },
+      ],
+    };
+    if (status.length) {
+      filters["$and"].push({ status: { $in: status } });
+    }
+    if (types.length) {
+      filters["$and"].push({ type: { $in: types } });
+    }
+
+    if (future) {
+      filters["$and"].push({
+        "time.start": {
+          $gte: new Date(),
+        },
+      });
+    }
+
+    if (next) {
+      filters["$and"].push({
+        $and: [
+          {
+            status: {
+              $in: ["ASSIGNED", "PAID", "PENDING", "EXPIRED", "ONGOING"],
+            },
+          },
+          {
+            "time.start": {
+              $gte: new Date(),
+            },
+          },
+        ],
+      });
+    }
+
+    if (filters["$and"].length === 0) {
+      delete filters["$and"];
+    }
+
+    if (cursor) {
+      const decryptedCursorDate = DateTime.fromMillis(parseInt(cursor));
+      filters["$and"].push({
+        createdAt: {
+          $lte: decryptedCursorDate.toJSDate(),
+        },
+      });
+    }
+    appointments = await appointmentModel
+      .find(filters)
+      .populate("employee", USER_PROJECTION_PUBLIC)
+      .populate("pets", PET_CARD_PROJECTION)
+      .populate("location", LOCATION_CARD_PROJECTION)
+      .sort({ "time.start": +1 })
+      .limit(limit + 1);
+
+    if (!appointments) {
+      return res.status(404).json({
+        success: false,
+        error: "No appointments found",
+      });
+    }
+    const appointmentsCount = await appointmentModel.countDocuments();
+
+    const hasMore = appointments.length === limit + 1;
+    let nextCursor = null;
+
+    // assign cursor to next set's first element
+    if (hasMore) {
+      const nextCursorRecord = appointments[limit];
+      nextCursor = nextCursorRecord.createdAt.getTime();
+      appointments.pop();
+    }
+
+    let count = appointments.length;
+
+    return res.status(200).json({
+      success: true,
+      totalCount: appointmentsCount,
+      count,
+      hasMore,
+      nextCursor,
+      result: appointments,
+    });
+  } catch (err) {
+    console.error(err.message);
+    return res.status(500).json({
+      success: false,
+      error: "Server Error",
+    });
+  }
+});
+
+// @desc    Get list of client's Appointment
+// @route   GET /appointment/client-appointment/:id
+// @access  Client
+exports.getClientAppointment = asyncHandler(async (req, res) => {
+  try {
+    const appointment = await appointmentModel
+      .findById(req.params.id)
+      .populate("employee", USER_PROJECTION_PUBLIC)
+      .populate("pets", PET_CARD_PROJECTION)
+      .populate("location", LOCATION_CARD_PROJECTION);
+
+    if (!appointment) {
+      return res.status(404).json({
+        success: false,
+        error: "No appointment found",
+      });
+    }
+
+    return res.status(200).json({
+      success: true,
+      result: appointment,
+    });
+  } catch (err) {
+    console.error(err.message);
+    return res.status(500).json({
+      success: false,
+      error: "Server Error",
+    });
+  }
+});
+
+// @desc    Get Appointment Details
+// @route   GET /appointment/:id
+// @access  Employee or Admin
+exports.getAppointment = asyncHandler(async (req, res) => {
+  try {
+    const appointment = await appointmentModel
+      .findById(req.params.id)
+      .populate("employee", USER_PROJECTION_PUBLIC)
+      .populate("location")
+      .populate("pets", PET_CARD_PROJECTION)
+      .populate("journal");
+
+    if (!appointment) {
+      return res.status(404).json({
+        success: false,
+        error: "No appointment found",
+      });
+    }
+
+    if (!req.user.role === "admin" && appointment.employee.id !== req.user.id) {
+      return res.status(401).json({
+        success: false,
+        error: "Unauthorized",
+      });
+    }
+
+    return res.status(200).json({
+      success: true,
+      result: appointment,
+    });
+  } catch (err) {
+    console.error("getAppointment || error", err.message);
+    return res.status(500).json({
+      success: false,
+      error: "Server Error",
+    });
   }
 });
 
@@ -60,6 +352,135 @@ exports.createAppointment = asyncHandler(async (req, res, next) => {
   }
 });
 
+// @desc    Update Appointment
+// @route   PUT /appointment/:id
+// @access  Private
+exports.updateAppointment = asyncHandler(async (req, res, next) => {
+  try {
+    const { id } = req.params;
+
+    const appointment = await appointmentModel.findByIdAndUpdate(id, req.body, {
+      new: true,
+    });
+
+    if (!appointment) {
+      return res.status(400).json({
+        success: false,
+        error: "Appointment not found",
+      });
+    }
+
+    res.status(200).json({
+      success: true,
+      result: appointment,
+    });
+  } catch (error) {
+    console.log("updateAppointment", error);
+
+    return res.status(500).json({
+      success: false,
+      error: "Server Error",
+    });
+  }
+});
+
+// @desc    Appointment Check-in-out
+// @route   PUT /appointment/:id/check-in-out
+// @access  Employee or Admin
+exports.appointmentCheckInOut = asyncHandler(async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    const { status, point } = req.body;
+
+    const appointment = await appointmentModel.findById(id).populate("journal");
+
+    if (!appointment) {
+      return res.status(404).json({
+        success: false,
+        error: "Appointment not found",
+      });
+    }
+
+    if (status === "check-in") {
+      appointment.status = "ONGOING";
+      appointment.check_in = { properties: { timeStamp: new Date() }, point };
+      appointment.save();
+    }
+
+    if (status === "check-out") {
+      appointment.check_out = { properties: { timeStamp: new Date() }, point };
+      appointment.status = "COMPLETED";
+      appointment.save();
+
+      if (appointment.type === "MEET_AND_GREET") {
+        if (await handleClientActivation(appointment)) {
+          return res.status(200).json({
+            success: true,
+            message: "Appointment completed successfully",
+          });
+        } else {
+          return res.status(500).json({
+            success: false,
+            error: "Client Activation Failed",
+          });
+        }
+      }
+    }
+
+    return res.status(200).json({
+      success: true,
+      result: appointment,
+    });
+  } catch (error) {
+    console.log("checkInOut", error);
+    return res.status(500).json({
+      success: false,
+      error: "Server Error",
+    });
+  }
+});
+
+// @desc    write Journal
+// @route   POST /appointment/journal
+// @access  Employee or Admin
+exports.writeJournal = asyncHandler(async (req, res, next) => {
+  try {
+    const { id, journal } = req.body;
+
+    const appointment = await appointmentModel.findById(id);
+
+    if (!appointment) {
+      return res.status(404).json({
+        success: false,
+        error: "Appointment not found",
+      });
+    }
+
+    if (appointment.employee.toString() !== req.user.id) {
+      return res.status(401).json({
+        success: false,
+        error: "Unauthorized",
+      });
+    }
+
+    const journalObject = await journalModel.create(journal);
+
+    appointment.journal = journalObject._id;
+    appointment.save();
+
+    return res.status(200).json({
+      success: true,
+      message: "Journal saved",
+    });
+  } catch (error) {
+    console.log("writeJournal", error);
+    return res.status(500).json({
+      success: false,
+      error: "Server Error",
+    });
+  }
+});
+
 // @desc    Get list of Meet and Greet
 // @route   GET /appointment/meet-greets
 // @access  Private
@@ -70,7 +491,24 @@ exports.getMeetAndGreet = asyncHandler(async (req, res, next) => {
       $nor: [{ status: "rejected" }, { status: "accepted" }],
     })
       .populate("client", "name email pictures")
-      .populate("employee", "name email pictures");
+      .populate("employee", "name email pictures")
+      .populate("appointment_id")
+      .populate({
+        path: "appointment_id",
+        populate: {
+          path: "pets",
+          model: "Pet",
+          select: PET_CARD_PROJECTION,
+        },
+      })
+      .populate({
+        path: "appointment_id",
+        populate: {
+          path: "location",
+          model: "Location",
+          select: LOCATION_CARD_PROJECTION,
+        },
+      });
 
     // // find profile of all clients
     // const profiles = await Profile.find({
@@ -84,6 +522,117 @@ exports.getMeetAndGreet = asyncHandler(async (req, res, next) => {
     });
   } catch (error) {
     console.log("getMeetAndGreet", error);
+    res.status(500).json({
+      success: false,
+      error: error.message,
+    });
+  }
+});
+
+// @desc    Assign an employee to an appointment
+// @route   PUT /appointment/assign-employee
+// @access  Private
+exports.assignEmployee = asyncHandler(async (req, res, next) => {
+  try {
+    console.log("assignEmployee | req.body:", req.body);
+    const { appointmentId, employeeId } = req.body;
+
+    const appointment = await appointmentModel.findById(appointmentId);
+
+    if (!appointment) {
+      return res.status(404).json({
+        success: false,
+        error: "Appointment not found",
+      });
+    }
+
+    const employee = await userModel.findById(employeeId);
+
+    if (!employee) {
+      return res.status(404).json({
+        success: false,
+        error: "Employee not found",
+      });
+    }
+
+    appointment.employee = employeeId;
+    appointment.status = "EMPLOYEE_REQUESTED";
+
+    await appointment.save();
+
+    res.status(200).json({
+      success: true,
+      result: appointment,
+    });
+  } catch (error) {
+    console.log("assignEmployee", error);
+    res.status(500).json({
+      success: false,
+      error: error.message,
+    });
+  }
+});
+
+// @desc    Appointment Request Response
+// @route   PUT /appointment/response
+// @access  employee
+exports.responseAppointmentRequest = asyncHandler(async (req, res, next) => {
+  const { appointmentId, status: responseType } = req.body;
+  console.log("responseAppointmentRequest | req.body:", req.body);
+  try {
+    const appointment = await appointmentModel.findById(appointmentId);
+
+    if (!appointment) {
+      return res.status(404).json({
+        success: false,
+        error: "Appointment not found",
+      });
+    }
+
+    if (appointment.employee.toString() !== req.user.id) {
+      return res.status(401).json({
+        success: false,
+        error: "Unauthorized",
+      });
+    }
+
+    if (responseType === "accepted") {
+      appointment.status = "ASSIGNED";
+      await appointment.save();
+
+      await createPaymentIntent(req, res, appointment);
+    }
+
+    if (responseType === "rejected") {
+      if (appointment.type === "MEET_AND_GREET") {
+        const meetAndGreet = await MeetAndGreet.findOne({
+          appointment_id: appointment,
+        });
+
+        if (meetAndGreet) {
+          meetAndGreet.status = "CONTACTED";
+          meetAndGreet.appointment_id = null;
+          await meetAndGreet.save();
+
+          await appointment.remove();
+
+          return res.status(200).json({
+            success: true,
+            message: "Appointment cancelled",
+          });
+        }
+      }
+      appointment.employee = null;
+      // email to admin
+      await appointment.save();
+
+      res.status(200).json({
+        success: true,
+        result: appointment,
+      });
+    }
+  } catch (error) {
+    console.log("responseAppointmentRequest", error);
     res.status(500).json({
       success: false,
       error: error.message,
@@ -140,21 +689,12 @@ const handleMeetAndGreetRequest = asyncHandler(async (req, res) => {
     const meet_and_greet = await MeetAndGreet.create({
       client: profile.user,
       admin: adminProfile.user,
-      status: "requested",
       appointment_id: null,
     });
 
     // console.log("meet_and_greet", profile);
     profile.meet_and_greet = meet_and_greet._id;
     await profile.save();
-
-    // const profile = await Profile.findOneAndUpdate(
-    //   { user: req.user.id },
-    //   { $push: { locations: location._id } },
-    //   { new: true }
-    // )
-    //   .populate("locations")
-    //   .populate("pets", PET_GENERAL_PROJECTION);
 
     adminBusinessProfile.meet_and_greets.push(meet_and_greet);
     await adminBusinessProfile.save();
@@ -207,16 +747,12 @@ const handleMeetAndGreetSetup = asyncHandler(async (req, res) => {
       });
     }
 
-    // console.log("handleMeetAndGreetSetup | meetAndGreetObj:", meetAndGreetObj);
-    // console.log("handleMeetAndGreetSetup | clientProfile:", clientProfile);
-    // console.log("handleMeetAndGreetSetup | employeeProfile:", employeeProfile);
-
     let startTime = new Date(time);
 
     const appointment = await appointmentModel.create({
       client: clientProfile.user,
       employee: employeeProfile.user,
-      type: "MEE_AND_GREET",
+      type: "MEET_AND_GREET",
       location: clientProfile.locations[0]._id,
       pets: clientProfile.pets,
       time: {
@@ -225,16 +761,19 @@ const handleMeetAndGreetSetup = asyncHandler(async (req, res) => {
         end: new Date(startTime.getTime() + 30 * 60000),
       },
       notes,
-      status: "ASSIGNED",
+      status: "EMPLOYEE_REQUESTED",
       payment: {
-        amount: 0,
+        amount: {
+          total: 0,
+          tip: 0,
+        },
       },
     });
 
     // console.log("handleMeetAndGreetSetup | appointment:", appointment);
 
     meetAndGreetObj.appointment_id = appointment._id;
-    meetAndGreetObj.status = "assigned";
+    meetAndGreetObj.status = "EMPLOYEE_REQUESTED";
 
     await meetAndGreetObj.save();
 
@@ -285,3 +824,23 @@ const handleDogWalkingSetup = asyncHandler(async (req, res) => {
     });
   }
 });
+
+// handle client activation after meet and greet
+const handleClientActivation = async (appointment) => {
+  try {
+    const meetAndGreet = await MeetAndGreet.findOne({
+      appointment_id: appointment._id,
+    });
+    const clientProfile = await Profile.findOne({ user: appointment.client });
+
+    clientProfile.activated = true;
+    await clientProfile.save();
+
+    meetAndGreet.status = "COMPLETED";
+    await meetAndGreet.save();
+
+    return true;
+  } catch (error) {
+    console.log("handleClientActivation | error", error);
+  }
+};
