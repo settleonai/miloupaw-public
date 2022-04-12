@@ -101,7 +101,7 @@ exports.getAppointments = asyncHandler(async (req, res) => {
       .populate("employee", USER_PROJECTION_PUBLIC)
       .populate("pets", PET_CARD_PROJECTION)
       .populate("location", LOCATION_CARD_PROJECTION)
-      .sort({ createdAt: -1 })
+      .sort({ "time.start": +1 })
       .limit(limit + 1);
 
     if (!appointments) {
@@ -463,6 +463,8 @@ exports.writeJournal = asyncHandler(async (req, res, next) => {
       });
     }
 
+    console.log("writeJournal | journal:", journal);
+
     const journalObject = await journalModel.create(journal);
 
     appointment.journal = journalObject._id;
@@ -474,6 +476,51 @@ exports.writeJournal = asyncHandler(async (req, res, next) => {
     });
   } catch (error) {
     console.log("writeJournal", error);
+    return res.status(500).json({
+      success: false,
+      error: "Server Error",
+    });
+  }
+});
+
+// @desc    Get Appointment Journal
+// @route   GET /appointment/:id/journal
+// @access  Protected
+exports.getJournal = asyncHandler(async (req, res, next) => {
+  const { user } = req;
+  try {
+    const { id } = req.params;
+
+    const appointment = await appointmentModel.findById(id);
+
+    // console.log("getJournal | appointment:", appointment);
+
+    if (
+      user.role !== "admin" &&
+      (user.id !== appointment.employee.toString()) &
+        (user.id !== appointment.client.toString())
+    ) {
+      return res.status(401).json({
+        success: false,
+        error: "Unauthorized",
+      });
+    }
+
+    const journal = await journalModel.findById(appointment.journal);
+
+    if (!journal) {
+      return res.status(404).json({
+        success: false,
+        error: "Journal not found",
+      });
+    }
+
+    return res.status(200).json({
+      success: true,
+      result: journal,
+    });
+  } catch (error) {
+    console.log("getJournal", error);
     return res.status(500).json({
       success: false,
       error: "Server Error",

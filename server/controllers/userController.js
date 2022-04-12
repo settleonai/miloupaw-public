@@ -120,9 +120,11 @@ const updateMyProfile = asyncHandler(async (req, res) => {
         { new: true }
       );
     }
-    await User.findByIdAndUpdate(req.user.id, {
-      name: req.body.first_name + " " + req.body.last_name,
-    });
+    if (req.body.first_name || req.body.last_name) {
+      await User.findByIdAndUpdate(req.user.id, {
+        name: req.body.first_name + " " + req.body.last_name,
+      });
+    }
 
     res.status(200).json({
       success: true,

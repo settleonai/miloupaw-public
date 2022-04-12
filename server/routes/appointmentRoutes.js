@@ -18,6 +18,7 @@ const {
   responseAppointmentRequest,
   appointmentCheckInOut,
   writeJournal,
+  getJournal,
 } = require("../controllers/appointmentController");
 
 const {
@@ -37,6 +38,7 @@ router.post("/setup-intent", protect, createSetupIntent);
 router.post("/charge", protect, createPaymentIntent);
 router.post("/response", employeeProtect, responseAppointmentRequest);
 router.post("/journal", employeeProtect, writeJournal);
+router.get("/journal/:id", protect, getJournal);
 router.put("/:id/check-in-out", protect, appointmentCheckInOut);
 router.put("/:id", protect, updateAppointment);
 router.get("/:id", employeeProtect, getAppointment);

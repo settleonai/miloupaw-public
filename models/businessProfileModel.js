@@ -2,6 +2,14 @@ const mongoose = require("mongoose");
 const { currenciesList } = require("../server/utils/currencies");
 const Schema = mongoose.Schema;
 
+const { TimeZones } = require("../server/constants/timeZones");
+const weekdayAvailabilitySchema = new Schema({
+  available: { type: Boolean, default: true },
+  time: {
+    start: { type: String, default: "08:00" },
+    end: { type: String, default: "17:00" },
+  },
+});
 const businessProfileSchema = new Schema(
   {
     user: { type: Schema.Types.ObjectId, ref: "User", required: true },
@@ -14,7 +22,7 @@ const businessProfileSchema = new Schema(
       default: "male",
       enum: ["male", "female", "other", "prefer_not"],
     },
-    birth_date: { type: Date },
+    date_of_birth: { type: Date },
     coordinates: {
       type: {
         type: String, // Don't do `{ location: { type: String } }`
@@ -80,6 +88,27 @@ const businessProfileSchema = new Schema(
       type: String,
       default: "pending",
       enum: ["pending", "approved", "rejected"],
+    },
+
+    work: {
+      timezone: {
+        type: String,
+        default: "America/Los_Angeles",
+        enum: TimeZones,
+      },
+
+      availabilities: {
+        sunday: weekdayAvailabilitySchema,
+        monday: weekdayAvailabilitySchema,
+        tuesday: weekdayAvailabilitySchema,
+        wednesday: weekdayAvailabilitySchema,
+        thursday: weekdayAvailabilitySchema,
+        friday: weekdayAvailabilitySchema,
+        saturday: weekdayAvailabilitySchema,
+      },
+      time_offs: [{ type: Schema.Types.ObjectId, ref: "TimeOff" }],
+
+      notes: { type: String, default: "" },
     },
 
     appointments: [{ type: Schema.Types.ObjectId, ref: "Appointment" }],
