@@ -359,6 +359,39 @@ const getMyBusinessProfile = asyncHandler(async (req, res) => {
   }
 });
 
+// @desc    Update Push Notification Token
+// @route   PUT /api/users/set-push-token
+// @access  Private
+const setPushToken = asyncHandler(async (req, res) => {
+  const { user } = req;
+  const { token } = req.body;
+
+  if (!token) {
+    return res.status(400).json({
+      success: false,
+      error: "Please add all fields",
+    });
+  }
+
+  try {
+    const updatedUser = await User.findByIdAndUpdate(
+      user.id,
+      { push_token: token },
+      { new: true }
+    );
+    return res.status(200).json({
+      success: true,
+      result: updatedUser,
+    });
+  } catch (error) {
+    console.log("setPushToken error", error);
+    return res.status(400).json({
+      success: false,
+      error: error.message,
+    });
+  }
+});
+
 // Generate JWT
 const generateToken = (id) => {
   return jwt.sign({ id }, process.env.JWT_SECRET, {
@@ -508,6 +541,7 @@ module.exports = {
   getMyBusinessProfile,
   updateMyProfile,
   updateMyBusinessProfile,
+  setPushToken,
   googleAuth,
   appleAuth,
   createClientProfile,

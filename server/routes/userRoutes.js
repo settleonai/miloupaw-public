@@ -10,6 +10,7 @@ const {
   jobApplication,
   getMyBusinessProfile,
   updateMyBusinessProfile,
+  setPushToken,
 } = require("../controllers/userController");
 
 const {
@@ -21,6 +22,7 @@ const {
 const { protect } = require("../middleware/authMiddleware");
 
 router.post("/", registerUser);
+router.post("/set-push-token", protect, setPushToken);
 router.post("/googleAuth", googleAuth);
 router.post("/appleAuth", appleAuth);
 router.post("/login", loginUser);

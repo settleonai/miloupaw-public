@@ -37,6 +37,10 @@ const userSchema = mongoose.Schema(
     appleId: {
       type: String,
     },
+    push_token: {
+      type: String,
+    },
+
     access_token: {
       type: String,
     },

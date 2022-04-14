@@ -17,6 +17,7 @@ const {
 const userModel = require("../../models/userModel");
 const { createPaymentIntent } = require("./appointmentChargeController");
 const journalModel = require("../../models/journalModel");
+const { sendPushNotification } = require("../utils/pushNotification");
 
 const stripe = require("stripe")(process.env.STRIPE_SECRET_API_KEY);
 
@@ -328,6 +329,7 @@ exports.getAppointment = asyncHandler(async (req, res) => {
 // @route   POST /appointment/
 // @access  Private
 exports.createAppointment = asyncHandler(async (req, res, next) => {
+  const TYPE_A_APPOINTMENTS = ["DOG_WALKING", "PET_SITTING"];
   try {
     const { type } = req.body;
     // console.log("createAppointment | req.body:", req.body);
@@ -344,8 +346,8 @@ exports.createAppointment = asyncHandler(async (req, res, next) => {
     if (type === "meet_greet") {
       handleMeetAndGreetSetup(req, res);
     }
-    if (type === "DOG_WALKING") {
-      handleDogWalkingSetup(req, res);
+    if (TYPE_A_APPOINTMENTS.includes(type)) {
+      handleAppointmentTypeASetup(req, res);
     }
   } catch (error) {
     console.log("createAppointment", error);
@@ -362,6 +364,17 @@ exports.updateAppointment = asyncHandler(async (req, res, next) => {
     const appointment = await appointmentModel.findByIdAndUpdate(id, req.body, {
       new: true,
     });
+
+    if (req.body.status === "AUTHORIZED_TO_CHARGE") {
+      const admins = await userModel.find({ role: "admin" });
+      const notificationTokens = await admins.map((admin) => admin.push_token);
+      console.log("notificationTokens", notificationTokens);
+      sendPushNotification(
+        notificationTokens,
+        "Appointment",
+        "Appointment has been authorized to charge"
+      );
+    }
 
     if (!appointment) {
       return res.status(400).json({
@@ -840,9 +853,9 @@ const handleMeetAndGreetSetup = asyncHandler(async (req, res) => {
 });
 
 // handle dog walking setup
-const handleDogWalkingSetup = asyncHandler(async (req, res) => {
+const handleAppointmentTypeASetup = asyncHandler(async (req, res) => {
   try {
-    // return console.log("handleDogWalkingSetup | req.body:", req.body);
+    // return console.log("handleAppointmentTypeASetup | req.body:", req.body);
     const { type, location, pets, time, amount } = req.body;
     const client = req.user;
     const petsList = pets.map((pet) => pet._id);
@@ -864,7 +877,7 @@ const handleDogWalkingSetup = asyncHandler(async (req, res) => {
       result: appointment,
     });
   } catch (error) {
-    console.log("handleDogWalkingSetup | error", error);
+    console.log("handleAppointmentTypeASetup | error", error);
     return res.status(400).json({
       success: false,
       error: "Internal server error. Please contact support",

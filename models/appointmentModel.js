@@ -33,6 +33,8 @@ const appointmentSchema = Schema(
       },
     ],
 
+    service_items: [String],
+
     check_in: {
       properties: { timeStamp: { type: Date } },
       point: {
