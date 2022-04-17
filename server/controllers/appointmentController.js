@@ -21,6 +21,7 @@ const journalModel = require("../../models/journalModel");
 const { sendPushNotification } = require("../utils/pushNotification");
 const { CAN_DO_APPOINTMENT } = require("../constants/userTypes");
 const { incomeCalc } = require("../utils/FinancialCalc");
+const reviewModel = require("../../models/reviewModel");
 
 const stripe = require("stripe")(process.env.STRIPE_SECRET_API_KEY);
 
@@ -265,8 +266,19 @@ exports.getClientAppointment = asyncHandler(async (req, res) => {
     const appointment = await appointmentModel
       .findById(req.params.id)
       .populate("employee", USER_PROJECTION_PUBLIC)
+      .populate("client", USER_PROJECTION_PUBLIC)
+      .populate("location", LOCATION_CARD_PROJECTION)
       .populate("pets", PET_CARD_PROJECTION)
-      .populate("location", LOCATION_CARD_PROJECTION);
+      .populate("journal")
+      .populate("reviews")
+      .populate({
+        path: "reviews",
+        populate: {
+          path: "user",
+          model: "User",
+          select: USER_PROJECTION_PUBLIC,
+        },
+      });
 
     if (!appointment) {
       return res.status(404).json({
@@ -297,9 +309,19 @@ exports.getAppointment = asyncHandler(async (req, res) => {
     const appointment = await appointmentModel
       .findById(req.params.id)
       .populate("employee", USER_PROJECTION_PUBLIC)
+      .populate("client", USER_PROJECTION_PUBLIC)
       .populate("location")
       .populate("pets", PET_CARD_PROJECTION)
-      .populate("journal");
+      .populate("journal")
+      .populate("reviews")
+      .populate({
+        path: "reviews",
+        populate: {
+          path: "user",
+          model: "User",
+          select: USER_PROJECTION_PUBLIC,
+        },
+      });
 
     // console.log("appointment", appointment);
 
@@ -570,6 +592,55 @@ exports.getJournal = asyncHandler(async (req, res, next) => {
     });
   } catch (error) {
     console.log("getJournal", error);
+    return res.status(500).json({
+      success: false,
+      error: "Server Error",
+    });
+  }
+});
+
+// @desc    Write a Review
+// @route   POST /appointment/review
+// @access  Protected
+exports.writeReview = asyncHandler(async (req, res, next) => {
+  try {
+    const { id, review } = req.body;
+
+    const appointment = await appointmentModel.findById(id);
+
+    if (!appointment) {
+      return res.status(404).json({
+        success: false,
+        error: "Appointment not found",
+      });
+    }
+
+    if (
+      appointment.employee.toString() !== req.user.id &&
+      user.role !== appointment.client.toString()
+    ) {
+      return res.status(401).json({
+        success: false,
+        error: "Unauthorized",
+      });
+    }
+
+    const reviewObject = await reviewModel.create({
+      ...review,
+      appointment: id,
+      user: req.user.id,
+    });
+
+    appointment.reviews.push(reviewObject._id);
+
+    appointment.save();
+
+    return res.status(200).json({
+      success: true,
+      result: reviewObject,
+    });
+  } catch (error) {
+    console.log("writeReview", error);
     return res.status(500).json({
       success: false,
       error: "Server Error",

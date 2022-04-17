@@ -7,12 +7,14 @@ exports.incomeCalc = async (appointment) => {
   let tip = appointment.payment.amount.tip;
 
   try {
+    const totalNoTip = +(total - tip).toFixed(2);
+
     const { generalCuts, share } = await this.baseFeesCalc(
-      appointment.employee
+      appointment.employee,
+      totalNoTip
     );
 
-    const totalNoTip = +(total - tip).toFixed(2);
-    const appFee = +(totalNoTip - generalCuts).toFixed(2);
+    const appFee = +generalCuts.toFixed(2);
     const companyCommission = +((totalNoTip - appFee) * (1 - share)).toFixed(2);
     const income = +(total - companyCommission - appFee).toFixed(2);
 
@@ -29,7 +31,7 @@ exports.incomeCalc = async (appointment) => {
   }
 };
 
-exports.baseFeesCalc = async (userId) => {
+exports.baseFeesCalc = async (userId, total) => {
   try {
     const business = await businessProfileModel
       .findOne({
@@ -41,7 +43,7 @@ exports.baseFeesCalc = async (userId) => {
     const generalCuts = Object.keys(GENERAL_CHARGES).reduce((acc, curr) => {
       const { amount, type } = GENERAL_CHARGES[curr];
       if (type === "percentage") {
-        return +(acc + amount * acc).toFixed(2);
+        return +(acc + amount * total).toFixed(2);
       } else {
         return +(acc + amount).toFixed(2);
       }
