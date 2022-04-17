@@ -15,27 +15,27 @@ const journalSchema = Schema(
     photos: [String],
 
     activities: {
-      poop: {
+      POOP: {
         type: Number,
         default: 0,
       },
-      pee: {
+      PEE: {
         type: Number,
         default: 0,
       },
-      food: {
+      FOOD: {
         type: Boolean,
         default: false,
       },
-      water: {
+      WATER: {
         type: Boolean,
         default: false,
       },
-      medicine: {
+      MEDICINE: {
         type: Boolean,
         default: false,
       },
-      chews: {
+      CHEWS: {
         type: Boolean,
         default: false,
       },

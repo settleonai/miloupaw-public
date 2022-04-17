@@ -1,3 +1,4 @@
 exports.GENERAL_CHARGES = {
-  stripe: process.env.CHARGE_STRIPE,
+  stripe: { amount: 0.029, type: "percentage" },
+  stripe_fee: { amount: 0.3, type: "fixed" },
 };

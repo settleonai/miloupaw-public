@@ -52,17 +52,19 @@ exports.LOCATION_CARD_PROJECTION = {
   createdAt: 0,
 };
 
-exports.APPOINTMENT_PROJECTION_PUBLIC = {
-  location_track: 0,
-  "payment.status": 0,
-  "payment.intent": 0,
-  room: 0,
-  location_track: 0,
+exports.APPOINTMENTS_LIST_PROJECTION_PUBLIC = {
+  location: 0,
+  service_items: 0,
+  check_in: 0,
+  check_out: 0,
+  location_snapshot: 0,
+  location: 0,
   notes: 0,
-  status: 0,
-  completed_by: 0,
+  journal: 0,
+  claim: 0,
+  is_private: 0,
+  reviews: 0,
   open_reviews: 0,
-  video_call: 0,
 };
 
 exports.APPOINTMENT_PROJECTION_PRIVATE = {

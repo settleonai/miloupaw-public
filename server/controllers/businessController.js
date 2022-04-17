@@ -8,8 +8,7 @@ const {
   USER_PROJECTION_PUBLIC,
   EMPLOYEE_SELF_BUSINESS_PROFILE,
 } = require("../config/projections");
-const { GENERAL_CHARGES } = require("../constants/fees");
-const { employeeShare } = require("./feeCalculator");
+const { baseFeesCalc, incomeCalc } = require("../utils/FinancialCalc");
 
 const stripe = require("stripe")(process.env.STRIPE_SECRET_API_KEY);
 
@@ -384,19 +383,7 @@ exports.getBaseFees = asyncHandler(async (req, res) => {
   // profile
   const user = req.user;
   try {
-    const business = await businessProfileModel
-      .findOne({
-        user: user.id,
-      })
-      .select("+partner_class");
-
-    // calculate sum of general fees using reducer
-    const generalCuts = Object.keys(GENERAL_CHARGES).reduce((acc, curr) => {
-      return acc + Number(GENERAL_CHARGES[curr]) / 100;
-    }, 0);
-    console.log("generalCuts", generalCuts);
-
-    const share = employeeShare[business.partner_class];
+    const { generalCuts, share } = await baseFeesCalc(user.id);
 
     return res.status(200).json({
       success: true,
@@ -408,5 +395,116 @@ exports.getBaseFees = asyncHandler(async (req, res) => {
       success: false,
       error: error.message,
     });
+  }
+});
+
+// @desc    Pay Employees for Completed Appointments
+exports.payEmployeesCompletedAppointments = asyncHandler(async () => {
+  try {
+    const appointments = await appointmentModel.find({
+      status: "COMPLETED",
+      "payment.status": "received",
+    });
+
+    let paidAppointments = [];
+
+    appointments.forEach(async (appointment) => {
+      // check if 1 day has passed from appointment end date
+      const endDate = new Date(appointment.time.end);
+      const oneDayPassed = endDate.getTime() - Date.now() < 86400000;
+
+      if (oneDayPassed) {
+      }
+      console.log("appointment.id", appointment._id);
+      const business = await businessProfileModel.findOne({
+        user: appointment.employee,
+      });
+      console.log("business.stripe.id", business.stripe.id);
+
+      const transferAmount = await incomeCalc(appointment);
+
+      if (business.stripe?.id) {
+        const transfer = await stripe.transfers.create({
+          amount: transferAmount.income * 100,
+          currency: business.stripe.currency,
+          source_transaction: appointment.payment.charge.id,
+          destination: business.stripe.id,
+          description: `employee payment for appointment #${appointment.id}`,
+        });
+
+        // console.log("transfer", transfer);
+
+        appointment.payment.transfer = {
+          id: transfer.id,
+          amount: transfer.amount,
+          balance_transaction: transfer.balance_transaction,
+          created: transfer.created,
+          currency: transfer.currency.toUpperCase(),
+          description: transfer.description,
+          destination: transfer.destination,
+          destination_payment: transfer.destination_payment,
+        };
+
+        appointment.payment.status = "transferred";
+        await appointment.save();
+
+        paidAppointments.push(appointment);
+      }
+    });
+
+    // console.log(
+    //   "appointments.payment",
+    //   appointments.map((apt) => apt.payment)
+    // );
+    return paidAppointments;
+  } catch (error) {
+    console.log("payoutCompletedAppointments || error", error);
+    throw error;
+  }
+});
+
+// @desc    Payout Completed Appointments
+exports.payoutCompletedAppointments = asyncHandler(async () => {
+  try {
+    const appointments = await appointmentModel.find({
+      status: "COMPLETED",
+      "payment.status": "transferred",
+    });
+
+    let paidAppointments = [];
+
+    appointments.forEach(async (appointment) => {
+      const balance = await stripe.balance.retrieve();
+      const availableBalance = balance.available[0].amount;
+      const { companyCommission } = await incomeCalc(appointment);
+      if (availableBalance > companyCommission) {
+        const payout = await stripe.payouts.create({
+          amount: companyCommission * 100,
+          currency: "usd",
+          source_type: "balance",
+          description: `bank transfer for appointment #${appointment.id}`,
+        });
+
+        appointment.payment.payout = {
+          id: payout.id,
+          amount: payout.amount,
+          balance_transaction: payout.balance_transaction,
+          arrival_date: payout.arrival_date,
+          created: payout.created,
+          currency: payout.currency.toUpperCase(),
+          description: payout.description,
+          destination: payout.destination,
+        };
+        appointment.payment.status = "paid_out";
+        await appointment.save();
+
+        paidAppointments.push(appointment);
+      }
+    });
+
+    return paidAppointments;
+  } catch (error) {
+    console.log("payoutCompletedAppointments || error", error);
+    throw error;
   }
 });

@@ -33,10 +33,10 @@ const appointmentSchema = Schema(
       },
     ],
 
-    service_items: [String],
+    service_items: [{ type: String, default: [] }],
 
     check_in: {
-      properties: { timeStamp: { type: Date } },
+      properties: { timeStamp: { type: Date }, actualTime: { type: Date } },
       point: {
         type: {
           type: String,
@@ -48,7 +48,7 @@ const appointmentSchema = Schema(
       },
     },
     check_out: {
-      properties: { timeStamp: { type: Date } },
+      properties: { timeStamp: { type: Date }, actualTime: { type: Date } },
       point: {
         type: {
           type: String,
@@ -109,20 +109,41 @@ const appointmentSchema = Schema(
       },
       transfer: {
         id: { type: String },
-        created: { type: Date },
-        select: false,
+        amount: { type: Number },
         balance_transaction: {
           type: String,
         },
-        amount: { type: Number },
+        created: { type: Date },
         currency: {
           type: String,
           enum: currenciesList,
           required: true,
           default: "USD",
         },
+        description: { type: String },
         destination: { type: String },
+        destination_payment: { type: String },
+        select: false,
       },
+      payout: {
+        id: { type: String },
+        amount: { type: Number },
+        balance_transaction: {
+          type: String,
+        },
+        arrival_date: { type: Date },
+        created: { type: Date },
+        currency: {
+          type: String,
+          enum: currenciesList,
+          required: true,
+          default: "USD",
+        },
+        description: { type: String },
+        destination: { type: String },
+        select: false,
+      },
+
       receipt_url: { type: String, default: "" },
     },
 

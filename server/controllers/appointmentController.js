@@ -13,11 +13,14 @@ const {
   PET_CARD_PROJECTION,
   LOCATION_CARD_PROJECTION,
   USER_PROJECTION_PUBLIC,
+  APPOINTMENTS_LIST_PROJECTION_PUBLIC,
 } = require("../config/projections");
 const userModel = require("../../models/userModel");
 const { createPaymentIntent } = require("./appointmentChargeController");
 const journalModel = require("../../models/journalModel");
 const { sendPushNotification } = require("../utils/pushNotification");
+const { CAN_DO_APPOINTMENT } = require("../constants/userTypes");
+const { incomeCalc } = require("../utils/FinancialCalc");
 
 const stripe = require("stripe")(process.env.STRIPE_SECRET_API_KEY);
 
@@ -98,10 +101,9 @@ exports.getAppointments = asyncHandler(async (req, res) => {
       });
     }
     appointments = await appointmentModel
-      .find(filters)
+      .find(filters, APPOINTMENTS_LIST_PROJECTION_PUBLIC)
       .populate("employee", USER_PROJECTION_PUBLIC)
       .populate("pets", PET_CARD_PROJECTION)
-      .populate("location", LOCATION_CARD_PROJECTION)
       .sort({ "time.start": +1 })
       .limit(limit + 1);
 
@@ -290,6 +292,7 @@ exports.getClientAppointment = asyncHandler(async (req, res) => {
 // @route   GET /appointment/:id
 // @access  Employee or Admin
 exports.getAppointment = asyncHandler(async (req, res) => {
+  const { user } = req;
   try {
     const appointment = await appointmentModel
       .findById(req.params.id)
@@ -298,6 +301,8 @@ exports.getAppointment = asyncHandler(async (req, res) => {
       .populate("pets", PET_CARD_PROJECTION)
       .populate("journal");
 
+    // console.log("appointment", appointment);
+
     if (!appointment) {
       return res.status(404).json({
         success: false,
@@ -305,19 +310,30 @@ exports.getAppointment = asyncHandler(async (req, res) => {
       });
     }
 
-    if (!req.user.role === "admin" && appointment.employee.id !== req.user.id) {
+    if (!user.role === "admin" && appointment.employee.id !== user.id) {
       return res.status(401).json({
         success: false,
         error: "Unauthorized",
       });
     }
+    const returnObject = {
+      ...appointment._doc,
+      _id: appointment.id,
+      createdAt: appointment.createdAt.toISOString(),
+      updatedAt: appointment.updatedAt.toISOString(),
+    };
+
+    if (appointment.employee && user.id === appointment.employee.id) {
+      const income = await incomeCalc(appointment);
+      returnObject.income = income;
+    }
 
     return res.status(200).json({
       success: true,
-      result: appointment,
+      result: returnObject,
     });
   } catch (err) {
-    console.error("getAppointment || error", err.message);
+    console.error("getAppointment || error", err);
     return res.status(500).json({
       success: false,
       error: "Server Error",
@@ -403,7 +419,21 @@ exports.updateAppointment = asyncHandler(async (req, res, next) => {
 exports.appointmentCheckInOut = asyncHandler(async (req, res, next) => {
   try {
     const { id } = req.params;
-    const { status, point } = req.body;
+    const { status, point, time } = req.body;
+
+    if (!status) {
+      return res.status(400).json({
+        success: false,
+        error: "Please provide a status",
+      });
+    }
+
+    if (!time) {
+      return res.status(400).json({
+        success: false,
+        error: "Please provide a time",
+      });
+    }
 
     const appointment = await appointmentModel.findById(id).populate("journal");
 
@@ -416,12 +446,18 @@ exports.appointmentCheckInOut = asyncHandler(async (req, res, next) => {
 
     if (status === "check-in") {
       appointment.status = "ONGOING";
-      appointment.check_in = { properties: { timeStamp: new Date() }, point };
+      appointment.check_in = {
+        properties: { actualTime: new Date(), timeStamp: time },
+        point,
+      };
       appointment.save();
     }
 
     if (status === "check-out") {
-      appointment.check_out = { properties: { timeStamp: new Date() }, point };
+      appointment.check_out = {
+        properties: { actualTime: new Date(), timeStamp: time },
+        point,
+      };
       appointment.status = "COMPLETED";
       appointment.save();
 
@@ -476,7 +512,7 @@ exports.writeJournal = asyncHandler(async (req, res, next) => {
       });
     }
 
-    console.log("writeJournal | journal:", journal);
+    // console.log("writeJournal | journal:", journal);
 
     const journalObject = await journalModel.create(journal);
 
@@ -640,7 +676,9 @@ exports.responseAppointmentRequest = asyncHandler(async (req, res, next) => {
   const { appointmentId, status: responseType } = req.body;
   console.log("responseAppointmentRequest | req.body:", req.body);
   try {
-    const appointment = await appointmentModel.findById(appointmentId);
+    const appointment = await appointmentModel
+      .findById(appointmentId)
+      .populate("employee", "name email");
 
     if (!appointment) {
       return res.status(404).json({
@@ -649,20 +687,32 @@ exports.responseAppointmentRequest = asyncHandler(async (req, res, next) => {
       });
     }
 
-    if (appointment.employee.toString() !== req.user.id) {
+    if (appointment.employee._id.toString() !== req.user.id) {
       return res.status(401).json({
         success: false,
         error: "Unauthorized",
       });
     }
 
+    // get admins push token
+    const admins = await userModel.find({ role: "admin" });
+    const notificationTokens = await admins.map((admin) => admin.push_token);
+
+    // accept appointment
     if (responseType === "accepted") {
       appointment.status = "ASSIGNED";
       await appointment.save();
 
       await createPaymentIntent(req, res, appointment);
+
+      await sendPushNotification(
+        notificationTokens,
+        "Appointment Employee Response",
+        `${appointment.employee.name} accepted assigned appointment request.`
+      );
     }
 
+    // reject appointment
     if (responseType === "rejected") {
       if (appointment.type === "MEET_AND_GREET") {
         const meetAndGreet = await MeetAndGreet.findOne({
@@ -676,6 +726,12 @@ exports.responseAppointmentRequest = asyncHandler(async (req, res, next) => {
 
           await appointment.remove();
 
+          await sendPushNotification(
+            notificationTokens,
+            "Appointment Employee Response",
+            `${appointment.employee.name} didn't accepted the assigned meet and greet request.`
+          );
+
           return res.status(200).json({
             success: true,
             message: "Appointment cancelled",
@@ -685,6 +741,12 @@ exports.responseAppointmentRequest = asyncHandler(async (req, res, next) => {
       appointment.employee = null;
       // email to admin
       await appointment.save();
+
+      await sendPushNotification(
+        notificationTokens,
+        "Appointment Employee Response",
+        `${appointment.employee.name} didn't accepted the assigned appointment request.`
+      );
 
       res.status(200).json({
         success: true,
