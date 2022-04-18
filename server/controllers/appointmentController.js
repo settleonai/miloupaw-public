@@ -18,10 +18,17 @@ const {
 const userModel = require("../../models/userModel");
 const { createPaymentIntent } = require("./appointmentChargeController");
 const journalModel = require("../../models/journalModel");
-const { sendPushNotification } = require("../utils/pushNotification");
+const {
+  sendPushNotification,
+  sendPushNotificationToAdmins,
+} = require("../utils/pushNotification");
 const { CAN_DO_APPOINTMENT } = require("../constants/userTypes");
-const { incomeCalc } = require("../utils/FinancialCalc");
+const {
+  incomeCalc,
+  calculateAppointmentBaseFee,
+} = require("../utils/FinancialCalc");
 const reviewModel = require("../../models/reviewModel");
+const { refundAppointment } = require("./businessController");
 
 const stripe = require("stripe")(process.env.STRIPE_SECRET_API_KEY);
 
@@ -367,7 +374,7 @@ exports.getAppointment = asyncHandler(async (req, res) => {
 // @route   POST /appointment/
 // @access  Private
 exports.createAppointment = asyncHandler(async (req, res, next) => {
-  const TYPE_A_APPOINTMENTS = ["DOG_WALKING", "PET_SITTING"];
+  const TYPE_A_APPOINTMENTS = ["DOG_WALKING", "PET_SITTING", "POTTY_BREAK"];
   try {
     const { type } = req.body;
     // console.log("createAppointment | req.body:", req.body);
@@ -404,14 +411,10 @@ exports.updateAppointment = asyncHandler(async (req, res, next) => {
     });
 
     if (req.body.status === "AUTHORIZED_TO_CHARGE") {
-      const admins = await userModel.find({ role: "admin" });
-      const notificationTokens = await admins.map((admin) => admin.push_token);
-      console.log("notificationTokens", notificationTokens);
-      sendPushNotification(
-        notificationTokens,
-        "Appointment",
-        "Appointment has been authorized to charge"
-      );
+      // sendPushNotificationToAdmins(
+      //   "Appointment",
+      //   "Appointment has been authorized to charge"
+      // );
     }
 
     if (!appointment) {
@@ -427,6 +430,65 @@ exports.updateAppointment = asyncHandler(async (req, res, next) => {
     });
   } catch (error) {
     console.log("updateAppointment", error);
+
+    return res.status(500).json({
+      success: false,
+      error: "Server Error",
+    });
+  }
+});
+
+// @desc    Delete Appointment
+// @route   DELETE /appointment/:id
+// @access  Private
+exports.deleteAppointment = asyncHandler(async (req, res, next) => {
+  try {
+    const { id } = req.params;
+
+    if (!id) {
+      return res.status(400).json({
+        success: false,
+        error: "Please provide an id",
+      });
+    }
+    const appointment = await appointmentModel
+      .findById(id)
+      .select("+payment.status");
+
+    if (!appointment) {
+      return res.status(400).json({
+        success: false,
+        error: "Appointment not found",
+      });
+    }
+
+    if (
+      req.user.role !== "admin" &&
+      req.user.id !== appointment.client.toString()
+    ) {
+      return res.status(401).json({
+        success: false,
+        error: "Unauthorized",
+      });
+    }
+
+    if (
+      !["pending", "voided", "refunded"].includes(appointment.payment.status)
+    ) {
+      await refundAppointment(appointment._id);
+    }
+
+    await appointmentModel.findByIdAndUpdate(id, {
+      status: "CANCELLED",
+      "payment.status": "voided",
+    });
+
+    res.status(200).json({
+      success: true,
+      message: "Appointment deleted",
+    });
+  } catch (error) {
+    console.log("deleteAppointment", error);
 
     return res.status(500).json({
       success: false,
@@ -992,14 +1054,22 @@ const handleAppointmentTypeASetup = asyncHandler(async (req, res) => {
     const { type, location, pets, time, amount } = req.body;
     const client = req.user;
     const petsList = pets.map((pet) => pet._id);
+    const paymentAmount = calculateAppointmentBaseFee(
+      type,
+      pets.length,
+      time.duration
+    );
     const appointment = await appointmentModel.create({
       client,
       type,
-      location: location._id,
+      location,
       pets: petsList,
       time,
       payment: {
-        amount,
+        amount: {
+          total: +(paymentAmount + amount.tip).toFixed(2),
+          tip: amount.tip,
+        },
       },
       status: "READY_TO_PAY",
     });

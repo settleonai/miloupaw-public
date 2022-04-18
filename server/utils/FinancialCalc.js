@@ -1,6 +1,7 @@
 const businessProfileModel = require("../../models/businessProfileModel");
 const { GENERAL_CHARGES } = require("../constants/fees");
 const { employeeShare } = require("../constants/employeeShares");
+const { SERVICES } = require("./services");
 
 exports.incomeCalc = async (appointment) => {
   let total = appointment.payment.amount.total;
@@ -59,4 +60,24 @@ exports.baseFeesCalc = async (userId, total) => {
     console.log("baseFeesCalc || error", error);
     throw error;
   }
+};
+
+exports.calculateAppointmentBaseFee = (type, dogCount, duration) => {
+  const feeTemplate = SERVICES;
+  const typeA = ["DOG_WALKING"];
+  const typeB = ["POTTY_BREAK", "PET_SITTING"];
+  let baseFee;
+  if (typeA.includes(type)) {
+    baseFee =
+      feeTemplate[`DOG_WALKING_${duration}_${dogCount > 1 ? 2 : 1}`].price;
+  }
+  if (typeB.includes(type)) {
+    baseFee = feeTemplate[type].price;
+  }
+  let tax = 7.89;
+  let total = +(baseFee * (1 + tax / 100)).toFixed(2);
+
+  console.log("calculateAppointmentBaseFee || total", total);
+
+  return total;
 };

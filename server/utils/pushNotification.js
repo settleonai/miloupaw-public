@@ -1,4 +1,5 @@
 const { Expo } = require("expo-server-sdk");
+const userModel = require("../../models/userModel");
 
 // Create a new Expo SDK client
 // optionally providing an access token if you have enabled push security
@@ -89,6 +90,14 @@ exports.sendPushNotification = async (tokens, title, message) => {
       }
     }
   })();
+};
+
+// send push notification to a admins
+exports.sendPushNotificationToAdmins = async (title, message) => {
+  const admins = await userModel.find({ role: "admin" });
+  const notificationTokens = await admins.map((admin) => admin.push_token);
+
+  await sendPushNotification(notificationTokens, title, message);
 };
 
 // // Later, after the Expo push notification service has delivered the

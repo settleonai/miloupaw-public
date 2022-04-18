@@ -171,28 +171,34 @@ const googleAuth = asyncHandler(async (req, res) => {
     }
 
     // check if user exists, if not continue creating new user
-    await checkSocialUser(googleUser.email, res, async () => {
-      // create new user
-      const { user, profile } = await createCustomerUser(
-        {
-          name: googleUser.name,
-          email: googleUser.email,
-          password: null,
-          pictures: [googleUser.picture || defaultPicture],
-          googleId: googleUser.sub,
-          email_verified: googleUser.email_verified,
-          provider: "google",
-        },
-        {
-          first_name: googleUser.given_name,
-          last_name: googleUser.family_name,
-        }
-      );
+    await checkSocialUser(
+      "google",
+      googleUser.email,
+      googleUser.sub,
+      res,
+      async () => {
+        // create new user
+        const { user, profile } = await createCustomerUser(
+          {
+            name: googleUser.name,
+            email: googleUser.email,
+            password: null,
+            pictures: [googleUser.picture || defaultPicture],
+            googleId: googleUser.sub,
+            email_verified: googleUser.email_verified,
+            provider: "google",
+          },
+          {
+            first_name: googleUser.given_name,
+            last_name: googleUser.family_name,
+          }
+        );
 
-      console.log("user || profile", user, profile);
+        console.log("user || profile", user, profile);
 
-      return res.status(200).json({ user, profile, services: SERVICES });
-    });
+        return res.status(200).json({ user, profile, services: SERVICES });
+      }
+    );
   } catch (error) {
     console.log(error);
   }
@@ -202,7 +208,9 @@ const googleAuth = asyncHandler(async (req, res) => {
 // @route   POST /api/users/appleAuth
 // @access  Public
 const appleAuth = asyncHandler(async (req, res) => {
-  const { token, last_name, first_name } = req.body;
+  const { token, familyName, givenName } = req.body;
+
+  // console.log("req.body", req.body);
 
   if (!token) {
     res.status(400);
@@ -210,6 +218,8 @@ const appleAuth = asyncHandler(async (req, res) => {
   }
   try {
     const appleUser = jwt.decode(token);
+
+    console.log("appleUser", appleUser);
     if (!appleUser) {
       res.status(400);
       throw new Error("Apple token is invalid");
@@ -223,29 +233,35 @@ const appleAuth = asyncHandler(async (req, res) => {
       throw new Error("Apple token has expired");
     }
 
-    let picture = await getAvatar(appleUser.sub);
+    let picture = await getAvatar(appleUser.email);
 
     // check if user exists, if not continue creating new user
-    await checkSocialUser(appleUser.email, res, async () => {
-      // create new user
-      const { user, profile } = await createCustomerUser(
-        {
-          name: first_name + " " + last_name,
-          email: appleUser.email,
-          password: null,
-          pictures: [picture || defaultPicture],
-          appleId: appleUser.sub,
-          email_verified: appleUser.email_verified,
-          provider: "apple",
-        },
-        {
-          first_name,
-          last_name,
-        }
-      );
+    await checkSocialUser(
+      "apple",
+      appleUser.email,
+      appleUser.sub,
+      res,
+      async () => {
+        // create new user
+        const { user, profile } = await createCustomerUser(
+          {
+            name: givenName + " " + familyName,
+            email: appleUser.email,
+            password: null,
+            pictures: [picture || defaultPicture],
+            appleId: appleUser.sub,
+            email_verified: appleUser.email_verified,
+            provider: "apple",
+          },
+          {
+            givenName,
+            familyName,
+          }
+        );
 
-      return res.status(200).json({ user, profile, services: SERVICES });
-    });
+        return res.status(200).json({ user, profile, services: SERVICES });
+      }
+    );
   } catch (error) {
     console.log(error);
   }
@@ -465,9 +481,18 @@ const createCustomerUser = async (userObject, profileObject) => {
 };
 
 // check if social user is exist and return user data
-const checkSocialUser = async (email, res, next) => {
-  const user = await User.findOne({ email: email });
+const checkSocialUser = async (provider, email, sub, res, next) => {
+  const user = await User.findOne({
+    email,
+  });
+
   if (user) {
+    // check if user used different social account with same email
+    if (!user[provider + "Id"]) {
+      user[provider + "Id"] = sub;
+      await user.save();
+    }
+
     let profile, businessProfile;
     if (user.role === "client") {
       profile = await Profile.findOne({ user: user._id })

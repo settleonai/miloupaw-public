@@ -20,6 +20,7 @@ const {
   writeJournal,
   getJournal,
   writeReview,
+  deleteAppointment,
 } = require("../controllers/appointmentController");
 
 const {
@@ -43,6 +44,7 @@ router.get("/journal/:id", protect, getJournal);
 router.post("/review", protect, writeReview);
 router.put("/:id/check-in-out", protect, appointmentCheckInOut);
 router.put("/:id", protect, updateAppointment);
+router.delete("/:id", protect, deleteAppointment);
 router.get("/:id", employeeProtect, getAppointment);
 
 module.exports = router;
