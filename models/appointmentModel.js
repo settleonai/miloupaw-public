@@ -125,6 +125,19 @@ const appointmentSchema = Schema(
         destination_payment: { type: String },
         select: false,
       },
+      reversal: {
+        id: { type: String },
+        amount: { type: Number },
+        created: { type: Date },
+        currency: {
+          type: String,
+          enum: currenciesList,
+          required: true,
+          default: "USD",
+        },
+        transfer: { type: String },
+        select: false,
+      },
       payout: {
         id: { type: String },
         amount: { type: Number },

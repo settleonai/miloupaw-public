@@ -21,6 +21,11 @@ const {
   getJournal,
   writeReview,
   deleteAppointment,
+  submitClaim,
+  getClaim,
+  sendClaimMessage,
+  getClaimsList,
+  submitClaimDecision,
 } = require("../controllers/appointmentController");
 
 const {
@@ -42,6 +47,11 @@ router.post("/response", employeeProtect, responseAppointmentRequest);
 router.post("/journal", employeeProtect, writeJournal);
 router.get("/journal/:id", protect, getJournal);
 router.post("/review", protect, writeReview);
+router.post("/claim", protect, submitClaim);
+router.get("/claims-list", adminProtect, getClaimsList);
+router.get("/claim/:id", protect, getClaim);
+router.post("/claim/:id/message", protect, sendClaimMessage);
+router.put("/claim/:id/decision", adminProtect, submitClaimDecision);
 router.put("/:id/check-in-out", protect, appointmentCheckInOut);
 router.put("/:id", protect, updateAppointment);
 router.delete("/:id", protect, deleteAppointment);

@@ -29,6 +29,8 @@ const {
 } = require("../utils/FinancialCalc");
 const reviewModel = require("../../models/reviewModel");
 const { refundAppointment } = require("./businessController");
+const claimModel = require("../../models/claimModel");
+const messageModel = require("../../models/messageModel");
 
 const stripe = require("stripe")(process.env.STRIPE_SECRET_API_KEY);
 
@@ -312,6 +314,7 @@ exports.getClientAppointment = asyncHandler(async (req, res) => {
 // @access  Employee or Admin
 exports.getAppointment = asyncHandler(async (req, res) => {
   const { user } = req;
+  console.log("req.params", req.params);
   try {
     const appointment = await appointmentModel
       .findById(req.params.id)
@@ -703,6 +706,281 @@ exports.writeReview = asyncHandler(async (req, res, next) => {
     });
   } catch (error) {
     console.log("writeReview", error);
+    return res.status(500).json({
+      success: false,
+      error: "Server Error",
+    });
+  }
+});
+
+// @desc    Submit a Claim
+// @route   POST /appointment/claim
+// @access  Protected
+exports.submitClaim = asyncHandler(async (req, res, next) => {
+  try {
+    const { id, claim } = req.body;
+
+    const { user } = req;
+
+    const appointment = await appointmentModel.findById(id);
+
+    if (!appointment) {
+      return res.status(404).json({
+        success: false,
+        error: "Appointment not found",
+      });
+    }
+
+    if (user.id !== appointment.client.toString()) {
+      return res.status(401).json({
+        success: false,
+        error: "Unauthorized",
+      });
+    }
+
+    const claimObject = await claimModel.create({
+      ...claim,
+      appointment: id,
+      user: user.id,
+    });
+
+    appointment.claim = claimObject._id;
+    appointment.status = "DISPUTED";
+
+    appointment.save();
+
+    // send notification to employee and admin
+    // send email to employee and admin
+
+    return res.status(200).json({
+      success: true,
+      result: claimObject,
+    });
+  } catch (error) {
+    console.log("submitClaim", error);
+    return res.status(500).json({
+      success: false,
+      error: "Server Error",
+    });
+  }
+});
+
+// @desc    Get Appointment Claim
+// @route   GET /appointment/:id/claim
+// @access  Protected
+exports.getClaim = asyncHandler(async (req, res, next) => {
+  const { user } = req;
+  try {
+    const { id } = req.params;
+
+    const claim = await claimModel
+      .findById(id)
+      .populate("user", USER_PROJECTION_PUBLIC)
+      .populate("messages")
+      .populate({
+        path: "messages",
+        populate: {
+          path: "user",
+          select: USER_PROJECTION_PUBLIC,
+        },
+      });
+
+    if (!claim) {
+      return res.status(404).json({
+        success: false,
+        error: "Claim not found",
+      });
+    }
+
+    if (user.id !== claim.user._id.toString() && user.role !== "admin") {
+      return res.status(401).json({
+        success: false,
+        error: "Unauthorized",
+      });
+    }
+
+    return res.status(200).json({
+      success: true,
+      result: claim,
+    });
+  } catch (error) {
+    console.log("getClaim", error);
+    return res.status(500).json({
+      success: false,
+      error: "Server Error",
+    });
+  }
+});
+
+// @desc    Get claims list
+// @route   GET /appointment/claim-list
+// @access  Admin Protected
+exports.getClaimsList = asyncHandler(async (req, res, next) => {
+  try {
+    const limit = parseInt(req.query.limit) || 20;
+    const cursor = req.query.cursor;
+    const status = req.query.status?.split(",") || [];
+    const type = req.query.type;
+
+    let claims;
+
+    let filters = {
+      $and: [],
+    };
+    if (status.length) {
+      filters["$and"].push({ status: { $in: status } });
+    }
+
+    if (filters["$and"].length === 0) {
+      delete filters["$and"];
+    }
+
+    if (cursor) {
+      const decryptedCursorDate = DateTime.fromMillis(parseInt(cursor));
+      filters["$and"].push({
+        createdAt: {
+          $lte: decryptedCursorDate.toJSDate(),
+        },
+      });
+    }
+    claims = await claimModel
+      .find(filters)
+      .populate("user", USER_PROJECTION_PUBLIC)
+      .sort({ "time.start": +1 })
+      .limit(limit + 1);
+
+    // console.log("claims", claims);
+
+    if (!claims) {
+      return res.status(404).json({
+        success: false,
+        error: "No claims found",
+      });
+    }
+    const claimsCount = await claimModel.countDocuments();
+
+    const hasMore = claims.length === limit + 1;
+    let nextCursor = null;
+
+    // assign cursor to next set's first element
+    if (hasMore) {
+      const nextCursorRecord = claims[limit];
+      nextCursor = nextCursorRecord.createdAt.getTime();
+      claims.pop();
+    }
+
+    let count = claims.length;
+
+    return res.status(200).json({
+      success: true,
+      totalCount: claimsCount,
+      count,
+      hasMore,
+      nextCursor,
+      result: claims,
+    });
+  } catch (err) {
+    console.error(err.message);
+    return res.status(500).json({
+      success: false,
+      error: "Server Error",
+    });
+  }
+});
+
+// @desc    Send claim message
+// @route   POST /appointment/claim/:id/message
+// @access  Protected
+exports.sendClaimMessage = asyncHandler(async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    const { message } = req.body;
+
+    const { user } = req;
+
+    const claim = await claimModel.findById(id);
+
+    console.log("message", message);
+
+    if (!claim) {
+      return res.status(404).json({
+        success: false,
+        error: "Claim not found",
+      });
+    }
+
+    if (user.id !== claim.user._id.toString() && user.role !== "admin") {
+      return res.status(401).json({
+        success: false,
+        error: "Unauthorized",
+      });
+    }
+
+    const messageObject = await messageModel.create({
+      message,
+      user: user.id,
+    });
+
+    claim.messages.push(messageObject._id);
+
+    if (claim.status === "pending") {
+      claim.status = "inprogress";
+    }
+
+    claim.save();
+
+    return res.status(200).json({
+      success: true,
+      result: messageObject,
+    });
+  } catch (error) {
+    console.log("sendClaimMessage", error);
+    return res.status(500).json({
+      success: false,
+      error: "Server Error",
+    });
+  }
+});
+
+// @desc    update claim status
+// @route   PUT /appointment/claim/:id/
+// @access  Admin Protected
+exports.submitClaimDecision = asyncHandler(async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    const { status, decision } = req.body;
+
+    const claim = await claimModel.findById(id);
+
+    if (!claim) {
+      return res.status(404).json({
+        success: false,
+        error: "Claim not found",
+      });
+    }
+
+    if (!["pending", "inprogress"].includes(claim.status)) {
+      return res.status(400).json({
+        success: false,
+        error: "Claim is already decided",
+      });
+    }
+
+    claim.status = status;
+    claim.decision = decision;
+
+    claim.save();
+
+    if (status === "approved") {
+      await refundAppointment(claim.appointment.toString(), true);
+    }
+
+    return res.status(200).json({
+      success: true,
+      message: "Claim decision submitted",
+    });
+  } catch (error) {
+    console.log("submitClaimDecision", error);
     return res.status(500).json({
       success: false,
       error: "Server Error",

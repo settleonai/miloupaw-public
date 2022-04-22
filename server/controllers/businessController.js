@@ -10,6 +10,8 @@ const {
 } = require("../config/projections");
 const { baseFeesCalc, incomeCalc } = require("../utils/FinancialCalc");
 
+const { is24HoursAfter } = require("../utils/timeToolkit");
+
 const stripe = require("stripe")(process.env.STRIPE_SECRET_API_KEY);
 
 const baseUrl = process.env.BASE_URL;
@@ -510,41 +512,49 @@ exports.payoutCompletedAppointments = asyncHandler(async () => {
 });
 
 // @desc    Refund Cancelled Appointment
-exports.refundAppointment = asyncHandler(async (appointmentId) => {
+exports.refundAppointment = async (appointmentId, fullRefund = false) => {
   try {
     const appointment = await appointmentModel
       .findById(appointmentId)
       .select("+payment.status")
-      .select("+payment.intent");
+      .select("+payment.intent")
+      .select("+payment.transfer");
     const moreThan24 = is24HoursAfter(appointment.time.start, new Date());
 
-    let amount = appointment.payment.amount.total;
-    if (!moreThan24 && !appointment.employee) {
-      amount = amount * (1 - 0.08) * 100;
+    const fullAmount = appointment.payment.amount.total * 100;
+
+    let amount = fullAmount;
+    if (!moreThan24 && appointment.employee) {
+      amount = amount * (1 - 0.08);
     }
 
-    // if (appointment.payment.transfer?.id) {
-    //   const reversal = await stripe.transfers.createReversal(
-    //     appointment.payment.transfer.id
-    //   );
+    if (appointment.payment.transfer?.id) {
+      const reversal = await stripe.transfers.createReversal(
+        appointment.payment.transfer.id
+      );
 
-    //   appointment.payment.reversal = {
-    //     id: reversal.id,
-    //     amount: reversal.amount,
-    //     created: reversal.created,
-    //     currency: reversal.currency.toUpperCase(),
-    //     transfer: reversal.transfer,
-    //   };
-    // }
+      appointment.payment.reversal = {
+        id: reversal.id,
+        amount: reversal.amount,
+        created: reversal.created,
+        currency: reversal.currency.toUpperCase(),
+        transfer: reversal.transfer,
+      };
+    }
 
-    const refund = await stripe.refunds.create({
+    const refundRequestBody = {
       payment_intent: appointment.payment.intent.id,
-      amount,
       reason: "requested_by_customer",
-      reverse_transfer: true,
-    });
+      // reverse_transfer: true,
+    };
 
-    console.log("refund", refund);
+    if (!fullRefund || amount !== fullAmount) {
+      refundRequestBody.amount = amount;
+    }
+
+    const refund = await stripe.refunds.create(refundRequestBody);
+
+    // console.log("refund", refund);
 
     appointment.payment.refund = {
       id: refund.id,
@@ -565,4 +575,4 @@ exports.refundAppointment = asyncHandler(async (appointmentId) => {
     console.log("refundCancelledAppointment || error", error);
     throw error;
   }
-});
+};

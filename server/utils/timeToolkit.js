@@ -1,4 +1,4 @@
-exports.is24HoursAfter = (timeA, timeB) => {
+module.exports.is24HoursAfter = (timeA, timeB) => {
   const timeAObj = typeof timeA !== "object" ? new Date(timeA) : timeA;
   const timeBObj = typeof timeA !== "object" ? new Date(timeB) : timeB;
   const timeDiff = timeAObj - timeBObj;
