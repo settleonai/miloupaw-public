@@ -14,6 +14,8 @@ const {
   LOCATION_CARD_PROJECTION,
   USER_PROJECTION_PUBLIC,
   APPOINTMENTS_LIST_PROJECTION_PUBLIC,
+  APPOINTMENT_PROJECTION_ADMIN,
+  APPOINTMENT_PROJECTION_EMPLOYEE,
 } = require("../config/projections");
 const userModel = require("../../models/userModel");
 const { createPaymentIntent } = require("./appointmentChargeController");
@@ -65,6 +67,8 @@ exports.getAppointments = asyncHandler(async (req, res) => {
     const cursor = req.query.cursor;
     const status = req.query.status?.split(",") || [];
     const types = req.query.type?.split(",") || [];
+    const startDate = req.query.startDate;
+    const endDate = req.query.endDate;
     const self = Boolean(req.query.employee);
     const reqUserIsClient = Boolean(req.query.client);
 
@@ -74,7 +78,7 @@ exports.getAppointments = asyncHandler(async (req, res) => {
 
     const { user } = req;
 
-    console.log("self", self);
+    // console.log("self", self);
 
     let filters = {
       $and: [],
@@ -87,6 +91,12 @@ exports.getAppointments = asyncHandler(async (req, res) => {
     }
     if (types.length) {
       filters["$and"].push({ type: { $in: types } });
+    }
+    if (startDate) {
+      filters["$and"].push({ "time.start": { $gte: startDate } });
+    }
+    if (endDate) {
+      filters["$and"].push({ "time.end": { $lte: endDate } });
     }
     if (self) {
       filters["$and"].push({
@@ -110,8 +120,16 @@ exports.getAppointments = asyncHandler(async (req, res) => {
         },
       });
     }
+
     appointments = await appointmentModel
-      .find(filters, APPOINTMENTS_LIST_PROJECTION_PUBLIC)
+      .find(
+        filters,
+        req.user.role === "admin"
+          ? APPOINTMENT_PROJECTION_ADMIN
+          : employee === req.user.id
+          ? APPOINTMENT_PROJECTION_EMPLOYEE
+          : APPOINTMENTS_LIST_PROJECTION_PUBLIC
+      )
       .populate("employee", USER_PROJECTION_PUBLIC)
       .populate("pets", PET_CARD_PROJECTION)
       .sort({ "time.start": +1 })
@@ -123,6 +141,7 @@ exports.getAppointments = asyncHandler(async (req, res) => {
         error: "No appointments found",
       });
     }
+
     const appointmentsCount = await appointmentModel.countDocuments();
 
     const hasMore = appointments.length === limit + 1;
@@ -147,6 +166,64 @@ exports.getAppointments = asyncHandler(async (req, res) => {
     });
   } catch (err) {
     console.error(err.message);
+    return res.status(500).json({
+      success: false,
+      error: "Server Error",
+    });
+  }
+});
+
+// @desc    Get Appointment Details
+// @route   GET /appointment/:id
+// @access  Employee or Admin
+exports.getAppointment = asyncHandler(async (req, res) => {
+  const { user } = req;
+  console.log("req.params", req.params);
+  try {
+    const appointment = await appointmentModel
+      .findById(
+        req.params.id,
+        req.user.role === "admin"
+          ? APPOINTMENT_PROJECTION_ADMIN
+          : APPOINTMENT_PROJECTION_EMPLOYEE
+      )
+      .populate("employee", USER_PROJECTION_PUBLIC)
+      .populate("client", USER_PROJECTION_PUBLIC)
+      .populate("location")
+      .populate("pets", PET_CARD_PROJECTION)
+      .populate("journal")
+      .populate("reviews")
+      .populate({
+        path: "reviews",
+        populate: {
+          path: "user",
+          model: "User",
+          select: USER_PROJECTION_PUBLIC,
+        },
+      });
+
+    // console.log("appointment", appointment);
+
+    if (!appointment) {
+      return res.status(404).json({
+        success: false,
+        error: "No appointment found",
+      });
+    }
+
+    if (!user.role === "admin" && appointment.employee.id !== user.id) {
+      return res.status(401).json({
+        success: false,
+        error: "Unauthorized",
+      });
+    }
+
+    return res.status(200).json({
+      success: true,
+      result: appointment,
+    });
+  } catch (err) {
+    console.error("getAppointment || error", err);
     return res.status(500).json({
       success: false,
       error: "Server Error",
@@ -302,70 +379,6 @@ exports.getClientAppointment = asyncHandler(async (req, res) => {
     });
   } catch (err) {
     console.error(err.message);
-    return res.status(500).json({
-      success: false,
-      error: "Server Error",
-    });
-  }
-});
-
-// @desc    Get Appointment Details
-// @route   GET /appointment/:id
-// @access  Employee or Admin
-exports.getAppointment = asyncHandler(async (req, res) => {
-  const { user } = req;
-  console.log("req.params", req.params);
-  try {
-    const appointment = await appointmentModel
-      .findById(req.params.id)
-      .populate("employee", USER_PROJECTION_PUBLIC)
-      .populate("client", USER_PROJECTION_PUBLIC)
-      .populate("location")
-      .populate("pets", PET_CARD_PROJECTION)
-      .populate("journal")
-      .populate("reviews")
-      .populate({
-        path: "reviews",
-        populate: {
-          path: "user",
-          model: "User",
-          select: USER_PROJECTION_PUBLIC,
-        },
-      });
-
-    // console.log("appointment", appointment);
-
-    if (!appointment) {
-      return res.status(404).json({
-        success: false,
-        error: "No appointment found",
-      });
-    }
-
-    if (!user.role === "admin" && appointment.employee.id !== user.id) {
-      return res.status(401).json({
-        success: false,
-        error: "Unauthorized",
-      });
-    }
-    const returnObject = {
-      ...appointment._doc,
-      _id: appointment.id,
-      createdAt: appointment.createdAt.toISOString(),
-      updatedAt: appointment.updatedAt.toISOString(),
-    };
-
-    if (appointment.employee && user.id === appointment.employee.id) {
-      const income = await incomeCalc(appointment);
-      returnObject.income = income;
-    }
-
-    return res.status(200).json({
-      success: true,
-      result: returnObject,
-    });
-  } catch (err) {
-    console.error("getAppointment || error", err);
     return res.status(500).json({
       success: false,
       error: "Server Error",
@@ -670,6 +683,7 @@ exports.getJournal = asyncHandler(async (req, res, next) => {
 exports.writeReview = asyncHandler(async (req, res, next) => {
   try {
     const { id, review } = req.body;
+    const { user } = req;
 
     const appointment = await appointmentModel.findById(id);
 
@@ -681,8 +695,8 @@ exports.writeReview = asyncHandler(async (req, res, next) => {
     }
 
     if (
-      appointment.employee.toString() !== req.user.id &&
-      user.role !== appointment.client.toString()
+      (appointment.employee.toString() !== user.id) &
+      (user.id !== appointment.client.toString())
     ) {
       return res.status(401).json({
         success: false,
@@ -693,12 +707,25 @@ exports.writeReview = asyncHandler(async (req, res, next) => {
     const reviewObject = await reviewModel.create({
       ...review,
       appointment: id,
-      user: req.user.id,
+      user: user.id,
     });
 
     appointment.reviews.push(reviewObject._id);
 
     appointment.save();
+
+    if (appointment.client.toString() === user.id) {
+      const employee = await BusinessProfile.findOne({
+        user: appointment.employee,
+      });
+      employee.rating = calculateRating(
+        employee.reviews?.length || 0,
+        employee.rating || 0,
+        reviewObject.rating
+      );
+      employee.reviews.push(reviewObject._id);
+      employee.save();
+    }
 
     return res.status(200).json({
       success: true,
@@ -1089,7 +1116,8 @@ exports.responseAppointmentRequest = asyncHandler(async (req, res, next) => {
   try {
     const appointment = await appointmentModel
       .findById(appointmentId)
-      .populate("employee", "name email");
+      .populate("employee", "name email")
+      .populate("client", "name email push_token");
 
     if (!appointment) {
       return res.status(404).json({
@@ -1105,22 +1133,52 @@ exports.responseAppointmentRequest = asyncHandler(async (req, res, next) => {
       });
     }
 
-    // get admins push token
-    const admins = await userModel.find({ role: "admin" });
-    const notificationTokens = await admins.map((admin) => admin.push_token);
-
     // accept appointment
     if (responseType === "accepted") {
       appointment.status = "ASSIGNED";
+      const { income, appFee, companyCommission, totalNoTip, tip } =
+        await incomeCalc(appointment);
+
+      appointment.payment.amount = {
+        total_no_tip: totalNoTip,
+        tip: tip,
+        app_fee: appFee,
+        company_commission: companyCommission,
+        employeeShare: income,
+      };
       await appointment.save();
 
-      await createPaymentIntent(req, res, appointment);
+      if (appointment.type !== "MEET_AND_GREET") {
+        await createPaymentIntent(req, res, appointment);
+      }
+
+      await sendPushNotificationToAdmins(
+        "Appointment Employee Response",
+        `${appointment.employee.name} accepted assigned ${
+          appointment.type === "MEET_AND_GREET"
+            ? "meet and greet"
+            : "appointment"
+        } request.`
+      );
 
       await sendPushNotification(
-        notificationTokens,
-        "Appointment Employee Response",
-        `${appointment.employee.name} accepted assigned appointment request.`
+        [appointment.client.push_token],
+        `${
+          appointment.type === "MEET_AND_GREET"
+            ? "Meet and Greet"
+            : "Appointment"
+        } Request Accepted`,
+        `${appointment.employee.name} has been assigned to your ${
+          appointment.type === "MEET_AND_GREET"
+            ? "Meet and Greet"
+            : "Appointment"
+        }.`
       );
+
+      return res.status(200).json({
+        success: true,
+        message: "Appointment accepted",
+      });
     }
 
     // reject appointment
@@ -1137,10 +1195,9 @@ exports.responseAppointmentRequest = asyncHandler(async (req, res, next) => {
 
           await appointment.remove();
 
-          await sendPushNotification(
-            notificationTokens,
+          await sendPushNotificationToAdmins(
             "Appointment Employee Response",
-            `${appointment.employee.name} didn't accepted the assigned meet and greet request.`
+            `${appointment.employee.name} didn't accept the assigned meet and greet request.`
           );
 
           return res.status(200).json({
@@ -1151,17 +1208,15 @@ exports.responseAppointmentRequest = asyncHandler(async (req, res, next) => {
       }
       appointment.employee = null;
       // email to admin
-      await appointment.save();
-
-      await sendPushNotification(
-        notificationTokens,
+      await sendPushNotificationToAdmins(
         "Appointment Employee Response",
-        `${appointment.employee.name} didn't accepted the assigned appointment request.`
+        `${appointment.employee.name} didn't accept the assigned appointment request.`
       );
+      await appointment.save();
 
       res.status(200).json({
         success: true,
-        result: appointment,
+        message: "Appointment rejected",
       });
     }
   } catch (error) {
@@ -1232,6 +1287,11 @@ const handleMeetAndGreetRequest = asyncHandler(async (req, res) => {
     adminBusinessProfile.meet_and_greets.push(meet_and_greet);
     await adminBusinessProfile.save();
 
+    // sendPushNotificationToAdmins(
+    //   "Meet and Greet",
+    //   "New Meet and Greet Request",
+    // );
+
     return res.status(200).json({
       success: true,
       message: "Meet and greet appointment request sent to admin",
@@ -1254,10 +1314,12 @@ const handleMeetAndGreetSetup = asyncHandler(async (req, res) => {
   try {
     const { meetGreet, employee, client, time, notes } = req.body;
     const meetAndGreetObj = await MeetAndGreet.findById(meetGreet);
-    const clientProfile = await Profile.findOne({ user: client }).populate(
-      "locations"
-    );
-    const employeeProfile = await BusinessProfile.findOne({ user: employee });
+    const clientProfile = await Profile.findOne({ user: client })
+      .populate("locations")
+      .populate("user");
+    const employeeProfile = await BusinessProfile.findOne({
+      user: employee,
+    }).populate("user");
 
     if (!meetAndGreetObj) {
       return res.status(400).json({
@@ -1313,7 +1375,11 @@ const handleMeetAndGreetSetup = asyncHandler(async (req, res) => {
     employeeProfile.appointments.push(appointment);
     await employeeProfile.save();
 
-    // console.log("handleMeetAndGreetSetup | meetAndGreetObj:", meetAndGreetObj);
+    await sendPushNotification(
+      [employeeProfile.user.push_token],
+      "Meet and Greet",
+      "New meet and greet has been assigned to you"
+    );
 
     return res.status(200).json({
       success: true,
@@ -1337,6 +1403,7 @@ const handleAppointmentTypeASetup = asyncHandler(async (req, res) => {
       pets.length,
       time.duration
     );
+
     const appointment = await appointmentModel.create({
       client,
       type,
@@ -1345,8 +1412,8 @@ const handleAppointmentTypeASetup = asyncHandler(async (req, res) => {
       time,
       payment: {
         amount: {
-          total: +(paymentAmount + amount.tip).toFixed(2),
-          tip: amount.tip,
+          total: +(paymentAmount + (amount.tip ?? 0)).toFixed(2),
+          tip: amount?.tip,
         },
       },
       status: "READY_TO_PAY",
@@ -1383,5 +1450,13 @@ const handleClientActivation = async (appointment) => {
     return true;
   } catch (error) {
     console.log("handleClientActivation | error", error);
+  }
+};
+
+const calculateRating = (reviews, rating, rate) => {
+  if (reviews > 0) {
+    return (rating * reviews + rate) / (reviews + 1);
+  } else {
+    return rate;
   }
 };

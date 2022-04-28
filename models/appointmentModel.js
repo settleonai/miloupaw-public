@@ -79,7 +79,11 @@ const appointmentSchema = Schema(
     payment: {
       amount: {
         total: { type: Number, default: 0 },
+        total_no_tip: { type: Number, default: 0 },
         tip: { type: Number, default: 0 },
+        employeeShare: { type: Number, default: 0, select: false },
+        app_fee: { type: Number, default: 0, select: false },
+        company_commission: { type: Number, default: 0, select: false },
       },
       currency: {
         type: String,

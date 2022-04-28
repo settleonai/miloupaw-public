@@ -112,6 +112,10 @@ const businessProfileSchema = new Schema(
     },
 
     appointments: [{ type: Schema.Types.ObjectId, ref: "Appointment" }],
+    reviews: [{ type: Schema.Types.ObjectId, ref: "Review" }],
+    rating: {
+      type: Number,
+    },
     stripe: {
       id: { type: String },
       business_type: { type: String },

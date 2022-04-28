@@ -7,6 +7,16 @@ exports.incomeCalc = async (appointment) => {
   let total = appointment.payment.amount.total;
   let tip = appointment.payment.amount.tip;
 
+  if (total === 0) {
+    return {
+      totalNoTip: 0,
+      income: 0,
+      tip: 0,
+      appFee: 0,
+      companyCommission: 0,
+    };
+  }
+
   try {
     const totalNoTip = +(total - tip).toFixed(2);
 

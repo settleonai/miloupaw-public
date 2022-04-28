@@ -13,6 +13,7 @@ const Profile = require("../../models/profileModel");
 const BusinessProfile = require("../../models/businessProfileModel");
 const { SERVICES } = require("../utils/services");
 const { PET_GENERAL_PROJECTION } = require("../config/projections");
+const { default: axios } = require("axios");
 
 // defaults
 const baseUrl = process.env.BASE_URL;
@@ -148,14 +149,26 @@ const updateMyBusinessProfile = asyncHandler(async (req, res) => {});
 // @route   POST /api/users/googleAuth
 // @access  Public
 const googleAuth = asyncHandler(async (req, res) => {
-  const { token } = req.body;
-  if (!token) {
-    res.status(400);
-    throw new Error("Please add all fields");
+  console.log("google auth", req.body);
+  let {
+    token: { idToken, accessToken },
+  } = req.body;
+  if (!idToken && !accessToken) {
+    return res.status(400).json({
+      success: false,
+      error: "token is missing",
+    });
   }
   try {
-    const googleUser = jwt.decode(token);
-    console.log(googleUser);
+    let googleUser;
+    if (!idToken) {
+      const response = await axios.get(
+        `https://www.googleapis.com/oauth2/v3/userinfo?access_token=${accessToken}`
+      );
+      googleUser = response.data;
+    } else {
+      googleUser = jwt.decode(idToken);
+    }
 
     if (!googleUser) {
       res.status(400);
@@ -169,6 +182,8 @@ const googleAuth = asyncHandler(async (req, res) => {
       res.status(400);
       throw new Error("Google token has expired");
     }
+
+    console.log("googleUser", googleUser);
 
     // check if user exists, if not continue creating new user
     await checkSocialUser(
@@ -219,7 +234,6 @@ const appleAuth = asyncHandler(async (req, res) => {
   try {
     const appleUser = jwt.decode(token);
 
-    console.log("appleUser", appleUser);
     if (!appleUser) {
       res.status(400);
       throw new Error("Apple token is invalid");
@@ -232,8 +246,6 @@ const appleAuth = asyncHandler(async (req, res) => {
       res.status(400);
       throw new Error("Apple token has expired");
     }
-
-    let picture = await getAvatar(appleUser.email);
 
     // check if user exists, if not continue creating new user
     await checkSocialUser(
@@ -248,7 +260,6 @@ const appleAuth = asyncHandler(async (req, res) => {
             name: givenName + " " + familyName,
             email: appleUser.email,
             password: null,
-            pictures: [picture || defaultPicture],
             appleId: appleUser.sub,
             email_verified: appleUser.email_verified,
             provider: "apple",
@@ -264,6 +275,10 @@ const appleAuth = asyncHandler(async (req, res) => {
     );
   } catch (error) {
     console.log(error);
+    return res.status(400).json({
+      success: false,
+      error: error.message,
+    });
   }
 });
 
@@ -448,7 +463,16 @@ const createUser = async (userObject, role) => {
 // Create a new customer user
 const createCustomerUser = async (userObject, profileObject) => {
   try {
-    const user = await createUser(userObject, "client");
+    let picture;
+    if (userObject.provider === "apple") {
+      picture = await getAvatar(userObject.email);
+    } else {
+      picture = userObject.pictures[0];
+    }
+    const user = await createUser(
+      { ...userObject, pictures: [picture || defaultPicture] },
+      "client"
+    );
 
     // create profile
     const profile = await createClientProfile(user, profileObject);
@@ -492,6 +516,8 @@ const checkSocialUser = async (provider, email, sub, res, next) => {
       user[provider + "Id"] = sub;
       await user.save();
     }
+
+    console.log("user", user);
 
     let profile, businessProfile;
     if (user.role === "client") {

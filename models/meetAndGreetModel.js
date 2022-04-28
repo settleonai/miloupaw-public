@@ -5,7 +5,7 @@ const { MEET_AND_GREET_STATUS } = require("../server/utils/types");
 const meetAndGreetSchema = new Schema(
   {
     client: { type: Schema.Types.ObjectId, ref: "User", required: true },
-    employee: { type: Schema.Types.ObjectId, ref: "User", required: true },
+    employee: { type: Schema.Types.ObjectId, ref: "User" },
     status: {
       type: String,
       default: "REQUESTED",

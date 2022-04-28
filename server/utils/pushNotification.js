@@ -97,7 +97,7 @@ exports.sendPushNotificationToAdmins = async (title, message) => {
   const admins = await userModel.find({ role: "admin" });
   const notificationTokens = await admins.map((admin) => admin.push_token);
 
-  await sendPushNotification(notificationTokens, title, message);
+  await this.sendPushNotification(notificationTokens, title, message);
 };
 
 // // Later, after the Expo push notification service has delivered the

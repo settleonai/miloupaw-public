@@ -3,10 +3,13 @@ const appointmentModel = require("../../models/appointmentModel");
 const businessProfileModel = require("../../models/businessProfileModel");
 const Profile = require("../../models/profileModel");
 const userModel = require("../../models/userModel");
+const timeOffModel = require("../../models/timeOffModel");
 const {
   PET_GENERAL_PROJECTION,
   USER_PROJECTION_PUBLIC,
-  EMPLOYEE_SELF_BUSINESS_PROFILE,
+  EMPLOYEE_CARD_PROJECTION,
+  EMPLOYEE_ADMIN_PROJECTION,
+  EMPLOYEE_PUBLIC_PROJECTION,
 } = require("../config/projections");
 const { baseFeesCalc, incomeCalc } = require("../utils/FinancialCalc");
 
@@ -100,13 +103,15 @@ exports.respondToApplicant = asyncHandler(async (req, res) => {
 // @route   GET /business/employees/
 // @access  Admin Private
 exports.getEmployees = asyncHandler(async (req, res) => {
-  console.log("getEmployees");
   try {
     const businessProfiles = await businessProfileModel
-      .find({
-        $and: [{ status: "approved" }],
-      })
-      .populate("user", "name email pictures");
+      .find(
+        {
+          $and: [{ status: "approved" }],
+        },
+        EMPLOYEE_CARD_PROJECTION
+      )
+      .populate("user", "pictures");
 
     res.status(200).json({
       success: true,
@@ -141,6 +146,10 @@ exports.getAvailableEmployees = asyncHandler(async (req, res) => {
 
     console.log("getAvailableEmployees || appointments", appointments);
 
+    const appointmentEmployees = appointments.map(
+      (appointment) => appointment.employee
+    );
+
     // find all employees that are not in the appointments array
     const employees = await userModel.find(
       {
@@ -148,7 +157,7 @@ exports.getAvailableEmployees = asyncHandler(async (req, res) => {
           { status: "approved" },
           {
             _id: {
-              $nin: appointments.map((appointment) => appointment.employee),
+              $nin: appointmentEmployees,
             },
           },
         ],
@@ -209,14 +218,20 @@ exports.getClientProfile = asyncHandler(async (req, res) => {
 // @desc    Get Employee Profile
 // @route   GET /business/employee-profile/:id
 // @access  Employee Private
-exports.getEmployeeProfile = asyncHandler(async (req, res) => {
+exports.getEmployee = asyncHandler(async (req, res) => {
   const { id } = req.params;
+  const { user } = req;
   // console.log("getEmployeeProfile", id);
   try {
-    const businessProfile = await businessProfileModel.findOne(
-      { user: id },
-      EMPLOYEE_SELF_BUSINESS_PROFILE
-    );
+    const businessProfile = await businessProfileModel
+      .findOne(
+        { user: id },
+        user.role !== "admin"
+          ? EMPLOYEE_PUBLIC_PROJECTION
+          : EMPLOYEE_ADMIN_PROJECTION
+      )
+      .populate("user", `${user.role === "admin" ? "email " : " "}pictures`);
+
     if (!businessProfile) {
       return res.status(400).json({
         success: false,
@@ -226,7 +241,13 @@ exports.getEmployeeProfile = asyncHandler(async (req, res) => {
 
     return res.status(200).json({
       success: true,
-      result: businessProfile,
+      result: {
+        ...businessProfile._doc,
+        appointments:
+          user.role !== "admin"
+            ? businessProfile.appointments.length
+            : businessProfile.appointments,
+      },
     });
   } catch (error) {
     console.log("getEmployeeProfile || error", error);
@@ -393,6 +414,120 @@ exports.getBaseFees = asyncHandler(async (req, res) => {
     });
   } catch (error) {
     console.log("getBaseFees || error", error);
+    res.status(500).json({
+      success: false,
+      error: error.message,
+    });
+  }
+});
+
+// @desc    Submit Time Off Request
+// @route   POST /business/time-off-request/
+// @access  Employee Private
+exports.submitTimeOffRequest = asyncHandler(async (req, res) => {
+  // profile
+  const user = req.user;
+  const { start, end, reason } = req.body;
+
+  try {
+    const business = await businessProfileModel.findOne({
+      user: user.id,
+    });
+
+    if (!business) {
+      return res.status(400).json({
+        success: false,
+        error: "couldn't find any business profile",
+      });
+    }
+
+    const timeOffRequest = await timeOffModel.create({
+      user: user.id,
+      start,
+      end,
+      reason,
+    });
+
+    business.work.time_offs.push(timeOffRequest);
+
+    await business.save();
+
+    return res.status(200).json({
+      success: true,
+      result: timeOffRequest,
+    });
+  } catch (error) {
+    console.log("submitTimeOffRequest || error", error);
+    res.status(500).json({
+      success: false,
+      error: error.message,
+    });
+  }
+});
+
+// @desc    Get Personal Time Off Requests
+// @route   GET /business/time-off-requests/personal
+// @access  Protected
+exports.getPersonalTimeOffRequests = asyncHandler(async (req, res) => {
+  // profile
+  const user = req.user;
+  try {
+    const timeOffRequests = await timeOffModel.find({
+      user: user.id,
+    });
+
+    return res.status(200).json({
+      success: true,
+      result: timeOffRequests,
+    });
+  } catch (error) {
+    console.log("getPersonalTimeOffRequests || error", error);
+    res.status(500).json({
+      success: false,
+      error: error.message,
+    });
+  }
+});
+
+// @desc    Get Time Off Requests for Admin
+// @route   GET /business/time-off-requests/admin
+// @access  Admin Protected
+exports.getAdminTimeOffRequests = asyncHandler(async (req, res) => {
+  try {
+    const timeOffRequests = await timeOffModel
+      .find()
+      .populate("user", "name pictures");
+
+    return res.status(200).json({
+      success: true,
+      result: timeOffRequests,
+    });
+  } catch (error) {
+    console.log("getAdminTimeOffRequests || error", error);
+    res.status(500).json({
+      success: false,
+      error: error.message,
+    });
+  }
+});
+
+// @desc    Response Time Off Request
+// @route   PUT /business/time-off-request/:id
+// @access  Admin Protected
+exports.responseTimeOffRequest = asyncHandler(async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const timeOffRequest = await timeOffModel.findByIdAndUpdate(id, {
+      status: req.body.response,
+    });
+
+    return res.status(200).json({
+      success: true,
+      message: "time off request updated",
+    });
+  } catch (error) {
+    console.log("responseTimeOffRequest || error", error);
     res.status(500).json({
       success: false,
       error: error.message,
