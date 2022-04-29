@@ -417,7 +417,7 @@ const setPushToken = asyncHandler(async (req, res) => {
 
     User.findByIdAndUpdate(
       user.id,
-      { push_token: token },
+      { push_token: "ssss" },
       function (err, docs) {
         if (err) {
           console.log(err);
