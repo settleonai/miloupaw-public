@@ -124,7 +124,7 @@ exports.createPaymentIntent = asyncHandler(async (req, res, apt) => {
       });
     }
   } catch (error) {
-    console.log("Error code is: ", err.code);
+    console.log("Error code is: ", error.code);
     const paymentIntentRetrieved = await stripe.paymentIntents.retrieve(
       err.raw.payment_intent.id
     );
