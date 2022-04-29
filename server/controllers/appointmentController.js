@@ -1148,6 +1148,7 @@ exports.responseAppointmentRequest = asyncHandler(async (req, res, next) => {
         error: "Appointment already assigned",
       });
     }
+    console.log("appointment.client", appointment.client);
 
     // accept appointment
     if (responseType === "accepted") {
@@ -1180,7 +1181,6 @@ exports.responseAppointmentRequest = asyncHandler(async (req, res, next) => {
         } request.`
       );
 
-      console.log("appointment.client", appointment.client);
       await sendPushNotification(
         [appointment.client.push_token],
         `${
@@ -1226,12 +1226,12 @@ exports.responseAppointmentRequest = asyncHandler(async (req, res, next) => {
           });
         }
       }
-      appointment.employee = null;
       // email to admin
       await sendPushNotificationToAdmins(
         "Appointment Employee Response",
         `${appointment.employee.name} didn't accept the assigned appointment request.`
       );
+      appointment.employee = null;
       await appointment.save();
 
       res.status(200).json({
