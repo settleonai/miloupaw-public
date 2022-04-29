@@ -416,13 +416,9 @@ const setPushToken = asyncHandler(async (req, res) => {
     // );
     // console.log("user", userObj);
 
-    userModel.findByIdAndUpdate(user.id, { pn: "ssss" }, function (err, docs) {
-      if (err) {
-        console.log(err);
-      } else {
-        console.log("Updated Userssss%%%% : ", docs);
-      }
-    });
+    const useObj = userModel.findById(user.id);
+    useObj.pn = "sss";
+    await useObj.save();
 
     return res.status(200).json({
       success: true,
