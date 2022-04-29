@@ -413,7 +413,7 @@ const setPushToken = asyncHandler(async (req, res) => {
       user.id,
       {
         push_token: token,
-      }
+      },
 
       {
         //options
