@@ -14,6 +14,7 @@ const BusinessProfile = require("../../models/businessProfileModel");
 const { SERVICES } = require("../utils/services");
 const { PET_GENERAL_PROJECTION } = require("../config/projections");
 const { default: axios } = require("axios");
+const userModel = require("../../models/userModel");
 
 // defaults
 const baseUrl = process.env.BASE_URL;
@@ -415,11 +416,11 @@ const setPushToken = asyncHandler(async (req, res) => {
     // );
     // console.log("user", userObj);
 
-    User.findByIdAndUpdate(user.id, { pn: "ssss" }, function (err, docs) {
+    userModel.findByIdAndUpdate(user.id, { pn: "ssss" }, function (err, docs) {
       if (err) {
         console.log(err);
       } else {
-        console.log("Updated User : ", docs);
+        console.log("Updated Userssss%%%% : ", docs);
       }
     });
 
