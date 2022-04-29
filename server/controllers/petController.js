@@ -7,6 +7,8 @@ const Profile = require("../../models/profileModel");
 // @route   GET /api/pets/
 // @access  Private
 const getMyPets = asyncHandler(async (req, res) => {
+  console.log("getMyPets");
+  console.log("user", req.user);
   try {
     // find users pets
     const pets = await Pet.find({ user: req.user.id });

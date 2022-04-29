@@ -1308,10 +1308,10 @@ const handleMeetAndGreetRequest = asyncHandler(async (req, res) => {
     adminBusinessProfile.meet_and_greets.push(meet_and_greet);
     await adminBusinessProfile.save();
 
-    // sendPushNotificationToAdmins(
-    //   "Meet and Greet",
-    //   "New Meet and Greet Request",
-    // );
+    sendPushNotificationToAdmins(
+      "Meet and Greet",
+      "New Meet and Greet Request"
+    );
 
     return res.status(200).json({
       success: true,
