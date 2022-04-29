@@ -7,9 +7,11 @@ const userModel = require("../../models/userModel");
 let expo = new Expo();
 
 exports.sendPushNotification = async (tokens, title, message) => {
+  console.log("sendPushNotification", tokens);
   // Create the messages that you want to send to clents
   let messages = [];
   for (let pushToken of tokens) {
+    console.log("pushToken", pushToken);
     // Each push token looks like ExponentPushToken[xxxxxxxxxxxxxxxxxxxxxx]
 
     // Check that all your push tokens appear to be valid Expo push tokens
