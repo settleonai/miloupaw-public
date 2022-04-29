@@ -98,6 +98,7 @@ exports.sendPushNotification = async (tokens, title, message) => {
 exports.sendPushNotificationToAdmins = async (title, message) => {
   const admins = await userModel.find({ role: "admin" });
   const notificationTokens = await admins.map((admin) => admin.push_token);
+  console.log("sendPushNotificationToAdmins", notificationTokens);
 
   await this.sendPushNotification(notificationTokens, title, message);
 };
