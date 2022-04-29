@@ -408,18 +408,20 @@ const setPushToken = asyncHandler(async (req, res) => {
   }
 
   try {
-    // const userObj = await User.findByIdAndUpdate(
-    //   user.id,
-    //   {
+    const userObj = await User.findByIdAndUpdate(
+      user.id,
+      {
+        pn: token,
+      },
 
-    //   { new: true }
-    // );
-    // console.log("user", userObj);
-
-    const useObj = await userModel.findById(user.id);
-    console.log("user", useObj);
-    useObj.pn = "sss";
-    await useObj.save();
+      {
+        //options
+        returnNewDocument: true,
+        new: true,
+        strict: false,
+      }
+    );
+    console.log("user", userObj);
 
     return res.status(200).json({
       success: true,
