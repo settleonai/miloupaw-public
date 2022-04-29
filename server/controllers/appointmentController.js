@@ -1142,17 +1142,20 @@ exports.responseAppointmentRequest = asyncHandler(async (req, res, next) => {
 
     // accept appointment
     if (responseType === "accepted") {
-      appointment.status = "ASSIGNED";
       const { income, appFee, companyCommission, totalNoTip, tip } =
         await incomeCalc(appointment);
 
       appointment.payment.amount = {
+        total: totalNoTip + tip,
         total_no_tip: totalNoTip,
         tip: tip,
         app_fee: appFee,
         company_commission: companyCommission,
         employeeShare: income,
       };
+
+      appointment.status = "ASSIGNED";
+
       await appointment.save();
 
       if (appointment.type !== "MEET_AND_GREET") {

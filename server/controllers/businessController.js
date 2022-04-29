@@ -535,6 +535,45 @@ exports.responseTimeOffRequest = asyncHandler(async (req, res) => {
   }
 });
 
+// @desc    Calculate Income from Appointment
+// @route   GET /business/income/appointment/:id
+// @access  Employee Protected
+exports.calculateIncomeFromAppointment = asyncHandler(async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const appointment = await appointmentModel.findById(id);
+
+    if (!appointment) {
+      return res.status(400).json({
+        success: false,
+        error: "couldn't find any appointment",
+      });
+    }
+
+    const { income, appFee, companyCommission, totalNoTip, tip } =
+      await incomeCalc(appointment);
+
+    return res.status(200).json({
+      success: true,
+      result: {
+        income,
+        appFee,
+        companyCommission,
+        totalNoTip,
+        tip,
+        total: totalNoTip + tip,
+      },
+    });
+  } catch (error) {
+    console.log("calculateIncomeFromAppointment || error", error);
+    res.status(500).json({
+      success: false,
+      error: error.message,
+    });
+  }
+});
+
 // @desc    Pay Employees for Completed Appointments
 exports.payEmployeesCompletedAppointments = asyncHandler(async () => {
   try {

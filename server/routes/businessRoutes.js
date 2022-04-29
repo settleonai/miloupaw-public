@@ -15,6 +15,7 @@ const {
   getPersonalTimeOffRequests,
   getAdminTimeOffRequests,
   responseTimeOffRequest,
+  calculateIncomeFromAppointment,
 } = require("../controllers/businessController");
 
 const {
@@ -32,6 +33,11 @@ router.post("/employees/search", adminProtect, searchBusinessProfile);
 router.get("/stripe-profile", employeeProtect, getStripeAccountLink);
 router.get("/available-employees", adminProtect, getAvailableEmployees);
 router.get("/base-fees", employeeProtect, getBaseFees);
+router.get(
+  "income/appointment/:id",
+  employeeProtect,
+  calculateIncomeFromAppointment
+);
 router.post("/time-off-requests", employeeProtect, submitTimeOffRequest);
 router.get("/time-off-requests/personal", protect, getPersonalTimeOffRequests);
 router.get("/time-off-requests/admin", adminProtect, getAdminTimeOffRequests);
