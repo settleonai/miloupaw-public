@@ -1071,7 +1071,9 @@ exports.assignEmployee = asyncHandler(async (req, res, next) => {
     console.log("assignEmployee | req.body:", req.body);
     const { appointmentId, employeeId } = req.body;
 
-    const appointment = await appointmentModel.findById(appointmentId);
+    const appointment = await appointmentModel
+      .findById(appointmentId)
+      .populate("client", "name");
 
     if (!appointment) {
       return res.status(404).json({
@@ -1093,6 +1095,12 @@ exports.assignEmployee = asyncHandler(async (req, res, next) => {
     appointment.status = "EMPLOYEE_REQUESTED";
 
     await appointment.save();
+
+    await sendPushNotification(
+      employee.push_token,
+      "new appointment request",
+      `${req.user.name.split(" ")[0]} assigned you a new appointment.`
+    );
 
     res.status(200).json({
       success: true,
