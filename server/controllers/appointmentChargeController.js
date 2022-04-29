@@ -88,6 +88,7 @@ exports.createPaymentIntent = asyncHandler(async (req, res, apt) => {
 
     const { amount, currency } = appointment.payment;
 
+    console.log("amount, currency", amount, currency);
     console.log("paymentMethods", paymentMethods);
     console.log(
       "(amount.total * 100).toFixed(0)",
