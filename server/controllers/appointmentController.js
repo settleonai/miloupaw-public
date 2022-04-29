@@ -1133,6 +1133,13 @@ exports.responseAppointmentRequest = asyncHandler(async (req, res, next) => {
       });
     }
 
+    if (appointment.status === "ASSIGNED") {
+      return res.status(400).json({
+        success: false,
+        error: "Appointment already assigned",
+      });
+    }
+
     // accept appointment
     if (responseType === "accepted") {
       appointment.status = "ASSIGNED";
