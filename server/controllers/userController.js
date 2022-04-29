@@ -411,7 +411,7 @@ const setPushToken = asyncHandler(async (req, res) => {
     const userObj = await User.findByIdAndUpdate(
       user.id,
       {
-        pn: token,
+        push_token: token,
       },
 
       {

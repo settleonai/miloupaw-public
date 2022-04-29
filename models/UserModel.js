@@ -38,6 +38,7 @@ const userSchema = new Schema(
     appleId: {
       type: String,
     },
+    push_token: String,
 
     access_token: {
       type: String,
@@ -50,9 +51,5 @@ const userSchema = new Schema(
     timestamps: true,
   }
 );
-
-userSchema.add({
-  pn: String,
-});
 
 module.exports = mongoose.model("User", userSchema);
