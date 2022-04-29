@@ -1112,7 +1112,6 @@ exports.assignEmployee = asyncHandler(async (req, res, next) => {
 // @access  employee
 exports.responseAppointmentRequest = asyncHandler(async (req, res, next) => {
   const { appointmentId, status: responseType } = req.body;
-  console.log("responseAppointmentRequest | req.body:", req.body);
   try {
     const appointment = await appointmentModel
       .findById(appointmentId)
@@ -1171,6 +1170,7 @@ exports.responseAppointmentRequest = asyncHandler(async (req, res, next) => {
         } request.`
       );
 
+      console.log("appointment.client", appointment.client);
       await sendPushNotification(
         [appointment.client.push_token],
         `${
