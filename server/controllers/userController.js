@@ -410,7 +410,7 @@ const setPushToken = asyncHandler(async (req, res) => {
     await User.findByIdAndUpdate(user.id, { push_token: token }, { new: true });
     return res.status(200).json({
       success: true,
-      result: updatedUser,
+      message: "Push token updated",
     });
   } catch (error) {
     console.log("setPushToken error", error);
