@@ -1296,8 +1296,8 @@ const handleMeetAndGreetRequest = asyncHandler(async (req, res) => {
     // );
 
     const meet_and_greet = await MeetAndGreet.create({
-      client: profile.user,
-      admin: adminProfile.user,
+      client: user._id,
+      admin: admin._id,
       appointment_id: null,
     });
 
