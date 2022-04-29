@@ -409,8 +409,10 @@ const setPushToken = asyncHandler(async (req, res) => {
 
   try {
     require("mongoose").model("User").schema.add({ push_toke: String });
-    const userObj = await User.findByIdAndUpdate(
-      user.id,
+    const userObj = await User.findOneAndUpdate(
+      {
+        _id: user._id,
+      },
       {
         push_token: token,
       },
