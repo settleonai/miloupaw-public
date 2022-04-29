@@ -414,14 +414,16 @@ const setPushToken = asyncHandler(async (req, res) => {
         _id: user._id,
       },
       {
-        push_token: token,
+        $set: {
+          push_token: token,
+        },
       },
 
       {
         //options
         returnNewDocument: true,
         new: true,
-        strict: false,
+        // strict: false,
       }
     );
     console.log("user", userObj);
