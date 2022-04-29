@@ -417,6 +417,7 @@ const setPushToken = asyncHandler(async (req, res) => {
     // console.log("user", userObj);
 
     const useObj = userModel.findById(user.id);
+    console.log("user", useObj);
     useObj.pn = "sss";
     await useObj.save();
 
