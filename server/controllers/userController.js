@@ -415,17 +415,13 @@ const setPushToken = asyncHandler(async (req, res) => {
     // );
     // console.log("user", userObj);
 
-    User.findByIdAndUpdate(
-      user.id,
-      { push_token: "ssss" },
-      function (err, docs) {
-        if (err) {
-          console.log(err);
-        } else {
-          console.log("Updated User : ", docs);
-        }
+    User.findByIdAndUpdate(user.id, { pn: "ssss" }, function (err, docs) {
+      if (err) {
+        console.log(err);
+      } else {
+        console.log("Updated User : ", docs);
       }
-    );
+    });
 
     return res.status(200).json({
       success: true,

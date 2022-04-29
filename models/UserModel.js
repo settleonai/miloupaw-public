@@ -38,7 +38,7 @@ const userSchema = new Schema(
     appleId: {
       type: String,
     },
-    push_token: {
+    pn: {
       type: String,
     },
 
