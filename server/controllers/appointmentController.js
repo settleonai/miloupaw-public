@@ -1232,6 +1232,7 @@ exports.responseAppointmentRequest = asyncHandler(async (req, res, next) => {
         `${appointment.employee.name} didn't accept the assigned appointment request.`
       );
       appointment.employee = null;
+      appointment.status = "AUTHORIZED_TO_CHARGE";
       await appointment.save();
 
       res.status(200).json({
