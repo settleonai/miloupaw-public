@@ -421,7 +421,7 @@ const setPushToken = asyncHandler(async (req, res) => {
         //options
         returnNewDocument: true,
         new: true,
-        // strict: false,
+        strict: false,
       }
     );
     console.log("user", userObj);
