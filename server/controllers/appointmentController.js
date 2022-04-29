@@ -1096,10 +1096,10 @@ exports.assignEmployee = asyncHandler(async (req, res, next) => {
 
     await appointment.save();
 
-    console.log("assignEmployee | appointment:", employee._doc.push_token);
+    // console.log("assignEmployee | appointment:", employee._doc.push_token);
 
     await sendPushNotification(
-      [employee.push_token],
+      [employee._doc.push_token],
       "new appointment request",
       `${req.user.name.split(" ")[0]} assigned you a new appointment.`
     );
