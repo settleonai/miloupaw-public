@@ -45,20 +45,21 @@ const addPet = asyncHandler(async (req, res) => {
       medical,
     });
 
-    const profile = await Profile.findOneAndUpdate(
+    await Profile.findOneAndUpdate(
       { user: req.user.id },
       { $push: { pets: pet._id } },
       { new: true }
-    )
-      .populate("pets")
-      .populate("locations");
-
+    );
     // console.log("profile", profile);
     // return res.status(401).json("error");
 
-    res.status(201).json({ profile, petId: pet._id });
+    res.status(201).json({ success: true, result: pet._id });
   } catch (error) {
     console.log(error);
+    return res.status(500).json({
+      success: false,
+      error: error.message,
+    });
   }
 });
 
@@ -77,8 +78,6 @@ const updatePet = asyncHandler(async (req, res) => {
       medical,
     } = req.body;
 
-    console.log("vaccinations", vaccinations);
-
     const pet = await Pet.findOneAndUpdate(
       { _id: req.params.id },
       {
@@ -93,20 +92,13 @@ const updatePet = asyncHandler(async (req, res) => {
       { new: true }
     );
 
-    const profile = await Profile.findOne({ user: req.user.id })
-      .populate("pets")
-      .populate({
-        path: "pets",
-        populate: {
-          path: "vaccinations",
-          model: "vaccineSchema",
-        },
-      })
-      .populate("locations");
-
-    res.status(201).json({ profile, petId: pet._id });
+    res.status(201).json({ success: true, result: pet._id });
   } catch (error) {
     console.log(error);
+    return res.status(500).json({
+      success: false,
+      error: error.message,
+    });
   }
 });
 

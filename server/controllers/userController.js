@@ -122,11 +122,15 @@ const updateMyProfile = asyncHandler(async (req, res) => {
         { new: true }
       );
     }
-    if (req.body.first_name || req.body.last_name) {
-      await User.findByIdAndUpdate(req.user.id, {
-        name: req.body.first_name + " " + req.body.last_name,
-      });
+    const userObj = await User.findById(req.user.id);
+    if (req.body.picture && req.body.picture !== userObj.pictures[0]) {
+      // push new picture to pictures array
+      userObj.pictures.unshift(req.body.picture);
     }
+    if (req.body.first_name || req.body.last_name) {
+      userObj.name = req.body.first_name + " " + req.body.last_name;
+    }
+    userObj.save();
 
     res.status(200).json({
       success: true,
@@ -391,6 +395,22 @@ const getMyBusinessProfile = asyncHandler(async (req, res) => {
   }
 });
 
+// @desc    Get my user object
+// @route   GET /api/users/refresh
+// @access  Private
+const getMyUser = asyncHandler(async (req, res) => {
+  try {
+    const { user } = req;
+    return res.status(200).json({
+      success: true,
+      result: user,
+    });
+  } catch (error) {
+    console.log("getMyUser error", error);
+    return res.status(400).json({ message: error.message });
+  }
+});
+
 // @desc    Update Push Notification Token
 // @route   PUT /api/users/set-push-token
 // @access  Private
@@ -609,4 +629,5 @@ module.exports = {
   appleAuth,
   createClientProfile,
   jobApplication,
+  getMyUser,
 };

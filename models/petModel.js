@@ -19,7 +19,7 @@ const petSchema = Schema(
       color: { type: String, required: true },
       weight: { type: Number, required: true },
       birthday: { type: Date, required: true },
-      adoption_date: { type: Date, required: true },
+      adoption_date: { type: Date },
       adopted_from: { type: String },
       notes: { type: String },
       photos: [{ type: String }],
@@ -52,8 +52,8 @@ const petSchema = Schema(
     },
     location_rules: {
       allowed_locations: { type: String },
-      allowed_on_furniture: { type: Boolean, default: false },
-      loose_in_house: { type: Boolean, default: true },
+      allowed_on_furniture: { type: String },
+      loose_in_house: { type: String },
       sleep_location: { type: String },
     },
     training: {

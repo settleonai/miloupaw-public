@@ -11,6 +11,7 @@ const {
   getMyBusinessProfile,
   updateMyBusinessProfile,
   setPushToken,
+  getMyUser,
 } = require("../controllers/userController");
 
 const {
@@ -28,6 +29,7 @@ router.post("/appleAuth", appleAuth);
 router.post("/login", loginUser);
 router.get("/profile", protect, getMe);
 router.put("/profile", protect, updateMyProfile);
+router.get("/refresh", protect, getMyUser);
 router.post("/phoneVerification/request", protect, sendVerificationNumber);
 router.post("/phoneVerification/verify", protect, verifyPhoneNumber);
 router.post("/jobApplication", jobApplication);

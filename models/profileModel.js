@@ -18,7 +18,7 @@ const profileSchema = Schema(
       default: "male",
       enum: ["male", "female", "other", "prefer_not"],
     },
-    birth_date: { type: Date },
+    date_of_birth: { type: Date },
     locations: [
       {
         type: Schema.Types.ObjectId,
