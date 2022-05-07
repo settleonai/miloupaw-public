@@ -401,6 +401,7 @@ exports.createAppointment = asyncHandler(async (req, res, next) => {
         error: "Please provide a type",
       });
     }
+    // initial request from user to admins
     if (type === "meet-and-greet") {
       handleMeetAndGreetRequest(req, res);
     }

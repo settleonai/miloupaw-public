@@ -14,6 +14,7 @@ const {
 const { baseFeesCalc, incomeCalc } = require("../utils/FinancialCalc");
 
 const { is24HoursAfter } = require("../utils/timeToolkit");
+const profileModel = require("../../models/profileModel");
 
 const stripe = require("stripe")(process.env.STRIPE_SECRET_API_KEY);
 
@@ -136,7 +137,6 @@ exports.getAvailableEmployees = asyncHandler(async (req, res) => {
     const { appointmentId, startDate, endDate } = req.query;
 
     // find appointments within the time range of startDate and endDate and exclude the appointmentId
-    console.log("endDate", endDate);
     const appointments = await appointmentModel.find({
       $and: [
         { "time.start": { $lt: endDate }, "time.end": { $gt: startDate } },
@@ -151,12 +151,26 @@ exports.getAvailableEmployees = asyncHandler(async (req, res) => {
     );
 
     // find all employees that are not in the appointments array
-    const employees = await userModel.find(
+    // const employees = await userModel.find(
+    //   {
+    //     $and: [
+    //       { status: "approved" },
+    //       {
+    //         _id: {
+    //           $nin: appointmentEmployees,
+    //         },
+    //       },
+    //     ],
+    //   },
+    //   USER_PROJECTION_PUBLIC
+    // );
+
+    const employees = await businessProfileModel.find(
       {
         $and: [
-          { status: "approved" },
+          { "stripe.charges_enabled": true },
           {
-            _id: {
+            user: {
               $nin: appointmentEmployees,
             },
           },
