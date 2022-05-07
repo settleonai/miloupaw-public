@@ -150,34 +150,21 @@ exports.getAvailableEmployees = asyncHandler(async (req, res) => {
       (appointment) => appointment.employee
     );
 
-    // find all employees that are not in the appointments array
-    // const employees = await userModel.find(
-    //   {
-    //     $and: [
-    //       { status: "approved" },
-    //       {
-    //         _id: {
-    //           $nin: appointmentEmployees,
-    //         },
-    //       },
-    //     ],
-    //   },
-    //   USER_PROJECTION_PUBLIC
-    // );
-
-    const employees = await businessProfileModel.find(
-      {
-        $and: [
-          { "stripe.charges_enabled": true },
-          {
-            user: {
-              $nin: appointmentEmployees,
+    const employees = await businessProfileModel
+      .find(
+        {
+          $and: [
+            { "stripe.charges_enabled": true },
+            {
+              user: {
+                $nin: appointmentEmployees,
+              },
             },
-          },
-        ],
-      },
-      USER_PROJECTION_PUBLIC
-    );
+          ],
+        },
+        EMPLOYEE_CARD_PROJECTION
+      )
+      .populate("user", "pictures");
 
     res.status(200).json({
       success: true,
