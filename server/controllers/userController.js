@@ -121,6 +121,16 @@ const updateMyProfile = asyncHandler(async (req, res) => {
         req.body,
         { new: true }
       );
+      if (!profile) {
+        profile = await BusinessProfile.create({
+          user: req.user.id,
+          first_name: req.body.first_name,
+          last_name: req.body.last_name,
+          date_of_birth: req.body.date_of_birth,
+          gender: req.body.gender,
+          phone_number: req.body.phone_number,
+        });
+      }
     }
     const userObj = await User.findById(req.user.id);
     if (req.body.picture && req.body.picture !== userObj.pictures[0]) {

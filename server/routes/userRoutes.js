@@ -34,6 +34,5 @@ router.post("/phoneVerification/request", protect, sendVerificationNumber);
 router.post("/phoneVerification/verify", protect, verifyPhoneNumber);
 router.post("/jobApplication", jobApplication);
 router.get("/business-profile", protect, getMyBusinessProfile);
-router.put("/business-profile", protect, updateMyBusinessProfile);
 
 module.exports = router;
