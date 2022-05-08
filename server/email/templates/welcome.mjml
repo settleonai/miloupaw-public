@@ -18,21 +18,19 @@
       </mj-column>
       <mj-column width="400px">
         <mj-text font-family="Roboto" font-size="21px" color="#2A2A2A" align="center">Hey
-          {{first_name}}, welcome to fnel</mj-text>
+          {{first_name}}, welcome to miloupaw</mj-text>
         
         <mj-text font-family="Roboto" font-size="14px" color="#5A5B5B" align="center"><span class="body-text">
-            fnel has been built upon the promise of transcending the shopping
-            experience. Members like you are the true gems of our society.
-            Please take your time to wonder around and let us know how we can
-            improve the experience.</mj-text>
+            you have successfully joined our platform. You can now open our app and follow the instruction to complete the missing steps. </mj-text>
         
         <mj-text></mj-text>
 
         
 
 
-        <mj-text font-family="Roboto" font-size="14px" color="#5A5B5B" align="center" background-color="#808285">with ❤️, Team Fnel</mj-text>
-        <mj-text></mj-text>
+        <mj-text font-family="Roboto" font-size="14px" color="#5A5B5B" align="center" background-color="#808285">with 🐾</mj-text>
+        <mj-text font-family="Roboto" font-size="14px" color="#5A5B5B" align="center" background-color="#808285">miloupaw</mj-text>
+        <mj-image width="60px" src="https://res.cloudinary.com/fnel/image/upload/v1651970162/miloupaw/assets/logo-transparent-sm_pbovjn.png"></mj-image>
       </mj-column>
     </mj-section>
     <mj-section>

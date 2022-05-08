@@ -522,10 +522,7 @@ const createCustomerUser = async (userObject, profileObject) => {
     // send mail
     const client = [[user.email, profile.first_name]];
     const tags = {
-      first_name: profile.first_name,
-      email_verification_link: `${baseUrl}/verify/email?token=${"token"}&userId=${
-        user._id
-      }`,
+      first_name: profile.first_name || "",
     };
 
     if (userObject.provider === "miloupaw") {
