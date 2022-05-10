@@ -27,7 +27,6 @@ exports.PET_CARD_PROJECTION = {
     breed: 0,
     color: 0,
     notes: 0,
-    weight: 0,
   },
 };
 

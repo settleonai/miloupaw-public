@@ -2,7 +2,11 @@ const asyncHandler = require("express-async-handler");
 const appointmentModel = require("../../models/appointmentModel");
 const businessProfileModel = require("../../models/businessProfileModel");
 const profileModel = require("../../models/profileModel");
-const { USER_PROJECTION_PUBLIC } = require("../config/projections");
+const {
+  USER_PROJECTION_PUBLIC,
+  EMPLOYEE_ADMIN_PROJECTION,
+  EMPLOYEE_PUBLIC_PROJECTION,
+} = require("../config/projections");
 
 const stripe = require("stripe")(process.env.STRIPE_SECRET_API_KEY);
 
@@ -128,5 +132,96 @@ exports.createPaymentIntent = asyncHandler(async (req, res, apt) => {
       error.raw.payment_intent.id
     );
     console.log("PI retrieved: ", paymentIntentRetrieved.id);
+  }
+});
+
+// @desc    additional tip
+// @route   POST /appointment/tip
+// @access  Private
+exports.setupAdditionalTip = asyncHandler(async (req, res) => {
+  try {
+    const { id, tip } = req.body;
+    console.log("setupAdditionalTip", req.body);
+    const appointment = await appointmentModel
+      .findById(id)
+      .populate("client", "name email");
+
+    if (!appointment) {
+      return res.status(404).json({
+        success: false,
+        error: "Appointment not found",
+      });
+    }
+
+    const employeeProfile = await businessProfileModel.findOne(
+      {
+        user: appointment.employee,
+      },
+      EMPLOYEE_ADMIN_PROJECTION
+    );
+
+    console.log("employeeProfile", employeeProfile);
+
+    const clientProfile = await profileModel.findOne({
+      user: appointment.client,
+    });
+
+    const customer = clientProfile.business_info.customer_id;
+
+    const paymentMethods = await stripe.paymentMethods.list({
+      customer,
+      type: "card",
+    });
+
+    const { currency } = appointment.payment;
+
+    const paymentIntent = await stripe.paymentIntents.create({
+      amount: +(tip * 100).toFixed(0),
+      currency: currency.toLowerCase(),
+      customer,
+      payment_method: paymentMethods.data[0].id,
+      transfer_data: {
+        destination: employeeProfile.stripe.id,
+      },
+      off_session: true,
+      confirm: true,
+      metadata: {
+        client: appointment.client._id,
+        tip,
+        appointment: appointment._id,
+        note: "additional tip",
+      },
+      receipt_email: appointment.client.email,
+    });
+
+    if (paymentIntent.status === "succeeded") {
+      appointment.payment.amount.tip = +(
+        appointment.payment.amount.tip + parseFloat(tip)
+      ).toFixed(2);
+      appointment.payment.amount.total = +(
+        appointment.payment.amount.total + parseFloat(tip)
+      ).toFixed(2);
+      await appointment.save();
+
+      return res.status(200).json({
+        success: true,
+        result: {
+          amount: paymentIntent.amount / 100,
+          currency: paymentIntent.currency,
+          id: paymentIntent.id,
+        },
+      });
+    } else {
+      return res.status(400).json({
+        success: false,
+        error: paymentIntent.status,
+      });
+    }
+  } catch (error) {
+    console.log("Error code is: ", error);
+    return res.status(500).json({
+      success: false,
+      error: error.message,
+    });
   }
 });

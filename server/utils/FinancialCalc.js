@@ -72,22 +72,38 @@ exports.baseFeesCalc = async (userId, total) => {
   }
 };
 
-exports.calculateAppointmentBaseFee = (type, dogCount, duration) => {
+exports.calculateAppointmentBaseFee = (type, pets, time) => {
+  // console.log("pets", pets);
   const feeTemplate = SERVICES;
   const typeA = ["DOG_WALKING"];
   const typeB = ["POTTY_BREAK", "PET_SITTING"];
-  let baseFee;
+  const typeC = ["BOARDING"];
+  let baseFee = 0;
   if (typeA.includes(type)) {
     baseFee =
-      feeTemplate[`DOG_WALKING_${duration}_${dogCount > 1 ? 2 : 1}`].price;
+      feeTemplate[`DOG_WALKING_${time.duration}_${pets > 1 ? 2 : 1}`].price;
   }
   if (typeB.includes(type)) {
     baseFee = feeTemplate[type].price;
   }
+  if (typeC.includes(type)) {
+    const totalDays = time.duration / 1440;
+    const billableDays =
+      totalDays % 1 > 0.166 ? +totalDays.toFixed(0) + 1 : +totalDays.toFixed(0);
+
+    pets.forEach((pet) => {
+      price =
+        feeTemplate["BOARDING"].variants[
+          `${pet.general_info.weight > 2 ? "large" : "non_large"}`
+        ].price;
+
+      price = price * billableDays;
+      baseFee += price;
+    });
+  }
+
   let tax = 7.89;
   let total = +(baseFee * (1 + tax / 100)).toFixed(2);
-
-  console.log("calculateAppointmentBaseFee || total", total);
 
   return total;
 };

@@ -41,16 +41,24 @@ exports.SERVICES = {
     duration: 30,
     price: 52,
   },
-  BOARDING_L: {
+  BOARDING: {
     name: "Boarding",
-    desc: "24 hours Boarding for large size dogs.",
-    duration: 1440,
-    price: 90,
-  },
-  BOARDING_SM: {
-    name: "Boarding",
-    desc: "24 hours Boarding for small and medium size dogs.",
+    desc: "24 hours Boarding.",
     duration: 1440,
     price: 80,
+    variants: {
+      non_large: {
+        name: "Boarding-Small-Medium",
+        desc: "24 hours Boarding for small size dogs.",
+        duration: 1440,
+        price: 85,
+      },
+      large: {
+        name: "Boarding-Big",
+        desc: "24 hours Boarding for large size dogs.",
+        duration: 1440,
+        price: 100,
+      },
+    },
   },
 };

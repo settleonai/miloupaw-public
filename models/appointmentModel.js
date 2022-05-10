@@ -23,7 +23,6 @@ const appointmentSchema = Schema(
     location: {
       type: Schema.Types.ObjectId,
       ref: "Location",
-      required: true,
     },
 
     pets: [

@@ -7,6 +7,7 @@ const AdminProfile = require("../../models/adminProfileModel");
 const MeetAndGreet = require("../../models/meetAndGreetModel");
 const BusinessProfile = require("../../models/businessProfileModel");
 const appointmentModel = require("../../models/appointmentModel");
+const petModel = require("../../models/petModel");
 const { SERVICES } = require("../utils/services");
 
 const {
@@ -235,7 +236,6 @@ exports.getAppointment = asyncHandler(async (req, res) => {
 // @route   GET /appointment/client-appointments/
 // @access  Client
 exports.getClientAppointments = asyncHandler(async (req, res) => {
-  // console.log("query", req.query);
   try {
     const limit = parseInt(req.query.limit) || 20;
     const cursor = req.query.cursor;
@@ -299,6 +299,7 @@ exports.getClientAppointments = asyncHandler(async (req, res) => {
         },
       });
     }
+    console.log("filters", filters);
     appointments = await appointmentModel
       .find(filters)
       .populate("employee", USER_PROJECTION_PUBLIC)
@@ -391,6 +392,7 @@ exports.getClientAppointment = asyncHandler(async (req, res) => {
 // @access  Private
 exports.createAppointment = asyncHandler(async (req, res, next) => {
   const TYPE_A_APPOINTMENTS = ["DOG_WALKING", "PET_SITTING", "POTTY_BREAK"];
+  const TYPE_B_APPOINTMENTS = ["BOARDING"];
   try {
     const { type } = req.body;
     // console.log("createAppointment | req.body:", req.body);
@@ -410,6 +412,9 @@ exports.createAppointment = asyncHandler(async (req, res, next) => {
     }
     if (TYPE_A_APPOINTMENTS.includes(type)) {
       handleAppointmentTypeASetup(req, res);
+    }
+    if (TYPE_B_APPOINTMENTS.includes(type)) {
+      handleAppointmentTypeBSetup(req, res);
     }
   } catch (error) {
     console.log("createAppointment", error);
@@ -615,7 +620,12 @@ exports.writeJournal = asyncHandler(async (req, res, next) => {
 
     // console.log("writeJournal | journal:", journal);
 
-    const journalObject = await journalModel.create(journal);
+    const journalObject = await journalModel.create({
+      ...journal,
+      appointment: appointment._id,
+      client: appointment.client,
+      employee: appointment.employee,
+    });
 
     appointment.journal = journalObject._id;
     appointment.save();
@@ -633,6 +643,50 @@ exports.writeJournal = asyncHandler(async (req, res, next) => {
   }
 });
 
+// @desc    Update Journal
+// @route   PUT /appointment/journal/:id
+// @access  Employee or Admin
+exports.updateJournal = asyncHandler(async (req, res, next) => {
+  console.log("updateJournal | req.body:", req.body);
+  try {
+    const { id } = req.params;
+
+    const journalObject = await journalModel.findById(id);
+
+    // console.log("updateJournal | journalObject:", journalObject);
+
+    if (!journalObject) {
+      return res.status(404).json({
+        success: false,
+        error: "Journal not found",
+      });
+    }
+
+    if (
+      (journalObject.employee.toString() !== req.user.id) &
+      (req.user.role !== "admin")
+    ) {
+      return res.status(401).json({
+        success: false,
+        error: "Unauthorized",
+      });
+    }
+
+    await journalObject.updateOne(req.body);
+
+    return res.status(200).json({
+      success: true,
+      message: "Journal updated",
+    });
+  } catch (error) {
+    console.log("updateJournal", error);
+    return res.status(500).json({
+      success: false,
+      error: "Server Error",
+    });
+  }
+});
+
 // @desc    Get Appointment Journal
 // @route   GET /appointment/:id/journal
 // @access  Protected
@@ -641,27 +695,23 @@ exports.getJournal = asyncHandler(async (req, res, next) => {
   try {
     const { id } = req.params;
 
-    const appointment = await appointmentModel.findById(id);
-
-    // console.log("getJournal | appointment:", appointment);
-
-    if (
-      user.role !== "admin" &&
-      (user.id !== appointment.employee.toString()) &
-        (user.id !== appointment.client.toString())
-    ) {
-      return res.status(401).json({
-        success: false,
-        error: "Unauthorized",
-      });
-    }
-
-    const journal = await journalModel.findById(appointment.journal);
+    const journal = await journalModel.findById(id);
 
     if (!journal) {
       return res.status(404).json({
         success: false,
         error: "Journal not found",
+      });
+    }
+
+    if (
+      user.role !== "admin" &&
+      (user.id !== journal.employee.toString()) &
+        (user.id !== journal.client.toString())
+    ) {
+      return res.status(401).json({
+        success: false,
+        error: "Unauthorized",
       });
     }
 
@@ -1157,12 +1207,12 @@ exports.responseAppointmentRequest = asyncHandler(async (req, res, next) => {
         await incomeCalc(appointment);
 
       appointment.payment.amount = {
-        total: totalNoTip + tip,
-        total_no_tip: totalNoTip,
-        tip: tip,
-        app_fee: appFee,
-        company_commission: companyCommission,
-        employeeShare: income,
+        total: +(totalNoTip + tip).toFixed(2),
+        total_no_tip: +totalNoTip.toFixed(2),
+        tip: +tip.toFixed(2),
+        app_fee: +appFee.toFixed(2),
+        company_commission: +companyCommission.toFixed(2),
+        employeeShare: +income.toFixed(2),
       };
 
       appointment.status = "ASSIGNED";
@@ -1419,7 +1469,6 @@ const handleAppointmentTypeASetup = asyncHandler(async (req, res) => {
     // return console.log("handleAppointmentTypeASetup | req.body:", req.body);
     const { type, location, pets, time, amount } = req.body;
     const client = req.user;
-    const petsList = pets.map((pet) => pet._id);
     const paymentAmount = calculateAppointmentBaseFee(
       type,
       pets.length,
@@ -1430,16 +1479,21 @@ const handleAppointmentTypeASetup = asyncHandler(async (req, res) => {
       client,
       type,
       location,
-      pets: petsList,
+      pets: pets,
       time,
       payment: {
         amount: {
           total: +(paymentAmount + (amount.tip ?? 0)).toFixed(2),
-          tip: amount?.tip,
+          tip: amount?.tip || 0,
         },
       },
       status: "READY_TO_PAY",
     });
+
+    sendPushNotificationToAdmins(
+      "New Appointment",
+      `${client.name} has requested a ${type} appointment`
+    );
 
     return res.status(200).json({
       success: true,
@@ -1448,6 +1502,63 @@ const handleAppointmentTypeASetup = asyncHandler(async (req, res) => {
     });
   } catch (error) {
     console.log("handleAppointmentTypeASetup | error", error);
+    return res.status(400).json({
+      success: false,
+      error: "Internal server error. Please contact support",
+    });
+  }
+});
+
+const handleAppointmentTypeBSetup = asyncHandler(async (req, res) => {
+  try {
+    // return console.log("handleAppointmentTypeBSetup | req.body:", req.body);
+    const { type, pets, time, amount } = req.body;
+    const client = req.user;
+
+    const petsDoc = await petModel.find(
+      {
+        user: client._id,
+
+        _id: {
+          $in: pets.map((pet) => pet._id),
+        },
+      },
+      { name: 1, "general_info.weight": 1 }
+    );
+
+    const paymentAmount = calculateAppointmentBaseFee(type, petsDoc, time);
+
+    console.log(
+      "handleAppointmentTypeBSetup | paymentAmount:",
+      +(paymentAmount + (amount.tip ?? 0)).toFixed(2)
+    );
+
+    const appointment = await appointmentModel.create({
+      client,
+      type,
+      pets: petsDoc.map((pet) => pet._id),
+      time,
+      payment: {
+        amount: {
+          total: +(paymentAmount + (amount.tip ?? 0)).toFixed(2),
+          tip: amount?.tip || 0,
+        },
+      },
+      status: "READY_TO_PAY",
+    });
+
+    sendPushNotificationToAdmins(
+      "New Appointment",
+      `${client.name} has requested a ${type} appointment`
+    );
+
+    return res.status(200).json({
+      success: true,
+      message: "Boarding appointment setup successfully",
+      result: appointment,
+    });
+  } catch (error) {
+    console.log("handleAppointmentTypeBSetup | error", error);
     return res.status(400).json({
       success: false,
       error: "Internal server error. Please contact support",

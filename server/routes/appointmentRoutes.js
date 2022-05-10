@@ -4,6 +4,7 @@ const router = express.Router();
 const {
   createSetupIntent,
   createPaymentIntent,
+  setupAdditionalTip,
 } = require("../controllers/appointmentChargeController");
 const {
   getAppointments,
@@ -26,6 +27,7 @@ const {
   sendClaimMessage,
   getClaimsList,
   submitClaimDecision,
+  updateJournal,
 } = require("../controllers/appointmentController");
 
 const {
@@ -43,9 +45,11 @@ router.get("/services", protect, getServices);
 router.put("/assign-employee", adminProtect, assignEmployee);
 router.post("/setup-intent", protect, createSetupIntent);
 router.post("/charge", protect, createPaymentIntent);
+router.post("/tip", protect, setupAdditionalTip);
 router.post("/response", employeeProtect, responseAppointmentRequest);
 router.post("/journal", employeeProtect, writeJournal);
 router.get("/journal/:id", protect, getJournal);
+router.put("/journal/:id", employeeProtect, updateJournal);
 router.post("/review", protect, writeReview);
 router.post("/claim", protect, submitClaim);
 router.get("/claims-list", adminProtect, getClaimsList);

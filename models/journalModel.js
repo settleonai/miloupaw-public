@@ -7,10 +7,17 @@ const journalSchema = Schema(
     appointment: {
       type: Schema.Types.ObjectId,
       ref: "Appointment",
+      required: true,
     },
     employee: {
       type: Schema.Types.ObjectId,
       ref: "User",
+      required: true,
+    },
+    client: {
+      type: Schema.Types.ObjectId,
+      ref: "User",
+      required: true,
     },
     photos: [String],
 
@@ -36,6 +43,10 @@ const journalSchema = Schema(
         default: false,
       },
       CHEWS: {
+        type: Boolean,
+        default: false,
+      },
+      TREAT: {
         type: Boolean,
         default: false,
       },
