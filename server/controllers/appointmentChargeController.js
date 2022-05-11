@@ -107,8 +107,11 @@ exports.createPaymentIntent = asyncHandler(async (req, res, apt) => {
       receipt_email: clientProfile.user.email,
     });
     if (paymentIntent.status === "succeeded") {
-      appointment.payment.intent.id = paymentIntent.id;
-      appointment.payment.intent.status = "received";
+      appointment.payment.intents.push({
+        id: paymentIntent.id,
+        status: "received",
+        amount: +(paymentIntent.amount / 100).toFixed(2),
+      });
 
       await appointment.save();
 
@@ -160,8 +163,6 @@ exports.setupAdditionalTip = asyncHandler(async (req, res) => {
       EMPLOYEE_ADMIN_PROJECTION
     );
 
-    console.log("employeeProfile", employeeProfile);
-
     const clientProfile = await profileModel.findOne({
       user: appointment.client,
     });
@@ -201,6 +202,11 @@ exports.setupAdditionalTip = asyncHandler(async (req, res) => {
       appointment.payment.amount.total = +(
         appointment.payment.amount.total + parseFloat(tip)
       ).toFixed(2);
+      appointment.payment.off_session_tips.push({
+        id: paymentIntent.id,
+        status: "received",
+        amount: +(paymentIntent.amount / 100).toFixed(2),
+      });
       await appointment.save();
 
       return res.status(200).json({
@@ -225,3 +231,55 @@ exports.setupAdditionalTip = asyncHandler(async (req, res) => {
     });
   }
 });
+
+// @desc    pay bill difference
+// @access  Admin
+exports.chargeCustomer = async (appointment, bill, description) => {
+  try {
+    const clientProfile = await profileModel
+      .findOne({
+        user: appointment.client,
+      })
+      .populate("user", "name email");
+
+    const customer = clientProfile.business_info.customer_id;
+
+    const paymentMethods = await stripe.paymentMethods.list({
+      customer,
+      type: "card",
+    });
+
+    const { currency } = appointment.payment;
+
+    const paymentIntent = await stripe.paymentIntents.create({
+      amount: +(bill * 100).toFixed(0),
+      currency: currency.toLowerCase(),
+      customer,
+      payment_method: paymentMethods.data[0].id,
+      off_session: true,
+      confirm: true,
+      metadata: {
+        client: clientProfile.user.toString(),
+        appointment: appointment._id,
+      },
+      receipt_email: clientProfile.user.email,
+      description,
+    });
+
+    if (paymentIntent.status === "succeeded") {
+      appointment.payment.intents.push({
+        id: paymentIntent.id,
+        status: "received",
+        amount: +(paymentIntent.amount / 100).toFixed(2),
+      });
+
+      await appointment.save();
+    } else {
+      console.log("paymentIntent.status: ", paymentIntent.status);
+      throw new Error(paymentIntent.status);
+    }
+  } catch (error) {
+    console.log("Error code is: ", error);
+    throw new Error(error);
+  }
+};

@@ -465,6 +465,24 @@ const setPushToken = asyncHandler(async (req, res) => {
   }
 });
 
+// @desc    get Service Defaults
+// @route   GET /api/users/service-defaults
+// @access  Private
+const getServiceDefaults = asyncHandler(async (req, res) => {
+  try {
+    return res.status(200).json({
+      success: true,
+      result: SERVICES,
+    });
+  } catch (error) {
+    console.log("getServiceDefaults error", error);
+    return res.status(400).json({
+      success: false,
+      error: error.message,
+    });
+  }
+});
+
 // Generate JWT
 const generateToken = (id) => {
   return jwt.sign({ id }, process.env.JWT_SECRET, {
@@ -637,4 +655,5 @@ module.exports = {
   createClientProfile,
   jobApplication,
   getMyUser,
+  getServiceDefaults,
 };

@@ -9,9 +9,9 @@ const {
   updateMyProfile,
   jobApplication,
   getMyBusinessProfile,
-  updateMyBusinessProfile,
   setPushToken,
   getMyUser,
+  getServiceDefaults,
 } = require("../controllers/userController");
 
 const {
@@ -34,5 +34,6 @@ router.post("/phoneVerification/request", protect, sendVerificationNumber);
 router.post("/phoneVerification/verify", protect, verifyPhoneNumber);
 router.post("/jobApplication", jobApplication);
 router.get("/business-profile", protect, getMyBusinessProfile);
+router.get("/service-defaults", protect, getServiceDefaults);
 
 module.exports = router;

@@ -96,15 +96,22 @@ const appointmentSchema = Schema(
         default: "pending",
         select: false,
       },
-      intent: {
-        id: { type: String },
-
-        status: { type: String },
-
-        amount: { type: Number },
-
-        select: false,
-      },
+      intents: [
+        {
+          id: { type: String },
+          status: { type: String },
+          amount: { type: Number },
+          select: false,
+        },
+      ],
+      off_session_tips: [
+        {
+          id: { type: String },
+          status: { type: String },
+          amount: { type: Number },
+          select: false,
+        },
+      ],
       charge: {
         id: { type: String },
         created: { type: Date },
@@ -159,26 +166,28 @@ const appointmentSchema = Schema(
         destination: { type: String },
         select: false,
       },
-      refund: {
-        id: { type: String },
-        amount: { type: Number },
-        created: { type: Date },
-        currency: {
-          type: String,
-          enum: currenciesList,
-          required: true,
-          default: "USD",
+      refunds: [
+        {
+          id: { type: String },
+          amount: { type: Number },
+          created: { type: Date },
+          currency: {
+            type: String,
+            enum: currenciesList,
+            required: true,
+            default: "USD",
+          },
+          intent: { type: String },
+          reason: { type: String },
+          receipt_number: { type: String },
+          status: { type: String },
+          destination: { type: String },
+          transfer_reversal: { type: String },
+          select: false,
         },
-        intent: { type: String },
-        reason: { type: String },
-        receipt_number: { type: String },
-        status: { type: String },
-        destination: { type: String },
-        transfer_reversal: { type: String },
-        select: false,
-      },
+      ],
 
-      receipt_url: { type: String, default: "" },
+      receipts_url: [{ type: String, default: "" }],
     },
 
     time: {

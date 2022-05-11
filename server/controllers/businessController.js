@@ -717,32 +717,58 @@ exports.refundAppointment = async (appointmentId, fullRefund = false) => {
       };
     }
 
-    const refundRequestBody = {
-      payment_intent: appointment.payment.intent.id,
-      reason: "requested_by_customer",
-      // reverse_transfer: true,
-    };
+    let refunds = [];
 
     if (!fullRefund || amount !== fullAmount) {
-      refundRequestBody.amount = amount;
+      let refundedAmount = 0;
+      let i = 0;
+      while (
+        i < appointment.payment.intents.length &&
+        refundedAmount < amount
+      ) {
+        const payment_intent = appointment.payment.intent[i];
+        if (payment_intent.status === "received") {
+          const refund = await stripe.refunds.create({
+            amount: Math.min(
+              payment_intent.amount * 100,
+              amount - refundedAmount
+            ),
+            payment_intent: payment_intent.id,
+          });
+          refundedAmount += refund.amount;
+          refunds.push(refund);
+        }
+        i++;
+      }
+    } else {
+      appointment.payment.intents.map(async (intent) => {
+        if (intent.status === "received") {
+          const refund = await stripe.refunds.create({
+            amount: amount,
+            payment_intent: intent.id,
+            reason: "requested_by_customer",
+          });
+          refunds.push(refund);
+        }
+      });
     }
-
-    const refund = await stripe.refunds.create(refundRequestBody);
 
     // console.log("refund", refund);
 
-    appointment.payment.refund = {
-      id: refund.id,
-      amount: refund.amount,
-      charge: refund.charge,
-      created: refund.created,
-      currency: refund.currency.toUpperCase(),
-      intent: refund.payment_intent,
-      reason: refund.reason,
-      receipt_number: refund.receipt_number,
-      status: refund.status,
-      transfer_reversal: refund.transfer_reversal,
-    };
+    refunds.map((refund) => {
+      appointment.payment.refunds.push({
+        id: refund.id,
+        amount: refund.amount,
+        charge: refund.charge,
+        created: refund.created,
+        currency: refund.currency.toUpperCase(),
+        intent: refund.payment_intent,
+        reason: refund.reason,
+        receipt_number: refund.receipt_number,
+        status: refund.status,
+        transfer_reversal: refund.transfer_reversal,
+      });
+    });
 
     appointment.payment.status = "refunded";
     await appointment.save();

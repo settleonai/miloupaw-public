@@ -73,7 +73,8 @@ exports.baseFeesCalc = async (userId, total) => {
 };
 
 exports.calculateAppointmentBaseFee = (type, pets, time) => {
-  // console.log("pets", pets);
+  console.log("pets", pets);
+  console.log("time", time);
   const feeTemplate = SERVICES;
   const typeA = ["DOG_WALKING"];
   const typeB = ["POTTY_BREAK", "PET_SITTING"];
@@ -103,7 +104,7 @@ exports.calculateAppointmentBaseFee = (type, pets, time) => {
   }
 
   let tax = 7.89;
-  let total = +(baseFee * (1 + tax / 100)).toFixed(2);
+  let total_no_tip = +(baseFee * (1 + tax / 100)).toFixed(2);
 
-  return total;
+  return total_no_tip;
 };

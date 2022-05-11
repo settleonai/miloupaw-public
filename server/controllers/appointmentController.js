@@ -19,7 +19,10 @@ const {
   APPOINTMENT_PROJECTION_EMPLOYEE,
 } = require("../config/projections");
 const userModel = require("../../models/userModel");
-const { createPaymentIntent } = require("./appointmentChargeController");
+const {
+  createPaymentIntent,
+  chargeCustomer,
+} = require("./appointmentChargeController");
 const journalModel = require("../../models/journalModel");
 const {
   sendPushNotification,
@@ -541,7 +544,10 @@ exports.appointmentCheckInOut = asyncHandler(async (req, res, next) => {
       });
     }
 
-    const appointment = await appointmentModel.findById(id).populate("journal");
+    const appointment = await appointmentModel
+      .findById(id)
+      .populate("journal")
+      .populate("pets", "general_info.weight");
 
     if (!appointment) {
       return res.status(404).json({
@@ -560,10 +566,49 @@ exports.appointmentCheckInOut = asyncHandler(async (req, res, next) => {
     }
 
     if (status === "check-out") {
+      if (appointment.type === "BOARDING") {
+        const duration = (new Date(time) - appointment.time.start) / 60000;
+        const baseFee = calculateAppointmentBaseFee(
+          appointment.type,
+          appointment.pets,
+          { duration: duration }
+        );
+
+        console.log("baseFee:", baseFee);
+        console.log("old-baseFee:", appointment.payment.amount.total_no_tip);
+
+        if (baseFee > appointment.payment.amount.total_no_tip) {
+          const bill = baseFee - appointment.payment.amount.total_no_tip;
+          await chargeCustomer(
+            appointment,
+            bill,
+            `Bill difference for appointment ${appointment._id} due to extended end time`
+          );
+
+          appointment.payment.amount.total_no_tip = baseFee;
+          appointment.payment.amount.total += bill;
+
+          const { income, appFee, companyCommission, totalNoTip, tip } =
+            await incomeCalc(appointment);
+
+          appointment.payment.amount = {
+            total: +(totalNoTip + tip).toFixed(2),
+            total_no_tip: +totalNoTip.toFixed(2),
+            tip: +tip.toFixed(2),
+            app_fee: +appFee.toFixed(2),
+            company_commission: +companyCommission.toFixed(2),
+            employeeShare: +income.toFixed(2),
+          };
+
+          appointment.payment.amount.total_no_tip += bill;
+        }
+      }
+
       appointment.check_out = {
         properties: { actualTime: new Date(), timeStamp: time },
         point,
       };
+
       appointment.status = "COMPLETED";
       appointment.save();
 
@@ -584,7 +629,7 @@ exports.appointmentCheckInOut = asyncHandler(async (req, res, next) => {
 
     return res.status(200).json({
       success: true,
-      result: appointment,
+      message: "Appointment completed successfully",
     });
   } catch (error) {
     console.log("checkInOut", error);
@@ -1469,11 +1514,7 @@ const handleAppointmentTypeASetup = asyncHandler(async (req, res) => {
     // return console.log("handleAppointmentTypeASetup | req.body:", req.body);
     const { type, location, pets, time, amount } = req.body;
     const client = req.user;
-    const paymentAmount = calculateAppointmentBaseFee(
-      type,
-      pets.length,
-      time.duration
-    );
+    const paymentAmount = calculateAppointmentBaseFee(type, pets.length, time);
 
     const appointment = await appointmentModel.create({
       client,
@@ -1527,11 +1568,6 @@ const handleAppointmentTypeBSetup = asyncHandler(async (req, res) => {
     );
 
     const paymentAmount = calculateAppointmentBaseFee(type, petsDoc, time);
-
-    console.log(
-      "handleAppointmentTypeBSetup | paymentAmount:",
-      +(paymentAmount + (amount.tip ?? 0)).toFixed(2)
-    );
 
     const appointment = await appointmentModel.create({
       client,
