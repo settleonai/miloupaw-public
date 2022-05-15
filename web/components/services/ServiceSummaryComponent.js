@@ -75,7 +75,7 @@ export default function ServiceSummaryComponent() {
             rel="noreferrer"
             className="my-4 bg-primary-default w-60 text-secondary-default font-bold font-body text-lg py-2 px-4 rounded-lg self-center text-center"
           >
-            let's get started
+            {`let's get started`}
           </a>
         </div>
       </div>
