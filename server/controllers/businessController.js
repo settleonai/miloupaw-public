@@ -382,8 +382,8 @@ exports.getStripeAccountLink = asyncHandler(async (req, res) => {
     // generate account links
     const accountLinks = await stripe.accountLinks.create({
       account: account.id,
-      refresh_url: `${baseUrl}/employee-profile/business`,
-      return_url: `${baseUrl}/employee-profile/business`,
+      refresh_url: `${baseUrl}/employee-profile/business-error`,
+      return_url: `${baseUrl}/employee-profile/business-success`,
       type: "account_onboarding",
     });
 
