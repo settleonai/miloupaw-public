@@ -3,9 +3,7 @@ module.exports = {
     {
       name: "miloupawWebServer",
       watch: true,
-      cwd: "./",
-      script: "yarn",
-      args: "start",
+      script: "yarn start",
       env: {
         PORT: 3000,
         NODE_ENV: "development",
