@@ -1,5 +1,6 @@
 import Image from "next/image";
 import React from "react";
+import FooterComponent from "../../components/UI/FooterComponent";
 
 export default function BusinessError() {
   return (
