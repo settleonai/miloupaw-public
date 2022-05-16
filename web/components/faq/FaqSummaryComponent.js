@@ -59,9 +59,9 @@ export default function FaqSummaryComponent() {
                 </Disclosure.Panel>
               </Disclosure>
             ))}
-            <button className="bg-primary-default w-36 text-secondary-default font-bold font-body text-lg py-2 px-1 rounded-lg self-end">
+            {/* <button className="bg-primary-default w-36 text-secondary-default font-bold font-body text-lg py-2 px-1 rounded-lg self-end">
               See More
-            </button>
+            </button> */}
           </div>
         </div>
         <div className="mx-auto relative w-full max-h-[600px]">
