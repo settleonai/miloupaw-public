@@ -6,12 +6,12 @@ export default function ServiceSummaryComponent() {
     {
       name: "Dog Walking",
       icon: "dog_walking",
-      description: `dog walking sessions are available for dogs of all sizes. Our dog walking sessions are minimum 30 minutes long and are designed to be a safe and fun experience for your dog. These sessions are offered at a fee of $22 per single dog session.`,
+      description: `dog walking sessions are available for dogs of all sizes. Our dog walking sessions are minimum 30 minutes long and are designed to be a safe and fun experience for your dog. These sessions are offered at a fee of $30 per single dog session.`,
     },
     {
       name: "Pet Sitting",
       icon: "pet_sitting",
-      description: `"minimum 30 minutes Pet sitting. Service includes meal serving, water refill, medicine giving, and poddy break. This service covers up to 3 dogs at a time. Our pet sitting sessions are offered at a fee of $22 per single dog session.`,
+      description: `"minimum 30 minutes Pet sitting. Service includes meal serving, water refill, medicine giving, and poddy break. This service covers up to 3 dogs at a time. Our pet sitting sessions are offered at a fee of $30 per single dog session.`,
     },
     {
       name: "Boarding",
@@ -21,7 +21,7 @@ export default function ServiceSummaryComponent() {
     {
       name: "Potty Break",
       icon: "potty_break",
-      description: `Potty break is a 10 minutes session. This service is offered at a fee of $22 per single dog session.`,
+      description: `Potty break is a 10 minutes session. This service is offered at a fee of $20 per single dog session.`,
     },
     // { name: "Pet Taxi", icon: "pet_taxi" },
     // { name: "Pet Training", icon: "pet_training" },

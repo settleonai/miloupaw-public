@@ -9,25 +9,25 @@ exports.SERVICES = {
     name: "Dog Walking",
     desc: "Private Dog walking for 30 minutes. One dog at a time.",
     duration: 30,
-    price: 22,
+    price: 30,
   },
   DOG_WALKING_30_2: {
     name: "Dog Walking",
     desc: "Private Dog walking for 30 minutes. Two dogs only",
     duration: 30,
-    price: 26,
+    price: 33,
   },
   DOG_WALKING_60_1: {
     name: "Dog Walking",
     desc: "Private Dog walking for 60 minutes. One dog at a time.",
     duration: 60,
-    price: 26,
+    price: 36,
   },
   DOG_WALKING_60_2: {
     name: "Dog Walking",
     desc: "Private Dog walking for 60 minutes. Two dogs only",
     duration: 60,
-    price: 30,
+    price: 39,
   },
   POTTY_BREAK: {
     name: "Potty Break",
@@ -39,7 +39,7 @@ exports.SERVICES = {
     name: "Pet Sitting",
     desc: "30 minutes Pet sitting. Service includes meal serving, water refill, medicine giving, and poddy break.",
     duration: 30,
-    price: 22,
+    price: 30,
   },
   BOARDING: {
     name: "Boarding",
