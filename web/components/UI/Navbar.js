@@ -4,10 +4,7 @@ import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { BellIcon, MenuIcon, XIcon } from "@heroicons/react/outline";
 
 import { useWindowScrollPositions } from "../../hooks/useWindowScrollPositions";
-
-function classNames(...classes) {
-  return classes.filter(Boolean).join(" ");
-}
+import { classNames } from "../../utils/classNames";
 
 export default function Navbar() {
   const [active, setActive] = useState("Home");

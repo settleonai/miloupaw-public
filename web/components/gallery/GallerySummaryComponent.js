@@ -27,10 +27,10 @@ export default function GallerySummaryComponent() {
         </div>
 
         <div className="mt-10">
-          <dl className="space-y-10 md:space-y-0 md:grid md:grid-cols-3 md:gap-x-6 md:gap-y-6">
+          <dl className="space-y-10 md:space-y-0 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-x-6 md:gap-y-6">
             {photos.map((photo) => (
               <div
-                className="mx-auto relative w-96 h-96 rounded-md overflow-hidden"
+                className="mx-auto relative w-80 h-80 rounded-md overflow-hidden"
                 key={photo}
               >
                 <Image

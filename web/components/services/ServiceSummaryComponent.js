@@ -11,7 +11,7 @@ export default function ServiceSummaryComponent() {
     {
       name: "Pet Sitting",
       icon: "pet_sitting",
-      description: `"minimum 30 minutes Pet sitting. Service includes meal serving, water refill, medicine giving, and poddy break. Our pet sitting sessions are offered at a fee of $22 per single dog session.`,
+      description: `"minimum 30 minutes Pet sitting. Service includes meal serving, water refill, medicine giving, and poddy break. This service covers up to 3 dogs at a time. Our pet sitting sessions are offered at a fee of $22 per single dog session.`,
     },
     {
       name: "Boarding",
@@ -21,7 +21,7 @@ export default function ServiceSummaryComponent() {
     {
       name: "Potty Break",
       icon: "potty_break",
-      description: `minimum 10 minutes Potty break. Covers up to 3 dogs at a time.`,
+      description: `Potty break is a 10 minutes session. This service is offered at a fee of $22 per single dog session.`,
     },
     // { name: "Pet Taxi", icon: "pet_taxi" },
     // { name: "Pet Training", icon: "pet_training" },
