@@ -19,8 +19,8 @@ export default function HomeComponent() {
             Your Pet Will be Loved Like a Family
           </h1>
           <p className="mt-12 text-primary-400 font-light font-body text-lg text-left">
-            We are a pet adoption agency that provides a safe and loving
-            environment for your pet.
+            We are a pet care agency that provides a safe and loving environment
+            for your pet.
           </p>
           <a
             href="#services"
