@@ -4,7 +4,7 @@ import React from "react";
 export default function HomeComponent() {
   return (
     <div id="home" className="bg-secondary-100 pt-36">
-      <div className="flex flex-row max-w-6xl mx-auto ">
+      <div className="flex flex-row max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="hidden md:block max-w-lg mx-auto ">
           <Image
             src="/images/header-dog-cat.png"

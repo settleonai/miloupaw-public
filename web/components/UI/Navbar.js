@@ -30,14 +30,14 @@ export default function Navbar() {
     <Disclosure
       as="nav"
       className={`${
-        scrollY > 100 ? "bg-gray-800" : "bg-secondary-100"
-      } fixed top-0 w-full z-10 ${scrollY > 100 ? "h-14" : "h-24"}`}
+        scrollY > 65 ? "bg-gray-800" : "bg-secondary-100"
+      } fixed top-0 w-full z-10 ${scrollY > 65 ? "h-14" : "h-24"}`}
     >
       {({ open }) => (
         <>
           <div
             className={`max-w-4xl mx-auto ${
-              scrollY <= 100 ? "py-10" : null
+              scrollY <= 65 ? "py-10" : null
             } px-2 sm:px-6 lg:px-8`}
           >
             <div className="relative flex items-center justify-between h-16">
@@ -56,10 +56,10 @@ export default function Navbar() {
                 <div className="flex-shrink-0 flex items-center">
                   <img
                     src={
-                      scrollY > 100 ? "/images/logo-w.svg" : "/images/logo.svg"
+                      scrollY > 65 ? "/images/logo-w.svg" : "/images/logo.svg"
                     }
                     className={`hidden lg:block ${
-                      scrollY <= 100 ? "h-20" : "h-10"
+                      scrollY <= 65 ? "h-20" : "h-10"
                     } w-auto rounded-lg `}
                     alt="miloupaw Logo"
                   />
@@ -84,7 +84,11 @@ export default function Navbar() {
           </div>
 
           <Disclosure.Panel className="sm:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1">
+            <div
+              className={`px-2 pt-2 pb-3 space-y-1 ${
+                scrollY > 65 ? "bg-primary-default" : "bg-orange-50"
+              }`}
+            >
               {navigation.map((item) => (
                 <Disclosure.Button
                   key={item.name}

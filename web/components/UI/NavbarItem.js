@@ -24,7 +24,7 @@ export default function NavbarItem({ item, setActive }) {
         onClick={() => setActive(item.name)}
         className={classNames(
           item.current
-            ? scrollY > 100
+            ? scrollY > 65
               ? "text-secondary-default"
               : "text-primary-default"
             : "text-primary-100  hover:text-secondary-default",
