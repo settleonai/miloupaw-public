@@ -2,7 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ["images.unsplash.com"],
+    domains: ["images.unsplash.com", "res.cloudinary.com"],
   },
   env: {
     APP_STORE_ID: "1568172168",

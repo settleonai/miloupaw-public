@@ -3,9 +3,10 @@ import React from "react";
 
 export default function GallerySummaryComponent() {
   const photos = [
-    "https://images.unsplash.com/photo-1494947665470-20322015e3a8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fHBldHxlbnwwfHwwfHw%3D",
-    "https://images.unsplash.com/photo-1532202802379-df93d543bac3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fHBldHxlbnwwfHwwfHw%3D",
-    "https://images.unsplash.com/photo-1505628346881-b72b27e84530?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8cGV0fGVufDB8fDB8fA%3D%3D",
+    "https://res.cloudinary.com/fnel/image/upload/v1652659076/miloupaw/gallery/269896251_3179723159018646_2393617246546797896_n.jpg_u7nqy9.jpg",
+    "https://res.cloudinary.com/fnel/image/upload/v1652659122/miloupaw/gallery/160814966_3843442299042613_2518706462714947177_n.jpg_rthep5.jpg",
+    "https://res.cloudinary.com/fnel/image/upload/v1652659159/miloupaw/gallery/77332376_497204600912174_1942975307265331340_n.jpg_cuohg4.jpg",
+    "https://res.cloudinary.com/fnel/image/upload/v1652659188/miloupaw/gallery/67638885_359229855014595_515169509779982159_n.jpg_qygo6z.jpg",
   ];
 
   return (
