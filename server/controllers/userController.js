@@ -136,7 +136,7 @@ const updateMyProfile = asyncHandler(async (req, res) => {
 
     if (
       req.body.picture &&
-      userObj.pictures.length > 0 &&
+      userObj.pictures?.length > 0 &&
       req.body.picture !== userObj.pictures[0]
     ) {
       // push new picture to pictures array
