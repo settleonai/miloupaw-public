@@ -567,7 +567,7 @@ const createCustomerUser = async (userObject, profileObject) => {
     }
     console.log("picture", picture);
     const user = await createUser(
-      { ...userObject, pictures: picture || defaultPicture },
+      { ...userObject, picture: picture || defaultPicture },
       "client"
     );
 
