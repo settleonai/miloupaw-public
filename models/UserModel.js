@@ -17,13 +17,7 @@ const userSchema = new Schema(
       required: [true, "Please add a password"],
       select: false,
     },
-    pictures: [
-      {
-        type: String,
-        default:
-          "https://res.cloudinary.com/fnel/image/upload/v1634880347/avatar/default-avatar.jpg",
-      },
-    ],
+    pictures: [String],
     role: {
       type: String,
       enum: ["client", "employee", "admin", "organization"],
