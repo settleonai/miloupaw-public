@@ -79,7 +79,7 @@ exports.APPOINTMENT_PROJECTION_EMPLOYEE = {
     amount: {
       total: 1,
       tip: 1,
-      employeeShare: 1,
+      employee_share: 1,
       total_no_tip: 1,
       app_fee: 1,
       company_commission: 1,
@@ -118,7 +118,7 @@ exports.APPOINTMENT_PROJECTION_ADMIN = {
     amount: {
       total: 1,
       tip: 1,
-      employeeShare: 1,
+      employee_share: 1,
       total_no_tip: 1,
       app_fee: 1,
       company_commission: 1,

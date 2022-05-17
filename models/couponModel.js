@@ -3,41 +3,43 @@ const Schema = mongoose.Schema;
 
 const couponSchema = new Schema(
   {
-    coupon_code: {
+    code: {
       type: String,
       required: true,
       unique: true,
     },
-    coupon_type: {
+    type: {
       type: String,
       required: true,
+      enum: ["percentage", "fixed"],
     },
-    coupon_reusable: {
+    reusable: {
       type: Boolean,
       required: true,
     },
-    coupon_reusable_count: {
+    reusable_count: {
       type: Number,
     },
-    coupon_value: {
+    value: {
       type: Number,
       required: true,
     },
-    coupon_expiry_date: {
+    expiry_date: {
       type: Date,
       required: true,
     },
-    coupon_status: {
+    status: {
       type: String,
-      required: true,
+      enum: ["active", "inactive"],
+      default: "active",
     },
-    coupon_usages: [
+    records: [
       {
-        usedBy: {
+        used_by: {
           type: Schema.Types.ObjectId,
           ref: "User",
         },
-        usedOn: {
+        used_at: {
           type: Date,
           default: Date.now,
         },

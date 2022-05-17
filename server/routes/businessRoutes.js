@@ -16,6 +16,8 @@ const {
   getAdminTimeOffRequests,
   responseTimeOffRequest,
   calculateIncomeFromAppointment,
+  createCoupon,
+  getCoupon,
 } = require("../controllers/businessController");
 
 const {
@@ -42,5 +44,7 @@ router.post("/time-off-requests", employeeProtect, submitTimeOffRequest);
 router.get("/time-off-requests/personal", protect, getPersonalTimeOffRequests);
 router.get("/time-off-requests/admin", adminProtect, getAdminTimeOffRequests);
 router.put("/time-off-requests/:id", adminProtect, responseTimeOffRequest);
+router.post("/coupons", adminProtect, createCoupon);
+router.get("/coupons/:code", protect, getCoupon);
 
 module.exports = router;

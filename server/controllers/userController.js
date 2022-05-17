@@ -304,13 +304,12 @@ const jobApplication = asyncHandler(async (req, res) => {
   const {
     token,
     platform,
-    email,
     first_name,
     last_name,
     phone,
     photos,
     gender,
-    birth_date,
+    date_of_birth,
     address,
     good_with_dogs,
     good_with_cats,
@@ -323,33 +322,67 @@ const jobApplication = asyncHandler(async (req, res) => {
     years_of_experience,
   } = req.body;
 
-  if (!token) {
-    res.status(400);
-    throw new Error("Please add all fields");
-  }
-
-  const decodedToken = jwt.decode(token);
-
   try {
+    // console.log("req.body", req.body);
+
+    if (!token) {
+      res.status(400);
+      throw new Error("Please add all fields");
+    }
+
+    let candidateSocial;
+
+    if (token.platform === "google") {
+      if (!token.idToken) {
+        const response = await axios.get(
+          `https://www.googleapis.com/oauth2/v3/userinfo?access_token=${token.accessToken}`
+        );
+        candidateSocial = response.data;
+      }
+    }
+
+    if (!candidateSocial) {
+      candidateSocial = jwt.decode(token.idToken);
+      console.log("decodedToken", candidateSocial);
+    }
+
+    if (!candidateSocial) {
+      res.status(400);
+      throw new Error("token is invalid");
+    }
+    if (!candidateSocial.sub) {
+      res.status(400);
+      throw new Error("token is invalid");
+    }
+    if (candidateSocial.exp < Date.now() / 1000) {
+      res.status(400);
+      throw new Error("token has expired");
+    }
+
+    // console.log("candidateSocial", candidateSocial);
+
     let user;
     let profile;
     // check if token is equal to googleId or appleId
     user = await User.findOne({
-      $or: [{ googleId: decodedToken.sub }, { appleId: decodedToken.sub }],
+      $or: [
+        { googleId: candidateSocial.sub },
+        { appleId: candidateSocial.sub },
+      ],
     });
 
     if (!user) {
       const userObj = {
         name: `${first_name} ${last_name}`,
-        email: decodedToken.email,
-        email_verified: decodedToken.email_verified,
-        provider: platform,
+        email: candidateSocial.email,
+        email_verified: candidateSocial.email_verified,
+        provider: token.platform,
         pictures: photos,
       };
-      if (platform === "google") {
-        userObj.googleId = decodedToken.sub;
+      if (token.platform === "google") {
+        userObj.googleId = candidateSocial.sub;
       } else {
-        userObj.appleId = decodedToken.sub;
+        userObj.appleId = candidateSocial.sub;
       }
 
       user = await createUser(userObj, "employee");
@@ -363,7 +396,7 @@ const jobApplication = asyncHandler(async (req, res) => {
         last_name,
         phone_number: phone,
         gender,
-        birth_date,
+        date_of_birth,
         address,
         good_with_dogs,
         good_with_cats,
@@ -574,7 +607,7 @@ const checkSocialUser = async (provider, email, sub, res, next) => {
       await user.save();
     }
 
-    console.log("user", user);
+    // console.log("user", user);
 
     let profile, businessProfile;
     if (user.role === "client") {

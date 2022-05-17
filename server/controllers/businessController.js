@@ -15,6 +15,7 @@ const { baseFeesCalc, incomeCalc } = require("../utils/FinancialCalc");
 
 const { is24HoursAfter } = require("../utils/timeToolkit");
 const profileModel = require("../../models/profileModel");
+const couponModel = require("../../models/couponModel");
 
 const stripe = require("stripe")(process.env.STRIPE_SECRET_API_KEY);
 
@@ -568,6 +569,68 @@ exports.calculateIncomeFromAppointment = asyncHandler(async (req, res) => {
     });
   } catch (error) {
     console.log("calculateIncomeFromAppointment || error", error);
+    res.status(500).json({
+      success: false,
+      error: error.message,
+    });
+  }
+});
+
+// @desc    create a coupon
+// @route   POST /business/coupon/
+// @access  Admin Protected
+exports.createCoupon = asyncHandler(async (req, res) => {
+  const { code, type, reusable, value, expiration, status } = req.body;
+
+  try {
+    const coupon = await couponModel.create({
+      code,
+      type,
+      reusable,
+      value,
+      expiry_date: expiration,
+      status,
+    });
+
+    return res.status(200).json({
+      success: true,
+      result: coupon,
+    });
+  } catch (error) {
+    console.log("createCoupon || error", error);
+    res.status(500).json({
+      success: false,
+      error: error.message,
+    });
+  }
+});
+
+// @desc    get coupon
+// @route   GET /business/coupons/:code
+// @access  Protected
+exports.getCoupon = asyncHandler(async (req, res) => {
+  const { code } = req.params;
+
+  try {
+    const coupon = await couponModel.findOne({
+      code,
+    });
+
+    console.log("coupon", coupon);
+
+    if (!coupon) {
+      return res.status(400).json({
+        success: false,
+        error: "couldn't find any coupon",
+      });
+    }
+
+    return res.status(200).json({
+      success: true,
+      result: coupon,
+    });
+  } catch (error) {
+    console.log("getCoupon || error", error);
     res.status(500).json({
       success: false,
       error: error.message,

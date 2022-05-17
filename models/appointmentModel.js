@@ -80,9 +80,13 @@ const appointmentSchema = Schema(
         total: { type: Number, default: 0 },
         total_no_tip: { type: Number, default: 0 },
         tip: { type: Number, default: 0 },
-        employeeShare: { type: Number, default: 0, select: false },
+        employee_share: { type: Number, default: 0, select: false },
         app_fee: { type: Number, default: 0, select: false },
         company_commission: { type: Number, default: 0, select: false },
+      },
+      discount: {
+        amount: { type: Number, default: 0 },
+        coupon: { type: Schema.Types.ObjectId, ref: "Coupon", select: false },
       },
       currency: {
         type: String,

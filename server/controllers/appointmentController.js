@@ -37,6 +37,7 @@ const reviewModel = require("../../models/reviewModel");
 const { refundAppointment } = require("./businessController");
 const claimModel = require("../../models/claimModel");
 const messageModel = require("../../models/messageModel");
+const couponModel = require("../../models/couponModel");
 
 const stripe = require("stripe")(process.env.STRIPE_SECRET_API_KEY);
 
@@ -597,7 +598,7 @@ exports.appointmentCheckInOut = asyncHandler(async (req, res, next) => {
             tip: +tip.toFixed(2),
             app_fee: +appFee.toFixed(2),
             company_commission: +companyCommission.toFixed(2),
-            employeeShare: +income.toFixed(2),
+            employee_share: +income.toFixed(2),
           };
 
           appointment.payment.amount.total_no_tip += bill;
@@ -1248,21 +1249,33 @@ exports.responseAppointmentRequest = asyncHandler(async (req, res, next) => {
 
     // accept appointment
     if (responseType === "accepted") {
-      const { income, appFee, companyCommission, totalNoTip, tip } =
-        await incomeCalc(appointment);
+      const { income, appFee, companyCommission } = await incomeCalc(
+        appointment
+      );
 
       appointment.payment.amount = {
-        total: +(totalNoTip + tip).toFixed(2),
-        total_no_tip: +totalNoTip.toFixed(2),
-        tip: +tip.toFixed(2),
+        ...appointment.payment.amount,
         app_fee: +appFee.toFixed(2),
         company_commission: +companyCommission.toFixed(2),
-        employeeShare: +income.toFixed(2),
+        employee_share: +income.toFixed(2),
       };
 
       appointment.status = "ASSIGNED";
 
       await appointment.save();
+      const coupon = await couponModel.findById(
+        appointment.payment.discount.coupon
+      );
+      if (coupon) {
+        if (!coupon.reusable) {
+          coupon.status = "inactive";
+        }
+        coupon.records.push({
+          used_by: appointment.client._id,
+          used_at: appointment.createdAt,
+        });
+        await coupon.save();
+      }
 
       if (appointment.type !== "MEET_AND_GREET") {
         await createPaymentIntent(req, res, appointment);
@@ -1512,9 +1525,14 @@ const handleMeetAndGreetSetup = asyncHandler(async (req, res) => {
 const handleAppointmentTypeASetup = asyncHandler(async (req, res) => {
   try {
     // return console.log("handleAppointmentTypeASetup | req.body:", req.body);
-    const { type, location, pets, time, amount } = req.body;
+    const { type, location, pets, time, amount, coupon } = req.body;
     const client = req.user;
-    const paymentAmount = calculateAppointmentBaseFee(type, pets.length, time);
+    const paymentAmount = await calculateAppointmentBaseFee(
+      type,
+      pets.length,
+      time,
+      coupon
+    );
 
     const appointment = await appointmentModel.create({
       client,
@@ -1523,8 +1541,11 @@ const handleAppointmentTypeASetup = asyncHandler(async (req, res) => {
       pets: pets,
       time,
       payment: {
+        discount: paymentAmount.discount,
         amount: {
-          total: +(paymentAmount + (amount.tip ?? 0)).toFixed(2),
+          total: +(paymentAmount.total_no_tip + (amount.tip ?? 0)).toFixed(2),
+          total_no_tip: +paymentAmount.total_no_tip.toFixed(2),
+          discount: +paymentAmount.discount.amount.toFixed(2),
           tip: amount?.tip || 0,
         },
       },
@@ -1553,7 +1574,7 @@ const handleAppointmentTypeASetup = asyncHandler(async (req, res) => {
 const handleAppointmentTypeBSetup = asyncHandler(async (req, res) => {
   try {
     // return console.log("handleAppointmentTypeBSetup | req.body:", req.body);
-    const { type, pets, time, amount } = req.body;
+    const { type, pets, time, amount, coupon } = req.body;
     const client = req.user;
 
     const petsDoc = await petModel.find(
@@ -1567,7 +1588,12 @@ const handleAppointmentTypeBSetup = asyncHandler(async (req, res) => {
       { name: 1, "general_info.weight": 1 }
     );
 
-    const paymentAmount = calculateAppointmentBaseFee(type, petsDoc, time);
+    const paymentAmount = await calculateAppointmentBaseFee(
+      type,
+      petsDoc,
+      time,
+      coupon
+    );
 
     const appointment = await appointmentModel.create({
       client,
@@ -1575,8 +1601,11 @@ const handleAppointmentTypeBSetup = asyncHandler(async (req, res) => {
       pets: petsDoc.map((pet) => pet._id),
       time,
       payment: {
+        discount: paymentAmount.discount,
         amount: {
-          total: +(paymentAmount + (amount.tip ?? 0)).toFixed(2),
+          total: +(paymentAmount.total_no_tip + (amount.tip ?? 0)).toFixed(2),
+          total_no_tip: +paymentAmount.total_no_tip.toFixed(2),
+          discount: +paymentAmount.discount.amount.toFixed(2),
           tip: amount?.tip || 0,
         },
       },
