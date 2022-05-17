@@ -262,6 +262,8 @@ const appleAuth = asyncHandler(async (req, res) => {
       throw new Error("Apple token has expired");
     }
 
+    console.log("appleUser", appleUser);
+
     // check if user exists, if not continue creating new user
     await checkSocialUser(
       "apple",
@@ -303,7 +305,6 @@ const appleAuth = asyncHandler(async (req, res) => {
 const jobApplication = asyncHandler(async (req, res) => {
   const {
     token,
-    platform,
     first_name,
     last_name,
     phone,
