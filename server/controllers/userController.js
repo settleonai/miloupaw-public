@@ -537,12 +537,13 @@ const createUser = async (userObject, role) => {
     const hashedPassword = await bcrypt.hash(userObject.password, salt);
 
     console.log("userObject", userObject);
-    // create new user object
-    const user = await User.create({
+    const userBody = {
       ...userObject,
-      role,
       password: hashedPassword,
-    });
+      role,
+    };
+    // create new user object
+    const user = await userModel.create(userBody);
     const access_token = generateToken(user._id);
     user.access_token = access_token;
     user.token_exp = Date.now() + 30 * 24 * 60 * 60 * 1000;
