@@ -12,6 +12,7 @@ const {
   setPushToken,
   getMyUser,
   getServiceDefaults,
+  makeAdmin,
 } = require("../controllers/userController");
 
 const {
@@ -20,7 +21,7 @@ const {
 } = require("../controllers/verificationController");
 
 // middleware
-const { protect } = require("../middleware/authMiddleware");
+const { protect, adminProtect } = require("../middleware/authMiddleware");
 
 router.post("/", registerUser);
 router.post("/set-push-token", protect, setPushToken);
@@ -35,5 +36,6 @@ router.post("/phoneVerification/verify", protect, verifyPhoneNumber);
 router.post("/jobApplication", jobApplication);
 router.get("/business-profile", protect, getMyBusinessProfile);
 router.get("/service-defaults", protect, getServiceDefaults);
+router.put("/make-admin", adminProtect, makeAdmin);
 
 module.exports = router;

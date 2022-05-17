@@ -1279,6 +1279,11 @@ exports.responseAppointmentRequest = asyncHandler(async (req, res, next) => {
 
       if (appointment.type !== "MEET_AND_GREET") {
         await createPaymentIntent(req, res, appointment);
+      } else {
+        await MeetAndGreet.findOneAndUpdate(
+          { appointment_id: appointment },
+          { status: "ASSIGNED" }
+        );
       }
 
       await sendPushNotificationToAdmins(
@@ -1363,13 +1368,19 @@ const handleMeetAndGreetRequest = asyncHandler(async (req, res) => {
   try {
     const user = req.user;
     const profile = await Profile.findOne({ user: user._id });
+    console.log("profile", profile);
 
     const admin = await User.findOne({ role: "admin" });
+    console.log("admin", admin);
+
     const adminProfile = await BusinessProfile.findOne({ user: admin._id });
+    console.log("adminProfile", adminProfile);
+
     let adminBusinessProfile = await AdminProfile.findOne({
       user: admin._id,
     });
 
+    console.log("adminBusinessProfile", adminBusinessProfile);
     // console.log("profile admin.user.toString()", user.id, admin.id);
 
     if (!profile) {

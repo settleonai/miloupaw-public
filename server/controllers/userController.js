@@ -15,6 +15,7 @@ const { SERVICES } = require("../utils/services");
 const { PET_GENERAL_PROJECTION } = require("../config/projections");
 const { default: axios } = require("axios");
 const userModel = require("../../models/userModel");
+const adminProfileModel = require("../../models/adminProfileModel");
 
 // defaults
 const baseUrl = process.env.BASE_URL;
@@ -524,6 +525,61 @@ const getServiceDefaults = asyncHandler(async (req, res) => {
   }
 });
 
+// @desc    Make user an admin
+// @route   PUT /api/users/make-admin
+// @access  Admin Protected
+const makeAdmin = asyncHandler(async (req, res) => {
+  try {
+    const { id } = req.body;
+
+    const user = await User.findById(id);
+    if (!user) {
+      return res.status(404).json({
+        success: false,
+        error: "User not found",
+      });
+    }
+
+    if (user.role === "admin") {
+      return res.status(400).json({
+        success: false,
+        error: "User is already an admin",
+      });
+    }
+
+    user.role = "admin";
+    await user.save();
+
+    const adminProfile = await adminProfileModel.create({
+      user: user._id,
+    });
+
+    const profile = await Profile.findOne({ user: user._id });
+
+    const profileObj = {
+      user: user._id,
+      first_name: profile?.first_name,
+      last_name: profile?.last_name,
+      phone_number: profile?.phone_number,
+      gender: profile?.gender,
+      date_of_birth: profile.date_of_birth,
+    };
+
+    bushinessProfile = await createBusinessProfile(profileObj);
+
+    return res.status(201).json({
+      success: true,
+      message: "admin created",
+    });
+  } catch (error) {
+    console.log("makeAdmin error", error);
+    return res.status(400).json({
+      success: false,
+      error: error.message,
+    });
+  }
+});
+
 // Generate JWT
 const generateToken = (id) => {
   return jwt.sign({ id }, process.env.JWT_SECRET, {
@@ -702,4 +758,5 @@ module.exports = {
   jobApplication,
   getMyUser,
   getServiceDefaults,
+  makeAdmin,
 };
