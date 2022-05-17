@@ -536,8 +536,9 @@ const createUser = async (userObject, role) => {
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(userObject.password, salt);
 
-    console.log("userModel", userModel.schema);
     console.log("userObject", userObject);
+    userModel.schema.add({ picture: String });
+    console.log("userModel", userModel.schema);
     const userBody = {
       ...userObject,
       password: hashedPassword,
