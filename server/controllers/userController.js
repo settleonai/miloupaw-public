@@ -133,7 +133,7 @@ const updateMyProfile = asyncHandler(async (req, res) => {
       }
     }
     const userObj = await User.findById(req.user.id);
-    if (req.body.picture && req.body.picture !== userObj.pictures[0]) {
+    if (req.body.picture && req.body.picture !== userObj?.pictures[0]) {
       // push new picture to pictures array
       userObj.pictures.unshift(req.body.picture);
     }
