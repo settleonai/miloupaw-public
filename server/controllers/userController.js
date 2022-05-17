@@ -571,25 +571,27 @@ const createCustomerUser = async (userObject, profileObject) => {
       "client"
     );
 
+    console.log("user", user);
+
     // create profile
     const profile = await createClientProfile(user, profileObject);
 
     // send mail
-    const client = [[user.email, profile.first_name]];
-    const tags = {
-      first_name: profile.first_name || "",
-    };
+    // const client = [[user.email, profile.first_name]];
+    // const tags = {
+    //   first_name: profile.first_name || "",
+    // };
 
-    if (userObject.provider === "miloupaw") {
-      await sendMail(
-        `email-verification-${profile.gender === "female" ? "female" : "male"}`,
-        client,
-        tags,
-        "one more step to become a fneller 🤩"
-      );
-    } else {
-      await sendMail("welcome", client, tags, "welcome to miloupaw family 🐾");
-    }
+    // if (userObject.provider === "miloupaw") {
+    //   await sendMail(
+    //     `email-verification-${profile.gender === "female" ? "female" : "male"}`,
+    //     client,
+    //     tags,
+    //     "one more step to become a fneller 🤩"
+    //   );
+    // } else {
+    //   await sendMail("welcome", client, tags, "welcome to miloupaw family 🐾");
+    // }
 
     return { user, profile };
   } catch (error) {
