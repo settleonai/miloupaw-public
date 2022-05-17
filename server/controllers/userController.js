@@ -141,7 +141,7 @@ const updateMyProfile = asyncHandler(async (req, res) => {
     ) {
       // push new picture to pictures array
       userObj.pictures.unshift(req.body.picture);
-    } else if (req.body.picture && userObj.pictures.length === 0) {
+    } else if (req.body.picture) {
       userObj.pictures.unshift(req.body.picture);
     }
     if (req.body.first_name || req.body.last_name) {
