@@ -117,11 +117,29 @@ const updateMyProfile = asyncHandler(async (req, res) => {
         }
       );
     } else {
+      console.log("req", req.body);
+
       profile = await BusinessProfile.findOneAndUpdate(
         { user: req.user.id },
-        req.body,
+        {
+          first_name: req.body.first_name,
+          last_name: req.body.last_name,
+          phone_number: req.body.phone_number,
+          date_of_birth: req.body.date_of_birth,
+          gender: req.body.gender,
+          years_of_experience: req.body?.years_of_experience,
+          good_with_dogs: req.body?.good_with_dogs,
+          good_with_cats: req.body?.good_with_cats,
+          good_with_other_pets: req.body?.good_with_other_pets,
+          commute_method: req.body?.commute_method,
+          maximum_commute_distance: req.body?.maximum_commute_distance,
+          driving_license: req.body?.driving_license,
+          authorized_to_work_in_us: req.body?.authorized_to_work_in_us,
+        },
+
         { new: true }
       );
+
       if (!profile) {
         profile = await BusinessProfile.create({
           user: req.user.id,
