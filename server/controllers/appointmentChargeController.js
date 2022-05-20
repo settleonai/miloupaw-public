@@ -92,6 +92,10 @@ exports.createPaymentIntent = asyncHandler(async (req, res, apt) => {
 
     const { amount, currency } = appointment.payment;
 
+    console.log("clientProfile.user._id", clientProfile.user._id);
+    console.log("appointment._id", appointment._id);
+    console.log("clientProfile.user.email", clientProfile.user.email);
+
     const paymentIntent = await stripe.paymentIntents.create({
       amount: +(amount.total * 100).toFixed(0),
       currency: currency.toLowerCase(),
@@ -100,7 +104,7 @@ exports.createPaymentIntent = asyncHandler(async (req, res, apt) => {
       off_session: true,
       confirm: true,
       metadata: {
-        client: clientProfile.user.toString(),
+        client: clientProfile.user._id,
         tip: amount.tip,
         appointment: appointment._id,
       },

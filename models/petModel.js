@@ -59,7 +59,7 @@ const petSchema = Schema(
     training: {
       commands: [{ type: String }],
       house_trained: { type: String },
-      food_per_day: { type: Number },
+      food_per_day: { type: String },
       food_type: { type: String },
       food_brand: { type: String },
       notes: { type: String },
