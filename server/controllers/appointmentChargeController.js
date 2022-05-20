@@ -104,9 +104,9 @@ exports.createPaymentIntent = asyncHandler(async (req, res, apt) => {
       off_session: true,
       confirm: true,
       metadata: {
-        client: clientProfile.user._id,
+        client: clientProfile.user._id.toString(),
         tip: amount.tip,
-        appointment: appointment._id,
+        appointment: appointment._id.toString(),
       },
       receipt_email: clientProfile.user.email,
     });
