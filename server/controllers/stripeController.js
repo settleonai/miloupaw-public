@@ -93,7 +93,7 @@ exports.stripeConnectHook = async (req, res) => {
   switch (event.type) {
     case "account.updated":
       // Then define and call a function to handle the event account.updated
-      await updateStylist(event.data);
+      // await updateStylist(event.data);
       console.log(`✅ account.updated: ${event.object.id}`);
       break;
     case "account.application.authorized":
