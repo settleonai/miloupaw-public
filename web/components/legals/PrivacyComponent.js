@@ -76,7 +76,8 @@ export default function PrivacyComponent() {
                 Paid or unpaid Services), you need to create a user account.
                 When you create or update your account, we collect and store the
                 data you provide, like your email address and password, and
-                assign you a unique identifying number ("Account Data").
+                assign you a unique identifying number (&quot;Account
+                Data&quot;).
               </span>
             </li>
             <li className="text-gray-400">
