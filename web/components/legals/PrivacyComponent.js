@@ -28,9 +28,9 @@ export default function PrivacyComponent() {
 
             <li className="text-gray-400">
               <span className="text-gray-600">
-                You may likewise decide not to give us "discretionary" Personal
-                Data; however, please remember that without it, we will most
-                likely be unable to provide you with the full scope of our
+                You may likewise decide not to give us &quot;discretionary&quot;
+                Personal Data; however, please remember that without it, we will
+                most likely be unable to provide you with the full scope of our
                 administrations or with the best client experience when
                 utilizing our Services.
               </span>
@@ -38,8 +38,8 @@ export default function PrivacyComponent() {
 
             <li className="text-gray-400">
               <span className="text-gray-600">
-                This Privacy Policy (<strong>“Privacy Policy”</strong>)
-                describes how Fnel Inc is doing business as
+                This Privacy Policy (<strong>&quot;Privacy Policy&quot;</strong>
+                ) describes how Fnel Inc is doing business as
                 <strong>Miloupaw</strong>. Will gather, use, and maintain your
                 Personal Information on the Miloupaw website (
                 <strong>miloupaw.com</strong>) and mobile applications. It will
@@ -99,9 +99,9 @@ export default function PrivacyComponent() {
                 details. We collect financial data to allow you to purchase or
                 exchange services from our App. We store limited financial data.
                 Most financial data is transferred to our payment processor,
-                Stripe, and you should review these processors' Privacy Policy
-                to determine how they use, disclose, and protect your financial
-                data.
+                Stripe, and you should review these processors&apos; Privacy
+                Policy to determine how they use, disclose, and protect your
+                financial data.
               </span>
               <ul role="list" className="mt-3 pl-4 list-disc text-sm space-y-2">
                 <li className="text-gray-400">
@@ -169,7 +169,7 @@ export default function PrivacyComponent() {
             </td>
           </tr>
           <tr className="bg-gray-100 border-b">
-            <td className="text-sm text-gray-900 font-light px-6 py-4 ">
+            <td className="text-sm text-gray-900 font-light px-6 py-4">
               <h4 className="text-lg">Account Information</h4>
               <span>
                 Includes personal information we collect when you create an
@@ -181,7 +181,7 @@ export default function PrivacyComponent() {
                 choose to provide.
               </span>
             </td>
-            <td className="text-sm text-gray-900 font-light px-6 py-4 ">
+            <td className="text-sm text-gray-900 font-light px-6 py-4">
               <h4 className="text-lg">We use this information to</h4>
               <div className="mt-3">
                 <div className="mt-4 ml-6">
@@ -228,7 +228,7 @@ export default function PrivacyComponent() {
             </td>
           </tr>
           <tr className="bg-gray-100 border-b">
-            <td className="text-sm text-gray-900 font-light px-6 py-4 ">
+            <td className="text-sm text-gray-900 font-light px-6 py-4">
               <h4 className="text-lg">Content and Files</h4>
               <span>
                 Includes the profile photos, pet photos, stay photos, videos,
@@ -236,7 +236,7 @@ export default function PrivacyComponent() {
                 Services.
               </span>
             </td>
-            <td className="text-sm text-gray-900 font-light px-6 py-4 ">
+            <td className="text-sm text-gray-900 font-light px-6 py-4">
               <h4 className="text-lg">We use this information to</h4>
               <div className="mt-3">
                 <div className="mt-4 ml-6">
@@ -271,7 +271,7 @@ export default function PrivacyComponent() {
             </td>
           </tr>
           <tr className="bg-gray-100 border-b">
-            <td className="text-sm text-gray-900 font-light px-6 py-4 ">
+            <td className="text-sm text-gray-900 font-light px-6 py-4">
               <h4 className="text-lg">Content and Files</h4>
               <span>
                 Includes the content of any communications you send and receive
@@ -282,7 +282,7 @@ export default function PrivacyComponent() {
                 content of any recorded telephone calls).
               </span>
             </td>
-            <td className="text-sm text-gray-900 font-light px-6 py-4 ">
+            <td className="text-sm text-gray-900 font-light px-6 py-4">
               <h4 className="text-lg">We use this information to</h4>
               <div className="mt-3">
                 <div className="mt-4 ml-6">
@@ -312,7 +312,7 @@ export default function PrivacyComponent() {
           </tr>
 
           <tr className="bg-gray-100 border-b">
-            <td className="text-sm text-gray-900 font-light px-6 py-4 ">
+            <td className="text-sm text-gray-900 font-light px-6 py-4">
               <h4 className="text-lg">{`Payment & Tax Information`}</h4>
               <span>
                 includes payment information you provide to us, such as the
@@ -327,7 +327,7 @@ export default function PrivacyComponent() {
                 number.
               </span>
             </td>
-            <td className="text-sm text-gray-900 font-light px-6 py-4 ">
+            <td className="text-sm text-gray-900 font-light px-6 py-4">
               <h4 className="text-lg">We use this information to</h4>
               <div className="mt-3">
                 <div className="mt-4 ml-6">
@@ -358,7 +358,7 @@ export default function PrivacyComponent() {
             </td>
           </tr>
           <tr className="bg-gray-100 border-b">
-            <td className="text-sm text-gray-900 font-light px-6 py-4 ">
+            <td className="text-sm text-gray-900 font-light px-6 py-4">
               <h4 className="text-lg">Identification Information</h4>
               <span>
                 If you are a Service Provider, we may collect certain personal
@@ -369,7 +369,7 @@ export default function PrivacyComponent() {
                 social insurance number to conduct a background check.
               </span>
             </td>
-            <td className="text-sm text-gray-900 font-light px-6 py-4 ">
+            <td className="text-sm text-gray-900 font-light px-6 py-4">
               <h4 className="text-lg">We use this information to</h4>
               <div className="mt-3">
                 <div className="mt-4 ml-6">
@@ -400,7 +400,7 @@ export default function PrivacyComponent() {
             </td>
           </tr>
           <tr className="bg-gray-100 border-b">
-            <td className="text-sm text-gray-900 font-light px-6 py-4 ">
+            <td className="text-sm text-gray-900 font-light px-6 py-4">
               <h4 className="text-lg">Other Information</h4>
               <span>
                 Includes all other personal information you provide to us, such
@@ -411,7 +411,7 @@ export default function PrivacyComponent() {
                 communicate with us.
               </span>
             </td>
-            <td className="text-sm text-gray-900 font-light px-6 py-4 ">
+            <td className="text-sm text-gray-900 font-light px-6 py-4">
               <h4 className="text-lg">We use this information to</h4>
               <div className="mt-3">
                 <div className="mt-4 ml-6">
@@ -467,7 +467,7 @@ export default function PrivacyComponent() {
             </td>
           </tr>
           <tr className="bg-gray-100 border-b">
-            <td className="text-sm text-gray-900 font-light px-6 py-4 ">
+            <td className="text-sm text-gray-900 font-light px-6 py-4">
               <h4 className="text-lg">Usage Information</h4>
               <span>
                 We collect log information about your use of the Services,
@@ -535,7 +535,7 @@ export default function PrivacyComponent() {
             </td>
           </tr>
           <tr className="bg-gray-100 border-b">
-            <td className="text-sm text-gray-900 font-light px-6 py-4 ">
+            <td className="text-sm text-gray-900 font-light px-6 py-4">
               <h4 className="text-lg">Device Information</h4>
               <span>
                 We collect information about the computer or mobile device you
@@ -547,7 +547,7 @@ export default function PrivacyComponent() {
             </td>
           </tr>
           <tr className="bg-gray-100 border-b">
-            <td className="text-sm text-gray-900 font-light px-6 py-4 ">
+            <td className="text-sm text-gray-900 font-light px-6 py-4">
               <h4 className="text-lg">Location Information</h4>
               <span>
                 We may collect information about the location of your device
@@ -565,9 +565,9 @@ export default function PrivacyComponent() {
         incompatible purposes without providing you notice.
       </p>
       <p className="text-base text-gray-700 pt-3">
-        As noted in the list above, we may communicate with you if you've
-        provided us with the means to do so. For example, if you've given us
-        your email address, we may send you promotional email offers or email
+        As noted in the list above, we may communicate with you if you&apos;ve
+        provided us with the means to do so. For example, if you&apos;ve given
+        us your email address, we may send you promotional email offers or email
         you about your use of the Services. Also, we may receive a confirmation
         when you open an email from us, which helps us improve our services. If
         you do not want to receive communications from us, please indicate your
@@ -852,8 +852,8 @@ export default function PrivacyComponent() {
 
             <li className="text-gray-400">
               <span className="text-gray-600">
-                You'll be notified of any ONLINE PRIVACY POLICY changes: via
-                email
+                You&apos;ll be notified of any ONLINE PRIVACY POLICY changes:
+                via email
               </span>
             </li>
           </ul>
@@ -900,12 +900,12 @@ export default function PrivacyComponent() {
       </h2>
       <p className="text-base text-gray-700 pt-3">
         With regards to the assortment of private information from children
-        under the age of 13 years, the Children's Online Privacy Protection Act
-        (COPPA) puts parents in charge. The Federal Trade Commission, United
-        States' consumer safety firm, enforces the COPPA Guideline, which spells
-        out what providers of websites and online services should do to
-        safeguard children's privatizes and security online. For more details,
-        Click Here or below link
+        under the age of 13 years, the Children&apos;s Online Privacy Protection
+        Act (COPPA) puts parents in charge. The Federal Trade Commission, United
+        States&apos; consumer safety firm, enforces the COPPA Guideline, which
+        spells out what providers of websites and online services should do to
+        safeguard children&apos;s privatizes and security online. For more
+        details, Click Here or below link
       </p>
       <p className="text-base text-gray-700 pt-3">
         https://www.ftc.gov/enforcement/rules/rulemaking-regulatory-reform-proceedings/childrens-online-privacy-protection-rule
@@ -925,10 +925,10 @@ export default function PrivacyComponent() {
           <ul role="list" className="pl-4 list-decimal text-sm space-y-2">
             <li className="text-gray-400">
               <span className="text-gray-600">
-                Request access to your personal data (commonly known as a "data
-                subject access request"). This enables you to receive a copy of
-                the personal data we hold about you and to check that we are
-                lawfully processing it.
+                Request access to your personal data (commonly known as a
+                &quot;data subject access request&quot;). This enables you to
+                receive a copy of the personal data we hold about you and to
+                check that we are lawfully processing it.
               </span>
             </li>
 
@@ -977,7 +977,7 @@ export default function PrivacyComponent() {
               <ul role="list" className="pl-4 list-disc text-sm space-y-2">
                 <li className="text-gray-400">
                   <span className="text-gray-600">
-                    If you want us to establish the data's accuracy.
+                    If you want us to establish the data&apos;s accuracy.
                   </span>
                 </li>
                 <li className="text-gray-400">
@@ -1058,9 +1058,9 @@ export default function PrivacyComponent() {
           <li className="text-gray-400">
             <span className="text-gray-600">
               Your individual information is comprised behind secured systems
-              and is merely accessible by a restricted number of folks who've
-              special access privileges to such systems and must keep the
-              information confidential carefully. Furthermore, all very
+              and is merely accessible by a restricted number of folks
+              who&apos;ve special access privileges to such systems and must
+              keep the information confidential carefully. Furthermore, all very
               sensitive/credit information you resource is encrypted via Secure
               Socket Layer (SSL) technology.
             </span>
@@ -1153,7 +1153,7 @@ export default function PrivacyComponent() {
       </div>
       <p className="text-base text-gray-700 pt-3">
         If anytime you want to unsubscribe from receiving future emails, you can
-        email us by using the contact form at our App Miloupaw, and we'll
+        email us by using the contact form at our App Miloupaw, and we&apos;ll
         immediately remove you from ALL communication.
       </p>
       <h2 className="mt-6 text-lg font-display">Limitation of liability</h2>

@@ -5,30 +5,32 @@ export default function TermsComponent() {
     <>
       <HeaderObj>THE AGREEMENT: </HeaderObj>
       <ParagraphObj>
-        {`The use of this website and services on this App provided
-        by Fnel Inc (Miloupaw referred to as "App and website") are subject to
-        the following Terms & Conditions, all parts and sub-parts of which are
+        The use of this website and services on this App provided by Fnel Inc
+        (Miloupaw referred to as &quot;App and website&quot;) are subject to the
+        following Terms & Conditions, all parts and sub-parts of which are
         specifically incorporated by reference here. This Agreement shall govern
         the use of all pages on this App (hereinafter collectively referred to
-        as "App") and any services provided by or on this App ("Services").`}
+        as &quot;App&quot;) and any services provided by or on this App
+        (&quot;Services&quot;).
       </ParagraphObj>
       <HeaderObj>DEFINITIONS</HeaderObj>
       <ParagraphObj>
-        "Agreement" denotes this Terms and Conditions and the Privacy Policy and
-        other documents provided to you by the App.
+        &quot;Agreement&quot; denotes this Terms and Conditions and the Privacy
+        Policy and other documents provided to you by the App.
       </ParagraphObj>
       <ParagraphObj>
-        "We," "us," and "our" are references to MILOUPAW.
+        &quot;We,&quot; &quot;us,&quot; and &quot;our&quot; are references to
+        MILOUPAW.
       </ParagraphObj>
       <ParagraphObj>
-        "User," "You," and "your" denotes the person who is accessing the App
-        for taking or availing of any service from us. User shall include the
-        Company, partnership, sole trader, person, body corporate, or
-        association taking services of this App.
+        &quot;User,&quot; &quot;You,&quot; and &quot;your&quot; denotes the
+        person who is accessing the App for taking or availing of any service
+        from us. User shall include the Company, partnership, sole trader,
+        person, body corporate, or association taking services of this App.
       </ParagraphObj>
       <ParagraphObj>
-        " App" shall mean and include Miloupaw and any successor App of the
-        Company or any of its affiliates.
+        &quot; App&quot; shall mean and include Miloupaw and any successor App
+        of the Company or any of its affiliates.
       </ParagraphObj>
       <ParagraphObj>
         Parties: Collectively, the parties to this Agreement (We and You) will
@@ -37,10 +39,10 @@ export default function TermsComponent() {
       <HeaderObj>{`ASSENT & ACCEPTANCE`}</HeaderObj>
       <ParagraphObj>
         PLEASE READ THESE TERMS OF USE, OUR PRIVACY POLICY, AND ALL APPLICABLE
-        SUPPLEMENTAL TERMS (COLLECTIVELY, THE "TERMS") CAREFULLY, AS THEY
-        CONTAIN TERMS AND CONDITIONS THAT IMPACT YOUR RIGHTS, OBLIGATIONS, AND
-        REMEDIES IN CONNECTION WITH YOUR USE OF THE SERVICES AND CONTENT. FOR
-        EXAMPLE, THE TERMS INCLUDE:
+        SUPPLEMENTAL TERMS (COLLECTIVELY, THE &quot;TERMS&quot;) CAREFULLY, AS
+        THEY CONTAIN TERMS AND CONDITIONS THAT IMPACT YOUR RIGHTS, OBLIGATIONS,
+        AND REMEDIES IN CONNECTION WITH YOUR USE OF THE SERVICES AND CONTENT.
+        FOR EXAMPLE, THE TERMS INCLUDE:
       </ParagraphObj>
       <ListWrapper>
         <ListItem>
@@ -59,10 +61,10 @@ export default function TermsComponent() {
         OF AND COMPLIANCE WITH ALL APPLICABLE TERMS. If you do not agree to
         these Terms or our Privacy Policy, then please cease using the Services
         immediately. We reserve the right to change these Terms at any time (see
-        "Changes to these Terms" below.) By accessing, browsing, and/or using
-        the Services after updates to these Terms have been posted, you agree to
-        be bound by the updated Terms. THESE TERMS AND OUR PRIVACY POLICY
-        CONSTITUTE A BINDING AGREEMENT BETWEEN YOU AND FNEL INC.
+        &quot;Changes to these Terms&quot; below.) By accessing, browsing,
+        and/or using the Services after updates to these Terms have been posted,
+        you agree to be bound by the updated Terms. THESE TERMS AND OUR PRIVACY
+        POLICY CONSTITUTE A BINDING AGREEMENT BETWEEN YOU AND FNEL INC.
       </ParagraphObj>
       <HeaderObj>{`Consequences of Non-Compliance`}</HeaderObj>
       <ParagraphObj>
@@ -75,13 +77,13 @@ export default function TermsComponent() {
         We may provide you with certain information because of your use of the
         App or Services. Such information may include but is not limited to
         documentation, data, or information developed by us and other materials
-        which may assist in your use of the App or Services ("Our Materials").
-        Subject to this Agreement, we grant you a non-exclusive, limited,
-        non-transferable, and revocable license to use Our Materials solely in
-        connection with your use of the App and Services. Our Materials may not
-        be used for any other purpose, and this license terminates upon your
-        cessation of use of the App or Services or at the termination of this
-        Agreement.
+        which may assist in your use of the App or Services (&quot;Our
+        Materials&quot;). Subject to this Agreement, we grant you a
+        non-exclusive, limited, non-transferable, and revocable license to use
+        Our Materials solely in connection with your use of the App and
+        Services. Our Materials may not be used for any other purpose, and this
+        license terminates upon your cessation of use of the App or Services or
+        at the termination of this Agreement.
       </ParagraphObj>
       <HeaderObj>USER CONTENT</HeaderObj>
       <ParagraphObj>
@@ -119,7 +121,7 @@ export default function TermsComponent() {
           state, federal, or international law, rule, regulation, or ordinance.
         </ListItem>
         <ListItem>
-          Uses or attempts to use another's account, password, service, or
+          Uses or attempts to use another&apos;s account, password, service, or
           system except as expressly permitted by the Terms of use uploads or
           transmits viruses or other harmful, disruptive, or destructive files.
         </ListItem>
@@ -138,10 +140,10 @@ export default function TermsComponent() {
       <ParagraphObj>
         You agree that the App and all Services provided by us are the property
         of Miloupaw, including all copyrights, trademarks, trade secrets,
-        patents, and other intellectual property ("Our IP"). You agree that we
-        own all rights, title, and interest in and to the Our IP and that you
-        will not use Our IP for any unlawful or infringing purpose. You agree
-        not to reproduce or distribute Our IP in any way, including
+        patents, and other intellectual property (&quot;Our IP&quot;). You agree
+        that we own all rights, title, and interest in and to the Our IP and
+        that you will not use Our IP for any unlawful or infringing purpose. You
+        agree not to reproduce or distribute Our IP in any way, including
         electronically or via registration of any new trademarks, trade names,
         service marks, or Uniform Resource Locators (URLs), without express
         written permission from us.
@@ -173,8 +175,8 @@ export default function TermsComponent() {
       <ListWrapper>
         <ListItem>You further agree not to use the App or Services:</ListItem>
         <ListItem>
-          To harass, abuse, or threaten others or otherwise violate any person's
-          legal rights.
+          To harass, abuse, or threaten others or otherwise violate any
+          person&apos;s legal rights.
         </ListItem>
         <ListItem>
           To violate any of our intellectual property rights or any third party.
@@ -226,8 +228,8 @@ export default function TermsComponent() {
       <ParagraphObj>
         You agree to defend and indemnify us and any of our affiliates (if
         applicable) and hold us harmless against any legal claims and demands,
-        including reasonable attorney's fees, which may arise from or relate to
-        your use or misuse of the App or Services, your breach of this
+        including reasonable attorney&apos;s fees, which may arise from or
+        relate to your use or misuse of the App or Services, your breach of this
         Agreement, or your conduct or actions. You agree that we shall be able
         to select its legal counsel and may participate in its defense if we
         wish.
@@ -258,8 +260,9 @@ export default function TermsComponent() {
         and (iv) unlawful access, use or alteration of your transmissions or
         content, whether or not based on guarantee, agreement, domestic wrong
         (including carelessness) or any other lawful concept, whether or not
-        we've been aware of the possibility of such damage, and even if a cure
-        set forth herein is originated to have futile of its important purpose.
+        we&apos;ve been aware of the possibility of such damage, and even if a
+        cure set forth herein is originated to have futile of its important
+        purpose.
       </ParagraphObj>
       <HeaderObj>SPAM POLICY</HeaderObj>
       <ParagraphObj>
@@ -314,18 +317,21 @@ export default function TermsComponent() {
         would be expected to survive termination by their nature shall remain in
         full force and effect.
       </ParagraphObj>
-      <HeaderObj>"AS IS" and "AS AVAILABLE" Disclaimer</HeaderObj>
+      <HeaderObj>
+        &quot;AS IS&quot; and &quot;AS AVAILABLE&quot; Disclaimer
+      </HeaderObj>
       <ParagraphObj>
-        The service is provided to You "AS IS" and "AS AVAILABLE" and with all
-        faults and defects without warranty of any kind. To the maximum extent
-        permitted under applicable law, the Company, on its own behalf and on
-        behalf of its Affiliates and its and their respective licensors and
-        service providers, expressly disclaims all warranties, whether express,
-        implied, statutory, or otherwise, with respect to the service, including
-        all implied warranties of merchantability, fitness for a particular
-        purpose, title and non-infringement, and warranties that may arise out
-        of a course of dealing, course of performance, usage or trade practice.
-        Without limitation to the foregoing, the Company provides no warranty or
+        The service is provided to You &quot;AS IS&quot; and &quot;AS
+        AVAILABLE&quot; and with all faults and defects without warranty of any
+        kind. To the maximum extent permitted under applicable law, the Company,
+        on its own behalf and on behalf of its Affiliates and its and their
+        respective licensors and service providers, expressly disclaims all
+        warranties, whether express, implied, statutory, or otherwise, with
+        respect to the service, including all implied warranties of
+        merchantability, fitness for a particular purpose, title and
+        non-infringement, and warranties that may arise out of a course of
+        dealing, course of performance, usage or trade practice. Without
+        limitation to the foregoing, the Company provides no warranty or
         undertaking, and makes no representation of any kind that the service
         will meet Your requirements, achieve any intended results, be compatible
         or work with any other software, applications, systems, or services,
@@ -335,8 +341,8 @@ export default function TermsComponent() {
       </ParagraphObj>
       <ParagraphObj>
         Without limiting the foregoing, neither the Company nor any of the
-        Company's providers makes any representation or warranty of any kind,
-        express or implied: (i) as to the operation or availability of the
+        Company&apos;s providers makes any representation or warranty of any
+        kind, express or implied: (i) as to the operation or availability of the
         service or the information, content, and materials or products included
         thereon; (ii) that the service will be uninterrupted or error-free;
         (iii) as to the accuracy, reliability, or currency of any information or
@@ -356,23 +362,23 @@ export default function TermsComponent() {
       <HeaderObj>NO WARRANTIES</HeaderObj>
       <ParagraphObj>
         You agree that your use of the App and Services is at your sole and
-        exclusive risk and that any Services provided by us are on an "As Is"
-        basis. We hereby expressly disclaim any express or implied warranties of
-        any kind, including but not limited to the implied warranty of fitness
-        for a particular purpose and the implied warranty of merchantability. We
-        make no warranties that the App or Services will meet your needs or that
-        the App or Services will be uninterrupted, error-free, or secure. We
-        also make no warranties as to the reliability or accuracy of any
-        information on the App or obtained through the Services. You agree that
-        any damage that may occur to you through your computer system or because
-        of the loss of your data from your use of the App or Services is your
-        sole responsibility and that we are not liable for any such damage or
-        loss. LIMITATION ON LIABILITY We are not liable for any damages that may
-        occur to you because of your use of the App or Services to the fullest
-        extent permitted by law. This section applies to any claims by you,
-        including, but not limited to, lost profits or revenues, consequential
-        or punitive damages, negligence, strict liability, fraud, or torts of
-        any kind.
+        exclusive risk and that any Services provided by us are on an &quot;As
+        Is&quot; basis. We hereby expressly disclaim any express or implied
+        warranties of any kind, including but not limited to the implied
+        warranty of fitness for a particular purpose and the implied warranty of
+        merchantability. We make no warranties that the App or Services will
+        meet your needs or that the App or Services will be uninterrupted,
+        error-free, or secure. We also make no warranties as to the reliability
+        or accuracy of any information on the App or obtained through the
+        Services. You agree that any damage that may occur to you through your
+        computer system or because of the loss of your data from your use of the
+        App or Services is your sole responsibility and that we are not liable
+        for any such damage or loss. LIMITATION ON LIABILITY We are not liable
+        for any damages that may occur to you because of your use of the App or
+        Services to the fullest extent permitted by law. This section applies to
+        any claims by you, including, but not limited to, lost profits or
+        revenues, consequential or punitive damages, negligence, strict
+        liability, fraud, or torts of any kind.
       </ParagraphObj>
       <HeaderObj>LIMITATION ON LIABILITY</HeaderObj>
       <ParagraphObj>
@@ -385,12 +391,12 @@ export default function TermsComponent() {
       <HeaderObj>GENERAL PROVISIONS:</HeaderObj>
       <ListWrapper type="decimal">
         <ListItem>
-          <strong>{`JURISDICTION, VENUE & CHOICE OF LAW:`}</strong>
-          {`The terms herein will be governed
-          by and construed by the laws of California, United States, without
-          giving effect to any principles of conflicts of law. The Courts of
-          California, United States, shall have exclusive jurisdiction over any
-          dispute arising from the use of the App.`}
+          <strong>JURISDICTION, VENUE & CHOICE OF LAW:</strong>
+          The terms herein will be governed by and construed by the laws of
+          California, United States, without giving effect to any principles of
+          conflicts of law. The Courts of California, United States, shall have
+          exclusive jurisdiction over any dispute arising from the use of the
+          App.
         </ListItem>
         <ListItem>
           <strong>ASSIGNMENT:</strong> This Agreement, or the rights granted
