@@ -16,7 +16,7 @@ export default function ServiceSummaryComponent() {
     {
       name: "Boarding",
       icon: "boarding",
-      description: `We board dogs of all sizes. Each dog is housed privately in a colleague's home. Our guests will receive an all-inclusive, cage-free, and pet-friendly stay, where they will be well looked after. Boarding is offered at a fee of $85 per day. discounts are available for long-term stays.`,
+      description: `We board dogs of all sizes. Each dog is housed privately in a colleague's home. Our guests will receive an all-inclusive, crate-free, and pet-friendly stay, where they will be well looked after. Boarding is offered at a fee of $85 per day. discounts are available for long-term stays.`,
     },
     {
       name: "Potty Break",
