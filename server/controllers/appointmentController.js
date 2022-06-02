@@ -74,7 +74,9 @@ exports.getAppointments = asyncHandler(async (req, res) => {
     const types = req.query.type?.split(",") || [];
     const startDate = req.query.startDate;
     const endDate = req.query.endDate;
+
     const self = Boolean(req.query.employee);
+
     const reqUserIsClient = Boolean(req.query.client);
 
     const employee = req.query.employee;

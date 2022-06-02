@@ -14,35 +14,35 @@
         </mj-text>
       </mj-column>
       <mj-column width="400px">
-        <mj-image src="https://res.cloudinary.com/fnel/image/upload/v1636184233/email-src/welcome_hno33r.png"></mj-image>
+        <mj-image src="https://res.cloudinary.com/fnel/image/upload/v1654213599/email-src/Asset_8_1000x-8_cbrptt.png"></mj-image>
       </mj-column>
       <mj-column width="400px">
         <mj-text font-family="Roboto" font-size="21px" color="#2A2A2A" align="center">Hey
           {{first_name}}, welcome to miloupaw</mj-text>
         
         <mj-text font-family="Roboto" font-size="14px" color="#5A5B5B" align="center"><span class="body-text">
-            you have successfully joined our platform. You can now open our app and follow the instruction to complete the missing steps. </mj-text>
+            you have successfully joined our platform. You can now open the app and follow the instruction to complete the missing steps.</mj-text>
         
+        <mj-button href="miloupaw://" background-color="#222558" target="_blank">open milloupaw</mj-button>
         <mj-text></mj-text>
 
         
 
 
         <mj-text font-family="Roboto" font-size="14px" color="#5A5B5B" align="center" background-color="#808285">with 🐾</mj-text>
-        <mj-text font-family="Roboto" font-size="14px" color="#5A5B5B" align="center" background-color="#808285">miloupaw</mj-text>
         <mj-image width="60px" src="https://res.cloudinary.com/fnel/image/upload/v1651970162/miloupaw/assets/logo-transparent-sm_pbovjn.png"></mj-image>
+        <mj-text font-family="Roboto" font-size="14px" color="#5A5B5B" align="center" background-color="#808285">miloupaw</mj-text>
       </mj-column>
     </mj-section>
     <mj-section>
       <mj-column>
-        <mj-text font-family="Roboto" font-weight="300" line-height="0" padding-bottom="0" color="#111" font-size="8px" align="center">©2021 fnel Inc. | 1471 Pico Ct. Apt O Walnut Creek, CA 94597
+        <mj-text font-family="Roboto" font-weight="300" line-height="0" padding-bottom="0" color="#111" font-size="8px" align="center">©2022 fnel Inc. | 1471 Pico Ct. Apt O Walnut Creek, CA 94597
           USA</mj-text>
         <mj-text font-family="Roboto" font-weight="300" color="#111" font-size="8px" align="center">contact@thefnel.com | +1 (510) 394-2458 |
           https://fnel.app</mj-text>
-        <mj-text font-family="Roboto" font-weight="300" color="#111" font-size="8px" align="center"><a class="link-nostyle" href="https://www.freepik.com/vectors/business">vector image inspired by Business vector created by rawpixel.com - www.freepik.com /
+        <mj-text font-family="Roboto" font-weight="300" color="#111" font-size="8px" align="center"><a class="link-nostyle" href="https://www.freepik.com/vectors/business">vector image inspired Pet animals vector created by rawpixel.com - www.freepik.com /
             Freepik</a></mj-text>
       </mj-column>
     </mj-section>
   </mj-body>
 </mjml>
-
