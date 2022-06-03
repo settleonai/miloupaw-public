@@ -180,6 +180,7 @@ const updateMyProfile = asyncHandler(async (req, res) => {
       console.log("req.body.picture", req.body.picture);
       console.log("profile", userObj.pictures);
     } else if (req.body.picture & !userObj.pictures) {
+      console.log("before add", [req.body.picture]);
       userObj.pictures = [req.body.picture];
     }
     if (req.body.first_name || req.body.last_name) {
