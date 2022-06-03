@@ -172,10 +172,7 @@ const updateMyProfile = asyncHandler(async (req, res) => {
 
     if (req.body.picture) {
       console.log("here");
-      User.findOneAndUpdate(
-        { _id: req.user.id },
-        { $addToSet: { pictures: req.body.picture } }
-      );
+      userObj.pictures.addToSet(req.body.picture);
     }
 
     // if (
