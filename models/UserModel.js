@@ -46,6 +46,6 @@ const userSchema = new Schema(
   }
 );
 
-userSchema.schema.add({ pictures: [String] });
+// userSchema.schema.add({ pictures: [String] });
 
 module.exports = mongoose.model("User", userSchema);

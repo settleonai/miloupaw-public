@@ -152,7 +152,10 @@ const updateMyProfile = asyncHandler(async (req, res) => {
         });
       }
     }
-    userModel.schema.add({ pictures: [String] });
+    // userModel.schema.add({ pictures: [String] });
+    require("mongoose")
+      .model("User")
+      .schema.add({ pictures: [String] });
 
     console.log("userModel.schema.indexes()", userModel.schema.obj);
 
