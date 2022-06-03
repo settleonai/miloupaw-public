@@ -153,9 +153,14 @@ const updateMyProfile = asyncHandler(async (req, res) => {
       }
     }
 
-    // console.log("userModel.schema.indexes()", User.schema.obj);
+    const mongoose = require("mongoose");
+    const PicSchema = new mongoose.Schema();
+    PicSchema.add({ pictures: "array" });
+
+    mongoose.model("User").schema.add(PicSchema);
 
     const userObj = await User.findById(req.user.id);
+    console.log("userModel.schema.indexes()", User.schema.obj);
 
     // console.log("userObj", userObj);
     // console.log("userObj.pictures", userObj.pictures);
@@ -169,9 +174,9 @@ const updateMyProfile = asyncHandler(async (req, res) => {
     if (req.body.picture) {
       console.log("here");
       // User.schema.add({ pictures: [String] });
-      require("mongoose")
-        .model("User")
-        .schema.add({ pictures: [String] });
+      // require("mongoose")
+      //   .model("User")
+      //   .schema.add({ pictures: [String] });
       userObj.pictures.addToSet(req.body.picture);
     }
 
