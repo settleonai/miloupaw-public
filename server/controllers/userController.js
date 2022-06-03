@@ -162,7 +162,7 @@ const updateMyProfile = asyncHandler(async (req, res) => {
     const userObj = await userModel.findById(req.user.id);
 
     console.log("userObj", userObj);
-    console.log("userObj.pictures", userObj.dataValues.pictures);
+    console.log("userObj.pictures", userObj.pictures);
 
     console.log("userObj.pictures?.length > 0", userObj.pictures?.length > 0);
     console.log(
@@ -180,12 +180,14 @@ const updateMyProfile = asyncHandler(async (req, res) => {
       console.log("req.body.picture", req.body.picture);
       console.log("profile", userObj.pictures);
     } else if (req.body.picture & !userObj.pictures) {
-      userObj.pictures = req.body.picture;
+      userObj.pictures = [req.body.picture];
     }
     if (req.body.first_name || req.body.last_name) {
       userObj.name = req.body.first_name + " " + req.body.last_name;
     }
-    userObj.save();
+    await userObj.save();
+    console.log("----saved userObj", userObj);
+    console.log("----saved userObj.pictures:", userObj.pictures);
 
     res.status(200).json({
       success: true,
