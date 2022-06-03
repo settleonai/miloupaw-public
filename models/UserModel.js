@@ -18,7 +18,10 @@ const userSchema = new Schema(
       select: false,
     },
     //pictures: { type: [], default: [], required: true },
-    pictures: [String],
+    pictures: {
+      type: [String],
+      default: [],
+    },
     role: {
       type: String,
       enum: ["client", "employee", "admin", "organization"],
