@@ -35,6 +35,7 @@ exports.createSetupIntent = asyncHandler(async (req, res) => {
       };
 
       clientProfile.save();
+      customer = customer.id;
     }
 
     const paymentMethods = await stripe.paymentMethods.list({
