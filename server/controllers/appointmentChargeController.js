@@ -45,8 +45,7 @@ exports.createSetupIntent = asyncHandler(async (req, res) => {
           setupIntent: setupIntent.client_secret,
           ephemeralKey: ephemeralKey.secret,
           customer,
-          publishableKey:
-            "pk_test_51JMeQ3JcaWhyBqHZq14PHdKNDMzCWtagNIG6pGjnKmIkai1wBwBTIBPyWQ0bRXAgj29uZw2bEFFmnWU9Nbvkxtl200f3lihV8V",
+          publishableKey: process.env.STRIPE_API_KEY,
         },
       });
     } else {

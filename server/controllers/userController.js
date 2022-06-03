@@ -590,8 +590,8 @@ const makeAdmin = asyncHandler(async (req, res) => {
 
     const profileObj = {
       user: user._id,
-      first_name: profile?.first_name,
-      last_name: profile?.last_name,
+      first_name: profile?.first_name || user.name.split(" ")[0],
+      last_name: profile?.last_name || user.name.split(" ")[1],
       phone_number: profile?.phone_number,
       gender: profile?.gender,
       date_of_birth: profile.date_of_birth,
