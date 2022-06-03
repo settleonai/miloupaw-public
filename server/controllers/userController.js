@@ -152,7 +152,8 @@ const updateMyProfile = asyncHandler(async (req, res) => {
         });
       }
     }
-    const userObj = await User.findById(req.user.id);
+    // userModel.schema.add({ pictures: [String] });
+    const userObj = await userModel.findById(req.user.id);
 
     console.log("userObj", userObj);
     console.log("userObj.pictures", userObj.pictures);
