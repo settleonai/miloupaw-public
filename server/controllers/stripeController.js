@@ -61,7 +61,7 @@ exports.stripeGeneralHook = async (req, res) => {
       charge = event.data.object;
       await updateAppointment(charge, event.created);
       // Then define and call a function to handle the event payment_intent.succeeded
-      console.log(`✅ payment_intent.succeeded ${charge}`);
+      console.log(`✅ payment_charge.succeeded ${charge}`);
       break;
     // .. handle other event types
     default:
@@ -165,7 +165,7 @@ async function updateAppointment(data, created) {
     appointmentObj.payment.charge = charge;
     await appointmentObj.save();
 
-    console.log("appointmentObj", appointmentObj);
+    // console.log("appointmentObj", appointmentObj);
 
     // mail to stylist
     // const stylist = [
