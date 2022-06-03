@@ -17,7 +17,7 @@ const userSchema = new Schema(
       required: [true, "Please add a password"],
       select: false,
     },
-    pictures: { type: Array, default: [] },
+    pictures: { type: Array, default: [], required: true },
     role: {
       type: String,
       enum: ["client", "employee", "admin", "organization"],
