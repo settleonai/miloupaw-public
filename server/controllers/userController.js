@@ -171,6 +171,7 @@ const updateMyProfile = asyncHandler(async (req, res) => {
     // );
 
     if (req.body.picture) {
+      console.log("here");
       User.updateOne(
         { _id: req.user.id },
         { $addToSet: { pictures: req.body.picture } }
