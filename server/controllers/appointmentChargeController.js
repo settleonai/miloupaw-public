@@ -16,12 +16,25 @@ const stripe = require("stripe")(process.env.STRIPE_SECRET_API_KEY);
 exports.createSetupIntent = asyncHandler(async (req, res) => {
   try {
     const clientProfile = await profileModel.findOne({ user: req.user._id });
-    const customer = clientProfile?.business_info.customer_id;
+    const user = req.user;
+    let customer;
+    customer = clientProfile?.business_info.customer_id;
     if (!customer) {
-      return res.status(404).json({
-        success: false,
-        error: "Client profile not found",
+      customer = await stripe.customers.create({
+        email: user.email,
+        name: user.name,
+        metadata: {
+          user: user._id,
+        },
       });
+
+      clientProfile.business_info = {
+        customer_id: customer.id,
+        type: customer.object,
+        activated: true,
+      };
+
+      clientProfile.save();
     }
 
     const paymentMethods = await stripe.paymentMethods.list({
