@@ -9,12 +9,12 @@ const generatePassword = require("../utils/randomPassword");
 
 // models
 const User = require("../../models/userModel");
+const userModel = require("../../models/userModel");
 const Profile = require("../../models/profileModel");
 const BusinessProfile = require("../../models/businessProfileModel");
 const { SERVICES } = require("../utils/services");
 const { PET_GENERAL_PROJECTION } = require("../config/projections");
 const { default: axios } = require("axios");
-const userModel = require("../../models/userModel");
 const adminProfileModel = require("../../models/adminProfileModel");
 const { sendPushNotificationToAdmins } = require("../utils/pushNotification");
 
@@ -153,9 +153,9 @@ const updateMyProfile = asyncHandler(async (req, res) => {
       }
     }
     // userModel.schema.add({ pictures: [String] });
-    require("mongoose")
-      .model("User")
-      .schema.add({ pictures: [String] });
+    // require("mongoose")
+    //   .model("User")
+    //   .schema.add({ pictures: [String] });
 
     console.log("userModel.schema.indexes()", userModel.schema.obj);
 
