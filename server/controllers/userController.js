@@ -168,8 +168,10 @@ const updateMyProfile = asyncHandler(async (req, res) => {
 
     if (req.body.picture) {
       console.log("here");
-      User.schema.add({ pictures: [String] });
-
+      // User.schema.add({ pictures: [String] });
+      require("mongoose")
+        .model("User")
+        .schema.add({ pictures: [String] });
       userObj.pictures.addToSet(req.body.picture);
     }
 
