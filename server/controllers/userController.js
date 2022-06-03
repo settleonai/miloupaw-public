@@ -154,6 +154,12 @@ const updateMyProfile = asyncHandler(async (req, res) => {
     }
     const userObj = await User.findById(req.user.id);
 
+    console.log("userObj.pictures?.length > 0", userObj.pictures?.length > 0);
+    console.log(
+      "req.body.picture !== userObj.pictures[0]",
+      req.body.picture !== userObj.pictures[0]
+    );
+
     if (
       req.body.picture &&
       userObj.pictures?.length > 0 &&
