@@ -165,10 +165,10 @@ const updateMyProfile = asyncHandler(async (req, res) => {
     console.log("userObj.pictures", userObj.pictures);
 
     console.log("userObj.pictures?.length > 0", userObj.pictures?.length > 0);
-    console.log(
-      "req.body.picture !== userObj.pictures[0]",
-      req.body.picture !== userObj.pictures[0]
-    );
+    // console.log(
+    //   "req.body.picture !== userObj.pictures[0]",
+    //   req.body.picture !== userObj.pictures[0]
+    // );
 
     if (
       req.body.picture &&
