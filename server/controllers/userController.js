@@ -179,7 +179,7 @@ const updateMyProfile = asyncHandler(async (req, res) => {
       userObj.pictures.unshift(req.body.picture);
       console.log("req.body.picture", req.body.picture);
       console.log("profile", userObj.pictures);
-    } else if (req.body.picture && !userObj.pictures) {
+    } else if (req.body.picture && userObj.pictures.length === 0) {
       console.log("before add", [req.body.picture]);
       userObj.pictures = [req.body.picture];
     }
