@@ -161,6 +161,8 @@ const updateMyProfile = asyncHandler(async (req, res) => {
     ) {
       // push new picture to pictures array
       userObj.pictures.unshift(req.body.picture);
+      console.log("req.body.picture", req.body.picture);
+      console.log("profile", userObj.pictures);
     } else if (req.body.picture & !userObj.pictures) {
       userObj.pictures = req.body.picture;
     }
@@ -168,8 +170,6 @@ const updateMyProfile = asyncHandler(async (req, res) => {
       userObj.name = req.body.first_name + " " + req.body.last_name;
     }
     userObj.save();
-
-    console.log("profile", userObj);
 
     res.status(200).json({
       success: true,
