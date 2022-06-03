@@ -11,7 +11,6 @@ module.exports = {
       env_production: {
         PORT: 5000,
         NODE_ENV: "production",
-        NODE_OPTIONS: "--openssl-legacy-provider",
       },
     },
   ],
