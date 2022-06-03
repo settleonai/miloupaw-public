@@ -7,8 +7,7 @@
     "start": "node server/server.js",
     "server": "nodemon server/server.js",
     "client": "npm start --prefix frontend",
-    "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix frontend && npm run build --prefix frontend"
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "author": "Brad Traversy",
   "license": "MIT",
@@ -28,7 +27,7 @@
     "jsonwebtoken": "^8.5.1",
     "luxon": "^2.3.1",
     "md5": "^2.3.0",
-    "mongoose": "^6.1.9",
+    "mongoose": "^6.3.5",
     "node-cron": "^3.0.0",
     "stripe": "^8.210.0",
     "twilio": "^3.75.1",
