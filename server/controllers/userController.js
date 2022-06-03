@@ -169,9 +169,10 @@ const updateMyProfile = asyncHandler(async (req, res) => {
     }
     userObj.save();
 
+    console.log("profile", userObj);
+
     res.status(200).json({
       success: true,
-      result: profile,
     });
   } catch (error) {
     console.log("profile updating error", error);
