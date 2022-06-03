@@ -23,7 +23,7 @@
         <mj-text font-family="Roboto" font-size="14px" color="#5A5B5B" align="center"><span class="body-text">
             you have successfully joined our platform. You can now open the app and follow the instruction to complete the missing steps.</mj-text>
         
-        <mj-button href="miloupaw://" background-color="#222558" target="_blank">open milloupaw</mj-button>
+        <mj-button href="miloupaw://profile/business" background-color="#222558" target="_blank">open miloupaw</mj-button>
         <mj-text></mj-text>
 
         

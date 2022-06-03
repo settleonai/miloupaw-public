@@ -16,6 +16,7 @@ const { PET_GENERAL_PROJECTION } = require("../config/projections");
 const { default: axios } = require("axios");
 const userModel = require("../../models/userModel");
 const adminProfileModel = require("../../models/adminProfileModel");
+const { sendPushNotificationToAdmins } = require("../utils/pushNotification");
 
 // defaults
 const baseUrl = process.env.BASE_URL;
@@ -413,6 +414,19 @@ const jobApplication = asyncHandler(async (req, res) => {
       }
 
       user = await createUser(userObj, "employee");
+
+      const client = [[userObj.email, first_name]];
+      const tags = {
+        first_name: first_name || "",
+      };
+
+      await sendMail("welcome", client, tags, "welcome to miloupaw family 🐾");
+
+      // send push notification to admins
+      await sendPushNotificationToAdmins(
+        "New Employee Application",
+        `${first_name} just sent an employment application request. Check it out!`
+      );
     }
     profile = await BusinessProfile.findOne({ user: user._id });
 
