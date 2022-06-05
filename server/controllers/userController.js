@@ -181,9 +181,15 @@ const updateMyProfile = asyncHandler(async (req, res) => {
       //   .model("User")
       //   .schema.add({ pictures: [String] });
       // userObj.pictures.addToSet(req.body.picture);
-      await User.findByIdAndUpdate(req.user.id, {
-        $addToSet: { pictures: req.body.picture },
-      });
+      await User.findByIdAndUpdate(
+        req.user.id,
+        {
+          $addToSet: { pictures: req.body.picture },
+        },
+        {
+          strict: false,
+        }
+      );
     }
 
     // if (
