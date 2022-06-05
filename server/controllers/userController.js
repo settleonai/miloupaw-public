@@ -172,6 +172,9 @@ const updateMyProfile = asyncHandler(async (req, res) => {
     // );
 
     if (req.body.picture) {
+      require("mongoose")
+        .model("User")
+        .schema.add({ pictures: [String] });
       console.log("here");
       // User.schema.add({ pictures: [String] });
       // require("mongoose")
