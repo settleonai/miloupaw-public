@@ -159,7 +159,7 @@ const updateMyProfile = asyncHandler(async (req, res) => {
 
     // mongoose.model("User").schema.add(PicSchema);
 
-    const userObj = await User.findById(req.user.id);
+    const userObj = await User.findById(req.user.id).toObject();
     console.log("userModel.schema.indexes()", User.schema.obj);
 
     console.log("userObj", userObj);
