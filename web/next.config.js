@@ -5,8 +5,8 @@ const nextConfig = {
     domains: ["images.unsplash.com", "res.cloudinary.com"],
   },
   env: {
-    APP_STORE_ID: "1568172168",
-    APP_STORE_LINK: "https://apps.apple.com/us/app/fnel/id1568172168",
+    APP_STORE_ID: "1620724992",
+    APP_STORE_LINK: "https://apps.apple.com/us/app/miloupaw/id1620724992",
   },
 };
 
