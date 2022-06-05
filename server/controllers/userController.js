@@ -180,7 +180,8 @@ const updateMyProfile = asyncHandler(async (req, res) => {
       // require("mongoose")
       //   .model("User")
       //   .schema.add({ pictures: [String] });
-      userObj.pictures.addToSet(req.body.picture);
+      // userObj.pictures.addToSet(req.body.picture);
+      await userObj.updateOne({ pictures: req.body.picture });
     }
 
     // if (
