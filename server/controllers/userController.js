@@ -159,7 +159,7 @@ const updateMyProfile = asyncHandler(async (req, res) => {
 
     // mongoose.model("User").schema.add(PicSchema);
 
-    const userObj = await User.findById(req.user.id, { strict: false });
+    const userObj = await User.findById(req.user.id).exec();
     // console.log("userModel.schema.indexes()", User.schema.obj);
 
     console.log("userObj", userObj);
@@ -172,9 +172,9 @@ const updateMyProfile = asyncHandler(async (req, res) => {
     // );
 
     if (req.body.picture) {
-      require("mongoose")
-        .model("User")
-        .schema.add({ pictures: [String] });
+      // require("mongoose")
+      //   .model("User")
+      //   .schema.add({ pictures: [String] });
       console.log("here");
       // User.schema.add({ pictures: [String] });
       // require("mongoose")
