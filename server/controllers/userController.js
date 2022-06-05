@@ -181,7 +181,7 @@ const updateMyProfile = asyncHandler(async (req, res) => {
       //   .model("User")
       //   .schema.add({ pictures: [String] });
       // userObj.pictures.addToSet(req.body.picture);
-      await userObj.updateOne({ pictures: req.body.picture });
+      await userObj.updateOne({ $addToSet: { pictures: req.body.picture } });
     }
 
     // if (
