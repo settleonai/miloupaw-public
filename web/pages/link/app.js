@@ -12,7 +12,7 @@ export default function AppLinks() {
                 App Links!
               </h1>
               <p className="mt-12 text-primary-400 font-light font-body text-lg text-left">
-                Our app is available in following platforms:
+                Our app is available on following platforms:
               </p>
 
               <a
