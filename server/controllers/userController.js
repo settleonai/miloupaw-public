@@ -160,12 +160,12 @@ const updateMyProfile = asyncHandler(async (req, res) => {
     // mongoose.model("User").schema.add(PicSchema);
 
     const userObj = await User.findById(req.user.id, { strict: false });
-    console.log("userModel.schema.indexes()", User.schema.obj);
+    // console.log("userModel.schema.indexes()", User.schema.obj);
 
-    console.log("userObj", userObj);
-    console.log("userObj.pictures", userObj.pictures);
+    // console.log("userObj", userObj);
+    // console.log("userObj.pictures", userObj.pictures);
 
-    console.log("userObj.pictures?.length > 0", userObj.pictures?.length > 0);
+    // console.log("userObj.pictures?.length > 0", userObj.pictures?.length > 0);
     // console.log(
     //   "req.body.picture !== userObj.pictures[0]",
     //   req.body.picture !== userObj.pictures[0]
