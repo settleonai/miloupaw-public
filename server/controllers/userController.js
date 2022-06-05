@@ -162,7 +162,7 @@ const updateMyProfile = asyncHandler(async (req, res) => {
     const userObj = await User.findById(req.user.id, { strict: false });
     // console.log("userModel.schema.indexes()", User.schema.obj);
 
-    // console.log("userObj", userObj);
+    console.log("userObj", userObj);
     // console.log("userObj.pictures", userObj.pictures);
 
     // console.log("userObj.pictures?.length > 0", userObj.pictures?.length > 0);
