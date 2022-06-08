@@ -690,6 +690,12 @@ const createCustomerUser = async (userObject, profileObject) => {
       await sendMail("welcome", client, tags, "welcome to miloupaw family 🐾");
     }
 
+    // send push notification to admins
+    await sendPushNotificationToAdmins(
+      "New User Joined",
+      `${first_name} has just joined the system. Get ready for a new journey 🚀`
+    );
+
     return { user, profile };
   } catch (error) {
     console.log(error);

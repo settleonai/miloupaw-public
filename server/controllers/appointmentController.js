@@ -1247,7 +1247,6 @@ exports.responseAppointmentRequest = asyncHandler(async (req, res, next) => {
         error: "Appointment already assigned",
       });
     }
-    console.log("appointment.client", appointment.client);
 
     // accept appointment
     if (responseType === "accepted") {
