@@ -693,7 +693,7 @@ const createCustomerUser = async (userObject, profileObject) => {
     // send push notification to admins
     await sendPushNotificationToAdmins(
       "New User Joined",
-      `${first_name} has just joined the system. Get ready for a new journey 🚀`
+      `${profile.first_name} has just joined the system. Get ready for a new journey 🚀`
     );
 
     return { user, profile };
