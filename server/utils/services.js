@@ -13,7 +13,7 @@ exports.SERVICES = {
   },
   DOG_WALKING_30_2: {
     name: "Dog Walking",
-    desc: "Private Dog walking for 30 minutes. Two dogs only",
+    desc: "Private Dog walking for 30 minutes. Max 3 dogs(from the same family) at a time.",
     duration: 30,
     price: 33,
   },
@@ -25,7 +25,7 @@ exports.SERVICES = {
   },
   DOG_WALKING_60_2: {
     name: "Dog Walking",
-    desc: "Private Dog walking for 60 minutes. Two dogs only",
+    desc: "Private Dog walking for 60 minutes.  Max 3 dogs(from the same family) at a time.",
     duration: 60,
     price: 39,
   },
