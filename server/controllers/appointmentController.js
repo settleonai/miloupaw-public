@@ -650,7 +650,7 @@ exports.appointmentTripRecord = asyncHandler(async (req, res, next) => {
   console.log("appointmentTripRecord");
   const { id } = req.params;
   const { locations } = req.body;
-  console.log("locations:", locations);
+  console.log("locations:", req.body);
 });
 
 // @desc    write Journal
