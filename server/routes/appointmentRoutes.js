@@ -18,6 +18,7 @@ const {
   assignEmployee,
   responseAppointmentRequest,
   appointmentCheckInOut,
+  appointmentTripRecord,
   writeJournal,
   getJournal,
   writeReview,
@@ -57,7 +58,7 @@ router.get("/claim/:id", protect, getClaim);
 router.post("/claim/:id/message", protect, sendClaimMessage);
 router.put("/claim/:id/decision", adminProtect, submitClaimDecision);
 router.put("/:id/check-in-out", protect, appointmentCheckInOut);
-router.put("/:id/tripRecord", protect, appointmentTripRecord);
+router.put("/:id/tripRecord", employeeProtect, appointmentTripRecord);
 router.put("/:id", protect, updateAppointment);
 router.delete("/:id", protect, deleteAppointment);
 router.get("/:id", employeeProtect, getAppointment);

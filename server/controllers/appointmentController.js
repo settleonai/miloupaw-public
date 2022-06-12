@@ -643,6 +643,16 @@ exports.appointmentCheckInOut = asyncHandler(async (req, res, next) => {
   }
 });
 
+// @desc  Record Trip Locations
+// @route PUT /appointment/:id/record-trip-locations
+// @access  Employee or Admin
+exports.appointmentTripRecord = asyncHandler(async (req, res, next) => {
+  console.log("appointmentTripRecord");
+  const { id } = req.params;
+  const { locations } = req.body;
+  console.log("locations:", locations);
+});
+
 // @desc    write Journal
 // @route   POST /appointment/journal
 // @access  Employee or Admin
