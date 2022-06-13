@@ -12,8 +12,7 @@ export default function ReviewSummaryComponent() {
 
       review:
         "What a great experience ! Very responsive, caring, warmhearted team! I don’t know what to say about my experience except good things!! they treat you and your pet as part of their family. Very kind and positive people. I’m glad I found this app and I highly recommend it for anyone who needs pet sitter or pet walking. 😊",
-      image:
-        "https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
+      image: "https://storage.zoominfo.com/-1525939381",
       rating: 5,
     },
     {
@@ -22,7 +21,7 @@ export default function ReviewSummaryComponent() {
       review:
         "The best app there is!! So happy I found this app. Miloupaw makes it so easy and quick to find a walker in my area. Customer service is great and walkers are professional and friendly and all are background checked.",
       image:
-        "https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
+        "https://scontent-sjc3-1.cdninstagram.com/v/t51.2885-19/169935767_826823217923958_8601321450652318316_n.jpg?stp=dst-jpg_s320x320&_nc_ht=scontent-sjc3-1.cdninstagram.com&_nc_cat=106&_nc_ohc=pnk4sUVAg2cAX_kV1QI&edm=AOQ1c0wBAAAA&ccb=7-5&oh=00_AT9FHXxbX2VQq5kflImGP1ki8sAGN4brKtibsKMu5vmFoQ&oe=62ADA10E&_nc_sid=8fd12b",
       rating: 5,
     },
     {
@@ -31,7 +30,7 @@ export default function ReviewSummaryComponent() {
       review:
         "Great service! Wow. This app is a great way to connect the owners with the qualified sitters in the area and i love how they care for the sitters as well as the pet since a happy satisfied sitter will always take extra care of your loved one. I loved the way they treated my bisou.",
       image:
-        "https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
+        "https://scontent-sjc3-1.cdninstagram.com/v/t51.2885-19/66332742_627392217750909_3556767773365370880_n.jpg?stp=dst-jpg_s320x320&_nc_ht=scontent-sjc3-1.cdninstagram.com&_nc_cat=109&_nc_ohc=ebfeoGWHXjEAX_Rey2R&edm=AOQ1c0wBAAAA&ccb=7-5&oh=00_AT-U7Rd8cF-yGrCGQHFbUzM-YWUvG944xXIYpoxfL0LrQQ&oe=62ADA8FB&_nc_sid=8fd12b",
       rating: 5,
     },
   ];
