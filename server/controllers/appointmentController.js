@@ -669,6 +669,8 @@ exports.appointmentTripRecord = asyncHandler(async (req, res, next) => {
       });
       appointment.journal = journal._id;
       appointment.save();
+    } else {
+      journal = await journalModel.findById(journal);
     }
 
     const location = {
