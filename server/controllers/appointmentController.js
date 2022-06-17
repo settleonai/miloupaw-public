@@ -673,7 +673,10 @@ exports.appointmentTripRecord = asyncHandler(async (req, res, next) => {
 
     const location = {
       type: "Point",
-      coordinates: [locations[0].coords.longitude, body.position.latitude],
+      coordinates: [
+        locations[0].coords.longitude,
+        locations[0].coords.latitude,
+      ],
       time_stamp: locations[0].timeStamp,
     };
     journal.locations.push(location);
