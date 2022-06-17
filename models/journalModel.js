@@ -51,6 +51,41 @@ const journalSchema = Schema(
         default: false,
       },
     },
+    locations: [
+      {
+        type: {
+          type: String,
+          enum: ["Point"],
+          required: true,
+        },
+        coordinates: {
+          type: [Number],
+          required: true,
+        },
+        time_stamp: {
+          type: Date,
+          default: Date.now,
+        },
+      },
+    ],
+    location_activities: [
+      {
+        type: {
+          type: String,
+          enum: ["Point"],
+          required: true,
+        },
+        coordinates: {
+          type: [Number],
+          required: true,
+        },
+        activity: {
+          type: String,
+          enum: ["POOP", "PEE", "FOOD", "WATER", "TREAT"],
+          required: true,
+        },
+      },
+    ],
 
     notes: {
       type: String,

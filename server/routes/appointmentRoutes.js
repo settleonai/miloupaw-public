@@ -20,6 +20,7 @@ const {
   appointmentCheckInOut,
   appointmentTripRecord,
   writeJournal,
+  quickActionJournal,
   getJournal,
   writeReview,
   deleteAppointment,
@@ -50,6 +51,7 @@ router.post("/tip", protect, setupAdditionalTip);
 router.post("/response", employeeProtect, responseAppointmentRequest);
 router.post("/journal", employeeProtect, writeJournal);
 router.get("/journal/:id", protect, getJournal);
+router.put("/journal/:id/quick_action", employeeProtect, quickActionJournal);
 router.put("/journal/:id", employeeProtect, updateJournal);
 router.post("/review", protect, writeReview);
 router.post("/claim", protect, submitClaim);

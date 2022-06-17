@@ -649,8 +649,46 @@ exports.appointmentCheckInOut = asyncHandler(async (req, res, next) => {
 exports.appointmentTripRecord = asyncHandler(async (req, res, next) => {
   console.log("appointmentTripRecord");
   const { id } = req.params;
-  const { locations } = req.body;
+  const locations = req.body;
   console.log("locations:", req.body);
+  try {
+    const appointment = await appointmentModel.findById(id);
+
+    if (!appointment) {
+      return res.status(400).json({
+        success: false,
+        error: "appointment was not found",
+      });
+    }
+    let journal = appointment.journal;
+    if (!journal) {
+      journal = await journalModel.create({
+        appointment: appointment._id,
+        client: appointment.client,
+        employee: appointment.employee,
+      });
+      appointment.journal = journal._id;
+      appointment.save();
+    }
+
+    const location = {
+      type: "Point",
+      coordinates: [locations[0].coords.longitude, body.position.latitude],
+      time_stamp: locations[0].timeStamp,
+    };
+    journal.locations.push(location);
+    await journal.save();
+    return res.status(200).json({
+      success: true,
+      message: "Trip location recorded",
+    });
+  } catch (error) {
+    console.log("appointmentTripRecord", error);
+    return res.status(500).json({
+      success: false,
+      error: "Server Error",
+    });
+  }
 });
 
 // @desc    write Journal
@@ -694,6 +732,64 @@ exports.writeJournal = asyncHandler(async (req, res, next) => {
     });
   } catch (error) {
     console.log("writeJournal", error);
+    return res.status(500).json({
+      success: false,
+      error: "Server Error",
+    });
+  }
+});
+
+// @desc    Post Journal Quick Action
+// @route   Put /appointment/journal/:id/quick-action
+// @access  Employee or Admin
+exports.quickActionJournal = asyncHandler(async (req, res, next) => {
+  const { id } = req.params;
+  try {
+    const { journal, body } = req.body;
+    console.log("quickActionJournal | body:", body);
+
+    let journalObject;
+    if (!journal) {
+      journalObject = await journalModel.findOne({ appointment: id });
+    } else {
+      journalObject = await journalModel.findById(journal);
+    }
+
+    if (!journalObject) {
+      const appointment = await appointmentModel.findById(id);
+      journalObject = await journalModel.create({
+        appointment: appointment._id,
+        client: appointment.client,
+        employee: appointment.employee,
+      });
+      appointment.journal = journalObject._id;
+      appointment.save();
+    }
+
+    Object.keys(body.activities).forEach((key) => {
+      if (Boolean(body.activities[key])) {
+        if (typeof journalObject.activities[key] === "number") {
+          journalObject.activities[key] += 1;
+        } else {
+          journalObject.activities[key] = body.activities[key];
+        }
+        const item = {
+          type: "Point",
+          coordinates: [body.position.longitude, body.position.latitude],
+          activity: key,
+        };
+        journalObject.location_activities.addToSet(item);
+      }
+    });
+
+    await journalObject.save();
+
+    return res.status(200).json({
+      success: true,
+      message: "Journal updated",
+    });
+  } catch (error) {
+    console.log("quickActionJournal", error);
     return res.status(500).json({
       success: false,
       error: "Server Error",
