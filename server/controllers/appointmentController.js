@@ -133,7 +133,7 @@ exports.getAppointments = asyncHandler(async (req, res) => {
         filters,
         req.user.role === "admin"
           ? APPOINTMENT_PROJECTION_ADMIN
-          : employee === req.user.id
+          : employee === req.user._id.toString()
           ? APPOINTMENT_PROJECTION_EMPLOYEE
           : APPOINTMENTS_LIST_PROJECTION_PUBLIC
       )
@@ -492,7 +492,7 @@ exports.deleteAppointment = asyncHandler(async (req, res, next) => {
 
     if (
       req.user.role !== "admin" &&
-      req.user.id !== appointment.client.toString()
+      req.user._id.toString() !== appointment.client.toString()
     ) {
       return res.status(401).json({
         success: false,
@@ -712,7 +712,7 @@ exports.writeJournal = asyncHandler(async (req, res, next) => {
       });
     }
 
-    if (appointment.employee.toString() !== req.user.id) {
+    if (appointment.employee.toString() !== req.user._id.toString()) {
       return res.status(401).json({
         success: false,
         error: "Unauthorized",
@@ -822,7 +822,7 @@ exports.updateJournal = asyncHandler(async (req, res, next) => {
     }
 
     if (
-      (journalObject.employee.toString() !== req.user.id) &
+      (journalObject.employee.toString() !== req.user._id.toString()) &
       (req.user.role !== "admin")
     ) {
       return res.status(401).json({
@@ -855,6 +855,49 @@ exports.getJournal = asyncHandler(async (req, res, next) => {
     const { id } = req.params;
 
     const journal = await journalModel.findById(id);
+
+    if (!journal) {
+      return res.status(404).json({
+        success: false,
+        error: "Journal not found",
+      });
+    }
+
+    if (
+      user.role !== "admin" &&
+      (user.id !== journal.employee.toString()) &
+        (user.id !== journal.client.toString())
+    ) {
+      return res.status(401).json({
+        success: false,
+        error: "Unauthorized",
+      });
+    }
+
+    return res.status(200).json({
+      success: true,
+      result: journal,
+    });
+  } catch (error) {
+    console.log("getJournal", error);
+    return res.status(500).json({
+      success: false,
+      error: "Server Error",
+    });
+  }
+});
+
+// @desc    Get Appointment Journal by Appointment Id
+// @route   GET /appointment/:id/journal
+// @access  Protected
+exports.getJournalByAppointmentId = asyncHandler(async (req, res, next) => {
+  const { user } = req;
+  try {
+    const { id } = req.params;
+
+    const journal = await journalModel.findOne({
+      appointment: id,
+    });
 
     if (!journal) {
       return res.status(404).json({
@@ -1345,7 +1388,7 @@ exports.responseAppointmentRequest = asyncHandler(async (req, res, next) => {
       });
     }
 
-    if (appointment.employee._id.toString() !== req.user.id) {
+    if (appointment.employee._id.toString() !== req.user._id.toString()) {
       return res.status(401).json({
         success: false,
         error: "Unauthorized",

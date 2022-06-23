@@ -14,9 +14,10 @@ const {
 // @access  Private
 const getMyPets = asyncHandler(async (req, res) => {
   console.log("getMyPets");
+
   try {
     // find users pets
-    const pets = await Pet.find({ user: req.user.id });
+    const pets = await Pet.find({ user: req.user._id });
 
     res.status(200).json(pets);
   } catch (error) {
@@ -40,7 +41,7 @@ const addPet = asyncHandler(async (req, res) => {
     } = req.body;
 
     const pet = await Pet.create({
-      user: req.user.id,
+      user: req.user._id,
       general_info,
       characteristics,
       location_rules,
@@ -51,7 +52,7 @@ const addPet = asyncHandler(async (req, res) => {
     });
 
     await Profile.findOneAndUpdate(
-      { user: req.user.id },
+      { user: req.user._id },
       { $push: { pets: pet._id } },
       { new: true }
     );

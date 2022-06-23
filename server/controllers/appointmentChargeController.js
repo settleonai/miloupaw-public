@@ -8,14 +8,20 @@ const {
   EMPLOYEE_PUBLIC_PROJECTION,
 } = require("../config/projections");
 
-const stripe = require("stripe")(process.env.STRIPE_SECRET_API_KEY);
+const stripe = require("stripe")(
+  process.env.NODE_ENV !== "production"
+    ? process.env.STRIPE_SECRET_API_KEY_TEST
+    : process.env.STRIPE_SECRET_API_KEY
+);
 
 // @desc    make setup intent
 // @route   POST /appointment/setup-intent
 // @access  Private
 exports.createSetupIntent = asyncHandler(async (req, res) => {
   try {
-    const clientProfile = await profileModel.findOne({ user: req.user._id });
+    const clientProfile = await profileModel.findOne({
+      user: req.user._id.toString(),
+    });
     const user = req.user;
     let customer;
     customer = clientProfile?.business_info.customer_id;
@@ -59,7 +65,10 @@ exports.createSetupIntent = asyncHandler(async (req, res) => {
           setupIntent: setupIntent.client_secret,
           ephemeralKey: ephemeralKey.secret,
           customer,
-          publishableKey: process.env.STRIPE_API_KEY,
+          publishableKey:
+            process.env.NODE_ENV !== "production"
+              ? process.env.STRIPE_API_KEY_TEST
+              : process.env.STRIPE_API_KEY,
         },
       });
     } else {

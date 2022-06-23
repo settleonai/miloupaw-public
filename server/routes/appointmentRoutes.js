@@ -22,6 +22,7 @@ const {
   writeJournal,
   quickActionJournal,
   getJournal,
+  getJournalByAppointmentId,
   writeReview,
   deleteAppointment,
   submitClaim,
@@ -51,6 +52,7 @@ router.post("/tip", protect, setupAdditionalTip);
 router.post("/response", employeeProtect, responseAppointmentRequest);
 router.post("/journal", employeeProtect, writeJournal);
 router.get("/journal/:id", protect, getJournal);
+router.get("/:id/journal", protect, getJournalByAppointmentId);
 router.put("/journal/:id/quick_action", employeeProtect, quickActionJournal);
 router.put("/journal/:id", employeeProtect, updateJournal);
 router.post("/review", protect, writeReview);
