@@ -5,8 +5,6 @@ export default function GallerySummaryComponent() {
   const photos = [
     "https://res.cloudinary.com/fnel/image/upload/v1656480880/miloupaw/gallery/IMG_3445_ty99ha.jpg",
     "https://res.cloudinary.com/fnel/image/upload/v1652659076/miloupaw/gallery/269896251_3179723159018646_2393617246546797896_n.jpg_u7nqy9.jpg",
-    "https://res.cloudinary.com/fnel/image/upload/v1652659122/miloupaw/gallery/160814966_3843442299042613_2518706462714947177_n.jpg_rthep5.jpg",
-    "https://res.cloudinary.com/fnel/image/upload/v1652659159/miloupaw/gallery/77332376_497204600912174_1942975307265331340_n.jpg_cuohg4.jpg",
     "https://res.cloudinary.com/fnel/image/upload/v1652659188/miloupaw/gallery/67638885_359229855014595_515169509779982159_n.jpg_qygo6z.jpg",
   ];
 
