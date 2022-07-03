@@ -1,10 +1,12 @@
 import Image from "next/image";
 import React from "react";
+import GeneralHead from "../../components/heads/GeneralHead";
 import FooterComponent from "../../components/UI/FooterComponent";
 
 export default function BusinessError() {
   return (
     <>
+      <GeneralHead title={`error in setup`} />
       <div className="h-screen flex flex-col justify-between mx-auto lg:px-8">
         <div className="py-12 pt-32 bg-white">
           <div className="flex flex-col lg:flex-row max-w-6xl mx-auto ">
