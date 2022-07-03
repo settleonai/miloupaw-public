@@ -17,8 +17,8 @@ export default function GeneralHead({
       {/* facebook meta */}
       <meta property="og:locale" content="en_us" />
       <meta property="og:type" content="summary" />
-      <meta property="og:site_name" content="dio" />
-      <meta property="og:title" content="dio home" />
+      <meta property="og:site_name" content="miloupaw" />
+      <meta property="og:title" content="miloupaw home" />
       <meta property="og:description" content={description} />
       <meta
         property="og:image"
@@ -31,13 +31,13 @@ export default function GeneralHead({
       {/* twitter meta */}
       <meta name="twitter:card" content="summary" />
       <meta name="twitter:site" content="@diosoftware" />
-      <meta name="twitter:title" content="dio home" />
+      <meta name="twitter:title" content="miloupaw home" />
       <meta name="twitter:description" content={description} />
       <meta
         name="twitter:image"
         content="https://miloupaw.com/images/logo.svg"
       />
-      <meta name="twitter:image:alt" content="dio on the App Store" />
+      <meta name="twitter:image:alt" content="miloupaw on the App Store" />
 
       {/* html */}
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
