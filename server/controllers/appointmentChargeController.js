@@ -2,6 +2,7 @@ const asyncHandler = require("express-async-handler");
 const appointmentModel = require("../../models/appointmentModel");
 const businessProfileModel = require("../../models/businessProfileModel");
 const profileModel = require("../../models/profileModel");
+const couponModel = require("../../models/couponModel");
 const {
   USER_PROJECTION_PUBLIC,
   EMPLOYEE_ADMIN_PROJECTION,

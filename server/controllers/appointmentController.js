@@ -1421,16 +1421,6 @@ exports.responseAppointmentRequest = asyncHandler(async (req, res, next) => {
       const coupon = await couponModel.findById(
         appointment.payment.discount.coupon
       );
-      if (coupon) {
-        if (!coupon.reusable) {
-          coupon.status = "inactive";
-        }
-        coupon.records.push({
-          used_by: appointment.client._id,
-          used_at: appointment.createdAt,
-        });
-        await coupon.save();
-      }
 
       if (appointment.type !== "MEET_AND_GREET") {
         await createPaymentIntent(req, res, appointment);
@@ -1693,11 +1683,16 @@ const handleAppointmentTypeASetup = asyncHandler(async (req, res) => {
     // return console.log("handleAppointmentTypeASetup | req.body:", req.body);
     const { type, location, pets, time, amount, coupon } = req.body;
     const client = req.user;
+
+    const couponObj = await Coupon.findOne({
+      code: coupon,
+    });
+
     const paymentAmount = await calculateAppointmentBaseFee(
       type,
       pets.length,
       time,
-      coupon
+      couponObj?.code
     );
 
     const appointment = await appointmentModel.create({
@@ -1716,6 +1711,20 @@ const handleAppointmentTypeASetup = asyncHandler(async (req, res) => {
         },
       },
       status: "READY_TO_PAY",
+    });
+
+    if (!couponObj.reusable) {
+      couponObj.status = "inactive";
+    } else {
+      couponObj.reusable_count = couponObj.reusable_count - 1;
+      if (couponObj.reusable_count < 0) {
+        couponObj.status = "inactive";
+      }
+    }
+    coupon.records.push({
+      used_by: client._id,
+      used_on: appointment._id,
+      used_at: appointment.createdAt,
     });
 
     sendPushNotificationToAdmins(

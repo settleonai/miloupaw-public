@@ -625,6 +625,38 @@ exports.getCoupon = asyncHandler(async (req, res) => {
       });
     }
 
+    if (coupon.status === "inactive") {
+      return res.status(400).json({
+        success: false,
+        error: "coupon is not active",
+      });
+    }
+
+    if (!coupon.repeatable_user) {
+      // check if user is in the records
+      const userRecord = coupon.records.find(
+        (record) => record.used_by.toString() === req.user.id
+      );
+      if (userRecord) {
+        // cant be used again
+        coupon.status = "inactive";
+        await coupon.save();
+        return res.status(400).json({
+          success: false,
+          error: "coupon is not repeatable",
+        });
+      }
+    }
+
+    if (coupon.reusable_count < 1) {
+      return res.status(400).json({
+        success: false,
+        error: "coupon is not reusable",
+      });
+    }
+
+    await coupon.save();
+
     return res.status(200).json({
       success: true,
       result: coupon,

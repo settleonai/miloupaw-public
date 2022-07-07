@@ -39,6 +39,10 @@ const couponSchema = new Schema(
           type: Schema.Types.ObjectId,
           ref: "User",
         },
+        used_on: {
+          type: Schema.Types.ObjectId,
+          ref: "Appointment",
+        },
         used_at: {
           type: Date,
           default: Date.now,
@@ -50,5 +54,13 @@ const couponSchema = new Schema(
     timestamps: true,
   }
 );
+
+const updatedCouponSchema = new Schema();
+updatedCouponSchema.add(couponSchema).add({
+  repeatable_user: {
+    type: Boolean,
+    required: false,
+  },
+});
 
 module.exports = mongoose.model("Coupon", couponSchema);
