@@ -11,8 +11,8 @@ const {
 } = require("./controllers/businessController");
 
 // run a scheduled task everyday at 12:00 AM
-cron.schedule("0 0 * * *", async () => {
-  // cron.schedule("* * * * *", async () => {
+// cron.schedule("0 0 * * *", async () => {
+cron.schedule("* * * * *", async () => {
   console.log("paying employees for completed appointments".green);
   const paidapts = await payEmployeesCompletedAppointments();
   console.log(`${paidapts.length} appointments paid`.green);

@@ -751,13 +751,12 @@ exports.payoutCompletedAppointments = asyncHandler(async () => {
       const availableBalance = balance.available[0].amount;
       console.log(`Stripe availableBalance: ${availableBalance}`.cyan);
       const { companyCommission, income } = await incomeCalc(appointment);
-      console.log(`Company Commission: ${companyCommission}`.cyan);
-      console.log(`Company income: ${income}`.cyan);
-      if (availableBalance > companyCommission) {
+      console.log(`Company Commission: ${companyCommission * 100}`.cyan);
+      console.log(`Company income: ${income * 100}`.cyan);
+      if (availableBalance > companyCommission * 100) {
         const payout = await stripe.payouts.create({
           amount: companyCommission * 100,
           currency: "usd",
-          source_type: "balance",
           description: `bank transfer for appointment #${appointment.id}`,
         });
 
