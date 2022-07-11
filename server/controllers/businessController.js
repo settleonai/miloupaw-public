@@ -743,16 +743,13 @@ exports.payoutCompletedAppointments = asyncHandler(async () => {
       "payment.status": "transferred",
     });
 
-    let paidAppointments = [];
-
-    appointments.forEach(async (appointment) => {
+    const paidAppointments = appointments.map(async (appointment) => {
       const balance = await stripe.balance.retrieve();
       console.log(`Stripe balance: ${balance}`.cyan);
       const availableBalance = balance.available[0].amount;
       console.log(`Stripe availableBalance: ${availableBalance}`.cyan);
-      const { companyCommission, income } = await incomeCalc(appointment);
+      const { companyCommission } = await incomeCalc(appointment);
       console.log(`Company Commission: ${companyCommission * 100}`.cyan);
-      console.log(`Company income: ${income * 100}`.cyan);
       if (availableBalance > companyCommission * 100) {
         const payout = await stripe.payouts.create({
           amount: companyCommission * 100,
@@ -773,7 +770,7 @@ exports.payoutCompletedAppointments = asyncHandler(async () => {
         appointment.payment.status = "paid_out";
         await appointment.save();
 
-        paidAppointments.push(appointment);
+        return appointment._id;
       }
     });
 
