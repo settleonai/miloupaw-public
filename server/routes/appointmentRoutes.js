@@ -12,6 +12,7 @@ const {
   getClientAppointment,
   createAppointment,
   getMeetAndGreet,
+  getMeetAndGreetById,
   getServices,
   updateAppointment,
   getAppointment,
@@ -44,6 +45,7 @@ router.get("/client-appointments", protect, getClientAppointments);
 router.get("/client-appointment/:id", protect, getClientAppointment);
 router.post("/", protect, createAppointment);
 router.get("/meet-greets", adminProtect, getMeetAndGreet);
+router.get("/meet-greets/:id", adminProtect, getMeetAndGreetById);
 router.get("/services", protect, getServices);
 router.put("/assign-employee", adminProtect, assignEmployee);
 router.post("/setup-intent", protect, createSetupIntent);

@@ -1316,6 +1316,26 @@ exports.getMeetAndGreet = asyncHandler(async (req, res, next) => {
   }
 });
 
+// @desc    Get Meet and Greet by id
+// @route   GET /appointment/meet-greets/:id
+// @access  Private
+exports.getMeetAndGreetById = asyncHandler(async (req, res, next) => {
+  const { id } = req.params;
+  const meetAndGreet = await MeetAndGreet.findById(id);
+
+  if (!meetAndGreet) {
+    return res.status(404).json({
+      success: false,
+      error: "Meet and Greet not found",
+    });
+  }
+
+  res.status(200).json({
+    success: true,
+    result: meetAndGreet,
+  });
+});
+
 // @desc    Assign an employee to an appointment
 // @route   PUT /appointment/assign-employee
 // @access  Private
