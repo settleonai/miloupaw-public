@@ -1323,6 +1323,16 @@ exports.getMeetAndGreetById = asyncHandler(async (req, res, next) => {
   const { id } = req.params;
   const meetAndGreet = await MeetAndGreet.findById(id);
 
+  if (
+    (req.user.role !== "admin") &
+    (req.user.id !== meetAndGreet.client.toString())
+  ) {
+    return res.status(401).json({
+      success: false,
+      error: "Unauthorized",
+    });
+  }
+
   if (!meetAndGreet) {
     return res.status(404).json({
       success: false,
