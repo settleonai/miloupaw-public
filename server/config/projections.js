@@ -212,6 +212,8 @@ exports.EMPLOYEE_PUBLIC_PROJECTION = {
   gender: 1,
   appointments: 1,
   rating: 1,
+  phone_number,
+
   address: {
     city: 1,
     state: 1,
