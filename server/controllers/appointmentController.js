@@ -565,7 +565,7 @@ exports.appointmentCheckInOut = asyncHandler(async (req, res, next) => {
         properties: { actualTime: new Date(), timeStamp: time },
         point,
       };
-      appointment.save();
+      await appointment.save();
     }
 
     if (status === "check-out") {
@@ -613,7 +613,7 @@ exports.appointmentCheckInOut = asyncHandler(async (req, res, next) => {
       };
 
       appointment.status = "COMPLETED";
-      appointment.save();
+      await appointment.save();
 
       if (appointment.type === "MEET_AND_GREET") {
         if (await handleClientActivation(appointment)) {
@@ -1842,7 +1842,9 @@ const handleClientActivation = async (appointment) => {
     const meetAndGreet = await MeetAndGreet.findOne({
       appointment_id: appointment._id,
     });
-    const clientProfile = await Profile.findOne({ user: appointment.client });
+    const clientProfile = await Profile.findOne({ user: appointment.client })
+      .populate("user")
+      .populate("pets");
 
     clientProfile.activated = true;
     await clientProfile.save();
@@ -1850,9 +1852,35 @@ const handleClientActivation = async (appointment) => {
     meetAndGreet.status = "COMPLETED";
     await meetAndGreet.save();
 
+    // send welcome notification to client
+    await sendPushNotification(
+      [clientProfile.user.push_token],
+      "Welcome",
+      "Welcome to Miloupaw! Your account has been activated"
+    );
+
+    // send welcome notification to admins
+    sendPushNotificationToAdmins(
+      "Client Account Activated",
+      `${clientProfile.last_name}'s profile has been activated`
+    );
+
+    // send welcome email to client
+    const client = [[clientProfile.user.email, clientProfile.first_name]];
+    const tags = {
+      first_name: clientProfile.first_name || "",
+      pets_name: clientProfile.pets.map((pet) => pet.name).join(", ") || "",
+    };
+    await sendMail(
+      "activated_account",
+      client,
+      tags,
+      "🥳 your miloupaw account has been activated 🎉"
+    );
     return true;
   } catch (error) {
     console.log("handleClientActivation | error", error);
+    return false;
   }
 };
 

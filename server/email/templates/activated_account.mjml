@@ -1,0 +1,60 @@
+<mjml>
+  <mj-head>
+    <mj-style inline="inline">
+      .link-nostyle {
+        color: inherit;
+        text-decoration: none
+      }
+
+      .body-text {
+        line-height: 1.15
+      }
+    </mj-style>
+  </mj-head>
+  <mj-body background-color="#feffff">
+    <mj-section></mj-section>
+    <mj-section background-color="#f0f0f2" border-radius="40px">
+      <mj-column padding-right="10px" width="100%">
+        <mj-text align="right" font-family="Roboto" font-size="10px" color="#A7A9AC" height="10px">
+          {{date}} <br />
+          {{year}}
+        </mj-text>
+      </mj-column>
+      <mj-column width="100%">
+        <mj-image src="https://res.cloudinary.com/fnel/image/upload/v1659253597/email-src/account_activated_txmomi.png"></mj-image>
+      </mj-column>
+      <mj-column width="500px">
+        <mj-text font-family="Roboto" font-size="21px" color="#2A2A2A" align="center">{{first_name}}, welcome to the family 🎉</mj-text>
+
+        <mj-text font-family="Roboto" font-size="14px" color="#5A5B5B" align="left"><span class="body-text">
+            Hello, </span></mj-text>
+        <mj-text font-family="Roboto" font-size="14px" color="#5A5B5B" align="left"><span class="body-text">It was a pleasure to meet you in person. Thank you for taking the time to walk {{pets_name}} through all the processes together.
+          </span></mj-text>
+        <mj-text font-family="Roboto" font-size="14px" color="#5A5B5B" align="left"><span class="body-text">
+            Your miloupaw account has now been activated, so you can start scheduling appointments right away.</span></mj-text>
+        <mj-text font-family="Roboto" font-size="14px" color="#5A5B5B" align="left"><span class="body-text">
+            If you need assistance at any time, please do not hesitate to contact us.</span></mj-text>
+
+        <mj-button href="miloupaw://" background-color="#222558" target="_blank">open miloupaw app</mj-button>
+        <mj-text></mj-text>
+
+
+
+
+        <mj-text font-family="Roboto" font-size="12px" color="#5A5B5B" align="center" background-color="#808285">with 🐾</mj-text>
+        <mj-image width="60px" src="https://res.cloudinary.com/fnel/image/upload/v1651970162/miloupaw/assets/logo-transparent-sm_pbovjn.png"></mj-image>
+        <mj-text font-family="Roboto" font-size="10px" color="#5A5B5B" align="center" background-color="#808285">miloupaw</mj-text>
+      </mj-column>
+    </mj-section>
+    <mj-section>
+      <mj-column>
+        <mj-text font-family="Roboto" font-weight="300" line-height="0" padding-bottom="0" color="#111" font-size="8px" align="center">©2022 fnel Inc. | 1471 Pico Ct. Apt O Walnut Creek, CA 94597
+          USA</mj-text>
+        <mj-text font-family="Roboto" font-weight="300" color="#111" font-size="8px" align="center">contact@thefnel.com | +1 (510) 394-2458 |
+          https://fnel.app</mj-text>
+        <mj-text font-family="Roboto" font-weight="300" color="#111" font-size="8px" align="center"><a class="link-nostyle" href="https://www.freepik.com/vectors/business">vector image inspired Pet animals vector created by rawpixel.com - www.freepik.com /
+            Freepik</a></mj-text>
+      </mj-column>
+    </mj-section>
+  </mj-body>
+</mjml>
