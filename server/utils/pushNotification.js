@@ -8,6 +8,7 @@ let expo = new Expo();
 
 exports.sendPushNotification = async (tokens, title, message) => {
   console.log("sendPushNotification", tokens);
+  if (!tokens) return;
   // Create the messages that you want to send to clents
   let messages = [];
   for (let pushToken of tokens) {
