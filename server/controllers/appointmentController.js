@@ -1,7 +1,8 @@
 const asyncHandler = require("express-async-handler");
 const User = require("../../models/userModel");
 
-const { sendTextMessage } = require("../utils/messager");
+const { sendMail } = require("../utils/mail");
+
 const Profile = require("../../models/profileModel");
 const AdminProfile = require("../../models/adminProfileModel");
 const MeetAndGreet = require("../../models/meetAndGreetModel");

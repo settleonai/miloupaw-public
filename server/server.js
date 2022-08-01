@@ -29,9 +29,9 @@ cron.schedule("0 0 * * *", async () => {
   });
 });
 
-// run a scheduled task every 30 seconds
-
-const port = process.env.PORT || 5000;
+// set port to 5010 in development
+const port =
+  process.env.NODE_ENV !== "production" ? 5010 : process.env.PORT || 5000;
 
 connectDB();
 
@@ -48,9 +48,6 @@ app.use((req, res, next) => {
     express.urlencoded({ extended: false });
   }
 });
-
-// app.use(express.json());
-// app.use(express.urlencoded({ extended: false }));
 
 app.use("/users", require("./routes/userRoutes"));
 app.use("/pets", require("./routes/petRoutes"));
