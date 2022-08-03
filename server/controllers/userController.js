@@ -622,7 +622,7 @@ const makeAdmin = asyncHandler(async (req, res) => {
 // @route DELETE /users/delete-account
 // @access Private
 exports.deleteAccount = asyncHandler(async (req, res) => {
-    // deactivate profile
+    // deactivate profile and clear personal data
     const profile = await profileModel.findOne({ user: user._id });
     if (profile) {
       profile.activated = false;
@@ -637,6 +637,7 @@ exports.deleteAccount = asyncHandler(async (req, res) => {
       await profile.save();
     }
 
+    // clear personal data from pets
     const pets = await petModel.find({ user: user._id });
     if (pets) {
       pets.forEach((pet) => {
@@ -654,6 +655,7 @@ exports.deleteAccount = asyncHandler(async (req, res) => {
       });
     }
 
+    // clear personal data from locations
     const locations = await locationModel.find({ user: user._id });
     if (locations) {
       locations.forEach((location) => {
@@ -673,6 +675,7 @@ exports.deleteAccount = asyncHandler(async (req, res) => {
     const user = await userModel.findById(req.user._id);
     
     // clear personal info from user model
+    const name = user.name;
     user.name = "Deleted Account";
     user.pictures = [];
     user.access_token = "";
@@ -681,6 +684,12 @@ exports.deleteAccount = asyncHandler(async (req, res) => {
     user.status = "deleted";
 
     await user.save();
+
+    // send push notification to admins
+    await sendPushNotificationToAdmins(
+      "User Account Deleted",
+      `${name} has deleted their account`
+    );
 
     return res.status(200).json({
       success: true,
