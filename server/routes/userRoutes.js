@@ -38,6 +38,6 @@ router.post("/jobApplication", jobApplication);
 router.get("/business-profile", protect, getMyBusinessProfile);
 router.get("/service-defaults", protect, getServiceDefaults);
 router.put("/make-admin", adminProtect, makeAdmin);
-router.delete("/delete-account", deleteAccount);
+router.delete("/delete-account", protect, deleteAccount);
 
 module.exports = router;

@@ -42,6 +42,13 @@ const registerUser = asyncHandler(async (req, res) => {
   // Check if user exists
   const userExists = await User.findOne({ email });
 
+  if (userExists.status === "deleted") {
+    return res.status(400).json({
+      success: false,
+      error: "User is deleted",
+    });
+  }
+
   if (userExists) {
     res.status(400);
     throw new Error("User already exists");
@@ -68,8 +75,10 @@ const registerUser = asyncHandler(async (req, res) => {
   if (user) {
     res.status(201).json({ user, profile, services: SERVICES });
   } else {
-    res.status(400);
-    throw new Error("Invalid user data");
+    return res.status(400).json({
+      success: false,
+      error: "User could not be created",
+    });
   }
 });
 
@@ -81,6 +90,14 @@ const loginUser = asyncHandler(async (req, res) => {
 
   // Check for user email
   const user = await User.findOne({ email }).select("+password");
+
+  if (user && user.status === "deleted") {
+    return res.status(401).json({
+      success: false,
+      error:
+        "Your account has been deleted. Deleted accounts cannot join again.",
+    });
+  }
 
   if (user && (await bcrypt.compare(password, user.password))) {
     res.json({
@@ -196,7 +213,6 @@ const updateMyBusinessProfile = asyncHandler(async (req, res) => {});
 // @route   POST /users/googleAuth
 // @access  Public
 const googleAuth = asyncHandler(async (req, res) => {
-  console.log("google auth", req.body);
   let {
     token: { idToken, accessToken },
   } = req.body;
@@ -229,8 +245,6 @@ const googleAuth = asyncHandler(async (req, res) => {
       res.status(400);
       throw new Error("Google token has expired");
     }
-
-    console.log("googleUser", googleUser);
 
     // check if user exists, if not continue creating new user
     await checkSocialUser(
@@ -617,88 +631,84 @@ const makeAdmin = asyncHandler(async (req, res) => {
   }
 });
 
-
 // @desc Delete Account
 // @route DELETE /users/delete-account
 // @access Private
-exports.deleteAccount = asyncHandler(async (req, res) => {
-    // deactivate profile and clear personal data
-    const profile = await profileModel.findOne({ user: user._id });
-    if (profile) {
-      profile.activated = false;
-      profile.first_name = "Deleted Account";
-      profile.last_name = "";
-      profile.phone_number = "";
-      profile.phone_verified = false;
-      profile.date_of_birth = "";
-      profile.coordinates=null;
-      profile.bio="";
+const deleteAccount = asyncHandler(async (req, res) => {
+  // deactivate profile and clear personal data
+  const profile = await profileModel.findOne({ user: user._id });
+  if (profile) {
+    profile.activated = false;
+    profile.first_name = "Deleted Account";
+    profile.last_name = "";
+    profile.phone_number = "";
+    profile.phone_verified = false;
+    profile.date_of_birth = "";
+    profile.coordinates = null;
+    profile.bio = "";
 
-      await profile.save();
-    }
+    await profile.save();
+  }
 
-    // clear personal data from pets
-    const pets = await petModel.find({ user: user._id });
-    if (pets) {
-      pets.forEach((pet) => {
-        pet.general_info.name = "Deleted Account's Pet";
-        pet.general_info.adopted_from = "";
-        pet.emergency_veterinarian.name = "";
-        pet.emergency_veterinarian.phone = "";
-        pet.emergency_veterinarian.veterinarian = "";
-        pet.emergency_veterinarian.veterinarian_phone = "";
-        pet.emergency_veterinarian.veterinarian_address = "";
-        pet.emergency_veterinarian.veterinarian_coordinates = null;
-        pet.emergency_veterinarian.insurance_number = "";
+  // clear personal data from pets
+  const pets = await petModel.find({ user: user._id });
+  if (pets) {
+    pets.forEach(async (pet) => {
+      pet.general_info.name = "Deleted Account's Pet";
+      pet.general_info.adopted_from = "";
+      pet.emergency_veterinarian.name = "";
+      pet.emergency_veterinarian.phone = "";
+      pet.emergency_veterinarian.veterinarian = "";
+      pet.emergency_veterinarian.veterinarian_phone = "";
+      pet.emergency_veterinarian.veterinarian_address = "";
+      pet.emergency_veterinarian.veterinarian_coordinates = null;
+      pet.emergency_veterinarian.insurance_number = "";
 
-        await pet.save();
-      });
-    }
-
-    // clear personal data from locations
-    const locations = await locationModel.find({ user: user._id });
-    if (locations) {
-      locations.forEach((location) => {
-        location.name = "Deleted Account's Location";
-        location.address.address1 = "";
-        location.address.address2 = "";
-        location.formatted_address = ` ${location.address.city}, ${location.address.state} ${location.address.zip} ${location.address.country}`;
-        location.coordinates = null;
-        location.alarm_code = "";
-        location.access_parking_notes = "";
-        location.photos = [];
-
-        await location.save();
-      });
-    }
-
-    const user = await userModel.findById(req.user._id);
-    
-    // clear personal info from user model
-    const name = user.name;
-    user.name = "Deleted Account";
-    user.pictures = [];
-    user.access_token = "";
-    user.token_exp = Date.now();
-    user.push_token = "";
-    user.status = "deleted";
-
-    await user.save();
-
-    // send push notification to admins
-    await sendPushNotificationToAdmins(
-      "User Account Deleted",
-      `${name} has deleted their account`
-    );
-
-    return res.status(200).json({
-      success: true,
-      message: "Account deleted",
+      await pet.save();
     });
   }
 
-);
+  // clear personal data from locations
+  const locations = await locationModel.find({ user: user._id });
+  if (locations) {
+    locations.forEach(async (location) => {
+      location.name = "Deleted Account's Location";
+      location.address.address1 = "";
+      location.address.address2 = "";
+      location.formatted_address = ` ${location.address.city}, ${location.address.state} ${location.address.zip} ${location.address.country}`;
+      location.coordinates = null;
+      location.alarm_code = "";
+      location.access_parking_notes = "";
+      location.photos = [];
 
+      await location.save();
+    });
+  }
+
+  const user = await userModel.findById(req.user._id);
+
+  // clear personal info from user model
+  const name = user.name;
+  user.name = "Deleted Account";
+  user.pictures = [];
+  user.access_token = "";
+  user.token_exp = Date.now();
+  user.push_token = "";
+  user.status = "deleted";
+
+  await user.save();
+
+  // send push notification to admins
+  await sendPushNotificationToAdmins(
+    "User Account Deleted",
+    `${name} has deleted their account`
+  );
+
+  return res.status(200).json({
+    success: true,
+    message: "Account deleted",
+  });
+});
 
 // Generate JWT
 const generateToken = (id) => {
@@ -791,37 +801,50 @@ const createCustomerUser = async (userObject, profileObject) => {
 
 // check if social user is exist and return user data
 const checkSocialUser = async (provider, email, sub, res, next) => {
-  const user = await User.findOne({
-    email,
-  });
+  try {
+    const user = await User.findOne({
+      email,
+    });
 
-  if (user) {
-    // check if user used different social account with same email
-    if (!user[provider + "Id"]) {
-      user[provider + "Id"] = sub;
-      await user.save();
-    }
+    if (user) {
+      // check if user deleted or not
+      if (user.status === "deleted") {
+        return res.status(401).json({
+          success: false,
+          error:
+            "Your account has been deleted. Deleted accounts cannot join again.",
+        });
+      }
+      // check if user used different social account with same email
+      if (!user[provider + "Id"]) {
+        user[provider + "Id"] = sub;
+        await user.save();
+      }
 
-    // console.log("user", user);
+      // console.log("user", user);
 
-    let profile, businessProfile;
-    if (user.role === "client") {
-      profile = await Profile.findOne({ user: user._id })
-        .populate("locations")
-        .populate("pets", PET_GENERAL_PROJECTION);
+      let profile, businessProfile;
+      if (user.role === "client") {
+        profile = await Profile.findOne({ user: user._id })
+          .populate("locations")
+          .populate("pets", PET_GENERAL_PROJECTION);
+      } else {
+        businessProfile = await BusinessProfile.findOne({ user: user._id });
+      }
+      const access_token = generateToken(user._id);
+      user.access_token = access_token;
+      user.token_exp = Date.now() + 30 * 24 * 60 * 60 * 1000;
+      user.save();
+
+      return res
+        .status(200)
+        .json({ user, profile, businessProfile, services: SERVICES });
     } else {
-      businessProfile = await BusinessProfile.findOne({ user: user._id });
+      next();
     }
-    const access_token = generateToken(user._id);
-    user.access_token = access_token;
-    user.token_exp = Date.now() + 30 * 24 * 60 * 60 * 1000;
-    user.save();
-
-    return res
-      .status(200)
-      .json({ user, profile, businessProfile, services: SERVICES });
-  } else {
-    next();
+  } catch (error) {
+    console.log(error);
+    throw new Error(error);
   }
 };
 
@@ -870,7 +893,6 @@ async function createBusinessProfile(profileObject) {
   }
 }
 
-
 module.exports = {
   registerUser,
   loginUser,
@@ -886,4 +908,5 @@ module.exports = {
   getMyUser,
   getServiceDefaults,
   makeAdmin,
+  deleteAccount,
 };
