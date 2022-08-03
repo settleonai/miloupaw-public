@@ -50,6 +50,14 @@ const userSchema = new Schema(
   }
 );
 
-// userSchema.schema.add({ pictures: [String] });
+const UserSchemaV1 = new Schema();
+UserSchemaV1.add(userSchema).add({
+  status: {
+    type: String,
+    enum: ["active", "inactive", "pending", "deleted"],
+    default: "inactive",
+  },
+  pictures: [String],
+});
 
-module.exports = mongoose.model("User", userSchema);
+module.exports = mongoose.model("User", UserSchemaV1);

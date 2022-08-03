@@ -17,6 +17,9 @@ const { PET_GENERAL_PROJECTION } = require("../config/projections");
 const { default: axios } = require("axios");
 const adminProfileModel = require("../../models/adminProfileModel");
 const { sendPushNotificationToAdmins } = require("../utils/pushNotification");
+const profileModel = require("../../models/profileModel");
+const petModel = require("../../models/petModel");
+const locationModel = require("../../models/locationModel");
 
 // defaults
 const baseUrl = process.env.BASE_URL;
@@ -26,7 +29,7 @@ const defaultPicture =
 const stripe = require("stripe")(process.env.STRIPE_SECRET_API_KEY);
 
 // @desc    Register new user
-// @route   POST /api/users
+// @route   POST /users
 // @access  Public
 const registerUser = asyncHandler(async (req, res) => {
   const { name, email, password, first_name, last_name, picture } = req.body;
@@ -60,7 +63,7 @@ const registerUser = asyncHandler(async (req, res) => {
   );
 
   // customer profile for stripe:
-  // stripe.com/docs/api/customers/create?lang=node#create_customer-description
+  // stripe.com/docs/customers/create?lang=node#create_customer-description
 
   if (user) {
     res.status(201).json({ user, profile, services: SERVICES });
@@ -71,7 +74,7 @@ const registerUser = asyncHandler(async (req, res) => {
 });
 
 // @desc    Authenticate a user
-// @route   POST /api/users/login
+// @route   POST /users/login
 // @access  Public
 const loginUser = asyncHandler(async (req, res) => {
   const { email, password } = req.body;
@@ -93,7 +96,7 @@ const loginUser = asyncHandler(async (req, res) => {
 });
 
 // @desc    Get user data
-// @route   GET /api/users/me
+// @route   GET /users/me
 // @access  Private
 const getMe = asyncHandler(async (req, res) => {
   const profile = await Profile.findOne({ user: req.user.id })
@@ -104,7 +107,7 @@ const getMe = asyncHandler(async (req, res) => {
 });
 
 // @desc    Update user profile
-// @route   PUT /api/users/profile
+// @route   PUT /users/profile
 // @access  Private
 const updateMyProfile = asyncHandler(async (req, res) => {
   try {
@@ -185,12 +188,12 @@ const updateMyProfile = asyncHandler(async (req, res) => {
 });
 
 // @desc    Update user's business profile
-// @route   PUT /api/users/business-profile
+// @route   PUT /users/business-profile
 // @access  Private
 const updateMyBusinessProfile = asyncHandler(async (req, res) => {});
 
 // @desc    Register new user Signed in with Google
-// @route   POST /api/users/googleAuth
+// @route   POST /users/googleAuth
 // @access  Public
 const googleAuth = asyncHandler(async (req, res) => {
   console.log("google auth", req.body);
@@ -264,7 +267,7 @@ const googleAuth = asyncHandler(async (req, res) => {
 });
 
 // @desc    Register new user Signed in with Apple
-// @route   POST /api/users/appleAuth
+// @route   POST /users/appleAuth
 // @access  Public
 const appleAuth = asyncHandler(async (req, res) => {
   const { token, familyName, givenName } = req.body;
@@ -329,7 +332,7 @@ const appleAuth = asyncHandler(async (req, res) => {
 });
 
 // @desc    submit a job application
-// @route   POST /api/users/jobApplication
+// @route   POST /users/jobApplication
 // @access  Public
 const jobApplication = asyncHandler(async (req, res) => {
   const {
@@ -465,7 +468,7 @@ const jobApplication = asyncHandler(async (req, res) => {
 });
 
 // @desc    Get my business profile
-// @route   GET /api/users/businessProfile
+// @route   GET /users/businessProfile
 // @access  Private
 const getMyBusinessProfile = asyncHandler(async (req, res) => {
   try {
@@ -482,7 +485,7 @@ const getMyBusinessProfile = asyncHandler(async (req, res) => {
 });
 
 // @desc    Get my user object
-// @route   GET /api/users/refresh
+// @route   GET /users/refresh
 // @access  Private
 const getMyUser = asyncHandler(async (req, res) => {
   try {
@@ -498,7 +501,7 @@ const getMyUser = asyncHandler(async (req, res) => {
 });
 
 // @desc    Update Push Notification Token
-// @route   PUT /api/users/set-push-token
+// @route   PUT /users/set-push-token
 // @access  Private
 const setPushToken = asyncHandler(async (req, res) => {
   const { user } = req;
@@ -542,7 +545,7 @@ const setPushToken = asyncHandler(async (req, res) => {
 });
 
 // @desc    get Service Defaults
-// @route   GET /api/users/service-defaults
+// @route   GET /users/service-defaults
 // @access  Private
 const getServiceDefaults = asyncHandler(async (req, res) => {
   try {
@@ -560,7 +563,7 @@ const getServiceDefaults = asyncHandler(async (req, res) => {
 });
 
 // @desc    Make user an admin
-// @route   PUT /api/users/make-admin
+// @route   PUT /users/make-admin
 // @access  Admin Protected
 const makeAdmin = asyncHandler(async (req, res) => {
   try {
@@ -613,6 +616,80 @@ const makeAdmin = asyncHandler(async (req, res) => {
     });
   }
 });
+
+
+// @desc Delete Account
+// @route DELETE /users/delete-account
+// @access Private
+exports.deleteAccount = asyncHandler(async (req, res) => {
+    // deactivate profile
+    const profile = await profileModel.findOne({ user: user._id });
+    if (profile) {
+      profile.activated = false;
+      profile.first_name = "Deleted Account";
+      profile.last_name = "";
+      profile.phone_number = "";
+      profile.phone_verified = false;
+      profile.date_of_birth = "";
+      profile.coordinates=null;
+      profile.bio="";
+
+      await profile.save();
+    }
+
+    const pets = await petModel.find({ user: user._id });
+    if (pets) {
+      pets.forEach((pet) => {
+        pet.general_info.name = "Deleted Account's Pet";
+        pet.general_info.adopted_from = "";
+        pet.emergency_veterinarian.name = "";
+        pet.emergency_veterinarian.phone = "";
+        pet.emergency_veterinarian.veterinarian = "";
+        pet.emergency_veterinarian.veterinarian_phone = "";
+        pet.emergency_veterinarian.veterinarian_address = "";
+        pet.emergency_veterinarian.veterinarian_coordinates = null;
+        pet.emergency_veterinarian.insurance_number = "";
+
+        await pet.save();
+      });
+    }
+
+    const locations = await locationModel.find({ user: user._id });
+    if (locations) {
+      locations.forEach((location) => {
+        location.name = "Deleted Account's Location";
+        location.address.address1 = "";
+        location.address.address2 = "";
+        location.formatted_address = ` ${location.address.city}, ${location.address.state} ${location.address.zip} ${location.address.country}`;
+        location.coordinates = null;
+        location.alarm_code = "";
+        location.access_parking_notes = "";
+        location.photos = [];
+
+        await location.save();
+      });
+    }
+
+    const user = await userModel.findById(req.user._id);
+    
+    // clear personal info from user model
+    user.name = "Deleted Account";
+    user.pictures = [];
+    user.access_token = "";
+    user.token_exp = Date.now();
+    user.push_token = "";
+    user.status = "deleted";
+
+    await user.save();
+
+    return res.status(200).json({
+      success: true,
+      message: "Account deleted",
+    });
+  }
+
+);
+
 
 // Generate JWT
 const generateToken = (id) => {
@@ -783,6 +860,7 @@ async function createBusinessProfile(profileObject) {
     throw new Error(error.message);
   }
 }
+
 
 module.exports = {
   registerUser,

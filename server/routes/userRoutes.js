@@ -13,6 +13,7 @@ const {
   getMyUser,
   getServiceDefaults,
   makeAdmin,
+  deleteAccount,
 } = require("../controllers/userController");
 
 const {
@@ -37,5 +38,6 @@ router.post("/jobApplication", jobApplication);
 router.get("/business-profile", protect, getMyBusinessProfile);
 router.get("/service-defaults", protect, getServiceDefaults);
 router.put("/make-admin", adminProtect, makeAdmin);
+router.delete("/delete-account", deleteAccount);
 
 module.exports = router;
