@@ -31,6 +31,7 @@ export default function HomeComponent() {
           <h3 className="mt-12 font-display text-primary-default text-lg text-left">
             start using our app
           </h3>
+          {/* app links */}
           <div className="flex justify-arund gap-3">
             <a
               target="_blank"

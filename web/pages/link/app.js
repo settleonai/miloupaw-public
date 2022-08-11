@@ -17,14 +17,30 @@ export default function AppLinks() {
                 Our app is available on following platforms:
               </p>
 
-              <a
-                target="_blank"
-                href={process.env.APP_STORE_LINK}
-                rel="noreferrer"
-                className="mt-5"
-              >
-                <img src="/app-store-badge.svg" alt="app-store-fnel" />
-              </a>
+              <div className="flex justify-arund gap-3">
+                <a
+                  target="_blank"
+                  href={process.env.APP_STORE_LINK}
+                  rel="noreferrer"
+                  className="mt-5"
+                >
+                  <img src="/app-store-badge.svg" alt="app-store-fnel" />
+                </a>
+
+                <a
+                  target="_blank"
+                  rel="noreferrer"
+                  className="mt-5"
+                  href="https://play.google.com/store/apps/details?id=com.fnel.miloupaw&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1"
+                  // href={process.env.GOOGLE_STORE_LINK}
+                >
+                  <img
+                    className="h-10"
+                    alt="Get it on Google Play"
+                    src="/en_badge_web_generic.svg"
+                  />
+                </a>
+              </div>
             </div>
           </div>
         </div>
