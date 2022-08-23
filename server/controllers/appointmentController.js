@@ -1744,19 +1744,21 @@ const handleAppointmentTypeASetup = asyncHandler(async (req, res) => {
       status: "READY_TO_PAY",
     });
 
-    if (!couponObj.reusable) {
-      couponObj.status = "inactive";
-    } else {
-      couponObj.reusable_count = couponObj.reusable_count - 1;
-      if (couponObj.reusable_count < 0) {
-        couponObj.status = "inactive";
-      }
+    if(couponObj){
+          if (!couponObj.reusable) {
+            couponObj.status = "inactive";
+          } else {
+            couponObj.reusable_count = couponObj.reusable_count - 1;
+            if (couponObj.reusable_count < 0) {
+              couponObj.status = "inactive";
+            }
+          }
+          coupon.records.push({
+            used_by: client._id,
+            used_on: appointment._id,
+            used_at: appointment.createdAt,
+          });
     }
-    coupon.records.push({
-      used_by: client._id,
-      used_on: appointment._id,
-      used_at: appointment.createdAt,
-    });
 
     sendPushNotificationToAdmins(
       "New Appointment",
