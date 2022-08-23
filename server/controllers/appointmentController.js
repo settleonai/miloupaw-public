@@ -1715,7 +1715,7 @@ const handleAppointmentTypeASetup = asyncHandler(async (req, res) => {
     const { type, location, pets, time, amount, coupon } = req.body;
     const client = req.user;
 
-    const couponObj = await Coupon.findOne({
+    const couponObj = await couponModel.findOne({
       code: coupon,
     });
 
