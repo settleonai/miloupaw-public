@@ -20,13 +20,13 @@ cron.schedule("0 0 * * *", async () => {
   paidapts.forEach((apt) => {
     console.log(`${apt}`.green);
   });
-  console.log("transferring money to the bank for completed appointments".cyan);
-  const payouts = await payoutCompletedAppointments();
-  console.log(`${payouts.length} appointments payed out`.cyan);
-  console.log("========================================".cyan);
-  payouts.forEach((apt) => {
-    console.log(`${apt}`.cyan);
-  });
+  // console.log("transferring money to the bank for completed appointments".cyan);
+  // const payouts = await payoutCompletedAppointments();
+  // console.log(`${payouts.length} appointments payed out`.cyan);
+  // console.log("========================================".cyan);
+  // payouts.forEach((apt) => {
+  //   console.log(`${apt}`.cyan);
+  // });
 });
 
 // set port to 5010 in development
