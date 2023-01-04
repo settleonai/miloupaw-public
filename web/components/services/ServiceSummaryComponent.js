@@ -6,17 +6,17 @@ export default function ServiceSummaryComponent() {
     {
       name: "Dog Walking",
       icon: "dog_walking",
-      description: `dog walking sessions are available for dogs of all sizes. Our dog walking sessions are minimum 30 minutes long and are designed to be a safe and fun experience for your dog. These sessions are offered at a fee of $30 per single dog session.`,
+      description: `dog walking sessions are available for dogs of all sizes. Our dog walking sessions are minimum 23 minutes long and are designed to be a safe and fun experience for your dog. These sessions are offered at a fee of $30 per single dog session.`,
     },
     {
       name: "Pet Sitting",
       icon: "pet_sitting",
-      description: `"minimum 30 minutes Pet sitting. Service includes meal serving, water refill, medicine giving, and poddy break. This service covers up to 3 dogs at a time. Our pet sitting sessions are offered at a fee of $30 per single dog session.`,
+      description: `"minimum 30 minutes Pet sitting. Service includes meal serving, water refill, medicine giving, and poddy break. This service covers up to 3 dogs at a time. Our pet sitting sessions are offered at a fee of $27 per single dog session.`,
     },
     {
       name: "Boarding",
       icon: "boarding",
-      description: `We board dogs of all sizes. Each dog is housed privately in a colleague's home. Our guests will receive an all-inclusive, crate-free, and pet-friendly stay, where they will be well looked after. Boarding is offered at a fee of $85 per day. discounts are available for long-term stays.`,
+      description: `We board dogs of all sizes. Each dog is housed privately in a colleague's home. Our guests will receive an all-inclusive, crate-free, and pet-friendly stay, where they will be well looked after. Boarding is offered at a fee of $60 per day. discounts are available for long-term stays.`,
     },
     {
       name: "Potty Break",
