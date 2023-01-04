@@ -6,7 +6,7 @@ export default function ServiceSummaryComponent() {
     {
       name: "Dog Walking",
       icon: "dog_walking",
-      description: `dog walking sessions are available for dogs of all sizes. Our dog walking sessions are minimum 23 minutes long and are designed to be a safe and fun experience for your dog. These sessions are offered at a fee of $30 per single dog session.`,
+      description: `dog walking sessions are available for dogs of all sizes. Our dog walking sessions are minimum 30 minutes long and are designed to be a safe and fun experience for your dog. These sessions are offered at a fee of $23 per single dog session.`,
     },
     {
       name: "Pet Sitting",
