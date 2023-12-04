@@ -43,8 +43,8 @@ export default function ReviewSummaryComponent() {
           </h2>
 
           <p className="mt-4 max-w-2xl text-xl text-gray-500  text-left">
-            Our customers are way more than a client to us. Sharing their views
-            helps us to keeping up what we doing and try harder in this matter.
+            Our customers are our top priority. Your feedback helps us
+            continually improve our services.
           </p>
         </div>
 

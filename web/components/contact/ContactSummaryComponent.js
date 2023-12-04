@@ -11,8 +11,8 @@ export default function ContactSummaryComponent() {
           </h2>
 
           <p className="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
-            Our customers are way more than a client to us. Sharing their views
-            helps us to keeping up what we doing and try harder in this matter.
+            We value our customers' insights. Please contact us with any
+            questions or feedback.
           </p>
         </div>
 
@@ -21,17 +21,17 @@ export default function ContactSummaryComponent() {
             <ContactCardComponent
               icon="phone"
               title="Phone"
-              description="510 394-2458"
+              description="925 771-0435"
             />
             <ContactCardComponent
               icon="email"
               title="Email"
-              description="support@miloupaw.com"
+              description="sanaz.hemmati@icloud.com"
             />
             <ContactCardComponent
               icon="address"
               title="Address"
-              description={`1471 Pico Ct. \nWalnut Creek, CA 94596`}
+              description={`Walnut Creek, CA 94596`}
             />
             <ContactCardComponent
               icon="hours"

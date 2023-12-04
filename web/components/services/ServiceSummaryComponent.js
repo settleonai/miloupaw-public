@@ -35,7 +35,7 @@ export default function ServiceSummaryComponent() {
             Our Services
           </h2>
           <p className="mt-2 text-3xl leading-8 font-bold tracking-tight text-primary-300 sm:text-4xl">
-            we will burden you with nothing.
+            Our commitment is to provide stress-free care for your pets.
           </p>
           <p className="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
             Our services are delivered by a team of highly qualified and
