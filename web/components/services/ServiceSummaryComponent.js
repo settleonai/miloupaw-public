@@ -6,22 +6,22 @@ export default function ServiceSummaryComponent() {
     {
       name: "Dog Walking",
       icon: "dog_walking",
-      description: `dog walking sessions are available for dogs of all sizes. Our dog walking sessions are minimum 30 minutes long and are designed to be a safe and fun experience for your dog. These sessions are offered at a fee of $23 per single dog session.`,
+      description: `Dog walking sessions are available for dogs of all sizes. Each session is a minimum of 30 minutes and is designed to provide a safe and enjoyable experience for your dog. The fee for a single dog session is $23.`,
     },
     {
       name: "Pet Sitting",
       icon: "pet_sitting",
-      description: `"minimum 30 minutes Pet sitting. Service includes meal serving, water refill, medicine giving, and poddy break. This service covers up to 3 dogs at a time. Our pet sitting sessions are offered at a fee of $27 per single dog session.`,
+      description: `Pet sitting services, with a minimum duration of 30 minutes, include meal serving, water refilling, administering medication, and potty breaks. This service accommodates up to three dogs at a time. The fee for a single dog session is $27.`,
     },
     {
       name: "Boarding",
       icon: "boarding",
-      description: `We board dogs of all sizes. Each dog is housed privately in a colleague's home. Our guests will receive an all-inclusive, crate-free, and pet-friendly stay, where they will be well looked after. Boarding is offered at a fee of $60 per day. discounts are available for long-term stays.`,
+      description: `We offer boarding for dogs of all sizes, housing each dog individually in a colleague's home. Our all-inclusive, crate-free, and pet-friendly stays ensure your pet is well cared for. The fee for boarding is $60 per day, with discounts available for long-term stays.`,
     },
     {
       name: "Potty Break",
       icon: "potty_break",
-      description: `Potty break is a 10 minutes session. This service is offered at a fee of $20 per single dog session.`,
+      description: `The potty break service is a 10-minute session, offered at a fee of $20 per single dog session.`,
     },
     // { name: "Pet Taxi", icon: "pet_taxi" },
     // { name: "Pet Training", icon: "pet_training" },

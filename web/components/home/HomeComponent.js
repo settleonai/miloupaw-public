@@ -28,11 +28,11 @@ export default function HomeComponent() {
           >
             check our services
           </a>
-          <h3 className="mt-12 font-display text-primary-default text-lg text-left">
+          {/* <h3 className="mt-12 font-display text-primary-default text-lg text-left">
             start using our app
-          </h3>
+          </h3> */}
           {/* app links */}
-          <div className="flex justify-arund gap-3">
+          {/* <div className="flex justify-arund gap-3">
             <a
               target="_blank"
               href={process.env.APP_STORE_LINK}
@@ -55,7 +55,7 @@ export default function HomeComponent() {
                 src="/en_badge_web_generic.svg"
               />
             </a>
-          </div>
+          </div> */}
         </div>
       </div>
 
