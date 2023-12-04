@@ -11,7 +11,7 @@ export default function ContactSummaryComponent() {
           </h2>
 
           <p className="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
-            We value our customers' insights. Please contact us with any
+            We value our customers&apos; insights. Please contact us with any
             questions or feedback.
           </p>
         </div>
