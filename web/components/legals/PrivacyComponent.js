@@ -572,7 +572,7 @@ export default function PrivacyComponent() {
         you about your use of the Services. Also, we may receive a confirmation
         when you open an email from us, which helps us improve our services. If
         you do not want to receive communications from us, please indicate your
-        preference by emailing us at support@miloupaw.com.
+        preference by emailing us at sani@miloupaw.com.
       </p>
       <h2 className="mt-6 text-lg font-display">
         How Do We Share Your Information?
@@ -657,12 +657,12 @@ export default function PrivacyComponent() {
       <p className="text-base text-gray-700 pt-3">
         You can exercise any of the rights described above in the “What are your
         choices and how can you exercise them?” section above directly by
-        sending an email to support@miloupaw.com or by mailing a non-registered
+        sending an email to sani@miloupaw.com or by mailing a non-registered
         letter with a document proving your identity to the below address:
       </p>
       <h2 className="mt-6 text-lg font-display">Fnel Inc.</h2>
       <p className="text-base text-gray-700 pt-3">
-        <strong>email</strong>: support@miloupaw.com
+        <strong>email</strong>: sani@miloupaw.com
         <br />
         <strong>Phone</strong>: 510 394-2458
         <br />
@@ -1197,7 +1197,7 @@ export default function PrivacyComponent() {
         If you would like to contact us to understand more about this Policy or
         wish to contact us concerning any matter relating to individual rights
         and your Personal Information, you may do so via the contact us or email
-        us at support@miloupaw.com.
+        us at sani@miloupaw.com.
       </p>
       <p className="text-base text-gray-700 pt-3">
         This document was last updated on May 23, 2022

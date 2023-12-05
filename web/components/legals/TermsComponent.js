@@ -444,7 +444,7 @@ export default function TermsComponent() {
           <strong> ELECTRONIC COMMUNICATIONS PERMITTED:</strong> Electronic
           communications are permitted to both Parties under this Agreement,
           including e-mail. For any questions or concerns, please use the
-          contact us form on the website or e-mail us at support@miloupaw.com.
+          contact us form on the website or e-mail us at sani@miloupaw.com.
         </ListItem>
       </ListWrapper>
       <ParagraphObj>

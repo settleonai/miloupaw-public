@@ -48,11 +48,11 @@ const msgMaker = async (templateName, toBlock, subject) => {
     const msg = {
       personalizations: toBlock,
       from: {
-        email: "support@miloupaw.com",
+        email: "sani@miloupaw.com",
         name: "MILOUPAW",
       },
       reply_to: {
-        email: "support@miloupaw.com",
+        email: "sani@miloupaw.com",
         name: "MILOUPAW",
       },
       content: [
