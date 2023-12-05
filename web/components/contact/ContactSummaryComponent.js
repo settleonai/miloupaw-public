@@ -26,7 +26,7 @@ export default function ContactSummaryComponent() {
             <ContactCardComponent
               icon="email"
               title="Email"
-              description="sanaz.hemmati@icloud.com"
+              description="sani@miloupaw.com"
             />
             <ContactCardComponent
               icon="address"
