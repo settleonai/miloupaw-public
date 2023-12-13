@@ -10,10 +10,27 @@ export default function GeneralHead({
 }) {
   return (
     <Head>
-      <meta
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "http://schema.org",
+          "@type": "PetCare",
+          name: "Miloupaw",
+          url: "http://www.miloupaw.com/",
+          address: {
+            "@type": "PostalAddress",
+            streetAddress: "1700 N Broadway",
+            addressLocality: "Walnut Creek",
+            postalCode: "94596",
+            addressRegion: "CA",
+            addressCountry: "USA",
+          },
+          telephone: "(925) 771-0435",
+        })}
+      </script>
+      {/* <meta
         name="apple-itunes-app"
         // content={`app-id=${process.env.APP_STORE_ID}`}
-      />
+      /> */}
       {/* facebook meta */}
       <meta property="og:locale" content="en_us" />
       <meta property="og:type" content="website" />
