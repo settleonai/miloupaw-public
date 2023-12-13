@@ -1,14 +1,16 @@
 import React from "react";
-import { classNames } from "../../utils/classNames";
+import Link from "next/link";
 
 export default function FooterComponent({ extraClassName }) {
   return (
     <footer className="py-5 lg:py-12 bg-secondary-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-6">
-          <a href="/" className="text-lg md:text-xl font-bold text-primary-200">
-            miloupaw
-          </a>
+          <Link href="/">
+            <a className="text-lg md:text-xl font-bold text-primary-200">
+              miloupaw
+            </a>
+          </Link>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center mb-6">
@@ -18,28 +20,25 @@ export default function FooterComponent({ extraClassName }) {
             </h5>
             <ul className="list-none mt-4">
               <li>
-                <a
-                  href="/about"
-                  className="text-sm md:text-md text-primary-200"
-                >
-                  About Us
-                </a>
+                <Link href="/about">
+                  <a className="text-sm md:text-md text-primary-200">
+                    About Us
+                  </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="/services"
-                  className="text-sm md:text-md text-primary-200"
-                >
-                  Services
-                </a>
+                <Link href="/services">
+                  <a className="text-sm md:text-md text-primary-200">
+                    Services
+                  </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="/contact"
-                  className="text-sm md:text-md text-primary-200"
-                >
-                  Contact Us
-                </a>
+                <Link href="/contact">
+                  <a className="text-sm md:text-md text-primary-200">
+                    Contact Us
+                  </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -49,17 +48,17 @@ export default function FooterComponent({ extraClassName }) {
             </h5>
             <ul className="list-none mt-4">
               <li className="text-sm md:text-md text-primary-200">
-                123 Pet Street, Petville, PV 12345
+                Walnut Creek, CA 94596
               </li>
               <li className="text-sm md:text-md text-primary-200">
-                (123) 456-7890
+                (925) 771-0435
               </li>
               <li>
                 <a
                   href="mailto:info@miloupaw.com"
                   className="text-sm md:text-md text-primary-200"
                 >
-                  info@miloupaw.com
+                  sani@miloupaw.com
                 </a>
               </li>
             </ul>
@@ -69,7 +68,7 @@ export default function FooterComponent({ extraClassName }) {
               Follow Us
             </h5>
             <div className="flex justify-center mt-4">
-              {/* <!-- Insert social media icons with links --> */}
+              {/* Replace with actual social media icons and links */}
               <a href="your-facebook-link" className="mr-4">
                 FB icon
               </a>
