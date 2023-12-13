@@ -1,4 +1,3 @@
-import Head from "next/head";
 import Navbar from "../components/UI/Navbar";
 import HomeComponent from "../components/home/HomeComponent";
 import ServiceSummaryComponent from "../components/services/ServiceSummaryComponent";
@@ -12,7 +11,7 @@ import GeneralHead from "../components/heads/GeneralHead";
 export default function Home() {
   return (
     <div>
-      <GeneralHead title={`miloupaw`} />
+      <GeneralHead title={`Pet Sitting Services - MilouPaw`} />
       <Navbar />
       <HomeComponent />
       <ServiceSummaryComponent />

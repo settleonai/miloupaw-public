@@ -4,7 +4,7 @@ import MetaLinks from "./MetaLinks";
 export default function GeneralHead({
   title,
   content = "miloupaw homepage. We are a pet care agency that provides a safe and loving environment for your pet.",
-  description = "miloupaw is a pet care service agency. Our services are delivered by a team of highly qualified and experienced professionals. Your pet will receive specialized care through our services. What makes miloupaw so unique? Miloupaw does not operate in bulk like many other existing service providers. We treat each client as an individual with unique needs that require a customized care package. As a company, we do not handle bulk services or provide one-stop shopping. Our pet care agency provides a safe and loving environment for your pet. In our journey with you, we begin with a personal meet and greet. After meticulously examining your pet's needs, we prepare a custom care package for your pet. In other words, you won't have to worry about any nitty-gritty details.",
+  description = "Discover personalized pet care with miloupaw - a unique pet service agency offering customized care packages. Experience dedicated, one-on-one attention for your pet's needs. Contact us for a special meet and greet!",
   image,
   url = `https://miloupaw.com/`,
 }) {

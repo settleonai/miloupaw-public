@@ -22,6 +22,10 @@ export default function HomeComponent() {
             We are a pet care agency that provides a safe and loving environment
             for your pet.
           </p>
+          <p className="mt-12 text-primary-400 font-light font-body text-lg text-left">
+            At MilouPaw, we offer professional <strong>pet sitting</strong>
+            services to ensure your pet is cared for while you're away...
+          </p>
           <a
             href="#services"
             className="mt-9 bg-primary-default w-60 text-secondary-default font-bold font-body text-lg py-2 px-4 rounded-lg self-end text-center"
