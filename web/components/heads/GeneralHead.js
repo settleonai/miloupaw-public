@@ -16,9 +16,12 @@ export default function GeneralHead({
       />
       {/* facebook meta */}
       <meta property="og:locale" content="en_us" />
-      <meta property="og:type" content="summary" />
+      <meta property="og:type" content="website" />
       <meta property="og:site_name" content="miloupaw" />
-      <meta property="og:title" content="miloupaw home" />
+      <meta
+        property="og:title"
+        content="MilouPaw - Professional Pet Care Services"
+      />
       <meta property="og:description" content={description} />
       <meta
         property="og:image"
@@ -29,19 +32,22 @@ export default function GeneralHead({
       <meta property="og:image:alt" content={content} />
 
       {/* twitter meta */}
-      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:site" content="@diosoftware" />
-      <meta name="twitter:title" content="miloupaw home" />
+      <meta
+        name="twitter:title"
+        content="MilouPaw - Professional Pet Care Services"
+      />
       <meta name="twitter:description" content={description} />
       <meta
         name="twitter:image"
         content="https://miloupaw.com/images/logo.svg"
       />
-      <meta name="twitter:image:alt" content="miloupaw on the App Store" />
 
       {/* html */}
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       <meta name="description" content={description} />
+      <link rel="canonical" href="http://www.miloupaw.com/" />
       <title>{title}</title>
       <MetaLinks />
     </Head>
