@@ -20,21 +20,21 @@ export default function FooterComponent({ extraClassName }) {
             </h5>
             <ul className="list-none mt-4">
               <li>
-                <Link href="/about">
+                <Link href="/#faq">
                   <a className="text-sm md:text-md text-primary-200">
                     About Us
                   </a>
                 </Link>
               </li>
               <li>
-                <Link href="/services">
+                <Link href="/#services">
                   <a className="text-sm md:text-md text-primary-200">
                     Services
                   </a>
                 </Link>
               </li>
               <li>
-                <Link href="/contact">
+                <Link href="/#contact">
                   <a className="text-sm md:text-md text-primary-200">
                     Contact Us
                   </a>
@@ -64,11 +64,10 @@ export default function FooterComponent({ extraClassName }) {
             </ul>
           </div>
           <div>
-            <h5 className="text-md md:text-lg font-bold text-primary-200">
+            {/* <h5 className="text-md md:text-lg font-bold text-primary-200">
               Follow Us
             </h5>
             <div className="flex justify-center mt-4">
-              {/* Replace with actual social media icons and links */}
               <a href="your-facebook-link" className="mr-4">
                 FB icon
               </a>
@@ -76,7 +75,7 @@ export default function FooterComponent({ extraClassName }) {
                 Twitter icon
               </a>
               <a href="your-instagram-link">Instagram icon</a>
-            </div>
+            </div> */}
           </div>
         </div>
 

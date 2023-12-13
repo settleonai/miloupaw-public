@@ -23,7 +23,7 @@ export default function HomeComponent() {
             for your pet.
           </p>
           <p className="mt-12 text-primary-400 font-light font-body text-lg text-left">
-            At MilouPaw, we offer professional <strong>pet sitting</strong>
+            At MilouPaw, we offer professional <strong>pet sitting</strong>{" "}
             services to ensure your pet is cared for while you`&apos;`re away...
           </p>
           <a
