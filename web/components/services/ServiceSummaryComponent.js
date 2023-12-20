@@ -6,27 +6,37 @@ export default function ServiceSummaryComponent() {
     {
       name: "Dog Walking",
       icon: "dog_walking",
-      description: `Dog walking sessions are available for dogs of all sizes. Each session is a minimum of 30 minutes and is designed to provide a safe and enjoyable experience for your dog. The fee for a single dog session is $23.`,
+      description: `Offering dog walking sessions for all sizes, we ensure a safe and enjoyable experience. Choose from a variety of walks, including 'Senior Dog Special Walks' and 'Puppy Energy Burners', starting at $28 for 30 minutes and $35 for an hour.`,
     },
     {
       name: "Pet Sitting",
       icon: "pet_sitting",
-      description: `Pet sitting services, with a minimum duration of 30 minutes, include meal serving, water refilling, administering medication, and potty breaks. This service accommodates up to three dogs at a time. The fee for a single dog session is $27.`,
+      description: `Our pet sitting service provides comprehensive care, including meal serving, medication, and potty breaks for up to three dogs, at $35 for a 30-minute session. Ideal for busy pet parents seeking attentive care for their dogs.`,
     },
     {
       name: "Boarding",
       icon: "boarding",
-      description: `We offer boarding for dogs of all sizes, housing each dog individually in a colleague's home. Our all-inclusive, crate-free, and pet-friendly stays ensure your pet is well cared for. The fee for boarding is $60 per day, with discounts available for long-term stays.`,
+      description: `Our boarding service offers a home-like environment for your dog, with individual attention. The fee for small pets is $70 per day and $100 per day for large pets, ensuring a comfortable and tailored stay for each dog.`,
     },
     {
       name: "Potty Break",
       icon: "potty_break",
-      description: `The potty break service is a 10-minute session, offered at a fee of $20 per single dog session.`,
+      description: `Our quick and efficient 10-minute potty break service, available for $20, is designed to fit into busy schedules, providing comfort and convenience for your pet.`,
     },
-    // { name: "Pet Taxi", icon: "pet_taxi" },
-    // { name: "Pet Training", icon: "pet_training" },
-    // { name: "Meet and Great", icon: "meet_and_greet" },
+    // {
+    //   name: "Bundle Offers",
+    //   description: `Our 'Weekly Dog Care Bundle' combines walks, sitting, and more, tailored for regular customers at a discounted rate. Contact us for custom package pricing and details.`,
+    // },
+    // {
+    //   name: "Loyalty Program",
+    //   description: `Join our loyalty program for free and enjoy earning points with each service. This program is perfect for our frequent customers, offering discounts and special perks as a token of our appreciation.`,
+    // },
+    // {
+    //   name: "Seasonal Promotions",
+    //   description: `Experience our themed services like 'Summer Splash Walks' and 'Holiday Pet Care', with special promotions and seasonal specials tailored to bring extra joy to your pet's routine. Contact us for current offers.`,
+    // },
   ];
+
   return (
     <div id="services" className="py-12 pt-32 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
