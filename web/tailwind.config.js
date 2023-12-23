@@ -1,10 +1,14 @@
+/** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [
-    "./pages/**/*.{js,ts,jsx,tsx}",
-    "./components/**/*.{js,ts,jsx,tsx}",
-  ],
+  content: ["./app/**/*.{js,ts,jsx,tsx,mdx}"],
   theme: {
     extend: {
+      fontFamily: {
+        farsi: ["var(--font-vazirmatn)", "sans-serif"],
+        display: ["Poppins", "sans-serif"],
+        mono: ["Roboto Mono", "monospace"],
+        body: ["Roboto", "sans-serif"],
+      },
       colors: {
         primary: {
           default: "#202359",
@@ -28,12 +32,7 @@ module.exports = {
           light: "#483B64",
         },
       },
-      fontFamily: {
-        display: ["Poppins", "sans-serif"],
-        mono: ["Roboto Mono", "monospace"],
-        body: ["Roboto", "sans-serif"],
-      },
     },
   },
-  plugins: [require("@tailwindcss/line-clamp")],
+  plugins: [],
 };
