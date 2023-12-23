@@ -89,7 +89,11 @@ const Navbar: React.FC<NavbarProps> = ({ dictionary, currentLocale }) => {
                     width={scrollY > 65 ? 40 : 80}
                     height={scrollY > 65 ? 40 : 80}
                   />
-                  <span className="block lg:hidden h-8 w-auto rounded-full font-display text-secondary-default">
+                  <span
+                    className={`block ml-20 lg:ml-0 lg:hidden h-8 w-auto rounded-full ${
+                      currentLocale !== "fa" ? "font-display" : ""
+                    } text-secondary-default`}
+                  >
                     {dictionary.common.name}
                   </span>
                 </div>
@@ -122,6 +126,22 @@ const Navbar: React.FC<NavbarProps> = ({ dictionary, currentLocale }) => {
                     />
                   </div>
                 </div>
+              </div>
+              <div className="flex lg:hidden">
+                <NavbarItem
+                  key={languages[0].name}
+                  item={languages[0]}
+                  activeItem={currentLocale}
+                />
+
+                <div className="relative ">
+                  <span>|</span>
+                </div>
+                <NavbarItem
+                  key={languages[1].name}
+                  item={languages[1]}
+                  activeItem={currentLocale}
+                />
               </div>
               {/* insert right section here later */}
               <div className="hidden sm:flex sm:ml-6 justify-end "></div>
