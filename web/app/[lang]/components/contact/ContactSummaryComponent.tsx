@@ -30,7 +30,7 @@ const ContactSummaryComponent: FunctionComponent<
           </p>
         </div>
 
-        <div className="pt-20 ">
+        <div className="pt-20 " dir={lang !== "fa" ? "rtl" : "ltr"}>
           <div className="flex flex-wrap gap-x-2 gap-y-10 justify-evenly  ">
             <ContactCardComponent
               icon="phone"

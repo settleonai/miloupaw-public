@@ -64,7 +64,10 @@ const FooterComponent: FunctionComponent<FooterComponentProps> = (
               <li className="text-sm md:text-md text-primary-200">
                 Walnut Creek, CA 94596
               </li>
-              <li className="text-sm md:text-md text-primary-200">
+              <li
+                className="text-sm md:text-md text-primary-200"
+                dir={props.language !== "fa" ? "rtl" : "ltr"}
+              >
                 (925) 771-0435
               </li>
               <li>
