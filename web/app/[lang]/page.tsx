@@ -20,7 +20,6 @@ export default async function IndexPage({
 
   return (
     <main>
-      {/* <GeneralHead /> */}
       <Navbar dictionary={dictionary} currentLocale={lang} />
       <HomeComponent dictionary={dictionary} lang={lang} />
       <ServiceSummaryComponent dictionary={dictionary} lang={lang} />
