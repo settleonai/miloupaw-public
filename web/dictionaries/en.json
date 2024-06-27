@@ -31,19 +31,19 @@
   "service-component": {
     "dog_walking": {
       "name": "Dog Walking",
-      "description": "Offering dog walking sessions for all sizes, we ensure a safe and enjoyable experience. Choose from a variety of walks, including 'Senior Dog Special Walks' and 'Puppy Energy Burners', starting at $28 for 30 minutes and $35 for an hour."
+      "description": "Offering dog walking sessions for all sizes, we ensure a safe and enjoyable experience. Choose from a variety of walks, including 'Senior Dog Special Walks' and 'Puppy Energy Burners', starting at $40 for 30 minutes and $50 for an hour."
     },
     "pet_sitting": {
       "name": "Pet Sitting",
-      "description": "Our pet sitting service provides comprehensive care, including meal serving, medication, and potty breaks for up to three dogs, at $35 for a 30-minute session. Ideal for busy pet parents seeking attentive care for their dogs."
+      "description": "Our pet sitting service provides comprehensive care, including meal serving, medication, and potty breaks for up to three dogs, at $40 for a 30-minute session. Ideal for busy pet parents seeking attentive care for their dogs."
     },
     "boarding": {
       "name": "Boarding",
-      "description": "Our boarding service offers a home-like environment for your dog, with individual attention. The fee for small pets is $70 per day and $100 per day for large pets, ensuring a comfortable and tailored stay for each dog."
+      "description": "Our boarding service offers a home-like environment for your dog, with individual attention. The fee for small pets is $75 per day and $105 per day for large pets, ensuring a comfortable and tailored stay for each dog."
     },
     "potty_break": {
       "name": "Potty Break",
-      "description": "Our quick and efficient 10-minute potty break service, available for $20, is designed to fit into busy schedules, providing comfort and convenience for your pet."
+      "description": "Our quick and efficient 10-minute potty break service, available for $25, is designed to fit into busy schedules, providing comfort and convenience for your pet."
     }
   },
   "faq_component": {
