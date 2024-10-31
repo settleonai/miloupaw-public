@@ -3,6 +3,11 @@
   "version": "1.0.0",
   "description": "Goalsetter app for youtube tutorial",
   "main": "server.js",
+  "scripts": {
+    "start": "node api/index.js",
+    "build": "npm run build --prefix frontend",
+    "vercel-build": "npm run build --prefix frontend"
+  },
   "author": "Brad Traversy",
   "license": "MIT",
   "dependencies": {
