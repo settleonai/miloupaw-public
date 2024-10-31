@@ -1,0 +1,11 @@
+{
+  "functions": {
+    "api/*.js": {
+      "runtime": "vercel/node"
+    }
+  },
+  "rewrites": [
+    { "source": "/api/(.*)", "destination": "/api/" },
+    { "source": "/(.*)", "destination": "/frontend/build/" }
+  ]
+}

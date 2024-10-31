@@ -1,40 +1,23 @@
 #!/bin/bash
 
-# Create required folders for Vercel setup
-echo "Setting up project structure for Vercel..."
+echo "Setting up project for Vercel deployment on macOS..."
 
-# 1. Move server files into an 'api' directory
+# Step 1: Remove Next.js and React DOM dependencies from package.json
+echo "Updating dependencies in package.json..."
+sed -i '' '/"next":/d' package.json
+sed -i '' '/"react-dom":/d' package.json
+
+# Step 2: Update build scripts in package.json
+echo "Updating build scripts in package.json..."
+sed -i '' 's/"start": "node server\/server.js",/"start": "node api\/index.js", "build": "npm run build --prefix frontend", "vercel-build": "npm run build",/' package.json
+
+# Step 3: Move server.js to api/index.js
+echo "Organizing server files..."
 mkdir -p api
 mv server.js api/index.js
-echo "Moved server.js to api/index.js for Vercel API functions."
 
-# 2. Check if the frontend directory exists and is configured for Next.js or React
-if [ -d "frontend" ]; then
-    echo "Frontend directory found."
-
-    # Check for Next.js setup
-    if [ -f "frontend/next.config.js" ]; then
-        echo "Detected Next.js in frontend. Configuring for Vercel..."
-        # Update frontend package.json for Vercel Next.js
-        sed -i '' 's/"start": "react-scripts start"/"vercel-build": "next build"/' frontend/package.json
-        sed -i '' 's/"client": "npm start --prefix frontend"/"build": "npm run build --prefix frontend"/' package.json
-    else
-        # Standard React setup
-        echo "Standard React detected in frontend. Configuring static build..."
-        sed -i '' 's/"client": "npm start --prefix frontend"/"build": "npm run build --prefix frontend"/' package.json
-    fi
-else
-    echo "Error: frontend directory not found. Ensure the React app is in 'frontend'."
-    exit 1
-fi
-
-# 3. Install necessary dependencies
-echo "Installing dependencies..."
-npm install
-npm install --prefix frontend
-
-# 4. Configure vercel.json for API routes and frontend
-echo "Creating vercel.json configuration..."
+# Step 4: Create a vercel.json configuration file
+echo "Creating vercel.json for Vercel configuration..."
 cat <<EOL > vercel.json
 {
   "functions": {
@@ -44,9 +27,17 @@ cat <<EOL > vercel.json
   },
   "rewrites": [
     { "source": "/api/(.*)", "destination": "/api/$1" },
-    { "source": "/(.*)", "destination": "/frontend/$1" }
+    { "source": "/(.*)", "destination": "/frontend/build/$1" }
   ]
 }
 EOL
 
-echo "Setup complete. You can now deploy to Vercel!"
+echo "Setup complete."
+
+# Step 5: Commit and push changes to GitHub
+echo "Adding changes to Git..."
+git add .
+git commit -m "Restructured project for Vercel deployment"
+git push origin master
+
+echo "All changes have been pushed to GitHub! Vercel will start deployment shortly."
